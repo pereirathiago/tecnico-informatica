@@ -1,0 +1,88 @@
+
+.title{
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	padding-top: 10px;
+	font-size: 50px;
+}
+
+.title::after{
+    content: '|';
+    margin-left: 2px;
+    opacity: 1;
+    color: #f4f4f4;
+    animation: pisca .5s infinite;
+    font-family: sans-serif;
+}
+
+.desktopth{
+	width: 200px;
+	height: 32px;
+	font-weight: bold;
+	font-size: 180%;
+	width: 200px;
+	height: 32px;
+	color: #f4f4f4;
+	text-align: center;
+	font-weight: bold;
+}
+
+.desktopth a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.desktopth a:hover{
+	color: #1E90FF;
+	text-decoration: none;
+}
+.desktop{
+	position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+.mobile{
+	display: none;
+	position: absolute;
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mobileth{
+	width: 200px;
+	height: 16px;
+	color: #f4f4f4;
+	font-weight: bold;
+	font-size: 100%;
+	padding-top: 10px;
+}
+.materiamobile{
+	width: 200px;
+	height: 16px;
+	color: #f4f4f4;
+	text-align: center;
+	font-size: 100%;
+}
+@media(max-width: 700px){
+	.desktop{
+		display: none;
+	}
+	.mobile{
+		display: flex;
+	}
+	.title{
+	padding-top: 15px;
+	font-size: 250%;
+	}
+}
+
+@keyframes pisca{
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+	}
+}

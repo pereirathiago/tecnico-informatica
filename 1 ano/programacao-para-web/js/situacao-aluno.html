@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 001 - JavaScript</title>
+    <script>
+        var nota1 = Number(prompt('Digite a primeira nota do aluno: '))
+        var nota2 = Number(prompt('Digite a segunda nota do aluno: '))
+        var nota3 = Number(prompt('Digite a terceira nota do aluno: '))
+
+        media = (nota1 + nota2 + nota3)/3
+
+        if(media < 6) {
+            alert('Aluno reprovado')
+        }
+
+        else if((media <= 6) && (media != 10)) {
+            alert('Aluno Aprovado')
+        }
+
+        else if(media == 10) {
+            alert('Aluno aprovado com louvor!')
+        }
+
+        alert("A média do aluno foi " + media.toFixed(2))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

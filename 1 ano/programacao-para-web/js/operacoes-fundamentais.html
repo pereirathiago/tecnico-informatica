@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações Fundamentais</title>
+</head>
+<body>
+    
+    <script>
+        var x = Number(prompt('Digite o primeiro valor: '))
+        var y = Number(prompt('Digite o segundo valor: '))
+        var z = Number(prompt('Escolha a operação: \n1 - Somar; \n2 - Subtrair; \n3 - Multiplicar; \n4 - Dividir.'))
+        
+        if (z > 4 || z < 1) {
+            z = 1
+            alert('Operação invalida, consideramos adição!')
+        }
+
+        if (z == 4 && y == 0) {
+            alert('Voce não pode dividir um número por 0!')
+            y = Number(prompt('Digite um valor válido pro Y: '))
+        }
+
+        if(z == 1) {
+            document.write(`${x} + ${y} = ${x+y}`)
+        } else if (z == 2) {
+            document.write(`${x} - ${y} = ${x-y}`)
+        } else if (z == 3) {
+            document.write(`${x} x ${y} = ${x*y}`)
+        } else if (z == 4) {
+            document.write(`${x} / ${y} = ${x/y}`)
+        }
+    </script>
+</body>
+</html>

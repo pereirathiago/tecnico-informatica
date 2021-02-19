@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Dicio Web</title>
+    <link rel="sortcut icon" href="Image/livro.png" type="image/x-icon" />
+</head>
+<body>
+    <header class="header">
+        <a>
+            <h1 class="logo" style="background-color: #F0FFFF;">
+                Dicio Web
+            </h1>
+        </a>    
+        <nav class="menu" style="background-color: #F0FFFF;">
+            <ul>
+                <b>
+                    <li><a href="HTML/js.html" style="background-color: #F0FFFF;">JavaScript</a></li>
+                    <li><a href="HTML/css.html" style="background-color: #F0FFFF;">CSS</a></li>
+                    <li><a style="color: #1E90FF !important; background-color: #F0FFFF;" href="index.html" >Home</a></li>
+                </b>    
+            </ul>
+        </nav>
+    </header>
+    <content>
+        <h2 class="titulo1">Dicio Web</h2>
+        <h3 class="subtitulo">Um dicionário prar CSS e JS</h3>
+        <script>
+            function typeWriter(elemento) {
+                const textoArray = elemento.innerHTML.split('')
+                elemento.innerHTML = '';
+                textoArray.forEach((letra, i) => {
+                    setTimeout(() => elemento.innerHTML += letra, 85 * i);
+                })
+            }
+            const nome = document.querySelector('h3');
+            typeWriter(nome);
+            
+        </script>
+    </content>
+    <br><br>
+    <footer>
+        Desenvolvido por Thiago Pereira.
+    </footer>
+</body>
+</html>

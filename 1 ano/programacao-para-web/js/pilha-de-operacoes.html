@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilha de Operações</title>
+</head>
+<body>
+    <script>
+        var x = []
+        var res = 0
+        var c = ''
+        while(c != -1) {
+            c = parseInt(prompt('Digite um número (-1 para parar):'))
+            if (c != -1) {
+                x.unshift(c)
+            }
+        }
+        while (x.length > 0) {
+            c = Number(x[0])
+            if ((c % 2) == 0) {
+                res = res + c
+            } else {
+                res = res * c
+            }
+            x.shift()
+        } 
+        alert(res)
+    </script>
+</body>
+</html>

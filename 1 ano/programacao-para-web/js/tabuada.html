@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    <h1>Tabuada até o número X</h1>
+    Digite aqui ate qual número você quer saber a tabuada: <input type="number" name="txtnum" id="txtnum">
+    <input type="button" value="Calcular" onclick="calc()">
+    <div id="res"></div>
+
+    <script>
+        function calc() {
+            var tn1 = document.getElementById('txtnum')
+            var res = document.querySelector('div#res')
+            var n1 = Number(tn1.value)
+            var c = 0
+            while(c < n1) {
+				c++
+                for (var num = 1; num<=10; num++) {
+                    r = c * num
+                    res.innerHTML += `${c} x ${num} = ${r} <br>`
+                    if (num == 10) {
+                        res.innerHTML += `<br>`
+                    }
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>
