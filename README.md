@@ -52,6 +52,8 @@ Este repositório foi criado com a intenção de armazenar meus projetos e ativi
 
 <a id="objetivos"></a>
 
+## :rocket: Objetivos
+
 - [X] Desnvolver melhor a lógica de programação
 - [X] Pensar em soluções eficazes para os problemas
 
