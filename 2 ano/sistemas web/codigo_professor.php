@@ -63,7 +63,7 @@
 <html>
 
 <body>
-    <form action="comum.php" method="post">
+    <form action="codigo_professor.php" method="post">
         <input type="submit" name="oper" value="Novo">
         <input type="submit" name="oper" value="Alterar">
         <input type="submit" name="oper" value="Excluir">
