@@ -4,5 +4,5 @@ int main() {
     printf("Lado: ");
     scanf("%f", &lado);
     area = lado * lado;
-    printf("A area do quadrado é %f", area);
+    printf("A area do quadrado e %f", area);
 }
