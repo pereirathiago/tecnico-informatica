@@ -116,16 +116,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Subtra&#xe7;&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSubtraiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bDivide">
       <Properties>
         <Property name="text" type="java.lang.String" value="Divis&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDivideActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bMultiplica">
       <Properties>
         <Property name="text" type="java.lang.String" value="Multiplica&#xe7;&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMultiplicaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lResultado">
     </Component>

@@ -65,10 +65,25 @@ public class TelaCalculadora extends javax.swing.JFrame {
         });
 
         bSubtrai.setText("Subtração");
+        bSubtrai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSubtraiActionPerformed(evt);
+            }
+        });
 
         bDivide.setText("Divisão");
+        bDivide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDivideActionPerformed(evt);
+            }
+        });
 
         bMultiplica.setText("Multiplicação");
+        bMultiplica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMultiplicaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,13 +146,32 @@ public class TelaCalculadora extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tValor2ActionPerformed
 
-    private void bSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSomaActionPerformed
-        //GEN-FIRST:event_bSomaActionPerformed
+    private void bSomaActionPerformed(java.awt.event.ActionEvent evt) {                                      
+//GEN-FIRST:event_bSomaActionPerformed
         calc.setValor1(Double.parseDouble(tValor1.getText()));
         calc.setValor2(Double.parseDouble(tValor2.getText()));
         calc.soma();
         lResultado.setText(Double.toString(calc.getResultado()));
     }//GEN-LAST:event_bSomaActionPerformed
+
+    private void bSubtraiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubtraiActionPerformed
+        calc.setValor1(Double.parseDouble(tValor1.getText()));
+        calc.setValor2(Double.parseDouble(tValor2.getText()));
+        calc.subtrai();
+        lResultado.setText(Double.toString(calc.getResultado()));
+    }//GEN-LAST:event_bSubtraiActionPerformed
+
+    private void bMultiplicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMultiplicaActionPerformed
+        calc.setValor1(Double.parseDouble(tValor1.getText()));
+        calc.setValor2(Double.parseDouble(tValor2.getText()));
+        calc.multiplica();
+        lResultado.setText(Double.toString(calc.getResultado()));    }//GEN-LAST:event_bMultiplicaActionPerformed
+
+    private void bDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDivideActionPerformed
+        calc.setValor1(Double.parseDouble(tValor1.getText()));
+        calc.setValor2(Double.parseDouble(tValor2.getText()));
+        calc.divide();
+        lResultado.setText(Double.toString(calc.getResultado()));    }//GEN-LAST:event_bDivideActionPerformed
 
     /**
      * @param args the command line arguments
