@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package calculadora;
 
 /**
@@ -25,7 +26,7 @@ public class Calculadora {
     public void divide(){
         resultado = valor1 / valor2;
     }
-
+    
     /**
      * @return the valor1
      */

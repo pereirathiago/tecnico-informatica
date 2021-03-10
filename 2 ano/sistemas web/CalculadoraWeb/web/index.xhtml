@@ -6,7 +6,23 @@
         <title>Calculadora Web</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <h:outputLabel value="Digite o primeiro valor " for="itValor1"/>
+            <h:inputText id="itValor1" value="#{calculadoraBean.calc.valor1}"/>
+            <br/>
+            <h:outputLabel value="Digite o segundo valor " for="itValor2"/>
+            <h:inputText id="itValor2" value="#{calculadoraBean.calc.valor2}"/>
+            <br/>
+            <h:commandButton value="soma" action="#{calculadoraBean.soma()}"/> 
+            <br/> <br/>
+            <h:commandButton value="subtrair" action="#{calculadoraBean.subtrai()}"/> 
+            <br/><br/>
+            <h:commandButton value="multiplicar" action="#{calculadoraBean.multiplica()}"/> 
+            <br/><br/>
+            <h:commandButton value="dividir" action="#{calculadoraBean.divide()}"/> 
+            <br/><br/>
+            <h:outputText id="otresultado" value="#{calculadoraBean.calc.resultado}"/>
+        </h:form>
     </h:body>
 </html>
 
