@@ -7,7 +7,7 @@ package tela;
 
 /**
  *
- * @author Thiago
+ * @author JP
  */
 import bd.BdUsuario;
 import javax.swing.JOptionPane;
@@ -44,21 +44,15 @@ public class TelaUsuario extends javax.swing.JFrame {
         bNovo = new javax.swing.JButton();
         bSalva = new javax.swing.JButton();
         bExclui = new javax.swing.JButton();
-        bLocaliza = new javax.swing.JButton();
+        bLocalizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("User");
+        jLabel1.setText("Usuário");
 
         jLabel2.setText("Nome");
 
         jLabel3.setText("Senha");
-
-        tUsuario.setText(" ");
-
-        tNome.setText(" ");
-
-        tSenha.setText(" ");
 
         bNovo.setText("Novo");
         bNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -81,10 +75,10 @@ public class TelaUsuario extends javax.swing.JFrame {
             }
         });
 
-        bLocaliza.setText("Localizar");
-        bLocaliza.addActionListener(new java.awt.event.ActionListener() {
+        bLocalizar.setText("Localizar");
+        bLocalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLocalizaActionPerformed(evt);
+                bLocalizarActionPerformed(evt);
             }
         });
 
@@ -93,43 +87,40 @@ public class TelaUsuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bLocaliza))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tNome, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bSalva)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bExclui)))
-                .addContainerGap(191, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bExclui)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bLocalizar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tNome, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLocaliza))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,19 +128,38 @@ public class TelaUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bNovo)
                     .addComponent(bSalva)
-                    .addComponent(bExclui))
-                .addContainerGap(173, Short.MAX_VALUE))
+                    .addComponent(bExclui)
+                    .addComponent(bLocalizar))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void limpaTela() {
+        tNome.setText("");
+        tUsuario.setText("");
+        tSenha.setText("");
+    }
 
+    private void telaToUsuario() {
+        usuario.setNome(tNome.getText());
+        usuario.setUser(tUsuario.getText());
+        usuario.setSenha(tSenha.getText());
+    }
+
+    private void usuarioToTela() {
+        tNome.setText(usuario.getNome());
+        tUsuario.setText(usuario.getUser());
+        tSenha.setText(usuario.getSenha());
+    }
     private void bNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNovoActionPerformed
+        // TODO add your handling code here:
         limpaTela();
         novo = true;
     }//GEN-LAST:event_bNovoActionPerformed
 
     private void bSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvaActionPerformed
+        // TODO add your handling code here:
         bd = new BdUsuario();
         telaToUsuario();
         if (novo) {
@@ -167,8 +177,8 @@ public class TelaUsuario extends javax.swing.JFrame {
         novo = true;
     }//GEN-LAST:event_bExcluiActionPerformed
 
-    private void bLocalizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLocalizaActionPerformed
-        // TODO add your handling code here:
+    private void bLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLocalizarActionPerformed
+        // TODO add your handling code here
         bd = new BdUsuario();
         String busca = JOptionPane.showInputDialog("Digite o usuário a buscar");
         usuario = bd.localiza(busca);
@@ -180,28 +190,11 @@ public class TelaUsuario extends javax.swing.JFrame {
             limpaTela();
             novo = true;
         }
-    }//GEN-LAST:event_bLocalizaActionPerformed
-private void limpaTela() {
-        tNome.setText("");
-        tUsuario.setText("");
-        tSenha.setText("");
-    }
+    }//GEN-LAST:event_bLocalizarActionPerformed
 
-    private void telaToUsuario() {
-        usuario.setNome(tNome.getText());
-        usuario.setUser(tUsuario.getText());
-        usuario.setSenha(tSenha.getText());
-    }
-
-    private void usuarioToTela() {
-        tNome.setText(usuario.getNome());
-        tUsuario.setText(usuario.getUser());
-        tSenha.setText(usuario.getSenha());
-    }
-
-        /**
-         * @param args the command line arguments
-         */
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -236,7 +229,7 @@ private void limpaTela() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bExclui;
-    private javax.swing.JButton bLocaliza;
+    private javax.swing.JButton bLocalizar;
     private javax.swing.JButton bNovo;
     private javax.swing.JButton bSalva;
     private javax.swing.JLabel jLabel1;
