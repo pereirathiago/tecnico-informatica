@@ -1,3 +1,9 @@
 img#logo {
   height: 15vh;
 }
+
+#mapid {
+  height: 50vh;
+  width: 100vw;
+  z-index: 5;
+}
