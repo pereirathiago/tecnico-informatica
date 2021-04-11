@@ -16,6 +16,5 @@
     if($nome && $email && $telefone && $msg){
         mysqli_query($connect,"INSERT INTO `padaria` (nome,email,telefone,msg) VALUES('$nome','$email','$telefone','$mensagem')");
     }
-    header('Location: ../index.html');
-    break;
+    header('Location: ../../index.html');
 ?>
