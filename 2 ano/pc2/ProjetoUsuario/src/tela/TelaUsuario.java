@@ -7,7 +7,7 @@ package tela;
 
 /**
  *
- * @author JP
+ * @author Thiago
  */
 import bd.BdUsuario;
 import javax.swing.JOptionPane;

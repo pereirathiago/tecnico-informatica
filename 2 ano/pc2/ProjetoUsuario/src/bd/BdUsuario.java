@@ -7,7 +7,7 @@ package bd;
 
 /**
  *
- * @author JP
+ * @author Thiago
  */
 import java.sql.*;
 import java.util.ArrayList;

@@ -7,7 +7,7 @@ package vo;
 
 /**
  *
- * @author JP
+ * @author Thiago
  */
 public class Usuario {
     private String nome = "";
