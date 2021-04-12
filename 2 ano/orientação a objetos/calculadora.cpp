@@ -11,7 +11,9 @@ public:
 public:
     void getValores(void)
     {
+        cout << "Digite o valor de X: ";
         cin >> x;
+        cout << "Digite o valor de Y: ";
         cin >> y;
     }
     int somaValores(void)
