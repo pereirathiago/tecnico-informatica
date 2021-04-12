@@ -30,7 +30,12 @@ public:
     }
     int divideValores(void)
     {
-        return x / y;
+        if (y != 0)
+        {
+            return x / y;
+        }
+        cout << "Erro -1, nao foi possivel divir por zero!" << endl;
+        return -1;
     }
 };
 
