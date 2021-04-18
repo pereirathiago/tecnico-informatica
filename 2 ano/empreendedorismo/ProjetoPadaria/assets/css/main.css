@@ -13,3 +13,8 @@ img.img-fluid.img-thumbnail {
   height: 40vh;
   width: 100vw;
 }
+
+ul.left, li.left {
+  align-items: left;
+  text-align: left;
+}
