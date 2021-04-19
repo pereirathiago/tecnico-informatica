@@ -13,7 +13,7 @@
     End Sub
 
     Private Sub telaToCliente()
-        'cliente.codigo = txtCodigo.Text
+        cliente.codigo = txtCodigo.Text
         cliente.nome = txtNome.Text
         cliente.endereco = txtEndereco.Text
         cliente.cidade = txtCidade.Text

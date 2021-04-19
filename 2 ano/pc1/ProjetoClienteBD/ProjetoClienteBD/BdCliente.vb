@@ -4,7 +4,7 @@ Public Class BdCliente
     Public Sub New()
         Me.User = "root"
         Me.Servidor = "localhost"
-        Me.Senha = "vertrigo"
+        Me.Senha = ""
         Me.bd = "cliente"
     End Sub
     Public Sub inserir(ByVal cliente As Cliente)
