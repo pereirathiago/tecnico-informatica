@@ -3,18 +3,18 @@
 using namespace std;
 
 class Conta {
-    public:
+    private:
         float saldo;
     public:
         Conta(){
             cout << "Bem vindo!" << endl;
+            saldo = 0;
+            cout << "O seu saldo: " << saldo << endl;
         }
 };
 
 int main(void) {
-    Conta obj1, obj2;
+    Conta obj1;
 
-    obj1.saldo = 200000;
-
-    cout << "Saldo = " << obj1.saldo << endl;
+    return 0;
 }
