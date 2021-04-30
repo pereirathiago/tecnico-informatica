@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+    transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Sócios</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:outputLabel for="itId" value="Id"/>
+            <p:inputText id="itId" value="#{clubeBean.socio.id}" readonly="true"/><br/><br/>
+            <p:outputLabel for="itNome" value="Nome"/>
+            <p:inputText id="itNome" value="#{clubeBean.socio.nome}" /><br/><br/>
+            <p:outputLabel for="itEndereco" value="endereço"/>
+            <p:inputText id="itEndereco" value="#{clubeBean.socio.endereco}"/><br/><br/>
+            <p:outputLabel for="itNumero" value="Número"/>
+            <p:inputText id="itNumero" value="#{clubeBean.socio.numero}" /><br/><br/>
+            <p:outputLabel for="itCidade" value="Cidade"/>
+            <p:inputText id="itCidade" value="#{clubeBean.socio.cidade}" /><br/><br/>
+            <p:outputLabel for="itUf" value="Estado"/>
+            <p:inputText id="itUf" value="#{clubeBean.socio.uf}" /><br/><br/>
+            <p:outputLabel for="itTelefone" value="Telefone"/>
+            <p:inputText id="itTelefone" value="#{clubeBean.socio.telefone}" /><br/><br/>
+            <p:commandButton icon="ui-icon-disk" ajax="false" action="#{clubeBean.salvaSocio()}"/>
+        </h:form>
+        <h:form>
+             <br/>
+            <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="index"/>
+        </h:form>
+    </h:body>
+</html>
