@@ -5,7 +5,7 @@
 struct fila
 {
     int ini, fim;
-    float vet[100];
+    float vet[5];
 };
 typedef struct fila Fila;
 Fila *cria(void)
@@ -16,7 +16,7 @@ Fila *cria(void)
 }
 int incr(int i)
 {
-    if (i == 99)
+    if (i == 4)
         return 0;
     else
         return i + 1;
@@ -47,20 +47,36 @@ void libera(Fila *f)
 {
     free(f);
 }
+void mostrafila(Fila *f)
+{
+    int ini = f->ini;
+    int fim = f->fim - 1;
+    while (fim >= 0)
+    {
+        if (fim == f->fim - 1)
+            printf("Inicio ->");
+        else if (fim == f->ini - fim)
+            printf("Fim ->");
+        else
+            printf(" ->");
+        printf("%f\n", f->vet[fim]);
+        fim--;
+    }
+}
 int main()
 {
     Fila *f = cria();
     float elem;
     int opcao = 0;
-    while (opcao != 3)
+    while (opcao != 4)
     {
-        printf("\n1-Insere na fila\n2-Retira da fila\n3-fim\n");
-        printf("Selecione sua opcao (1-3)");
+        printf("\n1-Insere na fila\n2-Retira da fila\n3-Mostra fila\n4-Fim\n");
+        printf("Selecione sua opcao (1-4) ");
         scanf("%d", &opcao);
         switch (opcao)
         {
         case 1:
-            printf("Digite o elemento a inserir");
+            printf("Digite o elemento a inserir ");
             scanf("%f", &elem);
             insere(f, elem);
             break;
@@ -68,6 +84,9 @@ int main()
             printf("Elemento retirado: %f", retira(f));
             break;
         case 3:
+            mostrafila(f);
+            break;
+        case 4:
             break;
         default:
             printf("Opção invalida");
