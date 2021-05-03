@@ -60,6 +60,18 @@ void mostrafila(Fila *f)
         v = incr(v);
     }
 }
+// void mostrafila(Fila *f)
+// {
+//     int v=f->ini;
+//     printf("Inicio -> ");
+//     while (v  != f->fim)
+//     {
+//         if (v == f->fim - 1)
+//             printf("Fim -> ");
+//         printf("%f\n", f->vet[v]);
+//         v = incr(v);
+//     }
+// }
 int main()
 {
     Fila *f = cria();
