@@ -49,18 +49,15 @@ void libera(Fila *f)
 }
 void mostrafila(Fila *f)
 {
-    int ini = f->ini;
-    int fim = f->fim - 1;
-    while (fim >= 0)
+    int v=f->ini;
+    while (v  != f->fim)
     {
-        if (fim == f->fim - 1)
-            printf("Inicio ->");
-        else if (fim == f->ini - fim)
-            printf("Fim ->");
-        else
-            printf(" ->");
-        printf("%f\n", f->vet[fim]);
-        fim--;
+        if (v == f->ini)
+            printf("Inicio -> ");
+        else if (v == f->fim - 1)
+            printf("Fim -> ");
+        printf("%f\n", f->vet[v]);
+        v = incr(v);
     }
 }
 int main()
@@ -70,7 +67,7 @@ int main()
     int opcao = 0;
     while (opcao != 4)
     {
-        printf("\n1-Insere na fila\n2-Retira da fila\n3-Mostra fila\n4-Fim\n");
+        printf("\n1-Insere na fila\n2-Retira da fila\n3-Mostra fila\n4-Sair\n");
         printf("Selecione sua opcao (1-4) ");
         scanf("%d", &opcao);
         switch (opcao)
