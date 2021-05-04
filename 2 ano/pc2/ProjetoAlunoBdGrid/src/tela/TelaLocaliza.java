@@ -43,21 +43,6 @@ public class TelaLocaliza extends javax.swing.JFrame {
         }
     }
 
-    private void mExcluirActionPerformed(java.awt.event.ActionEvent evt) {
-        DefaultTableModel modelo = (DefaultTableModel) tLocaliza.getModel();
-        if (tLocaliza.getSelectedRow() != -1) {
-            int codigo = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
-            bd.exclui(codigo);
-            preencheTabela();
-        } else {
-            JOptionPane.showMessageDialog(this, "Não há nenhum aluno selecionado");
-        }
-    }
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {
-        preencheTabela();
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,14 +58,31 @@ public class TelaLocaliza extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tLocaliza = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        mSair = new javax.swing.JMenu();
-        mArquivo = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mArquivo = new javax.swing.JMenu();
+        mNovo = new javax.swing.JMenuItem();
+        mAlterar = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mExcluir = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setText("Filtro");
 
@@ -110,37 +112,42 @@ public class TelaLocaliza extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tLocaliza);
 
-        mSair.setText("Arquivo");
+        mArquivo.setText("Arquivo");
 
-        mArquivo.setText("Novo");
-        mArquivo.addActionListener(new java.awt.event.ActionListener() {
+        mNovo.setText("Novo");
+        mNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mArquivoActionPerformed(evt);
+                mNovoActionPerformed(evt);
             }
         });
-        mSair.add(mArquivo);
+        mArquivo.add(mNovo);
 
-        jMenuItem1.setText("Alterar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mAlterar.setText("Alterar");
+        mAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mAlterarActionPerformed(evt);
             }
         });
-        mSair.add(jMenuItem1);
-        mSair.add(jSeparator1);
+        mArquivo.add(mAlterar);
+        mArquivo.add(jSeparator1);
 
         mExcluir.setText("Excluir");
-        mSair.add(mExcluir);
-
-        jMenuItem3.setText("Sair");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mExcluirActionPerformed(evt);
             }
         });
-        mSair.add(jMenuItem3);
+        mArquivo.add(mExcluir);
 
-        jMenuBar1.add(mSair);
+        mSair.setText("Sair");
+        mSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mSairActionPerformed(evt);
+            }
+        });
+        mArquivo.add(mSair);
+
+        jMenuBar1.add(mArquivo);
 
         setJMenuBar(jMenuBar1);
 
@@ -180,14 +187,14 @@ public class TelaLocaliza extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tFiltroActionPerformed
 
-    private void mArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mArquivoActionPerformed
+    private void mNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mNovoActionPerformed
         // TODO add your handling code here
         TelaAluno t = new TelaAluno();
         t.setAluno(new Aluno());
         t.setVisible(true);
-    }//GEN-LAST:event_mArquivoActionPerformed
+    }//GEN-LAST:event_mNovoActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAlterarActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tLocaliza.getModel();
         if (tLocaliza.getSelectedRow() != -1) {
             int codigo = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
@@ -197,17 +204,41 @@ public class TelaLocaliza extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Não há nenhum aluno selecionado");
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mAlterarActionPerformed
 
     private void bFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltroActionPerformed
         // TODO add your handling code here:
         preencheTabela();
     }//GEN-LAST:event_bFiltroActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSairActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_mSairActionPerformed
+
+    private void mExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mExcluirActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) tLocaliza.getModel();
+        if (tLocaliza.getSelectedRow() != -1) {
+            int codigo = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
+            bd.exclui(codigo);
+            preencheTabela();
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há nenhum aluno selecionado");
+        }
+    }//GEN-LAST:event_mExcluirActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formFocusGained
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        preencheTabela();
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments
@@ -249,13 +280,13 @@ public class TelaLocaliza extends javax.swing.JFrame {
     private javax.swing.JButton bFiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JMenuItem mArquivo;
+    private javax.swing.JMenuItem mAlterar;
+    private javax.swing.JMenu mArquivo;
     private javax.swing.JMenuItem mExcluir;
-    private javax.swing.JMenu mSair;
+    private javax.swing.JMenuItem mNovo;
+    private javax.swing.JMenuItem mSair;
     private javax.swing.JTextField tFiltro;
     private javax.swing.JTable tLocaliza;
     // End of variables declaration//GEN-END:variables
