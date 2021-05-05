@@ -16,7 +16,7 @@ public class Bd {
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost/aluno";
     private static final String usuario = "root";
-    private static final String senha = "";
+    private static final String senha = "vertrigo";
 
     public static Connection getCon() {
         try {
