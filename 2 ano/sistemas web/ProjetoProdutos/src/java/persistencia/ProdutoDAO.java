@@ -37,7 +37,7 @@ public class ProdutoDAO {
         em.remove(p);
         em.getTransaction().commit();
     }
-    public List<Produto> presquisa() {
+    public List<Produto> pesquisa() {
         Query q = em.createQuery("select p from Produto p order by p.fabricante");
         List<Produto> lista = q.getResultList();
         return lista;
