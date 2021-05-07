@@ -21,7 +21,7 @@ Este repositório foi criado com a intenção de armazenar meus projetos e ativi
 
 # :cd: Tecnologias utilizadas
 
-- HTML
+- HTML 
 - CSS 
 - JavaScript
 - PHP
