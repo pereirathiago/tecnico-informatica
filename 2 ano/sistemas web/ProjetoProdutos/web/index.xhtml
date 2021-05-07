@@ -1,12 +1,37 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Produto</title>
     </h:head>
-    <h:body>
-        Hello from Facelets
+    <h:body style="background-color: #cccccc;">
+        <div class="geral">
+            <p:fieldset legend="Produto" style="margin-bottom: 20px">
+                <h:form>
+                    <p:commandButton id="bNovo" icon="ui-icon-document" action="#{telaLocalizaBean.novo}" />
+                    <p:tooltip id="ttNovo" for="bNovo" value="Novo Produto" trackMouse="true" />
+                    <p:commandButton id="bAtualiza" icon ="ui-icon-refresh" action="#{telaLocalizaBean.atualizaLista}" update="tabela" />
+                    <p:dataTable id="tabela" value="#{telaLocalizaBean.lista}" var="professor">
+                        <p:column style="width: 10%; text-align: center;">
+                            <f:facet name="header">
+                                <h:outputText value="Código" />
+                            </f:facet>
+                            <h:outputText value="#{produto.codigo}" />
+                        </p:column>
+                        <p:column style="width: 50%">
+                            <f:facet name="Descrição">
+                                <h:outputText value="Descrição" />
+                            </f:facet>
+                            <h:outputText value="#{}" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:fieldset>
+            
+        </div>
     </h:body>
 </html>
 
