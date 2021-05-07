@@ -37,7 +37,15 @@ public class ProdutoDAO {
         em.remove(p);
         em.getTransaction().commit();
     }
-    public List<Produto> pesquisa(String nome) {
-        Query q = em.createNamedQuery("select * from produto where nome like :nome order by nome", Produto.class);
+    public List<Produto> presquisa() {
+        Query q = em.createQuery("select p from Produto p order by p.fabricante");
+        List<Produto> lista = q.getResultList();
+        return lista;
+    }
+    public List<Produto> pesquisa(String fabricante) {
+        Query q = em.createNamedQuery("select * from produto where fabricante like :fabricante order by codigo", Produto.class);
+        q.setParameter("fabricante", '%' + fabricante + '%');
+        List<Produto> lista = q.getResultList();
+        return lista;
     }
 }
