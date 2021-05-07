@@ -29,6 +29,8 @@ Este repositório foi criado com a intenção de armazenar meus projetos e ativi
 - Python
 - C
 - Visual Basic
+- Java
+- Java Web
 
 ---
 
