@@ -66,27 +66,48 @@ Public Class BdEquipamento
         End Try
     End Sub
     Public Function localizar(ByVal codigo As Integer) As Equipamento
-        Dim dr As MySqlDataAdapter = Nothing
+        Dim dr As MySqlDataReader = Nothing
         Dim cmd As MySqlCommand = New MySqlCommand
         Dim equipamento As New Equipamento
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandType = "select * from equipamento where codigo=@codigo"
+            cmd.CommandText = "select * from equipamento where codigo=@codigo"
             cmd.Parameters.AddWithValue("@codigo", codigo)
             cmd.Connection = Conexao
             dr = cmd.ExecuteReader
-            If dr.read Then
-                equipamento.codigo = dr.getint32("codigo")
-                equipamento.descricao = dr.getstring("descricao")
-                equipamento.fabricante = dr.getString("fabricante")
-                equipamento.numserie = dr.getString("numserie")
-                equipamento.numpatrimonio = dr.getInt32("numpatrimonio")
-                equipamento.localizacao = dr.getstring("localizacao")
+            If dr.Read Then
+                equipamento.codigo = dr.GetInt32("codigo")
+                equipamento.descricao = dr.GetString("descricao")
+                equipamento.fabricante = dr.GetString("fabricante")
+                equipamento.numserie = dr.GetString("numserie")
+                equipamento.numpatrimonio = dr.GetInt32("numpatrimonio")
+                equipamento.localizacao = dr.GetString("localizacao")
             End If
+            cmd.Dispose()
+            fechar()
         Catch ex As Exception
-
-
+            MsgBox(ex.Message)
         End Try
+        Return equipamento
+    End Function
+    Public Function pesquisa(ByVal fabricante As String) As DataSet
+        Dim ds As New DataSet
+        Dim da As MySqlDataAdapter = New MySqlDataAdapter
+        Dim cmd As MySqlCommand = New MySqlCommand
+        Try
+            Abrir()
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "select * from equiamento where fabricante like @fabricante"
+            cmd.Parameters.AddWithValue("@fabricante", "%" & fabricante & "%")
+            cmd.Connection = Conexao
+            da.SelectCommand = cmd
+            da.Fill(ds)
+            da.Dispose()
+            Return ds
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return ds
     End Function
 End Class
