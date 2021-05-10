@@ -20,14 +20,17 @@ import vo.Produto;
 @ManagedBean
 @RequestScoped
 public class TelaLocalizaBean {
+
     private DataModel<Produto> lista;
-    ProdutoDAO pd=new ProdutoDAO();
+    ProdutoDAO pd = new ProdutoDAO();
     private Produto produto = new Produto();
+
     public TelaLocalizaBean() {
-        
+
     }
+
     public String atualizaLista() {
-        lista=new ListDataModel(pd.pesquisa());
+        lista = new ListDataModel(pd.pesquisa());
         return "index";
     }
 
@@ -35,28 +38,34 @@ public class TelaLocalizaBean {
         atualizaLista();
         return lista;
     }
+
     public Produto produtoSelecionado() {
-        Produto p=lista.getRowData();
+        Produto p = lista.getRowData();
         return p;
     }
-    public String excluir(){
-        Produto p=produtoSelecionado();
+
+    public String excluir() {
+        Produto p = produtoSelecionado();
         pd.exclui(p);
         return "index";
     }
+
     public String novo() {
         setProduto(new Produto());
         return "produto";
     }
+
     public String editar() {
         Produto p=produtoSelecionado();
-        setProduto(p);
+        produto= p;
         return "produto";
     }
-    public String salva(){
-        pd.salva(getProduto());
+
+    public String salva() {
+        pd.salva(produto);
         return "index";
     }
+
     public String cancela() {
         return "index";
     }
@@ -74,5 +83,5 @@ public class TelaLocalizaBean {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-    
+
 }
