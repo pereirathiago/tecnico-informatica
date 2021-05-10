@@ -51,14 +51,14 @@
                             </f:facet>
                             <p:commandButton id="bEdita" icon="ui-icon-pencil" action="#{telaLocalizaBean.editar}" />
                             <p:tooltip for="bEdita" value="Alterar Produto" trackMouse="true" />
-                            <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluir}" update="tabela">
-                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{produto.codigo}?" icon="ui-icon-alert" />
+                            <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluir}" update="tabela" >
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{produto.descricao}?" icon="ui-icon-alert" />
                             </p:commandButton>
                             <p:confirmDialog global="true" closable="false" showEffect="fade" hideEffect="fade">
-                                <p:commandButton value="Sim" type="button" styleClass="ui-confirdialog-yes" icon="ui-icon-check" />
-                                <p:commandButton value="Não" type="button" styleClass="ui-confirdialog-no" icon="ui-icon-close" />
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
                             </p:confirmDialog>
-                            <p:tooltip for="bExclui" value="Excluir produto #{produto.codigo}" trackMouse="true"/>
+                            <p:tooltip for="bExclui" value="Exclui professor #{produto.codigo}" trackMouse="true" />
                         </p:column>
                     </p:dataTable>
                 </h:form>
