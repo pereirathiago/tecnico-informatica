@@ -9,11 +9,11 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <head>
+    <h:head>
         <title>Cadastro de Produtos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
         <p:growl id="growl" showDetail="true" sticky="true" />
         <p:fieldset legend="Produto" style="margin-bottom: 20px; font-size: small;">
             <h:form>
@@ -24,14 +24,14 @@ and open the template in the editor.
                 <p:outputLabel value="Fabricante:" for="itFabricante"/>
                 <p:inputText id="itFabricante" value="#{telaLocalizaBean.produto.fabricante}" required="true" requiredMessage="É obrigatorio fabricante!" /><br/><br/>
                 <p:outputLabel value="Valor:" for="itValor"/>
-                <p:inputText id="itValor" value="#{telaLocalizaBean.produto.valor}" required="true" requiredMessage="É obrigatorio valor!" /><br/><br/>
+                <p:inputText id="itValor" value="#{telaLocalizaBean.produto.valor}" /><br/><br/>
                 <p:outputLabel value="Quantidade:" for="itQuantidade"/>
-                <p:inputText id="itQuantidade" value="#{telaLocalizaBean.produto.quantidade}" required="true" requiredMessage="É obrigatorio quantidade!" /><br/><br/>
+                <p:inputText id="itQuantidade" value="#{telaLocalizaBean.produto.quantidade}" /><br/><br/>
                 <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salva()}"/><br/><br/>
             </h:form>
             <h:form>
                 <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="#{telaLocalizaBean.cancela}"/>
             </h:form>
         </p:fieldset>
-    </body>
+    </h:body>
 </html>
