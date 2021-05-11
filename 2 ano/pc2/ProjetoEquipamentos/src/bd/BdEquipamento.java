@@ -34,11 +34,11 @@ public class BdEquipamento {
         }
     }
 
-    public void saida(Equipamento equipamento) {
+    public void salva(Equipamento equipamento) {
         if (equipamento.getCodigo() == 0) {
             insere(equipamento);
         } else {
-            String sql = "update equipamento set = Bd.getCon().prepareStatement(sql)";
+            String sql = "update equipamento set descricao=?, fabricante=?, numserie=?, numpatrimonio=?, localizacao=? where codigo=?";
             try {
                 PreparedStatement ps = Bd.getCon().prepareStatement(sql);
                 ps.setInt(6, equipamento.getCodigo());
@@ -63,11 +63,11 @@ public class BdEquipamento {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 registro.setCodigo(rs.getInt("codigo"));
-                registro.setCodigo(rs.getInt("codigo"));
-                registro.setCodigo(rs.getInt("codigo"));
-                registro.setCodigo(rs.getInt("codigo"));
-                registro.setCodigo(rs.getInt("codigo"));
-                registro.setCodigo(rs.getInt("codigo"));
+                registro.setDescricao(rs.getString("descricao"));
+                registro.setFabricante(rs.getString("fabricante"));
+                registro.setNumserie(rs.getString("numSerie"));
+                registro.setNumpatrimonio(rs.getInt("numpatrimonio"));
+                registro.setLocalizacao(rs.getString("localizacao"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro SQL: " + e.getMessage());
@@ -76,7 +76,7 @@ public class BdEquipamento {
     }
 
     public List pesquisa(String busca) {
-        String sql = "select * from equipamento where nome like ?";
+        String sql = "select * from equipamento where fabricante like ?";
         List lista = new ArrayList();
         try {
             PreparedStatement ps = Bd.getCon().prepareStatement(sql);
