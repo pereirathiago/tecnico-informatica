@@ -31,6 +31,7 @@
         Else
             bd.atualizar(equipamento)
         End If
+        Me.Dispose()
     End Sub
 
     Public Property equipamento()

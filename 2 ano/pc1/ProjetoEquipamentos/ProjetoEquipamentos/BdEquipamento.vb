@@ -98,7 +98,7 @@ Public Class BdEquipamento
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "select * from equiamento where fabricante like @fabricante"
+            cmd.CommandText = "select * from equipamento where fabricante like @fabricante"
             cmd.Parameters.AddWithValue("@fabricante", "%" & fabricante & "%")
             cmd.Connection = Conexao
             da.SelectCommand = cmd

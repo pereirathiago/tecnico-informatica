@@ -94,6 +94,7 @@ Partial Class Form2
         '
         'txtcodigo
         '
+        Me.txtcodigo.Enabled = False
         Me.txtcodigo.Location = New System.Drawing.Point(129, 49)
         Me.txtcodigo.Name = "txtcodigo"
         Me.txtcodigo.Size = New System.Drawing.Size(100, 20)
