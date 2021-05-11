@@ -1,18 +1,14 @@
 #include <iostream>
 
 using namespace std;
-
 class ContaBancaria
 {
 private:
     float saldo;
-    float x;
 
 public:
-    float creditar()
+    float creditar(float x)
     {
-        cout << "Digite o valor a creditar ";
-        cin >> x;
         saldo += x;
     }
     float getSaldo()
@@ -20,16 +16,14 @@ public:
         cout << "Saldo: " << saldo << endl;
     }
 };
-
 int main(void)
 {
     ContaBancaria c1, c2;
-    while (1)
-    {
-        c1.creditar();
-        c1.getSaldo();
-        c2.creditar();
-        c2.getSaldo();
-    }
+    c1.creditar(500.50);
+    c2.creditar(800);
+    c1.getSaldo();
+    c2.getSaldo();
+    cout << "Valor a creditar na conta 2: ";
+    c1.creditar();
     return 0;
 }

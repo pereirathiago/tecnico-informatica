@@ -80,7 +80,7 @@ Partial Class Form1
         '
         'txtfiltro
         '
-        Me.txtfiltro.Location = New System.Drawing.Point(50, 32)
+        Me.txtfiltro.Location = New System.Drawing.Point(50, 31)
         Me.txtfiltro.Name = "txtfiltro"
         Me.txtfiltro.Size = New System.Drawing.Size(100, 20)
         Me.txtfiltro.TabIndex = 2
