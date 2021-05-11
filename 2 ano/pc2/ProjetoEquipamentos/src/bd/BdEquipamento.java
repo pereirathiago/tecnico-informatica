@@ -6,7 +6,9 @@
 package bd;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import vo.Equipamento;
@@ -67,7 +69,43 @@ public class BdEquipamento {
                 registro.setCodigo(rs.getInt("codigo"));
                 registro.setCodigo(rs.getInt("codigo"));
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro SQL: " + e.getMessage());
+        }
+        return registro;
+    }
+
+    public List pesquisa(String busca) {
+        String sql = "select * from equipamento where nome like ?";
+        List lista = new ArrayList();
+        try {
+            PreparedStatement ps = Bd.getCon().prepareStatement(sql);
+            ps.setString(1, "%" + busca + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Equipamento registro = new Equipamento();
+                registro.setCodigo(rs.getInt("codigo"));
+                registro.setDescricao(rs.getString("descricao"));
+                registro.setFabricante(rs.getString("fabricante"));
+                registro.setNumserie(rs.getString("numserie"));
+                registro.setNumpatrimonio(rs.getInt("numpatrimonio"));
+                registro.setLocalizacao(rs.getString("localizacao"));
+                lista.add(registro);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro SQL: " + e.getMessage());
+        }
+        return lista;
+    }
+
+    public void exclui(int codigo) {
+        String sql = "delete from equipamento where codigo=?";
+        try {
+            PreparedStatement ps = Bd.getCon().prepareStatement(sql);
+            ps.setInt(1, codigo);
+            ps.execute();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro SQL: " + e.getMessage());
         }
     }
 }
