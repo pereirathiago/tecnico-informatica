@@ -26,8 +26,11 @@ public class ProdutoDAO {
         em.getTransaction().begin();
         if (p.getCodigo() == 0) {
             em.persist(p);
+            System.out.println("to aqui");
+
         } else {
             em.merge(p);
+            System.out.println("to no oto");
         }
         em.getTransaction().commit();
     }

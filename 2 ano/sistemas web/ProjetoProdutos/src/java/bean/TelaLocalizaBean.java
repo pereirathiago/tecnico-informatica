@@ -19,7 +19,7 @@ import vo.Produto;
  */
 @ManagedBean
 @RequestScoped
-public class TelaLocalizaBean {
+public class TelaLocalizaBean implements Serializable{
 
     private DataModel<Produto> lista;
     ProdutoDAO pd = new ProdutoDAO();
@@ -51,7 +51,7 @@ public class TelaLocalizaBean {
     }
 
     public String novo() {
-        setProduto(new Produto());
+        produto = new Produto();
         return "produto";
     }
 
@@ -62,7 +62,7 @@ public class TelaLocalizaBean {
     }
 
     public String salva() {
-        pd.salva(getProduto());
+        pd.salva(produto);
         return "index";
     }
 
