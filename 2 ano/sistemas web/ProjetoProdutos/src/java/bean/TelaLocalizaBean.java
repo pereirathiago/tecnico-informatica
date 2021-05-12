@@ -8,6 +8,7 @@ package bean;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import persistencia.ProdutoDAO;
@@ -18,7 +19,7 @@ import vo.Produto;
  * @author 2info2021
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class TelaLocalizaBean implements Serializable{
 
     private DataModel<Produto> lista;
