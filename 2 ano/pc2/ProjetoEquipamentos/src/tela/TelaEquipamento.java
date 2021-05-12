@@ -77,6 +77,8 @@ public class TelaEquipamento extends javax.swing.JFrame {
 
         jLabel6.setText("Localização");
 
+        tCodigo.setEnabled(false);
+
         tNumpatrimonio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tNumpatrimonioActionPerformed(evt);

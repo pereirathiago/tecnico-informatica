@@ -62,7 +62,7 @@ public class TelaLocalizaBean {
     }
 
     public String salva() {
-        pd.salva(produto);
+        pd.salva(getProduto());
         return "index";
     }
 
