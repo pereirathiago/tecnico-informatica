@@ -241,5 +241,6 @@ public class TelaEquipamento extends javax.swing.JFrame {
      */
     public void setEquipamento(Equipamento equipamento) {
         this.equipamento = equipamento;
+        equipamentoToTela();
     }
 }

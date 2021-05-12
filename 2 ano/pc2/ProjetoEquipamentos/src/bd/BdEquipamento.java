@@ -20,25 +20,28 @@ import vo.Equipamento;
 public class BdEquipamento {
 
     public void insere(Equipamento equipamento) {
-        String sql = "insert into equipamento(descricao, fabricante, numserie, numpatrimonio, localizacao) value(?,?,?,?,?)";
+        String sql = "insert into equipamento(id,descricao,fabricante,numserie,numpatrimonio,localizacao) values(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Bd.getCon().prepareStatement(sql);
-            ps.setString(1, equipamento.getDescricao());
-            ps.setString(2, equipamento.getFabricante());
-            ps.setString(3, equipamento.getNumserie());
-            ps.setInt(4, equipamento.getNumpatrimonio());
-            ps.setString(5, equipamento.getLocalizacao());
+            ps.setInt(1, equipamento.getCodigo());
+            ps.setString(2, equipamento.getDescricao());
+            ps.setString(3, equipamento.getFabricante());
+            ps.setString(4, equipamento.getNumserie());
+            ps.setInt(5, equipamento.getNumpatrimonio());
+            ps.setString(6, equipamento.getLocalizacao());
             ps.execute();
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro SQL: " + e.getMessage());
         }
     }
 
+
     public void salva(Equipamento equipamento) {
         if (equipamento.getCodigo() == 0) {
             insere(equipamento);
         } else {
-            String sql = "update equipamento set descricao=?, fabricante=?, numserie=?, numpatrimonio=?, localizacao=? where codigo=?";
+            String sql = "update equipamento set descricao=?,fabricante=?, numserie=?, numpatrimonio=?, localizacao=? where codigo=?";
             try {
                 PreparedStatement ps = Bd.getCon().prepareStatement(sql);
                 ps.setInt(6, equipamento.getCodigo());
@@ -47,7 +50,7 @@ public class BdEquipamento {
                 ps.setString(3, equipamento.getNumserie());
                 ps.setInt(4, equipamento.getNumpatrimonio());
                 ps.setString(5, equipamento.getLocalizacao());
-
+                ps.execute();
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Erro SQL: " + e.getMessage());
             }
@@ -65,7 +68,7 @@ public class BdEquipamento {
                 registro.setCodigo(rs.getInt("codigo"));
                 registro.setDescricao(rs.getString("descricao"));
                 registro.setFabricante(rs.getString("fabricante"));
-                registro.setNumserie(rs.getString("numSerie"));
+                registro.setNumserie(rs.getString("numserie"));
                 registro.setNumpatrimonio(rs.getInt("numpatrimonio"));
                 registro.setLocalizacao(rs.getString("localizacao"));
             }
@@ -76,7 +79,7 @@ public class BdEquipamento {
     }
 
     public List pesquisa(String busca) {
-        String sql = "select * from equipamento where fabricante like ?";
+        String sql = "select * from equipamento where descricao like ?";
         List lista = new ArrayList();
         try {
             PreparedStatement ps = Bd.getCon().prepareStatement(sql);
@@ -97,6 +100,7 @@ public class BdEquipamento {
         }
         return lista;
     }
+
 
     public void exclui(int codigo) {
         String sql = "delete from equipamento where codigo=?";

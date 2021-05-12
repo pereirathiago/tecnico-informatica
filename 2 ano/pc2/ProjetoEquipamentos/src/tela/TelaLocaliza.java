@@ -38,7 +38,8 @@ public class TelaLocaliza extends javax.swing.JFrame {
         List c = bd.pesquisa(tFiltro.getText());
         for (Iterator it = c.iterator(); it.hasNext();) {
             Equipamento e = (Equipamento) it.next();
-            modelo.addRow(new Object[]{e.getCodigo(), e.getDescricao(), e.getFabricante(), e.getNumserie(), e.getNumpatrimonio(), e.getLocalizacao()});
+            modelo.addRow(new Object[]{e.getCodigo(), e.getDescricao(), e.getFabricante(),
+                e.getNumserie(), e.getNumpatrimonio(), e.getLocalizacao()});
         }
     }
 
@@ -188,9 +189,9 @@ public class TelaLocaliza extends javax.swing.JFrame {
     private void mAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAlterarActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tLocaliza.getModel();
         if (tLocaliza.getSelectedRow() != -1) {
-            int codigo = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
+            int id = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
             TelaEquipamento t = new TelaEquipamento();
-            t.setEquipamento(bd.localiza(codigo));
+            t.setEquipamento(bd.localiza(id));
             t.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Não há nenhum equipamento selecionado");
