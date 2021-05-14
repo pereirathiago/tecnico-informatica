@@ -20,7 +20,7 @@ import vo.Equipamento;
 public class BdEquipamento {
 
     public void insere(Equipamento equipamento) {
-        String sql = "insert into equipamento(id,descricao,fabricante,numserie,numpatrimonio,localizacao) values(?,?,?,?,?,?)";
+        String sql = "insert into equipamento(codigo,descricao,fabricante,numserie,numpatrimonio,localizacao) values(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Bd.getCon().prepareStatement(sql);
             ps.setInt(1, equipamento.getCodigo());
