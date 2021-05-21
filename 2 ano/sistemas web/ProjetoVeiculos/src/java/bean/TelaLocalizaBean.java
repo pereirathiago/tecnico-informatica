@@ -38,7 +38,7 @@ public class TelaLocalizaBean implements Serializable {
         return lista;
     }
 
-    public Veiculo professorSelecionado() {
+    public Veiculo veiculoSelecionado() {
         Veiculo v = lista.getRowData();
         return v;
     }
@@ -55,17 +55,31 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public String editar() {
-        Veiculo v = professorSelecionado();
-        veiculo = v;
+        Veiculo v = veiculoSelecionado();
+        setVeiculo(v);
         return "veiculo";
     }
 
     public String salva() {
-        pd.salva(professor);
+        pd.salva(veiculo);
         return "index";
     }
 
     public String cancela() {
         return "index";
+    }
+
+    /**
+     * @return the veiculo
+     */
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    /**
+     * @param veiculo the veiculo to set
+     */
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }
