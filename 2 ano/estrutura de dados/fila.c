@@ -47,31 +47,30 @@ void libera(Fila *f)
 {
     free(f);
 }
-void mostrafila(Fila *f)
-{
-    int v=f->ini;
-    while (v  != f->fim)
-    {
-        if (v == f->ini)
-            printf("Inicio -> ");
-        else if (v == f->fim - 1)
-            printf("Fim -> ");
-        printf("%f\n", f->vet[v]);
-        v = incr(v);
-    }
-}
 // void mostrafila(Fila *f)
 // {
 //     int v=f->ini;
-//     printf("Inicio -> ");
 //     while (v  != f->fim)
 //     {
-//         if (v == f->fim - 1)
+//         if (v == f->ini)
+//             printf("Inicio -> ");
+//         else if (v == f->fim - 1)
 //             printf("Fim -> ");
 //         printf("%f\n", f->vet[v]);
 //         v = incr(v);
 //     }
 // }
+void mostrafila(Fila *f)
+{
+    int v=f->ini;
+    printf("Inicio ");
+    while (v  != f->fim)
+    {
+        printf("-> %f\n", f->vet[v]);
+        v = incr(v);
+    }
+    printf("Fim");
+}
 int main()
 {
     Fila *f = cria();
