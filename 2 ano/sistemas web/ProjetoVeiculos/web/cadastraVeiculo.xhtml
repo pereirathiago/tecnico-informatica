@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Produtos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" />
+        <p:fieldset legend="Veículos" style="margin-bottom: 20px; font-size: small;">
+            <h:form>
+                <p:outputLabel value="Renavam:" for="itRenavam"/>
+                <p:inputText id="itRenavam" value="#{telaLocalizaBean.veiculo.renavam}" required="true" requiredMessage="É obrigatorio uma renavam!"/><br/><br/>
+                <p:outputLabel value="Placa:" for="itPlaca" />
+                <p:inputText id="itPlaca" value="#{telaLocalizaBean.veiculo.placa}" required="true" requiredMessage="É obrigatorio uma placa!" /><br/><br/>
+                <p:outputLabel value="Chassi" for="itChassi"/>
+                <p:inputText id="itChassi" value="#{telaLocalizaBean.veiculo.chassi}"/><br/><br/>
+                <p:outputLabel value="Marca:" for="itMarca"/>
+                <p:inputText id="itMarca" value="#{telaLocalizaBean.veiculo.marca}" /><br/><br/>
+                <p:outputLabel value="Modelo" for="itModelo"/>
+                <p:inputText id="itModelo" value="#{telaLocalizaBean.veiculo.modelo}" /><br/><br/>
+                <p:outputLabel value="Ano fabricação" for="itAnofab"/>
+                <p:inputText id="itAnofab" value="#{telaLocalizaBean.veiculo.anofab}" /><br/><br/>
+                <p:outputLabel value="Ano modificação" for="itAnoMod"/>
+                <p:inputText id="itAnoMod" value="#{telaLocalizaBean.veiculo.anomod}" /><br/><br/>
+                <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salva()}"/><br/><br/>
+            </h:form>
+            <h:form>
+                <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="#{telaLocalizaBean.cancela}"/>
+            </h:form>
+        </p:fieldset>
+    </h:body>
+</html>
