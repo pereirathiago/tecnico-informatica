@@ -29,7 +29,7 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public String atualizaLista() {
-        setLista((DataModel<Filme>) new ListDataModel(getPd().pesquisa()));
+        lista = new ListDataModel<>(pd.pesquisa());
         return "index";
     }
 
@@ -39,18 +39,18 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public Filme filmeSelecionado() {
-        Filme f = getLista().getRowData();
+        Filme f = lista.getRowData();
         return f;
     }
 
     public String excluir() {
         Filme f = filmeSelecionado();
-        getPd().exclui(f);
+        pd.exclui(f);
         return "index";
     }
 
     public String novo() {
-        setFilme(new Filme());
+        filme = new Filme();
         return "filme";
     }
 
@@ -61,7 +61,7 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public String salva() {
-        getPd().salva(getFilme());
+        pd.salva(filme);
         return "index";
     }
 
