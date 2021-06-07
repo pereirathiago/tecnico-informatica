@@ -11,20 +11,22 @@
         <p:growl id="growl" showDetail="true" sticky="true" />
         <p:fieldset legend="Filme" style="margin-bottom:20px; font-size: small;">
             <h:form>
+                <br/><br/>
                 <p:outputLabel value="Id: " for="itId" />
-                <p:inputText id="itId" value="#{telaLocalizaBean.filme.id}" /><br/>
+                <p:inputText id="itId" value="#{telaLocalizaBean.filme.id}" /><br/><br/>
                 <p:outputLabel value="Titulo: " for="itTitulo"/>
-                <p:inputText id="itTitulo" value="#{telaLocalizaBean.filme.titulo}" required="true" requiredMessage="É obrigatório um titulo!"/><br/>
+                <p:inputText id="itTitulo" value="#{telaLocalizaBean.filme.titulo}" required="true" requiredMessage="É obrigatório um titulo!"/><br/><br/>
                 <p:outputLabel value="Diretor: " for="itDiretor"/>
-                <p:inputText id="itDiretor" value="#{telaLocalizaBean.filme.diretor}" required="true" requiredMessage="É obrigatório um diretor!"/><br/>
+                <p:inputText id="itDiretor" value="#{telaLocalizaBean.filme.diretor}" required="true" requiredMessage="É obrigatório um diretor!"/><br/><br/>
                 <p:outputLabel value="Genero: " for="itGenero"/>
-                <p:inputText id="itGenero" value="#{telaLocalizaBean.filme.genero}"/><br/>
+                <p:inputText id="itGenero" value="#{telaLocalizaBean.filme.genero}"/><br/><br/>
                 <p:outputLabel value="Duração: " for="itDuracao" />
-                <p:inputText id="itDuracao" value="#{telaLocalizaBean.filme.duracao}" /><br/>
-                <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salva()}"/>
+                <p:inputText id="itDuracao" value="#{telaLocalizaBean.filme.duracao}" /><br/><br/>
+                <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salva()}"/><br/><br/>
             </h:form>
             <h:form>
                 <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="#{telaLocalizaBean.cancela}"/>
+                <br/><br/>
             </h:form>
         </p:fieldset>
     </h:body>
