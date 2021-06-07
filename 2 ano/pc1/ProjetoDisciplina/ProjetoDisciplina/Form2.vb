@@ -22,6 +22,7 @@
         Else
             bd.atualiza(disciplina)
         End If
+        Me.Dispose()
     End Sub
 
     Private Sub btncancela_Click(sender As Object, e As EventArgs) Handles btncancela.Click

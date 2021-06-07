@@ -13,7 +13,7 @@ Public Class BdDisciplina
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "insert into disciplina (codigo,nome,ch,professor) value (@codigo, @nome, @ch, @disciplina)"
+            cmd.CommandText = "insert into disciplina (codigo,nome,ch,professor) value (@codigo, @nome, @ch, @professor)"
             cmd.Parameters.AddWithValue("@codigo", disciplina.codigo)
             cmd.Parameters.AddWithValue("@nome", disciplina.nome)
             cmd.Parameters.AddWithValue("@ch", disciplina.ch)
