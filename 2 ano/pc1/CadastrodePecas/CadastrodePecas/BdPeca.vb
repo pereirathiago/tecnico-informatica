@@ -78,7 +78,7 @@ Public Class BdPeca
                 peca.id = dr.GetInt32("id")
                 peca.descricao = dr.GetString("descricao")
                 peca.marca = dr.GetString("marca")
-                peca.aplicacao = dr.GetString("acplicacao")
+                peca.aplicacao = dr.GetString("aplicacao")
                 peca.codigodebarras = dr.GetString("codigodebarras")
             End If
             cmd.Dispose()
@@ -95,7 +95,7 @@ Public Class BdPeca
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "select * from peca where nome like @codigodebarras"
+            cmd.CommandText = "select * from peca where codigodebarras like @codigodebarras"
             cmd.Parameters.AddWithValue("@codigodebarras", "%" & codigodebarras & "%")
 
             cmd.Connection = Conexao

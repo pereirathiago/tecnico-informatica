@@ -23,6 +23,12 @@
     End Sub
 
     Private Sub NovoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NovoToolStripMenuItem.Click
+        Form2.peca = New Peca
+        Form2.novo = True
+        Form2.Show()
+    End Sub
+
+    Private Sub ExcluirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExcluirToolStripMenuItem.Click
         Dim id = -1, linha As Integer
         linha = dgFiltro.Rows.GetFirstRow(DataGridViewElementStates.Selected)
         If linha > -1 Then
@@ -37,4 +43,5 @@
     Private Sub btnfiltro_Click(sender As Object, e As EventArgs) Handles btnfiltro.Click
         dgFiltro.DataSource = bd.pesquisa(txtfiltro.Text).Tables(0).DefaultView
     End Sub
+
 End Class

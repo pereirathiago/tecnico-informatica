@@ -27,6 +27,13 @@ Partial Class Form2
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtId = New System.Windows.Forms.TextBox()
+        Me.txtDescricao = New System.Windows.Forms.TextBox()
+        Me.txtMarca = New System.Windows.Forms.TextBox()
+        Me.txtAplicacao = New System.Windows.Forms.TextBox()
+        Me.txtCodigoDeBarras = New System.Windows.Forms.TextBox()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -74,18 +81,78 @@ Partial Class Form2
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Código de Barras"
         '
+        'txtId
+        '
+        Me.txtId.Location = New System.Drawing.Point(157, 64)
+        Me.txtId.Name = "txtId"
+        Me.txtId.Size = New System.Drawing.Size(100, 20)
+        Me.txtId.TabIndex = 5
+        '
+        'txtDescricao
+        '
+        Me.txtDescricao.Location = New System.Drawing.Point(157, 103)
+        Me.txtDescricao.Name = "txtDescricao"
+        Me.txtDescricao.Size = New System.Drawing.Size(100, 20)
+        Me.txtDescricao.TabIndex = 6
+        '
+        'txtMarca
+        '
+        Me.txtMarca.Location = New System.Drawing.Point(157, 140)
+        Me.txtMarca.Name = "txtMarca"
+        Me.txtMarca.Size = New System.Drawing.Size(100, 20)
+        Me.txtMarca.TabIndex = 7
+        '
+        'txtAplicacao
+        '
+        Me.txtAplicacao.Location = New System.Drawing.Point(157, 179)
+        Me.txtAplicacao.Name = "txtAplicacao"
+        Me.txtAplicacao.Size = New System.Drawing.Size(100, 20)
+        Me.txtAplicacao.TabIndex = 8
+        '
+        'txtCodigoDeBarras
+        '
+        Me.txtCodigoDeBarras.Location = New System.Drawing.Point(157, 214)
+        Me.txtCodigoDeBarras.Name = "txtCodigoDeBarras"
+        Me.txtCodigoDeBarras.Size = New System.Drawing.Size(100, 20)
+        Me.txtCodigoDeBarras.TabIndex = 9
+        '
+        'btnSalvar
+        '
+        Me.btnSalvar.Location = New System.Drawing.Point(38, 274)
+        Me.btnSalvar.Name = "btnSalvar"
+        Me.btnSalvar.Size = New System.Drawing.Size(75, 23)
+        Me.btnSalvar.TabIndex = 10
+        Me.btnSalvar.Text = "Salvar"
+        Me.btnSalvar.UseVisualStyleBackColor = True
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Location = New System.Drawing.Point(139, 274)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelar.TabIndex = 11
+        Me.btnCancelar.Text = "Cancelar"
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(361, 366)
+        Me.Controls.Add(Me.btnCancelar)
+        Me.Controls.Add(Me.btnSalvar)
+        Me.Controls.Add(Me.txtCodigoDeBarras)
+        Me.Controls.Add(Me.txtAplicacao)
+        Me.Controls.Add(Me.txtMarca)
+        Me.Controls.Add(Me.txtDescricao)
+        Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Text = "Cadastro"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -96,4 +163,11 @@ Partial Class Form2
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents txtId As TextBox
+    Friend WithEvents txtDescricao As TextBox
+    Friend WithEvents txtMarca As TextBox
+    Friend WithEvents txtAplicacao As TextBox
+    Friend WithEvents txtCodigoDeBarras As TextBox
+    Friend WithEvents btnSalvar As Button
+    Friend WithEvents btnCancelar As Button
 End Class
