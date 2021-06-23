@@ -107,23 +107,23 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public String novoCliente() {
-        cliente = new Cliente();
+        setCliente(new Cliente());
         return "cadastro_cliente";
     }
 
-    public String editarCliente {
+    public String editarCliente() {
         Cliente c = clienteSelecionado();
         setCliente(c);
         return "cadastro_cliente";
     }
 
     public String salvaCliente() {
-        pd.salva(filme);
-        return "filme";
+        pdCliente.salva(getCliente());
+        return "cliente";
     }
 
-    public String cancelaFilme() {
-        return "filme";
+    public String cancelaCliente() {
+        return "cliente";
     }
 
     /**
@@ -159,5 +159,19 @@ public class TelaLocalizaBean implements Serializable {
      */
     public void setFilme(Filme filme) {
         this.filme = filme;
+    }
+
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the cliente to set
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

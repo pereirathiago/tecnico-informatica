@@ -14,9 +14,9 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <p>teste</p>
-        <p:commandButton id="bFilme" icon="ui-icon-document" action="" />
+        <p:commandButton id="bFilme" icon="ui-icon-document" action="#{telaLocalizaBean.verFilmes()}" />
         <p:tooltip id="ttFilme" for="bFilme" value="Ver filme" trackMouse="true" />
-        <p:commandButton id="bCliente" icon="ui-icon-refresh" action="" update="tabela" />
+        <p:commandButton id="bCliente" icon="ui-icon-refresh" action="#{telaLocalizaBean.verFilmes()}" />
         <p:tooltip id="ttCliente" for="bCliente" value="Ver clientes" trackMouse="true" />
     </h:body>
 </html>
