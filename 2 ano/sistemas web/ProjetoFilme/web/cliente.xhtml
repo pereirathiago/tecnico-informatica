@@ -5,50 +5,62 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Filmes</title>
+        <title>Clientes</title>
     </h:head>
     <h:body style="background-color: #cccccc;">
 
         <div class="geral">
-            <p:fieldset legend="Filme" style="margin-bottom:20px">
+            <p:fieldset legend="Cliente" style="margin-bottom:20px">
                 <h:form>
-                    <p:commandButton id="bNovo" icon="ui-icon-document" action="#{telaLocalizaBean.novoFilme}" />
-                    <p:tooltip id="ttNovo" for="bNovo" value="Novo filme" trackMouse="true" />
-                    <p:commandButton id="bAtualiza" icon="ui-icon-refresh" action="#{telaLocalizaBean.atualizaListaFilme}" update="tabela" />
+                    <p:commandButton id="bNovo" icon="ui-icon-document" action="#{telaLocalizaBean.novoCliente}" />
+                    <p:tooltip id="ttNovo" for="bNovo" value="Novo cliente" trackMouse="true" />
+                    <p:commandButton id="bAtualiza" icon="ui-icon-refresh" action="#{telaLocalizaBean.atualizaListaCliente}" update="tabela" />
                     <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" />
                     <br/><br/>
-                    <p:dataTable id="tabela" value="#{telaLocalizaBean.lista}" var="filme" >                        
-                        <p:column style="width:10%; text-align: center;">
+                    <p:dataTable id="tabela" value="#{telaLocalizaBean.listaCliente}" var="cliente" >                        
+                        <p:column style="width:5%; text-align: center;">
                             <f:facet name="header">
                                 <h:outputText value="Id" />
                             </f:facet>
-                            <h:outputText value="#{filme.id}"/>
+                            <h:outputText value="#{cliente.id}"/>
                         </p:column>
                         <p:column style="width:20%">
                             <f:facet name="header">
-                                <h:outputText value="Titulo" />
+                                <h:outputText value="Nome" />
                             </f:facet>
-                            <h:outputText value="#{filme.titulo}"/>
-                        </p:column>
-                        <p:column style="width:20%">
-                            <f:facet name="header">
-                                <h:outputText value="diretor" />
-                            </f:facet>
-                            <h:outputText value="#{filme.diretor}"/>
-                        </p:column>
-                        <p:column style="width:20%">
-                            <f:facet name="header">
-                                <h:outputText value="Genero" />
-                            </f:facet>
-                            <h:outputText value="#{filme.genero}"/>
+                            <h:outputText value="#{cliente.nome}"/>
                         </p:column>
                         <p:column style="width:10%">
                             <f:facet name="header">
-                                <h:outputText value="Duração" />
+                                <h:outputText value="CPF" />
                             </f:facet>
-                            <h:outputText value="#{filme.duracao}"/>
+                            <h:outputText value="#{cliente.cpf}"/>
                         </p:column>
                         <p:column style="width:20%">
+                            <f:facet name="header">
+                                <h:outputText value="Endereço" />
+                            </f:facet>
+                            <h:outputText value="#{cliente.endereco}"/>
+                        </p:column>
+                        <p:column style="width:10%">
+                            <f:facet name="header">
+                                <h:outputText value="Cidade" />
+                            </f:facet>
+                            <h:outputText value="#{cliente.cidade}"/>
+                        </p:column>
+                        <p:column style="width:10%">
+                            <f:facet name="header">
+                                <h:outputText value="UF" />
+                            </f:facet>
+                            <h:outputText value="#{cliente.uf}"/>
+                        </p:column>
+                        <p:column style="width:10%">
+                            <f:facet name="header">
+                                <h:outputText value="Telefone" />
+                            </f:facet>
+                            <h:outputText value="#{cliente.telefone}"/>
+                        </p:column>
+                        <p:column style="width:15%">
                             <f:facet name="header">
                                 <h:outputText value="Ações" />
                             </f:facet>

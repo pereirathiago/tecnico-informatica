@@ -22,10 +22,10 @@
                 <p:inputText id="itGenero" value="#{telaLocalizaBean.filme.genero}"/><br/><br/>
                 <p:outputLabel value="Duração: " for="itDuracao" />
                 <p:inputText id="itDuracao" value="#{telaLocalizaBean.filme.duracao}" /><br/><br/>
-                <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salva()}"/><br/><br/>
+                <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salvaFilme()}"/><br/><br/>
             </h:form>
             <h:form>
-                <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="#{telaLocalizaBean.cancela}"/>
+                <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="#{telaLocalizaBean.cancelaCliente}"/>
                 <br/><br/>
             </h:form>
         </p:fieldset>
