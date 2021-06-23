@@ -13,10 +13,11 @@ and open the template in the editor.
         <title>Menu</title>
     </h:head>
     <h:body>
-        <p>teste</p>
-        <p:commandButton id="bFilme" icon="ui-icon-document" action="#{telaLocalizaBean.verFilmes()}" />
-        <p:tooltip id="ttFilme" for="bFilme" value="Ver filme" trackMouse="true" />
-        <p:commandButton id="bCliente" icon="ui-icon-refresh" action="#{telaLocalizaBean.verFilmes()}" />
-        <p:tooltip id="ttCliente" for="bCliente" value="Ver clientes" trackMouse="true" />
+        <br/>
+        <div style="text-align: center">
+            <h1>Menu</h1>
+            <p:commandButton value="Filmes" action="#{telaLocalizaBean.verFilmes()}" />
+            <p:commandButton value="Clientes" action="#{telaLocalizaBean.verCliente()}" />
+        </div>        
     </h:body>
 </html>
