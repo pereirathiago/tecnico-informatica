@@ -10,7 +10,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import persistencia.FilmeDAO;
+import persistencia.ClienteDAO;
 import javax.faces.model.ListDataModel;
+import vo.Cliente;
 import vo.Filme;
 
 /**
@@ -24,17 +26,31 @@ public class TelaLocalizaBean implements Serializable {
     private DataModel<Filme> lista;
     private FilmeDAO pd = new FilmeDAO();
     private Filme filme = new Filme();
+    
+    private DataModel<Cliente> listaCliente;
+    private ClienteDAO pdCliente = new ClienteDAO();
+    private Cliente cliente = new Cliente();
 
     public TelaLocalizaBean() {
     }
 
-    public String atualizaLista() {
+    public String verFilmes()
+    {
+        return "filme";
+    }
+    
+    public String verClientes()
+    {
+        return "cliente";
+    }
+    
+    public String atualizaListaFilme() {
         lista = new ListDataModel<>(pd.pesquisa());
-        return "index";
+        return "filme";
     }
 
     public DataModel<Filme> getLista() {
-        atualizaLista();
+        atualizaListaFilme();
         return lista;
     }
 
@@ -43,30 +59,71 @@ public class TelaLocalizaBean implements Serializable {
         return f;
     }
 
-    public String excluir() {
+    public String excluirFilme() {
         Filme f = filmeSelecionado();
         pd.exclui(f);
-        return "index";
-    }
-
-    public String novo() {
-        filme = new Filme();
         return "filme";
     }
 
-    public String editar() {
+    public String novoFilme() {
+        filme = new Filme();
+        return "cadastro_filme";
+    }
+
+    public String editarFilme() {
         Filme f = filmeSelecionado();
         setFilme(f);
+        return "cadastro_filme";
+    }
+
+    public String salvaFilme() {
+        pd.salva(filme);
         return "filme";
     }
 
-    public String salva() {
-        pd.salva(filme);
-        return "index";
+    public String cancelaFilme() {
+        return "filme";
+    }
+    
+    public String atualizaListaCliente() {
+        lista = new ListDataModel<>(pd.pesquisa());
+        return "cliente";
     }
 
-    public String cancela() {
-        return "index";
+    public DataModel<Cliente> getListaCliente() {
+        atualizaListaCliente();
+        return listaCliente;
+    }
+
+    public Cliente clienteSelecionado() {
+        Cliente c = listaCliente.getRowData();
+        return c;
+    }
+
+    public String excluirCliente() {
+        Cliente c = clienteSelecionado();
+        pdCliente.exclui(c);
+        return "cliente";
+    }
+
+    public String novoCliente() {
+        cliente = new Cliente();
+        return "cadastro_cliente";
+    }
+
+    public String editarCliente {
+        Cliente c = clienteSelecionado();
+        setCliente(c);
+        return "cadastro_cliente";
+    }
+
+    public String salvaCliente() {
+        pd.salva(filme);
+        return "filme";
+    }
+
+    public String cancelaFilme() {
+        return "filme";
     }
 
     /**

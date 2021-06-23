@@ -5,12 +5,18 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Menu</title>
+    </h:head>
+    <h:body>
+        <p>teste</p>
+        <p:commandButton id="bFilme" icon="ui-icon-document" action="" />
+        <p:tooltip id="ttFilme" for="bFilme" value="Ver filme" trackMouse="true" />
+        <p:commandButton id="bCliente" icon="ui-icon-refresh" action="" update="tabela" />
+        <p:tooltip id="ttCliente" for="bCliente" value="Ver clientes" trackMouse="true" />
+    </h:body>
 </html>
