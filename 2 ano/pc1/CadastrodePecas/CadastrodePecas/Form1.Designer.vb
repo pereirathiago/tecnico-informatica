@@ -40,7 +40,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArquivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(639, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(604, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -99,14 +99,14 @@ Partial Class Form1
         Me.dgFiltro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgFiltro.Location = New System.Drawing.Point(30, 77)
         Me.dgFiltro.Name = "dgFiltro"
-        Me.dgFiltro.Size = New System.Drawing.Size(570, 265)
+        Me.dgFiltro.Size = New System.Drawing.Size(542, 265)
         Me.dgFiltro.TabIndex = 4
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 363)
+        Me.ClientSize = New System.Drawing.Size(604, 363)
         Me.Controls.Add(Me.dgFiltro)
         Me.Controls.Add(Me.btnfiltro)
         Me.Controls.Add(Me.txtfiltro)
