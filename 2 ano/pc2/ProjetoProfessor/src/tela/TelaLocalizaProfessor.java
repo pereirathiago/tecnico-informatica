@@ -188,7 +188,7 @@ public class TelaLocalizaProfessor extends javax.swing.JFrame {
         if (tLocaliza.getSelectedRow() != -1) {
             int codigo = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
             TelaProfessor t = new TelaProfessor();
-            //t.setProfessor(pp.localiza(codigo));
+            t.setProfessor(pp.localiza(codigo));
             t.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Não há nada selecionado!");
