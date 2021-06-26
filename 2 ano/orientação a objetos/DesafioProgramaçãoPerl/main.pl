@@ -59,8 +59,7 @@ $obj -> getSomarValorPositivos;
 $obj -> calculaMedia;
 $obj -> mostrarResultados;
 
-print "\n\nAperte enter para fechar...";
-my $enter = <STDIN>;
-
+#print "\n\nAperte enter para fechar...";
+#my $enter = <STDIN>;
 # finaliza o código
 exit 0;
