@@ -5,5 +5,6 @@
     <persistence-unit name="PU" transaction-type="JTA">
         <jta-data-source>jdbc/filme</jta-data-source>
         <class>vo.Filme</class>
+        <class>vo.Cliente</class>
     </persistence-unit>
 </persistence>

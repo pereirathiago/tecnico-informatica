@@ -16,6 +16,8 @@
                     <p:tooltip id="ttNovo" for="bNovo" value="Novo filme" trackMouse="true" />
                     <p:commandButton id="bAtualiza" icon="ui-icon-refresh" action="#{telaLocalizaBean.atualizaListaFilme}" update="tabela" />
                     <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" />
+                    <p:commandButton id="bVoltar" icon="ui-icon-arrowthick-1-w" action="index.xhtml" update="tabela" />
+                    <p:tooltip id="ttVoltar" for="bVoltar" value="Voltar inicio" trackMouse="true" />
                     <br/><br/>
                     <p:dataTable id="tabela" value="#{telaLocalizaBean.lista}" var="filme" >                        
                         <p:column style="width:10%; text-align: center;">

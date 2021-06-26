@@ -28,20 +28,10 @@ public class TelaLocalizaBean implements Serializable {
     private Filme filme = new Filme();
     
     private DataModel<Cliente> listaCliente;
-    private ClienteDAO pdCliente = new ClienteDAO();
+    private ClienteDAO cp = new ClienteDAO();
     private Cliente cliente = new Cliente();
 
     public TelaLocalizaBean() {
-    }
-
-    public String verFilmes()
-    {
-        return "filme";
-    }
-    
-    public String verClientes()
-    {
-        return "cliente";
     }
     
     public String atualizaListaFilme() {
@@ -86,7 +76,7 @@ public class TelaLocalizaBean implements Serializable {
     }
     
     public String atualizaListaCliente() {
-        lista = new ListDataModel<>(pd.pesquisa());
+        listaCliente = new ListDataModel<>(cp.pesquisa());
         return "cliente";
     }
 
@@ -102,7 +92,7 @@ public class TelaLocalizaBean implements Serializable {
 
     public String excluirCliente() {
         Cliente c = clienteSelecionado();
-        pdCliente.exclui(c);
+        getCp().exclui(c);
         return "cliente";
     }
 
@@ -118,7 +108,7 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public String salvaCliente() {
-        pdCliente.salva(getCliente());
+        getCp().salva(cliente);
         return "cliente";
     }
 
@@ -174,4 +164,20 @@ public class TelaLocalizaBean implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    /**
+     * @return the cp
+     */
+    public ClienteDAO getCp() {
+        return cp;
+    }
+
+    /**
+     * @param cp the cp to set
+     */
+    public void setCp(ClienteDAO cp) {
+        this.cp = cp;
+    }
+
+    
 }

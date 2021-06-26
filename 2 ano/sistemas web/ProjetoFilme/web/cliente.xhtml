@@ -16,6 +16,9 @@
                     <p:tooltip id="ttNovo" for="bNovo" value="Novo cliente" trackMouse="true" />
                     <p:commandButton id="bAtualiza" icon="ui-icon-refresh" action="#{telaLocalizaBean.atualizaListaCliente}" update="tabela" />
                     <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" />
+                    
+                    <p:commandButton id="bVoltar" icon="ui-icon-arrowthick-1-w" action="index.xhtml" update="tabela" />
+                    <p:tooltip id="ttVoltar" for="bVoltar" value="Voltar inicio" trackMouse="true" />
                     <br/><br/>
                     <p:dataTable id="tabela" value="#{telaLocalizaBean.listaCliente}" var="cliente" >                        
                         <p:column style="width:5%; text-align: center;">
@@ -64,16 +67,16 @@
                             <f:facet name="header">
                                 <h:outputText value="Ações" />
                             </f:facet>
-                            <p:commandButton id="bEdita" icon="ui-icon-pencil" action="#{telaLocalizaBean.editarFilme}" />
+                            <p:commandButton id="bEdita" icon="ui-icon-pencil" action="#{telaLocalizaBean.editarCliente}" />
                             <p:tooltip for="bEdita" value="Alterar filme" trackMouse="true" />
-                            <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluirFilme}" update="tabela" >
-                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{filme.titulo}?" icon="ui-icon-alert" />
+                            <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluirCliente}" update="tabela" >
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{cliente.cpf}?" icon="ui-icon-alert" />
                             </p:commandButton>
                             <p:confirmDialog global="true" closable="false" showEffect="fade" hideEffect="fade">
                                 <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
                                 <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
                             </p:confirmDialog>
-                            <p:tooltip for="bExclui" value="Exclui filme #{filme.titulo}" trackMouse="true" />
+                            <p:tooltip for="bExclui" value="Exclui filme #{cliente.cpf}" trackMouse="true" />
                         </p:column>
                     </p:dataTable>
                 </h:form>

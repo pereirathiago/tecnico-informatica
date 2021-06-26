@@ -5,6 +5,13 @@
  */
 package tela;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+import persistencia.ProfessorDAO;
+import vo.Professor;
+
 /**
  *
  * @author 2info2021
@@ -14,8 +21,34 @@ public class TelaProfessor extends javax.swing.JFrame {
     /**
      * Creates new form TelaProfessor
      */
+    Professor p = new Professor();
+    ProfessorDAO pp = new ProfessorDAO();
+
     public TelaProfessor() {
         initComponents();
+    }
+
+    private void pessoaToTela() {
+        tCodigo.setText(Integer.toString(p.getCodigo()));
+        tNome.setText(p.getNome());
+        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
+        tDatanasc.setText(s.format(p.getDatanasc().getTime()));
+        tFormacao.setText(p.getFormacao());
+    }
+
+    private boolean telaToProfessor() {
+        p.setCodigo(Integer.parseInt(tCodigo.getText()));
+        p.setNome(tNome.getText());
+        try {
+            SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
+            p.setDatanasc(Calendar.getInstance());
+            p.getDatanasc().setTime(s.parse(tDatanasc.getText()));
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Erro de Data");
+            return false;
+        }
+        p.setFormacao(tFormacao.getText());
+        return true;
     }
 
     /**
@@ -35,6 +68,8 @@ public class TelaProfessor extends javax.swing.JFrame {
         tNome = new javax.swing.JTextField();
         tDatanasc = new javax.swing.JFormattedTextField();
         tFormacao = new javax.swing.JTextField();
+        bSalva = new javax.swing.JButton();
+        bCancela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +81,6 @@ public class TelaProfessor extends javax.swing.JFrame {
 
         jLabel4.setText("Formação");
 
-        tCodigo.setEditable(false);
         tCodigo.setText("0");
 
         tNome.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +95,20 @@ public class TelaProfessor extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        bSalva.setText("Salvar");
+        bSalva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalvaActionPerformed(evt);
+            }
+        });
+
+        bCancela.setText("Cancelar");
+        bCancela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,18 +116,21 @@ public class TelaProfessor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bSalva)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1)))
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tNome)
-                    .addComponent(tDatanasc, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                    .addComponent(tFormacao))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tNome)
+                        .addComponent(tDatanasc, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                        .addComponent(tFormacao))
+                    .addComponent(bCancela))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +151,11 @@ public class TelaProfessor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bSalva)
+                    .addComponent(bCancela))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,6 +164,22 @@ public class TelaProfessor extends javax.swing.JFrame {
     private void tNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tNomeActionPerformed
+
+    private void bSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvaActionPerformed
+        if (telaToProfessor()) {
+            pp.salva(p);
+            this.dispose();
+        }
+    }//GEN-LAST:event_bSalvaActionPerformed
+
+    private void bCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bCancelaActionPerformed
+
+    public void setProfessor(Professor p) {
+        this.p = p;
+        pessoaToTela();
+    }
 
     /**
      * @param args the command line arguments
@@ -146,6 +217,8 @@ public class TelaProfessor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCancela;
+    private javax.swing.JButton bSalva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
