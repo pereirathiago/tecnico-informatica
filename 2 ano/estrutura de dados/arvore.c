@@ -73,16 +73,48 @@ void in(Arv* a)
         in(a->dir);
     }
 }
+void nde(Arv* a)
+{
+    if (a != NULL)
+    {
+        printf(" %c", a->info);
+        nde(a->dir);
+        nde(a->esq);
+    }
+    
+}
+void dne(Arv* a)
+{
+    if (a != NULL)
+    {
+        nde(a->dir);
+        printf(" %c", a->info);
+        nde(a->esq);
+    }
+    
+}
+void den(Arv* a)
+{
+    if (a != NULL)
+    {
+        nde(a->dir);
+        nde(a->esq);
+        printf(" %c", a->info);
+    }
+    
+}
 int busca(Arv* a, char elem)
 {
     if (a == NULL)
         return 0;
-    else if (a->info > elem)
-        return busca(a->esq, elem);
-    else if (a->info < elem)
-        return busca(a->dir, elem);
-    else
-        return 1;
+    else 
+        if (a->info > elem)
+            return busca(a->esq, elem);
+        else 
+            if (a->info < elem)
+                return busca(a->dir, elem);
+            else
+                return 1;
 }
 int main()
 {
@@ -94,7 +126,8 @@ int main()
     {
         printf("\n1-Insere\n2-Mostra pre-ordem");
         printf("\n3-Mostra in-ordem\n4-Mostra pos-ordem");
-        printf("\n5-Busca\n0-Sair");
+        printf("\n5-Mostra todos os caminhamentos");
+        printf("\n6-Busca\n0-Sair");
         printf("\nDigite sua opcao: ");
         scanf("%d",&opcao);
         switch(opcao){
@@ -112,7 +145,21 @@ int main()
                 case 4:
                     pos(a);
                     break;
-                case 5:
+                case(5):
+                    printf("\nPre-ordem: ");
+                    pre(a);
+                    printf("\nIn-ordem: ");
+                    in(a);
+                    printf("\nPos-ordem: ");
+                    pos(a);
+                    printf("\nNDE: ");
+                    den(a);
+                    printf("\nDNE: ");
+                    dne(a);
+                    printf("\nDEN: ");
+                    nde(a);
+                    break;
+                case 6:
                     printf("Digite elemento a buscar ");
                     scanf(" %c", &elem);
                     b = busca(a, elem);
