@@ -6,10 +6,13 @@
 package vo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,6 +25,8 @@ public class Emprestimo implements Serializable {
     private Integer id=0;
     private Integer idCliente;
     private Integer idFilme;
+    @Temporal(TemporalType.DATE)
+    private Date dataempr; 
     public Emprestimo(Integer id) {
         this.id = id;
     }
@@ -66,5 +71,19 @@ public class Emprestimo implements Serializable {
      */
     public void setIdFilme(Integer idFilme) {
         this.idFilme = idFilme;
+    }
+
+    /**
+     * @return the dataempr
+     */
+    public Date getDataempr() {
+        return dataempr;
+    }
+
+    /**
+     * @param dataempr the dataempr to set
+     */
+    public void setDataempr(Date dataempr) {
+        this.dataempr = dataempr;
     }
 }
