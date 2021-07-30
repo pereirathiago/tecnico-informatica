@@ -106,7 +106,7 @@ void den(Arv* a)
 int busca(Arv* a, char elem)
 {
     if (a == NULL)
-        return 0;
+        return NULL;
     else 
         if (a->info > elem)
             return busca(a->esq, elem);
@@ -114,7 +114,7 @@ int busca(Arv* a, char elem)
             if (a->info < elem)
                 return busca(a->dir, elem);
             else
-                return 1;
+                return a->info;
 }
 int main()
 {
@@ -163,10 +163,17 @@ int main()
                     printf("Digite elemento a buscar ");
                     scanf(" %c", &elem);
                     b = busca(a, elem);
-                    if (b == 1)
-                        printf("Elemento existente\n");
-                    else
+                    if (b == NULL)
+                    {
                         printf("Elemento inexistente\n");
+                    } else
+                    {
+                        printf(" %c", b);
+                    }
+                    // if (b == 1)
+                    //     printf("Elemento existente\n");
+                    // else
+                    //     printf("Elemento inexistente\n");
                     break;
                 case 0:
                     break;
