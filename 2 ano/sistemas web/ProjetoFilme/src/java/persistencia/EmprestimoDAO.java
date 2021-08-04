@@ -6,6 +6,7 @@
 package persistencia;
 
 import javax.persistence.EntityManager;
+import vo.Emprestimo;
 
 /**
  *
@@ -17,4 +18,14 @@ public class EmprestimoDAO {
     public EmprestimoDAO() {
         em = EntityManagerProvider.getEM();
     }
+    
+    public void salva(Emprestimo e) {
+        em.getTransaction().begin();
+        if (e.getId() == 0) {
+            em.persist(e);
+        } else {
+            em.merge(e);
+        }
+        em.getTransaction().commit();
+   }
 }
