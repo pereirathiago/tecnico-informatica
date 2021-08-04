@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class BdProjeto
+Public Class BdProduto
     Inherits Bd
     Public Sub New()
         Me.User = "root"
@@ -39,7 +39,9 @@ Public Class BdProjeto
             cmd.Parameters.AddWithValue("@descricao", produto.descricao)
             cmd.Parameters.AddWithValue("@quantidade", produto.quantidade)
             cmd.Parameters.AddWithValue("@minimo", produto.minimo)
-
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Public Sub excluir(ByVal id As Integer)
         Dim da As MySqlDataAdapter = New MySqlDataAdapter
