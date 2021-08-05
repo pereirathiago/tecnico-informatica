@@ -32,13 +32,13 @@ Partial Class Form2
         Me.txtid = New System.Windows.Forms.TextBox()
         Me.txtcodbar = New System.Windows.Forms.TextBox()
         Me.txtdescricao = New System.Windows.Forms.TextBox()
-        Me.txtquantidade = New System.Windows.Forms.TextBox()
         Me.txtminimo = New System.Windows.Forms.TextBox()
+        Me.txtquantidade = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(171, 282)
+        Me.btnCancelar.Location = New System.Drawing.Point(160, 242)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 0
@@ -47,7 +47,7 @@ Partial Class Form2
         '
         'btnSalvar
         '
-        Me.btnSalvar.Location = New System.Drawing.Point(70, 282)
+        Me.btnSalvar.Location = New System.Drawing.Point(59, 242)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(75, 23)
         Me.btnSalvar.TabIndex = 1
@@ -57,7 +57,7 @@ Partial Class Form2
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(83, 75)
+        Me.Label1.Location = New System.Drawing.Point(72, 64)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(16, 13)
         Me.Label1.TabIndex = 2
@@ -66,7 +66,7 @@ Partial Class Form2
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(48, 110)
+        Me.Label2.Location = New System.Drawing.Point(37, 99)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(87, 13)
         Me.Label2.TabIndex = 3
@@ -75,7 +75,7 @@ Partial Class Form2
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(64, 145)
+        Me.Label3.Location = New System.Drawing.Point(53, 134)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(55, 13)
         Me.Label3.TabIndex = 4
@@ -84,7 +84,7 @@ Partial Class Form2
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(60, 180)
+        Me.Label4.Location = New System.Drawing.Point(49, 169)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 13)
         Me.Label4.TabIndex = 5
@@ -93,7 +93,7 @@ Partial Class Form2
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(70, 215)
+        Me.Label5.Location = New System.Drawing.Point(59, 204)
         Me.Label5.Name = "Label5"
         Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.Label5.Size = New System.Drawing.Size(42, 13)
@@ -103,44 +103,44 @@ Partial Class Form2
         'txtid
         '
         Me.txtid.Enabled = False
-        Me.txtid.Location = New System.Drawing.Point(152, 71)
+        Me.txtid.Location = New System.Drawing.Point(141, 60)
         Me.txtid.Name = "txtid"
         Me.txtid.Size = New System.Drawing.Size(94, 20)
         Me.txtid.TabIndex = 7
         '
         'txtcodbar
         '
-        Me.txtcodbar.Location = New System.Drawing.Point(152, 106)
+        Me.txtcodbar.Location = New System.Drawing.Point(141, 95)
         Me.txtcodbar.Name = "txtcodbar"
         Me.txtcodbar.Size = New System.Drawing.Size(138, 20)
         Me.txtcodbar.TabIndex = 8
         '
         'txtdescricao
         '
-        Me.txtdescricao.Location = New System.Drawing.Point(152, 141)
+        Me.txtdescricao.Location = New System.Drawing.Point(141, 130)
         Me.txtdescricao.Name = "txtdescricao"
         Me.txtdescricao.Size = New System.Drawing.Size(138, 20)
         Me.txtdescricao.TabIndex = 9
         '
-        'txtquantidade
-        '
-        Me.txtquantidade.Location = New System.Drawing.Point(152, 176)
-        Me.txtquantidade.Name = "txtquantidade"
-        Me.txtquantidade.Size = New System.Drawing.Size(94, 20)
-        Me.txtquantidade.TabIndex = 10
-        '
         'txtminimo
         '
-        Me.txtminimo.Location = New System.Drawing.Point(152, 211)
+        Me.txtminimo.Location = New System.Drawing.Point(141, 200)
         Me.txtminimo.Name = "txtminimo"
         Me.txtminimo.Size = New System.Drawing.Size(94, 20)
         Me.txtminimo.TabIndex = 11
+        '
+        'txtquantidade
+        '
+        Me.txtquantidade.Location = New System.Drawing.Point(141, 165)
+        Me.txtquantidade.Name = "txtquantidade"
+        Me.txtquantidade.Size = New System.Drawing.Size(94, 20)
+        Me.txtquantidade.TabIndex = 10
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(338, 376)
+        Me.ClientSize = New System.Drawing.Size(317, 324)
         Me.Controls.Add(Me.txtminimo)
         Me.Controls.Add(Me.txtquantidade)
         Me.Controls.Add(Me.txtdescricao)
@@ -154,7 +154,7 @@ Partial Class Form2
         Me.Controls.Add(Me.btnSalvar)
         Me.Controls.Add(Me.btnCancelar)
         Me.Name = "Form2"
-        Me.Text = "Cadastro / Alterar"
+        Me.Text = "Cadastrar"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -170,6 +170,6 @@ Partial Class Form2
     Friend WithEvents txtid As TextBox
     Friend WithEvents txtcodbar As TextBox
     Friend WithEvents txtdescricao As TextBox
-    Friend WithEvents txtquantidade As TextBox
     Friend WithEvents txtminimo As TextBox
+    Friend WithEvents txtquantidade As TextBox
 End Class

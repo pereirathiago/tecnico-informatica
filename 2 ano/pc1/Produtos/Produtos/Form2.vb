@@ -7,14 +7,14 @@
         txtid.Text = mProduto.id
         txtcodbar.Text = mProduto.codbar
         txtdescricao.Text = mProduto.descricao
-        txtquantidade.Text = mProduto.quantidade
+        NumericUpDown1.Text = mProduto.quantidade
         txtminimo.Text = mProduto.minimo
     End Sub
     Private Sub telaToProduto()
         mProduto.id = txtid.Text
         mProduto.codbar = txtcodbar.Text
         mProduto.descricao = txtdescricao.Text
-        mProduto.quantidade = txtquantidade.Text
+        mProduto.quantidade = NumericUpDown1.Text
         mProduto.minimo = txtminimo.Text
     End Sub
     Public Property produto()
@@ -40,13 +40,6 @@
     End Sub
 
     Private Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
-        telaToProduto()
-        If novo Then
-            bd.inserir(produto)
-        Else
-            bd.atualizar(produto)
-            Console.WriteLine("Chamou o atualizar")
-        End If
-        Me.Dispose()
+
     End Sub
 End Class
