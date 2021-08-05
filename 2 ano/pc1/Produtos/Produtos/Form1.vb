@@ -39,7 +39,6 @@
             MsgBox("Nenhuma linha selecionada")
         End If
     End Sub
-
     Private Sub btnfiltro_Click(sender As Object, e As EventArgs) Handles btnfiltro.Click
         dgfiltro.DataSource = bd.pesquisa(txtfiltro.Text).Tables(0).DefaultView
     End Sub

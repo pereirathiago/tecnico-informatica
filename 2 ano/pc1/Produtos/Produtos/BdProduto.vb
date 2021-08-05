@@ -13,7 +13,7 @@ Public Class BdProduto
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "insert into produto (id, codbar, descricao, quantidade, minimo) value (@id, @codbar, @descricao, @quantidade, @minimo)"
+            cmd.CommandText = "insert into produtos (id, codbar, descricao, quantidade, minimo) value (@id, @codbar, @descricao, @quantidade, @minimo)"
             cmd.Parameters.AddWithValue("@id", produto.id)
             cmd.Parameters.AddWithValue("@codbar", produto.codbar)
             cmd.Parameters.AddWithValue("@descricao", produto.descricao)
@@ -33,12 +33,16 @@ Public Class BdProduto
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "update produto set codbar=@codbar, descricao=@descricao, quantidade=@quantidade, minimo=@minimo where id=@id"
+            cmd.CommandText = "update produtos set codbar=@codbar, descricao=@descricao, quantidade=@quantidade, minimo=@minimo where id=@id"
             cmd.Parameters.AddWithValue("@id", produto.id)
             cmd.Parameters.AddWithValue("@codbar", produto.codbar)
             cmd.Parameters.AddWithValue("@descricao", produto.descricao)
             cmd.Parameters.AddWithValue("@quantidade", produto.quantidade)
             cmd.Parameters.AddWithValue("@minimo", produto.minimo)
+            cmd.Connection = Conexao
+            da.UpdateCommand = cmd
+            da.UpdateCommand.ExecuteNonQuery()
+            fechar()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -49,7 +53,7 @@ Public Class BdProduto
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "delete from produto where id=@id"
+            cmd.CommandText = "delete from produtos where id=@id"
             cmd.Parameters.AddWithValue("@id", id)
             cmd.Connection = Conexao
             da.UpdateCommand = cmd
@@ -66,7 +70,7 @@ Public Class BdProduto
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "select * from produto where id=@id"
+            cmd.CommandText = "select * from produtos where id=@id"
             cmd.Parameters.AddWithValue("@id", id)
             cmd.Connection = Conexao
             dr = cmd.ExecuteReader
@@ -91,7 +95,7 @@ Public Class BdProduto
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "select * from produto where codbar like @codbar"
+            cmd.CommandText = "select * from produtos where codbar like @codbar"
             cmd.Parameters.AddWithValue("@codbar", "%" & codbar & "%")
             cmd.Connection = Conexao
             da.SelectCommand = cmd
