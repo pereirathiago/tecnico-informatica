@@ -16,6 +16,7 @@
             codigo = dgfiltro.Rows(linha).Cells(0).Value
             Form2.produto = bd.localizar(codigo)
             Form2.novo = False
+            Form2.boxQuantidade.Visible = True
             Form2.Show()
         Else
             MsgBox("Nenhuma linha selecionada")
