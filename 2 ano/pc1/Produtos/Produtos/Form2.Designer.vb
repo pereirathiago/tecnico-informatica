@@ -34,20 +34,20 @@ Partial Class Form2
         Me.txtdescricao = New System.Windows.Forms.TextBox()
         Me.txtquantidade = New System.Windows.Forms.TextBox()
         Me.boxQuantidade = New System.Windows.Forms.GroupBox()
+        Me.txtquantidadealtera = New System.Windows.Forms.NumericUpDown()
+        Me.txtretira = New System.Windows.Forms.NumericUpDown()
+        Me.txtadiciona = New System.Windows.Forms.NumericUpDown()
+        Me.txtminimoaltera = New System.Windows.Forms.NumericUpDown()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtminimoaltera = New System.Windows.Forms.NumericUpDown()
-        Me.txtadiciona = New System.Windows.Forms.NumericUpDown()
-        Me.txtretira = New System.Windows.Forms.NumericUpDown()
-        Me.txtquantidadealtera = New System.Windows.Forms.NumericUpDown()
         Me.txtminimo = New System.Windows.Forms.TextBox()
         Me.boxQuantidade.SuspendLayout()
-        CType(Me.txtminimoaltera, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtadiciona, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtretira, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtquantidadealtera, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtretira, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtadiciona, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtminimoaltera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCancelar
@@ -161,6 +161,38 @@ Partial Class Form2
         Me.boxQuantidade.Text = "Quantidade"
         Me.boxQuantidade.Visible = False
         '
+        'txtquantidadealtera
+        '
+        Me.txtquantidadealtera.Location = New System.Drawing.Point(101, 21)
+        Me.txtquantidadealtera.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtquantidadealtera.Name = "txtquantidadealtera"
+        Me.txtquantidadealtera.Size = New System.Drawing.Size(100, 20)
+        Me.txtquantidadealtera.TabIndex = 29
+        '
+        'txtretira
+        '
+        Me.txtretira.Location = New System.Drawing.Point(101, 80)
+        Me.txtretira.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtretira.Name = "txtretira"
+        Me.txtretira.Size = New System.Drawing.Size(100, 20)
+        Me.txtretira.TabIndex = 28
+        '
+        'txtadiciona
+        '
+        Me.txtadiciona.Location = New System.Drawing.Point(101, 51)
+        Me.txtadiciona.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtadiciona.Name = "txtadiciona"
+        Me.txtadiciona.Size = New System.Drawing.Size(100, 20)
+        Me.txtadiciona.TabIndex = 27
+        '
+        'txtminimoaltera
+        '
+        Me.txtminimoaltera.Location = New System.Drawing.Point(101, 106)
+        Me.txtminimoaltera.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtminimoaltera.Name = "txtminimoaltera"
+        Me.txtminimoaltera.Size = New System.Drawing.Size(100, 20)
+        Me.txtminimoaltera.TabIndex = 26
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -198,38 +230,6 @@ Partial Class Form2
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "Atual"
         '
-        'txtminimoaltera
-        '
-        Me.txtminimoaltera.Location = New System.Drawing.Point(101, 106)
-        Me.txtminimoaltera.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
-        Me.txtminimoaltera.Name = "txtminimoaltera"
-        Me.txtminimoaltera.Size = New System.Drawing.Size(100, 20)
-        Me.txtminimoaltera.TabIndex = 26
-        '
-        'txtadiciona
-        '
-        Me.txtadiciona.Location = New System.Drawing.Point(101, 51)
-        Me.txtadiciona.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
-        Me.txtadiciona.Name = "txtadiciona"
-        Me.txtadiciona.Size = New System.Drawing.Size(100, 20)
-        Me.txtadiciona.TabIndex = 27
-        '
-        'txtretira
-        '
-        Me.txtretira.Location = New System.Drawing.Point(101, 80)
-        Me.txtretira.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
-        Me.txtretira.Name = "txtretira"
-        Me.txtretira.Size = New System.Drawing.Size(100, 20)
-        Me.txtretira.TabIndex = 28
-        '
-        'txtquantidadealtera
-        '
-        Me.txtquantidadealtera.Location = New System.Drawing.Point(101, 21)
-        Me.txtquantidadealtera.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
-        Me.txtquantidadealtera.Name = "txtquantidadealtera"
-        Me.txtquantidadealtera.Size = New System.Drawing.Size(100, 20)
-        Me.txtquantidadealtera.TabIndex = 29
-        '
         'txtminimo
         '
         Me.txtminimo.Location = New System.Drawing.Point(131, 189)
@@ -259,10 +259,10 @@ Partial Class Form2
         Me.Text = "Cadastrar / Alterar"
         Me.boxQuantidade.ResumeLayout(False)
         Me.boxQuantidade.PerformLayout()
-        CType(Me.txtminimoaltera, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtadiciona, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtretira, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtquantidadealtera, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtretira, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtadiciona, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtminimoaltera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

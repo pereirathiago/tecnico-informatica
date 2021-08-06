@@ -21,11 +21,19 @@
     End Sub
     Private Sub adicRetiQuantidade()
         If txtadiciona.Value <> 0 And txtretira.Value <> 0 Then
-            mProduto.quantidade = txtquantidade.Text - txtretira.Value + txtadiciona.Value
+            If txtquantidade.Text + txtadiciona.Value > txtretira.Value Then
+                mProduto.quantidade = txtquantidade.Text - txtretira.Value + txtadiciona.Value
+            Else
+                MsgBox("Não pode retirar mais que a quantidade")
+            End If
         ElseIf txtadiciona.Value <> 0 Then
             mProduto.quantidade = txtquantidade.Text + txtadiciona.Value
         ElseIf txtretira.Value <> 0 Then
-            mProduto.quantidade = txtquantidade.Text - txtretira.Value
+            If txtquantidade.Text > txtretira.Value Then
+                mProduto.quantidade = txtquantidade.Text - txtretira.Value
+            Else
+                MsgBox("Não pode retirar mais que quantidade atual")
+            End If
         Else
             mProduto.quantidade = txtquantidade.Text
         End If
