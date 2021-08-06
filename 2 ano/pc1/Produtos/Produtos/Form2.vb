@@ -8,16 +8,27 @@
         txtcodbar.Text = mProduto.codbar
         txtdescricao.Text = mProduto.descricao
         txtquantidade.Text = mProduto.quantidade
-        txtquantidadealtera.Text = mProduto.quantidade
+        txtquantidadealtera.Value = mProduto.quantidade
         txtminimo.Text = mProduto.minimo
-        txtminimoaltera.Text = mProduto.minimo
+        txtminimoaltera.Value = mProduto.minimo
     End Sub
     Private Sub telaToProduto()
         mProduto.id = txtid.Text
         mProduto.codbar = txtcodbar.Text
         mProduto.descricao = txtdescricao.Text
-        mProduto.quantidade = txtquantidade.Text
+        adicRetiQuantidade()
         mProduto.minimo = txtminimo.Text
+    End Sub
+    Private Sub adicRetiQuantidade()
+        If txtadiciona.Value <> 0 And txtretira.Value <> 0 Then
+            mProduto.quantidade = txtquantidade.Text - txtretira.Value + txtadiciona.Value
+        ElseIf txtadiciona.Value <> 0 Then
+            mProduto.quantidade = txtquantidade.Text + txtadiciona.Value
+        ElseIf txtretira.Value <> 0 Then
+            mProduto.quantidade = txtquantidade.Text - txtretira.Value
+        Else
+            mProduto.quantidade = txtquantidade.Text
+        End If
     End Sub
     Public Property produto()
         Get

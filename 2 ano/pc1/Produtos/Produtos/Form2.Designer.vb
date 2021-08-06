@@ -32,18 +32,22 @@ Partial Class Form2
         Me.txtid = New System.Windows.Forms.TextBox()
         Me.txtcodbar = New System.Windows.Forms.TextBox()
         Me.txtdescricao = New System.Windows.Forms.TextBox()
-        Me.txtminimo = New System.Windows.Forms.TextBox()
         Me.txtquantidade = New System.Windows.Forms.TextBox()
         Me.boxQuantidade = New System.Windows.Forms.GroupBox()
-        Me.txtminimoaltera = New System.Windows.Forms.TextBox()
-        Me.txtretira = New System.Windows.Forms.TextBox()
-        Me.txtadiciona = New System.Windows.Forms.TextBox()
-        Me.txtquantidadealtera = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtminimoaltera = New System.Windows.Forms.NumericUpDown()
+        Me.txtadiciona = New System.Windows.Forms.NumericUpDown()
+        Me.txtretira = New System.Windows.Forms.NumericUpDown()
+        Me.txtquantidadealtera = New System.Windows.Forms.NumericUpDown()
+        Me.txtminimo = New System.Windows.Forms.TextBox()
         Me.boxQuantidade.SuspendLayout()
+        CType(Me.txtminimoaltera, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtadiciona, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtretira, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtquantidadealtera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCancelar
@@ -132,13 +136,6 @@ Partial Class Form2
         Me.txtdescricao.Size = New System.Drawing.Size(138, 20)
         Me.txtdescricao.TabIndex = 9
         '
-        'txtminimo
-        '
-        Me.txtminimo.Location = New System.Drawing.Point(131, 189)
-        Me.txtminimo.Name = "txtminimo"
-        Me.txtminimo.Size = New System.Drawing.Size(94, 20)
-        Me.txtminimo.TabIndex = 11
-        '
         'txtquantidade
         '
         Me.txtquantidade.Location = New System.Drawing.Point(131, 154)
@@ -148,10 +145,10 @@ Partial Class Form2
         '
         'boxQuantidade
         '
-        Me.boxQuantidade.Controls.Add(Me.txtminimoaltera)
+        Me.boxQuantidade.Controls.Add(Me.txtquantidadealtera)
         Me.boxQuantidade.Controls.Add(Me.txtretira)
         Me.boxQuantidade.Controls.Add(Me.txtadiciona)
-        Me.boxQuantidade.Controls.Add(Me.txtquantidadealtera)
+        Me.boxQuantidade.Controls.Add(Me.txtminimoaltera)
         Me.boxQuantidade.Controls.Add(Me.Label7)
         Me.boxQuantidade.Controls.Add(Me.Label6)
         Me.boxQuantidade.Controls.Add(Me.Label8)
@@ -163,34 +160,6 @@ Partial Class Form2
         Me.boxQuantidade.TabStop = False
         Me.boxQuantidade.Text = "Quantidade"
         Me.boxQuantidade.Visible = False
-        '
-        'txtminimoaltera
-        '
-        Me.txtminimoaltera.Location = New System.Drawing.Point(101, 106)
-        Me.txtminimoaltera.Name = "txtminimoaltera"
-        Me.txtminimoaltera.Size = New System.Drawing.Size(100, 20)
-        Me.txtminimoaltera.TabIndex = 29
-        '
-        'txtretira
-        '
-        Me.txtretira.Location = New System.Drawing.Point(101, 77)
-        Me.txtretira.Name = "txtretira"
-        Me.txtretira.Size = New System.Drawing.Size(100, 20)
-        Me.txtretira.TabIndex = 28
-        '
-        'txtadiciona
-        '
-        Me.txtadiciona.Location = New System.Drawing.Point(101, 51)
-        Me.txtadiciona.Name = "txtadiciona"
-        Me.txtadiciona.Size = New System.Drawing.Size(100, 20)
-        Me.txtadiciona.TabIndex = 27
-        '
-        'txtquantidadealtera
-        '
-        Me.txtquantidadealtera.Location = New System.Drawing.Point(101, 24)
-        Me.txtquantidadealtera.Name = "txtquantidadealtera"
-        Me.txtquantidadealtera.Size = New System.Drawing.Size(100, 20)
-        Me.txtquantidadealtera.TabIndex = 26
         '
         'Label7
         '
@@ -229,6 +198,45 @@ Partial Class Form2
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "Atual"
         '
+        'txtminimoaltera
+        '
+        Me.txtminimoaltera.Location = New System.Drawing.Point(101, 106)
+        Me.txtminimoaltera.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtminimoaltera.Name = "txtminimoaltera"
+        Me.txtminimoaltera.Size = New System.Drawing.Size(100, 20)
+        Me.txtminimoaltera.TabIndex = 26
+        '
+        'txtadiciona
+        '
+        Me.txtadiciona.Location = New System.Drawing.Point(101, 51)
+        Me.txtadiciona.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtadiciona.Name = "txtadiciona"
+        Me.txtadiciona.Size = New System.Drawing.Size(100, 20)
+        Me.txtadiciona.TabIndex = 27
+        '
+        'txtretira
+        '
+        Me.txtretira.Location = New System.Drawing.Point(101, 80)
+        Me.txtretira.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtretira.Name = "txtretira"
+        Me.txtretira.Size = New System.Drawing.Size(100, 20)
+        Me.txtretira.TabIndex = 28
+        '
+        'txtquantidadealtera
+        '
+        Me.txtquantidadealtera.Location = New System.Drawing.Point(101, 21)
+        Me.txtquantidadealtera.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.txtquantidadealtera.Name = "txtquantidadealtera"
+        Me.txtquantidadealtera.Size = New System.Drawing.Size(100, 20)
+        Me.txtquantidadealtera.TabIndex = 29
+        '
+        'txtminimo
+        '
+        Me.txtminimo.Location = New System.Drawing.Point(131, 189)
+        Me.txtminimo.Name = "txtminimo"
+        Me.txtminimo.Size = New System.Drawing.Size(94, 20)
+        Me.txtminimo.TabIndex = 11
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -251,6 +259,10 @@ Partial Class Form2
         Me.Text = "Cadastrar / Alterar"
         Me.boxQuantidade.ResumeLayout(False)
         Me.boxQuantidade.PerformLayout()
+        CType(Me.txtminimoaltera, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtadiciona, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtretira, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtquantidadealtera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -266,15 +278,15 @@ Partial Class Form2
     Friend WithEvents txtid As TextBox
     Friend WithEvents txtcodbar As TextBox
     Friend WithEvents txtdescricao As TextBox
-    Friend WithEvents txtminimo As TextBox
     Friend WithEvents txtquantidade As TextBox
     Friend WithEvents boxQuantidade As GroupBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents txtminimoaltera As TextBox
-    Friend WithEvents txtretira As TextBox
-    Friend WithEvents txtadiciona As TextBox
-    Friend WithEvents txtquantidadealtera As TextBox
+    Friend WithEvents txtquantidadealtera As NumericUpDown
+    Friend WithEvents txtretira As NumericUpDown
+    Friend WithEvents txtadiciona As NumericUpDown
+    Friend WithEvents txtminimoaltera As NumericUpDown
+    Friend WithEvents txtminimo As TextBox
 End Class
