@@ -5,7 +5,9 @@
  */
 package persistencia;
 
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import vo.Emprestimo;
 
 /**
@@ -28,4 +30,28 @@ public class EmprestimoDAO {
         }
         em.getTransaction().commit();
    }
+    
+    public Emprestimo localiza(int id) {
+        Emprestimo e = em.find(Emprestimo.class, id);
+        return e;
+    }
+    
+    public void exclui (Emprestimo c) {
+        em.getTransaction().begin();
+        em.remove(c);
+        em.getTransaction().commit();
+    }
+    
+    public List<Emprestimo> pesquisa() {
+        Query q = em.createQuery("select e from Emprestimo e order by e.idCliente");
+        List<Emprestimo> lista = q.getResultList();
+        return lista;
+    }
+    
+    public List<Emprestimo> pesquisa(String idCliente) {
+        Query q = em.createNativeQuery("select * from emprestimo where idCliente like :idCliente order by idCliente", Emprestimo.class);
+        q.setParameter("idCliente", '%' + idCliente + '%');
+        List<Emprestimo> lista = q.getResultList();
+        return lista;
+    }
 }

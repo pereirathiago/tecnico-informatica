@@ -30,6 +30,7 @@ public class Emprestimo implements Serializable {
     public Emprestimo(Integer id) {
         this.id = id;
     }
+    public Emprestimo(){}
 
     /**
      * @return the id

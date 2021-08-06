@@ -12,7 +12,9 @@ import javax.faces.model.DataModel;
 import persistencia.FilmeDAO;
 import persistencia.ClienteDAO;
 import javax.faces.model.ListDataModel;
+import persistencia.EmprestimoDAO;
 import vo.Cliente;
+import vo.Emprestimo;
 import vo.Filme;
 
 /**
@@ -30,6 +32,10 @@ public class TelaLocalizaBean implements Serializable {
     private DataModel<Cliente> listaCliente;
     private ClienteDAO cp = new ClienteDAO();
     private Cliente cliente = new Cliente();
+    
+    private DataModel<Emprestimo> listaEmprestimo;
+    private EmprestimoDAO ed = new EmprestimoDAO();
+    private Emprestimo emprestimo = new Emprestimo();
 
     public TelaLocalizaBean() {
     }
@@ -115,6 +121,47 @@ public class TelaLocalizaBean implements Serializable {
     public String cancelaCliente() {
         return "cliente";
     }
+    
+    public String atualizaListaEmprestimo() {
+        listaEmprestimo = new ListDataModel(ed.pesquisa());
+        return "emprestimo";
+    }
+
+    public DataModel<Emprestimo> getListaEmprestimo(){
+        atualizaListaEmprestimo();
+        return listaEmprestimo;
+    }
+
+    public Emprestimo emprestimoSelecionado() {
+        Emprestimo e = listaEmprestimo.getRowData();
+        return e;
+    }
+
+    public String excluirEmprestimo() {
+        Emprestimo e = emprestimoSelecionado();
+        ed.exclui(e);
+        return "emprestimo";
+    }
+
+    public String novoEmprestimo() {
+        setEmprestimo(new Emprestimo());
+        return "cadastro_emprestimo";
+    }
+
+    public String editarEmprestimo() {
+        Emprestimo e = emprestimoSelecionado();
+        setEmprestimo(e);
+        return "cadastro_emprestimo";
+    }
+
+    public String salvaEmprestimo() {
+        ed.salva(getEmprestimo());
+        return "emprestimo";
+    }
+
+    public String cancelaEmprestimo() {
+        return "emprestimo";
+    }
 
     /**
      * @param lista the lista to set
@@ -177,6 +224,20 @@ public class TelaLocalizaBean implements Serializable {
      */
     public void setCp(ClienteDAO cp) {
         this.cp = cp;
+    }
+
+    /**
+     * @return the emprestimo
+     */
+    public Emprestimo getEmprestimo() {
+        return emprestimo;
+    }
+
+    /**
+     * @param emprestimo the emprestimo to set
+     */
+    public void setEmprestimo(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
     }
 
     
