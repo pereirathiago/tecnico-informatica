@@ -107,4 +107,40 @@ Public Class BdProduto
         End Try
         Return ds
     End Function
+    Public Function filtraMinimo() As DataSet
+        Dim ds As New DataSet
+        Dim da As MySqlDataAdapter = New MySqlDataAdapter
+        Dim cmd As MySqlCommand = New MySqlCommand
+        Try
+            Abrir()
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "select * from produtos where minimo >= quantidade"
+            cmd.Connection = Conexao
+            da.SelectCommand = cmd
+            da.Fill(ds)
+            da.Dispose()
+            Return ds
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return ds
+    End Function
+    Public Function todosProdutos() As DataSet
+        Dim ds As New DataSet
+        Dim da As MySqlDataAdapter = New MySqlDataAdapter
+        Dim cmd As MySqlCommand = New MySqlCommand
+        Try
+            Abrir()
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "select * from produtos"
+            cmd.Connection = Conexao
+            da.SelectCommand = cmd
+            da.Fill(ds)
+            da.Dispose()
+            Return ds
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return ds
+    End Function
 End Class

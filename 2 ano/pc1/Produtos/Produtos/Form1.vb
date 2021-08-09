@@ -43,4 +43,12 @@
     Private Sub btnfiltro_Click(sender As Object, e As EventArgs) Handles btnfiltro.Click
         dgfiltro.DataSource = bd.pesquisa(txtfiltro.Text).Tables(0).DefaultView
     End Sub
+
+    Private Sub FaltaEmEstoqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FaltaEmEstoqueToolStripMenuItem.Click
+        dgfiltro.DataSource = bd.filtraMinimo().Tables(0).DefaultView
+    End Sub
+
+    Private Sub TodosOsProdutosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TodosOsProdutosToolStripMenuItem.Click
+        dgfiltro.DataSource = bd.todosProdutos().Tables(0).DefaultView
+    End Sub
 End Class

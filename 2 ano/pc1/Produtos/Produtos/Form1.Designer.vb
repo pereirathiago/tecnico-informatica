@@ -31,6 +31,8 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnfiltro = New System.Windows.Forms.Button()
         Me.dgfiltro = New System.Windows.Forms.DataGridView()
+        Me.FaltaEmEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TodosOsProdutosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgfiltro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -46,7 +48,7 @@ Partial Class Form1
         '
         'ArquivoToolStripMenuItem
         '
-        Me.ArquivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoToolStripMenuItem, Me.AlterarToolStripMenuItem, Me.ExcluirToolStripMenuItem})
+        Me.ArquivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoToolStripMenuItem, Me.AlterarToolStripMenuItem, Me.TodosOsProdutosToolStripMenuItem, Me.FaltaEmEstoqueToolStripMenuItem, Me.ExcluirToolStripMenuItem})
         Me.ArquivoToolStripMenuItem.Name = "ArquivoToolStripMenuItem"
         Me.ArquivoToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.ArquivoToolStripMenuItem.Text = "Arquivo"
@@ -102,6 +104,18 @@ Partial Class Form1
         Me.dgfiltro.Size = New System.Drawing.Size(548, 269)
         Me.dgfiltro.TabIndex = 4
         '
+        'FaltaEmEstoqueToolStripMenuItem
+        '
+        Me.FaltaEmEstoqueToolStripMenuItem.Name = "FaltaEmEstoqueToolStripMenuItem"
+        Me.FaltaEmEstoqueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FaltaEmEstoqueToolStripMenuItem.Text = "Falta em estoque"
+        '
+        'TodosOsProdutosToolStripMenuItem
+        '
+        Me.TodosOsProdutosToolStripMenuItem.Name = "TodosOsProdutosToolStripMenuItem"
+        Me.TodosOsProdutosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TodosOsProdutosToolStripMenuItem.Text = "Todos os Produtos"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -132,4 +146,6 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents btnfiltro As Button
     Friend WithEvents dgfiltro As DataGridView
+    Friend WithEvents FaltaEmEstoqueToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TodosOsProdutosToolStripMenuItem As ToolStripMenuItem
 End Class
