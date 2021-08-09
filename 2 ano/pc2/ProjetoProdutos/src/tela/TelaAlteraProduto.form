@@ -41,10 +41,12 @@
                           <Component id="tId" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                           <Component id="tCodbar" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                           <Component id="tDescricao" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="tQuantidade" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="tAdiciona" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="tRetira" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="tMinimo" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="tMinimo" alignment="0" pref="101" max="32767" attributes="0"/>
+                              <Component id="tRetira" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tAdiciona" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tQuantidade" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -136,8 +138,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tCodbarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tQuantidade">
-    </Component>
     <Component class="javax.swing.JTextField" name="tDescricao">
     </Component>
     <Component class="javax.swing.JButton" name="bSalva">
@@ -147,8 +147,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSalvaActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tAdiciona">
     </Component>
     <Component class="javax.swing.JButton" name="bCancela">
       <Properties>
@@ -168,8 +166,6 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo de barras"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tRetira">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Retirar"/>
@@ -180,7 +176,13 @@
         <Property name="text" type="java.lang.String" value="M&#xed;nimo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tMinimo">
+    <Component class="javax.swing.JSpinner" name="tQuantidade">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="tAdiciona">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="tRetira">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="tMinimo">
     </Component>
   </SubComponents>
 </Form>

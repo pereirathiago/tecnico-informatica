@@ -5,6 +5,7 @@
  */
 package tela;
 
+import javax.swing.JOptionPane;
 import persistencia.ProdutoDAO;
 import vo.Produto;
 
@@ -25,7 +26,7 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
     }
 
     private void pessoaToTela() {
-        tId.setText(Integer.toString(p.getId()));;
+        tId.setText(Integer.toString(p.getId()));
         tCodbar.setText(p.getCodbar());
         tDescricao.setText(p.getDescricao());
         tQuantidade.setText(Integer.toString(p.getQuantidade()));
@@ -36,7 +37,7 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         p.setId(Integer.parseInt(tId.getText()));
         p.setCodbar(tCodbar.getText());
         p.setDescricao(tDescricao.getText());
-        p.setQuantidade(Integer.parseInt(tQuantidade.getText()));
+        verificaQuantidade();
         p.setMinimo(Integer.parseInt(tMinimo.getText()));
         return true;
     }
@@ -46,16 +47,23 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         Integer adiciona = Integer.parseInt(tAdiciona.getText());
         Integer retira = Integer.parseInt(tRetira.getText());
         Integer quantidade = Integer.parseInt(tQuantidade.getText());
-        Integer minimo = Integer.parseInt(tMinimo.getText());
         if (adiciona != 0 && retira != 0) {
             if (quantidade + adiciona > retira) {
                 p.setQuantidade(quantidade - retira + adiciona);
             } else {
-                
+                JOptionPane.showMessageDialog(this, "Não pode retirar mais que o atual.");
             }
 
+        } else if (adiciona != 0) {
+            p.setQuantidade(quantidade + adiciona);
+        } else if (retira != 0) {
+            if (quantidade > retira) {
+                p.setQuantidade(quantidade - retira);
+            } else {
+                JOptionPane.showMessageDialog(this, "Não pode retirar mais que o atual.");
+            }
         } else {
-
+            p.setQuantidade(Integer.parseInt(tQuantidade.getText()));
         }
     }
 
@@ -73,17 +81,17 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         tId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         tCodbar = new javax.swing.JTextField();
-        tQuantidade = new javax.swing.JTextField();
         tDescricao = new javax.swing.JTextField();
         bSalva = new javax.swing.JButton();
-        tAdiciona = new javax.swing.JTextField();
         bCancela = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        tRetira = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tMinimo = new javax.swing.JTextField();
+        tQuantidade = new javax.swing.JSpinner();
+        tAdiciona = new javax.swing.JSpinner();
+        tRetira = new javax.swing.JSpinner();
+        tMinimo = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,10 +158,11 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
                             .addComponent(tId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tCodbar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tAdiciona, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tRetira, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tMinimo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                .addComponent(tRetira, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tAdiciona, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tQuantidade, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(bSalva)
@@ -221,6 +230,11 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bCancelaActionPerformed
 
+    public void setProduto(Produto p){
+        this.p = p;
+        pessoaToTela();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -266,12 +280,12 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField tAdiciona;
+    private javax.swing.JSpinner tAdiciona;
     private javax.swing.JTextField tCodbar;
     private javax.swing.JTextField tDescricao;
     private javax.swing.JTextField tId;
-    private javax.swing.JTextField tMinimo;
-    private javax.swing.JTextField tQuantidade;
-    private javax.swing.JTextField tRetira;
+    private javax.swing.JSpinner tMinimo;
+    private javax.swing.JSpinner tQuantidade;
+    private javax.swing.JSpinner tRetira;
     // End of variables declaration//GEN-END:variables
 }

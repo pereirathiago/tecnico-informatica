@@ -226,7 +226,7 @@ public class TelaLocalizaProduto extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tLocaliza.getModel();
         if (tLocaliza.getSelectedRow() != -1) {
             int id = (Integer) modelo.getValueAt(tLocaliza.getSelectedRow(), 0);
-            TelaCadastraProduto t = new TelaCadastraProduto();
+            TelaAlteraProduto t = new TelaAlteraProduto();
             t.setProduto(pd.localiza(id));
             t.setVisible(true);
         } else {
