@@ -19,10 +19,11 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
      */
     Produto p = new Produto();
     ProdutoDAO pd = new ProdutoDAO();
+
     public TelaAlteraProduto() {
         initComponents();
     }
-    
+
     private void pessoaToTela() {
         tId.setText(Integer.toString(p.getId()));;
         tCodbar.setText(p.getCodbar());
@@ -30,6 +31,7 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         tQuantidade.setText(Integer.toString(p.getQuantidade()));
         tMinimo.setText(Integer.toString(p.getMinimo()));
     }
+
     private boolean telaToProduto() {
         p.setId(Integer.parseInt(tId.getText()));
         p.setCodbar(tCodbar.getText());
@@ -38,9 +40,23 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         p.setMinimo(Integer.parseInt(tMinimo.getText()));
         return true;
     }
-    
+
     private void verificaQuantidade() {
         // adicionar ou retirar quantidade
+        Integer adiciona = Integer.parseInt(tAdiciona.getText());
+        Integer retira = Integer.parseInt(tRetira.getText());
+        Integer quantidade = Integer.parseInt(tQuantidade.getText());
+        Integer minimo = Integer.parseInt(tMinimo.getText());
+        if (adiciona != 0 && retira != 0) {
+            if (quantidade + adiciona > retira) {
+                p.setQuantidade(quantidade - retira + adiciona);
+            } else {
+                
+            }
+
+        } else {
+
+        }
     }
 
     /**
@@ -195,7 +211,7 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_tCodbarActionPerformed
 
     private void bSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvaActionPerformed
-        if(telaToProduto()) {
+        if (telaToProduto()) {
             pd.salva(p);
             this.dispose();
         }
