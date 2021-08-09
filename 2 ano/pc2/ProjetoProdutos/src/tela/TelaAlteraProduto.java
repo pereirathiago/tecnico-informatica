@@ -43,9 +43,8 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
     }
 
     private void verificaQuantidade() {
-        // adicionar ou retirar quantidade
-        Integer adiciona = Integer.parseInt(tAdiciona.getText());
-        Integer retira = Integer.parseInt(tRetira.getText());
+        Integer adiciona = Integer.parseInt(tAdicionar.getText());
+        Integer retira = Integer.parseInt(tRetirar.getText());
         Integer quantidade = Integer.parseInt(tQuantidade.getText());
         if (adiciona != 0 && retira != 0) {
             if (quantidade + adiciona > retira) {
@@ -88,10 +87,10 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tQuantidade = new javax.swing.JSpinner();
-        tAdiciona = new javax.swing.JSpinner();
-        tRetira = new javax.swing.JSpinner();
-        tMinimo = new javax.swing.JSpinner();
+        tQuantidade = new javax.swing.JTextField();
+        tAdicionar = new javax.swing.JTextField();
+        tRetirar = new javax.swing.JTextField();
+        tMinimo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +136,16 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
 
         jLabel7.setText("Mínimo");
 
+        tAdicionar.setText("0");
+
+        tRetirar.setText("0");
+
+        tMinimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tMinimoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,11 +167,10 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
                             .addComponent(tId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tCodbar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(tMinimo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                .addComponent(tRetira, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tAdiciona, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tQuantidade, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(tQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(bSalva)
@@ -192,11 +200,11 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tAdiciona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(tRetira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -229,6 +237,10 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
     private void bCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelaActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelaActionPerformed
+
+    private void tMinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMinimoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tMinimoActionPerformed
 
     public void setProduto(Produto p){
         this.p = p;
@@ -280,12 +292,12 @@ public class TelaAlteraProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JSpinner tAdiciona;
+    private javax.swing.JTextField tAdicionar;
     private javax.swing.JTextField tCodbar;
     private javax.swing.JTextField tDescricao;
     private javax.swing.JTextField tId;
-    private javax.swing.JSpinner tMinimo;
-    private javax.swing.JSpinner tQuantidade;
-    private javax.swing.JSpinner tRetira;
+    private javax.swing.JTextField tMinimo;
+    private javax.swing.JTextField tQuantidade;
+    private javax.swing.JTextField tRetirar;
     // End of variables declaration//GEN-END:variables
 }

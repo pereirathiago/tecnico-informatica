@@ -22,13 +22,6 @@ public class TelaCadastraProduto extends javax.swing.JFrame {
     public TelaCadastraProduto() {
         initComponents();
     }
-    private void pessoaToTela() {
-        tId.setText(Integer.toString(p.getId()));;
-        tCodbar.setText(p.getCodbar());
-        tDescricao.setText(p.getDescricao());
-        tQuantidade.setText(Integer.toString(p.getQuantidade()));
-        tMinimo.setText(Integer.toString(p.getMinimo()));
-    }
     private boolean telaToProduto() {
         p.setId(Integer.parseInt(tId.getText()));
         p.setCodbar(tCodbar.getText());
@@ -182,7 +175,6 @@ public class TelaCadastraProduto extends javax.swing.JFrame {
 
     public void setProduto(Produto p){
         this.p = p;
-        pessoaToTela();
     }
     
     /**
