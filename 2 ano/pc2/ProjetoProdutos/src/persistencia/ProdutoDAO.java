@@ -38,13 +38,18 @@ public class ProdutoDAO {
         em.getTransaction().commit();
     }
     public List<Produto> pesquisa() {
-        Query q = em.createQuery("select  from Produto as p order by p.codbar");
+        Query q = em.createQuery("select p from Produto as p order by p.codbar");
         List<Produto>  lista = q.getResultList();
         return lista;
     }
     public List<Produto> pesquisa(String codbar) {
         Query q = em.createNativeQuery("select * from produto where codbar like ? order by codbar", Produto.class);
         q.setParameter(1, '%' + codbar + '%');
+        List<Produto> lista = q.getResultList();
+        return lista;
+    }
+    public List<Produto> filtrarMinimo() {
+        Query q = em.createNativeQuery("select * from Produto where minimo >= quantidade", Produto.class);
         List<Produto> lista = q.getResultList();
         return lista;
     }
