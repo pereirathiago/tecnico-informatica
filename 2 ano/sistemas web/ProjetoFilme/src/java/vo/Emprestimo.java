@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Emprestimo implements Serializable {
+    private static long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id=0;
@@ -86,5 +87,19 @@ public class Emprestimo implements Serializable {
      */
     public void setDataempr(Date dataempr) {
         this.dataempr = dataempr;
+    }
+
+    /**
+     * @return the serialVersionUID
+     */
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    /**
+     * @param aSerialVersionUID the serialVersionUID to set
+     */
+    public static void setSerialVersionUID(long aSerialVersionUID) {
+        serialVersionUID = aSerialVersionUID;
     }
 }

@@ -49,10 +49,8 @@
                             <f:facet name="header">
                                 <h:outputText value="Ações" />
                             </f:facet>
-                            <p:commandButton id="bEdita" icon="ui-icon-pencil" action="#{telaLocalizaBean.editarEmprestimo}" />
-                            <p:tooltip for="bEdita" value="Alterar emprestimo" trackMouse="true" />
                             <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluirEmprestimo}" update="tabela" >
-                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{emprestimo.id}?" icon="ui-icon-alert" />
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir?" icon="ui-icon-alert" />
                             </p:commandButton>
                             <p:confirmDialog global="true" closable="false" showEffect="fade" hideEffect="fade">
                                 <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

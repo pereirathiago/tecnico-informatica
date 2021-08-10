@@ -18,6 +18,7 @@ import javax.persistence.Id;
 @Entity
 public class Cliente implements Serializable {
 
+    private static long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = 0;
@@ -28,10 +29,12 @@ public class Cliente implements Serializable {
     private String uf;
     private String telefone;
 
-    public Cliente(Integer id){
+    public Cliente(Integer id) {
         this.id = id;
     }
-    public Cliente(){}    
+
+    public Cliente() {
+    }
 
     /**
      * @return the id
@@ -129,5 +132,19 @@ public class Cliente implements Serializable {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    /**
+     * @return the serialVersionUID
+     */
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    /**
+     * @param aSerialVersionUID the serialVersionUID to set
+     */
+    public static void setSerialVersionUID(long aSerialVersionUID) {
+        serialVersionUID = aSerialVersionUID;
     }
 }
