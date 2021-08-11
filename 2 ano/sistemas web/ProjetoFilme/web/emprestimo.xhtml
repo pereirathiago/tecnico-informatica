@@ -19,25 +19,25 @@
                     <p:tooltip id="ttVoltar" for="bVoltar" value="Voltar inicio" trackMouse="true" />
                     <br/><br/>
                     <p:dataTable id="tabela" value="#{telaLocalizaBean.listaEmprestimo}" var="emprestimo" >
-                        <p:column style="width:10%; text-align: center;">
+                        <p:column style="width:20%; text-align: center;">
                             <f:facet name="header">
                                 <h:outputText value="Código" />
                             </f:facet>
                             <h:outputText value="#{emprestimo.id}"/>
                         </p:column>
-                        <p:column style="width:10%">
+                        <p:column style="width:20%">
                             <f:facet name="header">
                                 <h:outputText value="Código Cliente" />
                             </f:facet>
                             <h:outputText value="#{emprestimo.idCliente}"/>
                         </p:column>
-                        <p:column style="width:10%;" >
+                        <p:column style="width:20%;" >
                             <f:facet name="header">
                                 <h:outputText value="Código Filme" />
                             </f:facet>
                             <h:outputText value="#{emprestimo.idFilme}"/>
                         </p:column>
-                        <p:column style="width:20%; text-align: center;" >
+                        <p:column style="width:30%; text-align: center;" >
                             <f:facet name="header">
                                 <h:outputText value="Data de emprestimo" />
                             </f:facet>
