@@ -3,123 +3,171 @@
 #include <malloc.h>
 struct arv
 {
-    char info;
-    struct arv* esq;
-    struct arv* dir;
+    char info; // char = um caractere
+    struct arv* esq; // arvore lado esquerdo
+    struct arv* dir; // arvore lado direito
 };
-typedef struct arv Arv;
+typedef struct arv Arv; // criamos o Arv do tipo struct arv, para não precisar escrever struct arv o tempo inteiro
+
+/*
+    a função cria recebe um caractere
+    aloca espaço na memoria
+    atribui c a info
+    esq e dir como null
+    retorna um ponteiro de arvore
+    "cria uma bolinha, um nó da arvore, e dois ponteiros pra nulo"
+*/
 Arv* cria(char c)
 {
-    Arv* a = (Arv*)malloc(sizeof(Arv));
+    Arv* a = (Arv*)malloc(sizeof(Arv)); // aloca na memoria um espoço que cabe uma arvore
     a->info = c;
     a->esq = NULL;
     a->dir = NULL;
     return a;
 }
+
+/*
+    objetivo desmontar a estrutura no final
+    recebe uma arvore
+    libera em ós-orden
+*/
 Arv* libera(Arv* a)
 {
-    if (a != NULL)
+    if (a != NULL) 
     {
-        libera(a->esq);
-        libera(a->dir);
-        free(a);
+        libera(a->esq); // chama o libera pra arv da esquerda, acabando com ela
+        libera(a->dir); // chama o libera pra arv da direita, acabando com ela
+        free(a); // libera o nó
     }
     return NULL;
 }
+
+/*
+    recebe uma arvore e o elemento a ser inserido
+*/
 Arv* insere(Arv* a, char elem)
 {
-    Arv* s;
-    if (a != NULL)
+    Arv* s; // cria um ponteiro pra arvore chamado s
+    if (a != NULL) // se a arvore não estiver vazia
     {
-        if (elem < a->info)
+        if (elem < a->info) // elemento é menor que o nó
         {
-            s = insere(a->esq, elem);
-            a->esq = s;
+            s = insere(a->esq, elem);  // chama o insere na arv esquerda
+            a->esq = s; // insere no nó esquerda
         }
         else
         {
-            s = insere(a->dir, elem);
-            a->dir = s;
+            s = insere(a->dir, elem); // chama o insere na arv direita
+            a->dir = s; // insere no nó direita
         }
     }
     else
-        a = cria(elem);
-    return a;
+        a = cria(elem); // se a arvore estiver vazia cria arvore
+    return a; // retorna arvore
 }
+
+/*
+    faz o caminhamento pré-ordem ned
+*/
 void pre(Arv* a)
 {
-    if (a != NULL)
+    if (a != NULL) // se a arv nn for nula
     {
-        printf(" %c", a->info);
-        pre(a->esq);
-        pre(a->dir);
+        printf(" %c", a->info); // mostra o elemento do nó
+        pre(a->esq); // chama pra esquerda, ate nn poder ir pra esquerda
+        pre(a->dir); // chama pra direita, ate nn poder ir pra direita
     }
 }
+
+/*
+    faz o caminhamento pós-orden edn
+*/
 void pos(Arv* a)
 {
     if (a != NULL)
     {
-        pos(a->esq);
-        pos(a->dir);
-        printf(" %c", a->info);
+        pos(a->esq); // chama pra esquerda, ate nn poder ir pra esquerda
+        pos(a->dir); // chama pra direita, ate nn poder ir pra direita
+        printf(" %c", a->info); // mostra o elemento do nó
     }
 }
+
+/*
+    faz o caminhamento in-orden end
+*/
 void in(Arv* a)
 {
     if (a != NULL)
     {
-        in(a->esq);
-        printf(" %c", a->info);
-        in(a->dir);
+        in(a->esq); // chama pra esquerda, ate nn poder ir pra esquerda
+        printf(" %c", a->info); // mostra o elemento do nó
+        in(a->dir); // chama pra direita, ate nn poder ir pra direita
     }
 }
+
+/*
+    faz o caminhamento nde
+*/
 void nde(Arv* a)
 {
     if (a != NULL)
     {
-        printf(" %c", a->info);
-        nde(a->dir);
-        nde(a->esq);
+        printf(" %c", a->info); // mostra o elemento do nó
+        nde(a->dir); // chama pra direita, ate nn poder ir pra direita
+        nde(a->esq); // chama pra esquerda, ate nn poder ir pra esquerda
     }
     
 }
+
+/*
+    faz o caminhamento dne
+*/
 void dne(Arv* a)
 {
     if (a != NULL)
     {
-        nde(a->dir);
-        printf(" %c", a->info);
-        nde(a->esq);
+        nde(a->dir); // chama pra direita, ate nn poder ir pra direita
+        printf(" %c", a->info); // mostra o elemento do nó
+        nde(a->esq); // chama pra esquerda, ate nn poder ir pra esqueda
     }
     
 }
+
+/*
+    faz o caminhamento den
+*/
 void den(Arv* a)
 {
     if (a != NULL)
     {
-        nde(a->dir);
-        nde(a->esq);
-        printf(" %c", a->info);
+        nde(a->dir); // chama pra direita, ate nn poder ir pra direita
+        nde(a->esq); // chama pra esqueda, ate nn poder ir pra esqueda
+        printf(" %c", a->info); // mostra o elemento do nó
     }
     
 }
+
+/*
+    busca o elemento na arvore
+    recebe uma arvore e um elemento
+*/ 
 int busca(Arv* a, char elem)
 {
-    if (a == NULL)
-        return NULL;
+    if (a == NULL) // se a arvore for nula, nn tem o elemento
+        return NULL; // retorna null
     else 
-        if (a->info > elem)
-            return busca(a->esq, elem);
+        if (a->info > elem) // se o elemento da arvore for maior q o elemento
+            return busca(a->esq, elem); // vai pra esqueda
         else 
-            if (a->info < elem)
-                return busca(a->dir, elem);
+            if (a->info < elem) // se o elemento da arvore for menor q o element
+                return busca(a->dir, elem); // vai para direita
             else
-                return a->info;
+                return a->info; // retorna a informação
 }
 int main()
 {
-    Arv* a = NULL;
-    int opcao = -1;
+    Arv* a = NULL; // arvore a como nulo
+    int opcao = -1; 
     int b;
     char elem;
     while (opcao != 0)
@@ -133,7 +181,7 @@ int main()
         switch(opcao){
                 case 1:
                     printf("Digite elemento a incluir ");
-                    scanf(" %c", &elem);
+                    scanf(" %c", &elem); // gambiara pra scanf do caractere, colocar espaço antes do %c, para não contar com o enter
                     a = insere(a, elem);
                     break;
                 case 2:
@@ -162,7 +210,7 @@ int main()
                 case 6:
                     printf("Digite elemento a buscar ");
                     scanf(" %c", &elem);
-                    b = busca(a, elem);
+                    b = busca(a, elem); // recebe o resultado da busca
                     if (b == NULL)
                     {
                         printf("Elemento inexistente\n");
@@ -181,5 +229,5 @@ int main()
                     printf("\nOpcao inexistente!");
         }
     }
-    libera(a);
+    libera(a); // libera arvore
 }
