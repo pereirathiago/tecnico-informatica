@@ -229,5 +229,5 @@ int main()
                     printf("\nOpcao inexistente!");
         }
     }
-    libera(a); // libera arvore
+    libera(a); // chama a funcao libera na arvore
 }
