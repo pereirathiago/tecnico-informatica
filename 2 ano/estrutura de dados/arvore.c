@@ -126,9 +126,9 @@ void dne(Arv* a)
 {
     if (a != NULL)
     {
-        nde(a->dir); // chama pra direita, ate nn poder ir pra direita
+        dne(a->dir); // chama pra direita, ate nn poder ir pra direita
         printf(" %c", a->info); // mostra o elemento do nó
-        nde(a->esq); // chama pra esquerda, ate nn poder ir pra esqueda
+        dne(a->esq); // chama pra esquerda, ate nn poder ir pra esqueda
     }
     
 }
@@ -140,8 +140,8 @@ void den(Arv* a)
 {
     if (a != NULL)
     {
-        nde(a->dir); // chama pra direita, ate nn poder ir pra direita
-        nde(a->esq); // chama pra esqueda, ate nn poder ir pra esqueda
+        den(a->dir); // chama pra direita, ate nn poder ir pra direita
+        den(a->esq); // chama pra esqueda, ate nn poder ir pra esqueda
         printf(" %c", a->info); // mostra o elemento do nó
     }
     
