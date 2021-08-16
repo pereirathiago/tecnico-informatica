@@ -42,4 +42,10 @@ public class EmprestimoDAO {
         List<Emprestimo> lista = q.getResultList();
         return lista;
     }
+    public List<Emprestimo> pesquisa(Integer idFilme) {
+        Query q = em.createNativeQuery("select * from emprestimo where idFilme=idFilme", Emprestimo.class);
+        q.setParameter("idFilme", '%' + idFilme + '%');
+        List<Emprestimo> lista = q.getResultList();
+        return lista;
+    }
 }
