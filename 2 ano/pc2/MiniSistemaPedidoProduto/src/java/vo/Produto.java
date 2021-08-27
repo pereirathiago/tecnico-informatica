@@ -20,7 +20,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProduto = 0;
-    private Integer codBar;
+    private String codBar;
     private String descricao;
     private Integer minimo;
     private Integer quantidadeProd;
@@ -60,14 +60,14 @@ public class Produto {
     /**
      * @return the codBar
      */
-    public Integer getCodBar() {
+    public String getCodBar() {
         return codBar;
     }
 
     /**
      * @param codBar the codBar to set
      */
-    public void setCodBar(Integer codBar) {
+    public void setCodBar(String codBar) {
         this.codBar = codBar;
     }
 

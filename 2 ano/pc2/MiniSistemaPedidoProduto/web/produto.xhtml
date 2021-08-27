@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Produtos</title>
+    </h:head>
+    <h:body style="background-color: #cccccc;">
+
+        <div class="geral">
+            <p:fieldset legend="Produtos" style="margin-bottom:20px">
+                <h:form>
+                    <p:commandButton id="bNovo" icon="ui-icon-document" action="#{telaLocalizaBean.novoProduto}" />
+                    <p:tooltip id="ttNovo" for="bNovo" value="Novo filme" trackMouse="true" />
+                    <p:commandButton id="bAtualiza" icon="ui-icon-refresh" action="#{telaLocalizaBean.atualizaListaProduto}" update="tabela" />
+                    <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" />
+                    <p:commandButton id="bVoltar" icon="ui-icon-arrowthick-1-w" action="index.xhtml" update="tabela" />
+                    <p:tooltip id="ttVoltar" for="bVoltar" value="Voltar inicio" trackMouse="true" />
+                    <br/><br/>
+                    <p:dataTable id="tabela" value="#{telaLocalizaBean.listaProduto}" var="produto" >                        
+                        <p:column style="width:10%; text-align: center;">
+                            <f:facet name="header">
+                                <h:outputText value="Id" />
+                            </f:facet>
+                            <h:outputText value="#{produto.idProduto}"/>
+                        </p:column>
+                        <p:column style="width:20%">
+                            <f:facet name="header">
+                                <h:outputText value="Codigo de barras" />
+                            </f:facet>
+                            <h:outputText value="#{produto.codBar}"/>
+                        </p:column>
+                        <p:column style="width:40%">
+                            <f:facet name="header">
+                                <h:outputText value="Descrição" />
+                            </f:facet>
+                            <h:outputText value="#{produto.descricao}"/>
+                        </p:column>
+                        <p:column style="width:10%">
+                            <f:facet name="header">
+                                <h:outputText value="Minimo" />
+                            </f:facet>
+                            <h:outputText value="#{produto.minimo}"/>
+                        </p:column>
+                        <p:column style="width:10%">
+                            <f:facet name="header">
+                                <h:outputText value="Quantidade" />
+                            </f:facet>
+                            <h:outputText value="#{produto.quantidadeProd}"/>
+                        </p:column>
+                        <p:column style="width:10%">
+                            <f:facet name="header">
+                                <h:outputText value="Ações" />
+                            </f:facet>
+                            <p:commandButton id="bEdita" icon="ui-icon-pencil" action="#{telaLocalizaBean.editarProduto}" />
+                            <p:tooltip for="bEdita" value="Alterar produto" trackMouse="true" />
+                            <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluirProduto}" update="tabela" >
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{produto.codBar}?" icon="ui-icon-alert" />
+                            </p:commandButton>
+                            <p:confirmDialog global="true" closable="false" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
+                            <p:tooltip for="bExclui" value="Exclui produto #{produto.codBar}" trackMouse="true" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:fieldset>
+        </div>
+    </h:body>
+</html>
