@@ -10,7 +10,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import persistencia.ClienteDAO;
 import persistencia.ProdutoDAO;
+import vo.Cliente;
 import vo.Produto;
 
 /**
@@ -23,6 +25,10 @@ public class TelaLocalizaBean implements Serializable {
     private DataModel<Produto> listaProduto;
     private ProdutoDAO pd = new ProdutoDAO();
     private Produto produto = new Produto();
+    
+    private DataModel<Cliente> listaCliente;
+    private ClienteDAO cd = new ClienteDAO();
+    private Cliente cliente = new Cliente();
     
     public TelaLocalizaBean() {}
     
@@ -66,6 +72,47 @@ public class TelaLocalizaBean implements Serializable {
     public String cancelaProduto() {
         return "produto";
     }
+    
+    public String atualizaListaCliente() {
+        listaCliente = new ListDataModel(cd.pesquisa());
+        return "cliente";
+    }
+    
+    public DataModel<Cliente> getListaCliente() {
+        atualizaListaCliente();
+        return listaCliente;
+    }
+    
+    public Cliente clienteSelecionado() {
+        Cliente c = listaCliente.getRowData();
+        return c;
+    }
+    
+    public String novoCliente() {
+        setCliente(new Cliente());
+        return "cadastro_cliente";
+    }
+    
+    public String excluirCliente() {
+        Cliente c = clienteSelecionado();
+        cd.exclui(c);
+        return "cliente";
+    }
+    
+    public String editarCliente() {
+        Cliente c = clienteSelecionado();
+        setCliente(c);
+        return "cadastro_cliente";
+    }
+    
+    public String salvaCliente() {
+        cd.salva(getCliente());
+        return "cliente";
+    }
+    
+    public String cancelaCliente() {
+        return "cliente";
+    }
 
     /**
      * @return the produto
@@ -79,5 +126,19 @@ public class TelaLocalizaBean implements Serializable {
      */
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the cliente to set
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }
