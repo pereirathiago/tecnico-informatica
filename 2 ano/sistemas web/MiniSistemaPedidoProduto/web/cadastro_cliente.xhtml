@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Clientes</title>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" />
+        <p:fieldset legend="Cliente" style="margin-bottom:20px; font-size: small;">
+            <h:form>
+                <br/><br/>
+                <p:outputLabel value="Id: " for="itIdCliente" />
+                <p:inputText id="itIdCliente" value="#{telaLocalizaBean.cliente.idCliente}" /><br/><br/>
+                <p:outputLabel value="Nome: " for="itNome"/>
+                <p:inputText id="itNome" value="#{telaLocalizaBean.cliente.nome}" required="true" requiredMessage="É obrigatório um Nome!"/><br/><br/>
+                <p:outputLabel value="CPF: " for="itCpf"/>
+                <p:inputText id="itCpf" value="#{telaLocalizaBean.cliente.cpf}" required="true" requiredMessage="É obrigadorio CPF"/><br/><br/>
+                <p:outputLabel value="Endereço: " for="itEndereco"/>
+                <p:inputText id="itEndereco" value="#{telaLocalizaBean.cliente.endereco}" required="true" requiredMessage="É obrigatório um endereço!"/><br/><br/>
+                <p:outputLabel value="Telefone:  " for="ifTelefone" />
+                <p:inputText id="ifTelefone" value="#{telaLocalizaBean.cliente.telefone}" /><br/><br/>
+                <p:outputLabel value="Cidade:  " for="itCidade" />
+                <p:inputText id="itCidade" value="#{telaLocalizaBean.cliente.cidade}" required="true" requiredMessage="É obrigatório um cidade!"/><br/><br/>
+                <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salvaCliente()}"/><br/><br/>
+            </h:form>
+            <h:form>
+                <p:commandButton icon="ui-icon-arrowreturnthick-1-w" action="#{telaLocalizaBean.cancelaCliente}"/>
+                <br/><br/>
+            </h:form>
+        </p:fieldset>
+    </h:body>
+</html>
