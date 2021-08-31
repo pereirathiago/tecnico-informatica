@@ -6,5 +6,6 @@
         <jta-data-source>jdbc/produto</jta-data-source>
         <class>vo.Produto</class>
         <class>vo.Cliente</class>
+        <class>vo.Pedido</class>
     </persistence-unit>
 </persistence>
