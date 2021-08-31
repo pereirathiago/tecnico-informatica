@@ -5,17 +5,33 @@
  */
 package vo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Thiago
  */
+@Entity
 public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCliente;
     private String nome;
     private String cpf;
     private String endereco;
     private String telefone;
     private String cidade;
+
+    public Cliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public Cliente() {
+    }
 
     /**
      * @return the idCliente
