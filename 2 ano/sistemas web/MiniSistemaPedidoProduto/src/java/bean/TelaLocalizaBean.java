@@ -155,9 +155,9 @@ public class TelaLocalizaBean implements Serializable {
     }
     
     public String salvaPedido() {
-        if(pd.localiza(getPedido().getIdProduto()) != null) {
-            if(cd.localiza(getPedido().getIdCliente()) != null) {
-                ped.salva(getPedido());
+        if(pd.localiza(pedido.getIdProduto()) != null) {
+            if(cd.localiza(pedido.getIdCliente()) != null) {
+                ped.salva(pedido);
                 return "pedido";
             }
         }
