@@ -22,10 +22,11 @@ public class PedidoDAO {
     
     public void salva(Pedido p) {
         em.getTransaction().begin();
-        if (p.getIdPedido() == 0)
+        if (p.getIdPedido() == 0) {
             em.persist(p);
-        else 
+        } else {
             em.merge(p);
+        }
         em.getTransaction().commit();
     }
     

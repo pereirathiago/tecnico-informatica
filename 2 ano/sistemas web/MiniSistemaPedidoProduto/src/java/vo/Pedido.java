@@ -19,11 +19,11 @@ import javax.persistence.Id;
 public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPedido = 0;
-    private Integer idCliente;
-    private Integer idProduto;
-    private Integer qtdPedido;
-    public Pedido(Integer idPedido) {
+    private int idPedido = 0;
+    private int idCliente =0;
+    private int idProduto = 0;
+    private int qtdPedido = 0;
+    public Pedido(int idPedido) {
         this.idPedido = idPedido;
     }
     public Pedido(){}
@@ -31,21 +31,21 @@ public class Pedido implements Serializable {
     /**
      * @return the idPedido
      */
-    public Integer getIdPedido() {
+    public int getIdPedido() {
         return idPedido;
     }
 
     /**
      * @param idPedido the idPedido to set
      */
-    public void setIdPedido(Integer idPedido) {
+    public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }
 
     /**
      * @return the idCliente
      */
-    public Integer getIdCliente() {
+    public int getIdCliente() {
         return idCliente;
     }
 

@@ -47,14 +47,8 @@
                             <f:facet name="header">
                                 <h:outputText value="Ações" />
                             </f:facet>
-                            <p:commandButton id="bExclui" icon="ui-icon-trash" action="#{telaLocalizaBean.excluirPedido}" update="tabela" >
-                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir? #{pedido.idPedido}" icon="ui-icon-alert" />
-                            </p:commandButton>
-                            <p:confirmDialog global="true" closable="false" showEffect="fade" hideEffect="fade">
-                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                            </p:confirmDialog>
-                            <p:tooltip for="bExclui" value="Exclui professor #{pedido.idPedido}" trackMouse="true" />
+                            <p:commandButton id="bNotaFiscal" icon="ui-icon-note" action="#{telaLocalizaBean.gerarNotaFiscal()}" />
+                            <p:tooltip for="bNotaFiscal" value="Ver Nota Fiscal" trackMouse="true" />
                         </p:column>
                     </p:dataTable>
                 </h:form>

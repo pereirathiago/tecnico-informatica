@@ -133,35 +133,35 @@ public class TelaLocalizaBean implements Serializable {
     }
 
     public Pedido pedidoSelecionado() {
-        Pedido p = getListaPedido().getRowData();
+        Pedido p = listaPedido.getRowData();
         return p;
-    }
-
-    public String excluirPedido() {
-        Pedido p = pedidoSelecionado();
-        ped.exclui(p);
-        return "pedido";
     }
 
     public String novoPedido() {
         setPedido(new Pedido());
         return "cadastro_pedido";
     }
-
-    public String editarPedido() {
-        Pedido p = pedidoSelecionado();
-        setPedido(p);
-        return "cadastro_pedido";
-    }
     
     public String salvaPedido() {
         if(pd.localiza(pedido.getIdProduto()) != null) {
             if(cd.localiza(pedido.getIdCliente()) != null) {
-                ped.salva(pedido);
-                return "pedido";
+                if(pedido.getQtdPedido() > 0) {
+                    ped.salva(getPedido());
+                    return "pedido";
+                }
             }
         }
         return "";
+    }
+    
+    public String gerarNotaFiscal() {
+        Pedido pe = pedidoSelecionado();
+        setPedido(pe);
+        Produto p = pd.localiza(pe.getIdProduto());
+        setProduto(p);
+        Cliente c = cd.localiza(pe.getIdCliente());
+        setCliente(c);
+        return "nota_fiscal";
     }
     
     public String cancelaPedido() {

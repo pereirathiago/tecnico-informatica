@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Menu</title>
+    </h:head>
+    <h:body style="background-color: #cccccc;">
+        <p:fieldset style="width: 400px; height: 200px; text-align: center;">
+           
+            <p:outputLabel style="font-size: 14pt;" value="Nome da empresa" />
+            <br/>
+            <p:outputLabel style="font-size: 14pt;" value="CNPJ: 00.000.000/0000-00" />
+            <br/><br/>
+            <p:outputLabel style="font-size: 14pt;" value="CLIENTE: #{telaLocalizaBean.cliente.nome}" />
+            <br/>
+            <p:outputLabel style="font-size: 14pt;" value="CPF: #{telaLocalizaBean.cliente.cpf}" />
+            <br/><br/>
+            <p:outputLabel style="font-size: 14pt;" value="PRODUTO: #{telaLocalizaBean.produto.descricao}" />
+            <br/>
+            <p:outputLabel style="font-size: 14pt;" value="QUANTIDADE: #{telaLocalizaBean.pedido.qtdPedido}" />
+            <br/>
+        </p:fieldset>
+        <br/>
+        <h:form>
+            <p:commandButton value="Voltar" action="pedido" ajax="false"/>
+            <p:commandButton value="Imprimir" action="#" ajax="false"/>
+        </h:form>
+    </h:body>
+</html>
