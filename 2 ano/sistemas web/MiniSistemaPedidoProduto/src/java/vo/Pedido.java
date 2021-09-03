@@ -17,6 +17,27 @@ import javax.persistence.Id;
  */
 @Entity
 public class Pedido implements Serializable {
+
+    /**
+     * @param idCliente the idCliente to set
+     */
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    /**
+     * @param idProduto the idProduto to set
+     */
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    /**
+     * @param qtdPedido the qtdPedido to set
+     */
+    public void setQtdPedido(int qtdPedido) {
+        this.qtdPedido = qtdPedido;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPedido = 0;
@@ -53,7 +74,7 @@ public class Pedido implements Serializable {
      * @param idCliente the idCliente to set
      */
     public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+        this.setIdCliente((int) idCliente);
     }
 
     /**
@@ -67,7 +88,7 @@ public class Pedido implements Serializable {
      * @param idProduto the idProduto to set
      */
     public void setIdProduto(Integer idProduto) {
-        this.idProduto = idProduto;
+        this.setIdProduto((int) idProduto);
     }
 
     /**
@@ -81,6 +102,6 @@ public class Pedido implements Serializable {
      * @param qtdPedido the qtdPedido to set
      */
     public void setQtdPedido(Integer qtdPedido) {
-        this.qtdPedido = qtdPedido;
+        this.setQtdPedido((int) qtdPedido);
     }
 }
