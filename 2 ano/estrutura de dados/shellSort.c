@@ -5,11 +5,7 @@ void shellSort(int *v, int n)
 {
     int i, j, value;
 
-    int h = 1;
-    while (h < n)
-    {
-        h = 3 * h + 1;
-    }
+    int h = n/2;
     while (h > 0)
     {
         for (i = h; i < n; i++)
@@ -23,9 +19,9 @@ void shellSort(int *v, int n)
             }
             v[j] = value;
         }
-        h = h / 3;
+        h = h/2;
     }
-}
+};
 
 int main()
 {
