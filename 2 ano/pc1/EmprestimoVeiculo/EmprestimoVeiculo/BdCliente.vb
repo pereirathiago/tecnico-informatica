@@ -13,7 +13,7 @@ Public Class BdCliente
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "insert into cliente (id, nome, endereco, cidade, uf, cpf, rg) values (@id, @nome, @endereco, @cidade, @ uf, @cpf, @rg)"
+            cmd.CommandText = "insert into cliente (id, nome, endereco, cidade, uf, cpf, rg) values (@id, @nome, @endereco, @cidade, @uf, @cpf, @rg)"
             cmd.Parameters.AddWithValue("@id", cliente.id)
             cmd.Parameters.AddWithValue("@nome", cliente.nome)
             cmd.Parameters.AddWithValue("@endereco", cliente.endereco)
@@ -82,10 +82,10 @@ Public Class BdCliente
                 cliente.id = dr.GetInt32("id")
                 cliente.nome = dr.GetString("nome")
                 cliente.endereco = dr.GetString("endereco")
-                cliente.cidade = dr.GetInt32("cidade")
+                cliente.cidade = dr.GetString("cidade")
                 cliente.uf = dr.GetString("uf")
                 cliente.cpf = dr.GetString("cpf")
-                cliente.rg = dr.GetInt32("rg")
+                cliente.rg = dr.GetString("rg")
             End If
             cmd.Dispose()
             fechar()
