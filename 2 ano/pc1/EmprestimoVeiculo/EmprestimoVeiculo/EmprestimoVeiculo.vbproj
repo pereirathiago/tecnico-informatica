@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Bd.vb" />
     <Compile Include="BdCliente.vb" />
+    <Compile Include="BdVeiculo.vb" />
     <Compile Include="Cliente.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -92,6 +93,18 @@
       <DependentUpon>FormCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="FormCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVeiculo.Designer.vb">
+      <DependentUpon>FormVeiculo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeiculo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVeiculosDg.Designer.vb">
+      <DependentUpon>FormVeiculosDg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeiculosDg.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -110,6 +123,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Veiculo.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -117,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVeiculo.resx">
+      <DependentUpon>FormVeiculo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVeiculosDg.resx">
+      <DependentUpon>FormVeiculosDg.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -1,5 +1,5 @@
-﻿Public Class Form1
-    Dim bd As New BdCliente
+﻿Public Class FormVeiculosDg
+    Dim bd As New BdVeiculo
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -17,18 +17,18 @@
         linha = dgFiltro.Rows.GetFirstRow(DataGridViewElementStates.Selected)
         If linha > -1 Then
             codigo = dgFiltro.Rows(linha).Cells(0).Value
-            FormCliente.cliente = bd.localizar(codigo)
-            FormCliente.novo = False
-            FormCliente.Show()
+            FormVeiculo.veiculo = bd.localizar(codigo)
+            FormVeiculo.novo = False
+            FormVeiculo.Show()
         Else
             MsgBox("Nenhuma linha selecionada")
         End If
     End Sub
 
     Private Sub NovoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NovoToolStripMenuItem.Click
-        FormCliente.cliente = New Cliente
-        FormCliente.novo = True
-        FormCliente.Show()
+        FormVeiculo.veiculo = New Veiculo
+        FormVeiculo.novo = True
+        FormVeiculo.Show()
     End Sub
 
     Private Sub ExcluirToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ExcluirToolStripMenuItem.Click
@@ -43,7 +43,11 @@
         End If
     End Sub
 
-    Private Sub btnVerVeiculo_Click(sender As Object, e As EventArgs) Handles btnVerVeiculo.Click
-        FormVeiculosDg.Show()
+    Private Sub btnVerTodosVeiculos_Click(sender As Object, e As EventArgs) Handles btnVerTodosVeiculos.Click
+        dgFiltro.DataSource = bd.pesquisa("").Tables(0).DefaultView
+    End Sub
+
+    Private Sub btnVerEmprestimo_Click(sender As Object, e As EventArgs) Handles btnVerEmprestimo.Click
+        dgFiltro.DataSource = bd.emprestimos().Tables(0).DefaultView
     End Sub
 End Class
