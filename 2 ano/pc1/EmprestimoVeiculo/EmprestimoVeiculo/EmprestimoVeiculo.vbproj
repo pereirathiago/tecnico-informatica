@@ -101,6 +101,12 @@
     <Compile Include="FormVeiculo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormVeiculoEmprestimo.Designer.vb">
+      <DependentUpon>FormVeiculoEmprestimo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeiculoEmprestimo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormVeiculosDg.Designer.vb">
       <DependentUpon>FormVeiculosDg.vb</DependentUpon>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormVeiculo.resx">
       <DependentUpon>FormVeiculo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVeiculoEmprestimo.resx">
+      <DependentUpon>FormVeiculoEmprestimo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVeiculosDg.resx">
       <DependentUpon>FormVeiculosDg.vb</DependentUpon>

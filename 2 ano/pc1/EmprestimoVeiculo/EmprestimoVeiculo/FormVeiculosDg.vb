@@ -43,6 +43,19 @@
         End If
     End Sub
 
+    Private Sub EmprestarVeiculoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmprestarVeiculoToolStripMenuItem.Click
+        Dim codigo = -1, linha As Integer
+        linha = dgFiltro.Rows.GetFirstRow(DataGridViewElementStates.Selected)
+        If linha > -1 Then
+            codigo = dgFiltro.Rows(linha).Cells(0).Value
+            FormVeiculoEmprestimo.veiculo = bd.localizar(codigo)
+            FormVeiculoEmprestimo.novo = False
+            FormVeiculoEmprestimo.Show()
+        Else
+            MsgBox("Nenhuma linha selecionada")
+        End If
+    End Sub
+
     Private Sub btnVerTodosVeiculos_Click(sender As Object, e As EventArgs) Handles btnVerTodosVeiculos.Click
         dgFiltro.DataSource = bd.pesquisa("").Tables(0).DefaultView
     End Sub

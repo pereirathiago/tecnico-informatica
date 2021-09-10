@@ -49,6 +49,23 @@ Public Class BdVeiculo
             MsgBox(ex.Message)
         End Try
     End Sub
+    Public Sub emprestaVeiculo(ByVal veiculo As Veiculo)
+        Dim da As MySqlDataAdapter = New MySqlDataAdapter
+        Dim cmd As MySqlCommand = New MySqlCommand
+        Try
+            Abrir()
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "update veiculo set idCliente=@idCliente where id=@id"
+            cmd.Parameters.AddWithValue("@id", veiculo.id)
+            cmd.Parameters.AddWithValue("@idCliente", veiculo.idCliente)
+            cmd.Connection = Conexao
+            da.UpdateCommand = cmd
+            da.UpdateCommand.ExecuteNonQuery()
+            fechar()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Public Sub excluir(ByVal id As Integer)
         Dim da As MySqlDataAdapter = New MySqlDataAdapter
         Dim cmd As MySqlCommand = New MySqlCommand
