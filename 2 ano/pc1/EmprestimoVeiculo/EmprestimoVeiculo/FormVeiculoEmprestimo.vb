@@ -4,7 +4,7 @@
     Dim bd As New BdVeiculo
     Private Sub veiculototela()
         txtidveiculo.Text = mVeiculoEmp.id
-        txtidveiculo.Text = mVeiculoEmp.idCliente
+        txtidcliente.Text = mVeiculoEmp.idCliente
     End Sub
     Private Sub telatoveiculo()
         mVeiculoEmp.id = txtidveiculo.Text
@@ -33,11 +33,7 @@
 
     Private Sub btnEmpresta_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnemprestra.Click
         telatoveiculo()
-        If novo Then
-            bd.inserir(veiculo)
-        Else
-            bd.atualizar(veiculo)
-        End If
+        bd.emprestaVeiculo(veiculo)
         Me.Dispose()
     End Sub
 End Class

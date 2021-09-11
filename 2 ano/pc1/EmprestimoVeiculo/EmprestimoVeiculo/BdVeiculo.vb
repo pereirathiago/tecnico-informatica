@@ -55,6 +55,7 @@ Public Class BdVeiculo
         Try
             Abrir()
             cmd.CommandType = CommandType.Text
+            Console.WriteLine(veiculo.idCliente)
             cmd.CommandText = "update veiculo set idCliente=@idCliente where id=@id"
             cmd.Parameters.AddWithValue("@id", veiculo.id)
             cmd.Parameters.AddWithValue("@idCliente", veiculo.idCliente)
