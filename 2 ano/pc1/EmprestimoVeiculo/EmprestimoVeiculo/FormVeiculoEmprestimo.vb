@@ -2,6 +2,7 @@
     Dim mVeiculoEmp As New Veiculo
     Dim mnovo As Boolean
     Dim bd As New BdVeiculo
+    Dim bdcliente As New BdCliente
     Private Sub veiculototela()
         txtidveiculo.Text = mVeiculoEmp.id
         txtidcliente.Text = mVeiculoEmp.idCliente
@@ -32,8 +33,12 @@
     End Sub
 
     Private Sub btnEmpresta_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnemprestra.Click
-        telatoveiculo()
-        bd.emprestaVeiculo(veiculo)
-        Me.Dispose()
+        If bdcliente.localizar(Integer.Parse(txtidcliente.Text)).nome <> "" Then
+            telatoveiculo()
+            bd.emprestaVeiculo(veiculo)
+            Me.Dispose()
+        Else
+            MsgBox("Cliente não existe")
+        End If
     End Sub
 End Class

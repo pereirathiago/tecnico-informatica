@@ -32,9 +32,9 @@ Partial Class FormVeiculosDg
         Me.ArquivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NovoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlterarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExcluirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmprestarVeiculoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DevolverVeiculoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExcluirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgFiltro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -109,20 +109,14 @@ Partial Class FormVeiculosDg
         'NovoToolStripMenuItem
         '
         Me.NovoToolStripMenuItem.Name = "NovoToolStripMenuItem"
-        Me.NovoToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.NovoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NovoToolStripMenuItem.Text = "Novo"
         '
         'AlterarToolStripMenuItem
         '
         Me.AlterarToolStripMenuItem.Name = "AlterarToolStripMenuItem"
-        Me.AlterarToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.AlterarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AlterarToolStripMenuItem.Text = "Alterar"
-        '
-        'ExcluirToolStripMenuItem
-        '
-        Me.ExcluirToolStripMenuItem.Name = "ExcluirToolStripMenuItem"
-        Me.ExcluirToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
-        Me.ExcluirToolStripMenuItem.Text = "Excluir"
         '
         'EmprestarVeiculoToolStripMenuItem
         '
@@ -135,6 +129,12 @@ Partial Class FormVeiculosDg
         Me.DevolverVeiculoToolStripMenuItem.Name = "DevolverVeiculoToolStripMenuItem"
         Me.DevolverVeiculoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DevolverVeiculoToolStripMenuItem.Text = "Devolver veiculo"
+        '
+        'ExcluirToolStripMenuItem
+        '
+        Me.ExcluirToolStripMenuItem.Name = "ExcluirToolStripMenuItem"
+        Me.ExcluirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExcluirToolStripMenuItem.Text = "Excluir"
         '
         'FormVeiculosDg
         '

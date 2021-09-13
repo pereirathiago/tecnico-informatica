@@ -31,7 +31,6 @@ Partial Class Form1
         Me.txtFiltro = New System.Windows.Forms.TextBox()
         Me.btnfiltro = New System.Windows.Forms.Button()
         Me.btnVerVeiculo = New System.Windows.Forms.Button()
-        Me.btnVerEmprestimo = New System.Windows.Forms.Button()
         Me.dgFiltro = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgFiltro, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,15 +104,6 @@ Partial Class Form1
         Me.btnVerVeiculo.Text = "Ver Veiculo"
         Me.btnVerVeiculo.UseVisualStyleBackColor = True
         '
-        'btnVerEmprestimo
-        '
-        Me.btnVerEmprestimo.Location = New System.Drawing.Point(387, 31)
-        Me.btnVerEmprestimo.Name = "btnVerEmprestimo"
-        Me.btnVerEmprestimo.Size = New System.Drawing.Size(101, 23)
-        Me.btnVerEmprestimo.TabIndex = 6
-        Me.btnVerEmprestimo.Text = "Ver Emprestimos"
-        Me.btnVerEmprestimo.UseVisualStyleBackColor = True
-        '
         'dgFiltro
         '
         Me.dgFiltro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -128,7 +118,6 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(783, 385)
         Me.Controls.Add(Me.dgFiltro)
-        Me.Controls.Add(Me.btnVerEmprestimo)
         Me.Controls.Add(Me.btnVerVeiculo)
         Me.Controls.Add(Me.btnfiltro)
         Me.Controls.Add(Me.txtFiltro)
@@ -153,6 +142,5 @@ Partial Class Form1
     Friend WithEvents txtFiltro As TextBox
     Friend WithEvents btnfiltro As Button
     Friend WithEvents btnVerVeiculo As Button
-    Friend WithEvents btnVerEmprestimo As Button
     Friend WithEvents dgFiltro As DataGridView
 End Class

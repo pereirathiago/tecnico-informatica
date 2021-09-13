@@ -67,6 +67,22 @@ Public Class BdVeiculo
             MsgBox(ex.Message)
         End Try
     End Sub
+    Public Sub devolveVeiculo(ByVal id As Integer)
+        Dim da As MySqlDataAdapter = New MySqlDataAdapter
+        Dim cmd As MySqlCommand = New MySqlCommand
+        Try
+            Abrir()
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "update veiculo set idCliente=0 where id=@id"
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Connection = Conexao
+            da.UpdateCommand = cmd
+            da.UpdateCommand.ExecuteNonQuery()
+            fechar()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Public Sub excluir(ByVal id As Integer)
         Dim da As MySqlDataAdapter = New MySqlDataAdapter
         Dim cmd As MySqlCommand = New MySqlCommand
