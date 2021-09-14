@@ -21,10 +21,11 @@ public class VeiculoDAO {
     }
     public void salva(Veiculo v) {
         em.getTransaction().begin();
-        if (v.getId() == 0)
+        if (v.getId() == 0) {
             em.persist(v);
-        else
+        } else {
             em.merge(v);
+        }
         em.getTransaction().commit();
     }
     public Veiculo localiza(int id) {
