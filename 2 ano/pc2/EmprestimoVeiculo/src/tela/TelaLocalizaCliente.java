@@ -8,39 +8,39 @@ package tela;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import persistencia.VeiculoDAO;
-import vo.Veiculo;
+import persistencia.ClienteDAO;
+import vo.Cliente;
 
 /**
  *
  * @author Thiago
  */
-public class TelaLocalizaVeiculo extends javax.swing.JFrame {
+public class TelaLocalizaCliente extends javax.swing.JFrame {
 
-    VeiculoDAO vd = new VeiculoDAO();
-
+    ClienteDAO cd = new ClienteDAO();
+    
     /**
-     * Creates new form TelaLocalizaVeiculo
+     * Creates new form TelaLocalizaCliente
      */
-    public TelaLocalizaVeiculo() {
+    public TelaLocalizaCliente() {
         initComponents();
     }
-
+    
     private void preencheTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tlocaliza.getModel();
         int i = modelo.getRowCount();
         while (i-- > 0) {
             modelo.removeRow(i);
         }
-        List<Veiculo> lista;
+        List<Cliente> lista;
         if (tFiltro.getText().equals("")) {
-            lista = vd.pesquisa();
+            lista = cd.pesquisa();
         } else {
-            lista = vd.pesquisa(tFiltro.getText());
+            lista = cd.pesquisa(tFiltro.getText());
         }
 
-        for (Veiculo v : lista) {
-            modelo.addRow(new Object[]{v.getId(), v.getPlaca(), v.getMarca(), v.getModelo(), v.getAno(), v.getChassi(), v.getIdCliente()});
+        for (Cliente c : lista) {
+            modelo.addRow(new Object[]{c.getId(), c.getNome(), c.getEndereco(), c.getCidade(), c.getUf(), c.getCpf(), c.getRg()});
         }
     }
 
@@ -53,50 +53,17 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
-        jColorChooser1 = new javax.swing.JColorChooser();
-        jFrame1 = new javax.swing.JFrame();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tFiltro = new javax.swing.JTextField();
         bOk = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tlocaliza = new javax.swing.JTable();
-        bClientes = new javax.swing.JButton();
-        bEmprestimo = new javax.swing.JButton();
+        bVeiculos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        mArquivo = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
         mNovo = new javax.swing.JMenuItem();
         mAlterar = new javax.swing.JMenuItem();
-        mEmprestar = new javax.swing.JMenuItem();
-        mDevolver = new javax.swing.JMenuItem();
         mExcluir = new javax.swing.JMenuItem();
-        mVeiculos = new javax.swing.JMenuItem();
-
-        jScrollPane1.setViewportView(jTree1);
-
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -124,29 +91,34 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Placa", "Marca", "Modelo", "Ano", "Chassi", "IdCliente"
+                "Id", "Nome", "Endereço", "Cidade", "UF", "CPF", "RG"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
         jScrollPane2.setViewportView(tlocaliza);
 
-        bClientes.setText("Ver Clientes");
-        bClientes.addActionListener(new java.awt.event.ActionListener() {
+        bVeiculos.setText("Ver Veículos");
+        bVeiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bClientesActionPerformed(evt);
+                bVeiculosActionPerformed(evt);
             }
         });
 
-        bEmprestimo.setText("Ver emprestados");
-
-        mArquivo.setText("Arquivo");
+        jMenu1.setText("Arquivo");
 
         mNovo.setText("Novo");
         mNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +126,7 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 mNovoActionPerformed(evt);
             }
         });
-        mArquivo.add(mNovo);
+        jMenu1.add(mNovo);
 
         mAlterar.setText("Alterar");
         mAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,13 +134,7 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 mAlterarActionPerformed(evt);
             }
         });
-        mArquivo.add(mAlterar);
-
-        mEmprestar.setText("Emprestar Veículo");
-        mArquivo.add(mEmprestar);
-
-        mDevolver.setText("Devolver Veículo");
-        mArquivo.add(mDevolver);
+        jMenu1.add(mAlterar);
 
         mExcluir.setText("Excluir");
         mExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -176,12 +142,9 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 mExcluirActionPerformed(evt);
             }
         });
-        mArquivo.add(mExcluir);
+        jMenu1.add(mExcluir);
 
-        mVeiculos.setText("Ver Todos os Veículos");
-        mArquivo.add(mVeiculos);
-
-        jMenuBar1.add(mArquivo);
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -197,35 +160,36 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(bOk, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bEmprestimo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bClientes)
-                .addGap(23, 23, 23))
+                .addComponent(bVeiculos)
+                .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bOk)
-                    .addComponent(bClientes)
-                    .addComponent(bEmprestimo))
+                    .addComponent(bVeiculos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
+        preencheTabela();
+    }//GEN-LAST:event_bOkActionPerformed
+
     private void mNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mNovoActionPerformed
-        TelaVeiculo t = new TelaVeiculo();
+        TelaCliente t = new TelaCliente();
         t.setVisible(true);
     }//GEN-LAST:event_mNovoActionPerformed
 
@@ -237,8 +201,8 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tlocaliza.getModel();
         if (tlocaliza.getSelectedColumn() != -1) {
             int codigo = (Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 0);
-            TelaVeiculo t = new TelaVeiculo();
-            t.setVeiculo(vd.localiza(codigo));
+            TelaCliente t = new TelaCliente();
+            t.setCliente(cd.localiza(codigo));
             t.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Não há nada selecionado");
@@ -249,26 +213,22 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tlocaliza.getModel();
         if (tlocaliza.getSelectedRow() != -1) {
             int codigo = (Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 0);
-            Veiculo v = vd.localiza(codigo);
-            if(JOptionPane.showConfirmDialog(this, "Confirmar exclusão de " + v.getPlaca() + "?") == JOptionPane.YES_OPTION)
-                vd.exclui(v);
+            Cliente c = cd.localiza(codigo);
+            if(JOptionPane.showConfirmDialog(this, "Confirmar exclusão de " + c.getNome()+ "?") == JOptionPane.YES_OPTION)
+                cd.exclui(c);
         } else {
             JOptionPane.showMessageDialog(this, "Não há nada selecionado");
         }
     }//GEN-LAST:event_mExcluirActionPerformed
 
-    private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
-        preencheTabela();
-    }//GEN-LAST:event_bOkActionPerformed
-
-    private void bClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClientesActionPerformed
-        TelaLocalizaCliente tc = new TelaLocalizaCliente();
-        tc.setVisible(true);
-    }//GEN-LAST:event_bClientesActionPerformed
+    private void bVeiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVeiculosActionPerformed
+        TelaLocalizaVeiculo tv = new TelaLocalizaVeiculo();
+        tv.setVisible(true);
+    }//GEN-LAST:event_bVeiculosActionPerformed
 
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -283,43 +243,34 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLocalizaVeiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLocalizaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLocalizaVeiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLocalizaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLocalizaVeiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLocalizaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLocalizaVeiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLocalizaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLocalizaVeiculo().setVisible(true);
+                new TelaLocalizaCliente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bClientes;
-    private javax.swing.JButton bEmprestimo;
     private javax.swing.JButton bOk;
-    private javax.swing.JColorChooser jColorChooser1;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JButton bVeiculos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTree jTree1;
     private javax.swing.JMenuItem mAlterar;
-    private javax.swing.JMenu mArquivo;
-    private javax.swing.JMenuItem mDevolver;
-    private javax.swing.JMenuItem mEmprestar;
     private javax.swing.JMenuItem mExcluir;
     private javax.swing.JMenuItem mNovo;
-    private javax.swing.JMenuItem mVeiculos;
     private javax.swing.JTextField tFiltro;
     private javax.swing.JTable tlocaliza;
     // End of variables declaration//GEN-END:variables
