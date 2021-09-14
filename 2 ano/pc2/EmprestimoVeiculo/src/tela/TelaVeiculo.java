@@ -28,7 +28,6 @@ public class TelaVeiculo extends javax.swing.JFrame {
         tModelo.setText(v.getModelo());
         tAno.setText(v.getAno());
         tChassi.setText(v.getChassi());
-        tIdCliente.setText(Integer.toString(v.getIdCliente()));
     }
     
     private void telaToVeiculo() {
@@ -38,7 +37,6 @@ public class TelaVeiculo extends javax.swing.JFrame {
         v.setModelo(tModelo.getText());
         v.setAno(tAno.getText());
         v.setChassi(tChassi.getText());
-        v.setIdCliente(Integer.parseInt(tIdCliente.getText()));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,14 +53,12 @@ public class TelaVeiculo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         tId = new javax.swing.JTextField();
         tPlaca = new javax.swing.JTextField();
         tMarca = new javax.swing.JTextField();
         tModelo = new javax.swing.JTextField();
         tAno = new javax.swing.JTextField();
         tChassi = new javax.swing.JTextField();
-        tIdCliente = new javax.swing.JTextField();
         bSalva = new javax.swing.JButton();
         bCliente = new javax.swing.JButton();
 
@@ -80,12 +76,8 @@ public class TelaVeiculo extends javax.swing.JFrame {
 
         jLabel6.setText("Chassi");
 
-        jLabel7.setText("IdCliente");
-
         tId.setEditable(false);
         tId.setText("0");
-
-        tIdCliente.setText("0");
 
         bSalva.setText("Salvar");
         bSalva.addActionListener(new java.awt.event.ActionListener() {
@@ -118,18 +110,16 @@ public class TelaVeiculo extends javax.swing.JFrame {
                         .addComponent(bCliente))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tAno, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(39, 39, 39))
@@ -163,13 +153,9 @@ public class TelaVeiculo extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bSalva)
                     .addComponent(bCliente))
-                .addGap(33, 33, 33))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -234,11 +220,9 @@ public class TelaVeiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField tAno;
     private javax.swing.JTextField tChassi;
     private javax.swing.JTextField tId;
-    private javax.swing.JTextField tIdCliente;
     private javax.swing.JTextField tMarca;
     private javax.swing.JTextField tModelo;
     private javax.swing.JTextField tPlaca;

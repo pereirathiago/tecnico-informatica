@@ -43,6 +43,20 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
             modelo.addRow(new Object[]{v.getId(), v.getPlaca(), v.getMarca(), v.getModelo(), v.getAno(), v.getChassi(), v.getIdCliente()});
         }
     }
+    
+    private void preencheTabelaEmprestados() {
+        DefaultTableModel modelo = (DefaultTableModel) tlocaliza.getModel();
+        int i = modelo.getRowCount();
+        while (i-- > 0) {
+            modelo.removeRow(i);
+        }
+        List<Veiculo> lista;
+
+        lista = vd.pesquisaEmprestimo();
+        for (Veiculo v : lista) {
+            modelo.addRow(new Object[]{v.getId(), v.getPlaca(), v.getMarca(), v.getModelo(), v.getAno(), v.getChassi(), v.getIdCliente()});
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,6 +79,7 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         tlocaliza = new javax.swing.JTable();
         bClientes = new javax.swing.JButton();
         bEmprestimo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mArquivo = new javax.swing.JMenu();
         mNovo = new javax.swing.JMenuItem();
@@ -72,7 +87,6 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         mEmprestar = new javax.swing.JMenuItem();
         mDevolver = new javax.swing.JMenuItem();
         mExcluir = new javax.swing.JMenuItem();
-        mVeiculos = new javax.swing.JMenuItem();
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -145,6 +159,18 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         });
 
         bEmprestimo.setText("Ver emprestados");
+        bEmprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEmprestimoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Todos os veículos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         mArquivo.setText("Arquivo");
 
@@ -165,9 +191,19 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         mArquivo.add(mAlterar);
 
         mEmprestar.setText("Emprestar Veículo");
+        mEmprestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mEmprestarActionPerformed(evt);
+            }
+        });
         mArquivo.add(mEmprestar);
 
         mDevolver.setText("Devolver Veículo");
+        mDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mDevolverActionPerformed(evt);
+            }
+        });
         mArquivo.add(mDevolver);
 
         mExcluir.setText("Excluir");
@@ -177,9 +213,6 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
             }
         });
         mArquivo.add(mExcluir);
-
-        mVeiculos.setText("Ver Todos os Veículos");
-        mArquivo.add(mVeiculos);
 
         jMenuBar1.add(mArquivo);
 
@@ -197,13 +230,15 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(bOk, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bEmprestimo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bClientes)
                 .addGap(23, 23, 23))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -215,7 +250,8 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
                     .addComponent(tFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bOk)
                     .addComponent(bClientes)
-                    .addComponent(bEmprestimo))
+                    .addComponent(bEmprestimo)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -250,8 +286,9 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         if (tlocaliza.getSelectedRow() != -1) {
             int codigo = (Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 0);
             Veiculo v = vd.localiza(codigo);
-            if(JOptionPane.showConfirmDialog(this, "Confirmar exclusão de " + v.getPlaca() + "?") == JOptionPane.YES_OPTION)
+            if (JOptionPane.showConfirmDialog(this, "Confirmar exclusão de " + v.getPlaca() + "?") == JOptionPane.YES_OPTION) {
                 vd.exclui(v);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Não há nada selecionado");
         }
@@ -266,9 +303,50 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
         tc.setVisible(true);
     }//GEN-LAST:event_bClientesActionPerformed
 
+    private void bEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEmprestimoActionPerformed
+        preencheTabelaEmprestados();
+    }//GEN-LAST:event_bEmprestimoActionPerformed
+
+    private void mEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mEmprestarActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) tlocaliza.getModel();
+        if (tlocaliza.getSelectedColumn() != -1) {
+            if ((Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 6) == 0) {
+                int codigo = (Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 0);
+                TelaEmprestaVeiculo t = new TelaEmprestaVeiculo();
+                t.setVeiculo(vd.localiza(codigo));
+                t.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Veículo já emprestado");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há nada selecionado");
+        }
+    }//GEN-LAST:event_mEmprestarActionPerformed
+
+    private void mDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mDevolverActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) tlocaliza.getModel();
+        if (tlocaliza.getSelectedRow() != -1) {
+            if ((Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 6) != 0) {
+                int codigo = (Integer) modelo.getValueAt(tlocaliza.getSelectedRow(), 0);
+                Veiculo v = vd.localiza(codigo);
+                v.setIdCliente(0);
+                vd.salva(v);
+                JOptionPane.showMessageDialog(this, "Veículo devolvido");
+            } else {
+                JOptionPane.showMessageDialog(this, "Veículo não está emprestado");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há nada selecionado");
+        }
+    }//GEN-LAST:event_mDevolverActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        preencheTabela();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -305,6 +383,7 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
     private javax.swing.JButton bClientes;
     private javax.swing.JButton bEmprestimo;
     private javax.swing.JButton bOk;
+    private javax.swing.JButton jButton1;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
@@ -319,7 +398,6 @@ public class TelaLocalizaVeiculo extends javax.swing.JFrame {
     private javax.swing.JMenuItem mEmprestar;
     private javax.swing.JMenuItem mExcluir;
     private javax.swing.JMenuItem mNovo;
-    private javax.swing.JMenuItem mVeiculos;
     private javax.swing.JTextField tFiltro;
     private javax.swing.JTable tlocaliza;
     // End of variables declaration//GEN-END:variables

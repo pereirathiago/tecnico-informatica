@@ -37,6 +37,7 @@ public class VeiculoDAO {
         em.remove(v);
         em.getTransaction().commit();
     }
+    
     public List<Veiculo> pesquisa() {
         Query q = em.createQuery("select v from Veiculo as v order by v.placa");
         List<Veiculo> listaVeiculo = q.getResultList();
@@ -47,5 +48,11 @@ public class VeiculoDAO {
         q.setParameter(1, '%' + placa + '%');
         List<Veiculo> listaVeiculo = q.getResultList();
         return listaVeiculo;
+    }
+    
+    public List<Veiculo> pesquisaEmprestimo() {
+        Query q = em.createNativeQuery("select * from veiculo where idCliente <> 0 order by placa ", Veiculo.class);
+        List<Veiculo> lista = q.getResultList();
+        return lista;
     }
 }
