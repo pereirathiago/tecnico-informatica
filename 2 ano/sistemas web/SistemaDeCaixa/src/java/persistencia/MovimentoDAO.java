@@ -38,14 +38,14 @@ public class MovimentoDAO {
     }
 
     public List<Movimento> pesquisa() {
-        Query q = em.createQuery("select m from Movimento m order by b.nome");
+        Query q = em.createQuery("select m from Movimento m order by m.data");
         List<Movimento> listaMovimento = q.getResultList();
         return listaMovimento;
     }
 
-    public List<Movimento> pesquisa(String descricao) {
-        Query q = em.createNativeQuery("select * from professor where descricao like :descricao order by descricao", Movimento.class);
-        q.setParameter("descricao", '%' + descricao + '%');
+    public List<Movimento> pesquisa(String tipo) {
+        Query q = em.createNativeQuery("select * from movimento where tipo like :descricao order by tipo", Movimento.class);
+        q.setParameter("tipo", '%' + tipo + '%');
         List<Movimento> listaMovimento = q.getResultList();
         return listaMovimento;
     }

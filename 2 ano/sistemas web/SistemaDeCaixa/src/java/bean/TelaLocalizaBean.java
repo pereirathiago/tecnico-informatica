@@ -6,8 +6,8 @@
 package bean;
 
 import java.io.Serializable;
-import javax.annotation.ManagedBean;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import persistencia.MovimentoDAO;
@@ -19,25 +19,37 @@ import vo.Movimento;
  */
 @ManagedBean
 @RequestScoped
-public class TelaLocalizaBean implements Serializable{
+public class TelaLocalizaBean implements Serializable {
+
     private DataModel<Movimento> lista;
     MovimentoDAO md = new MovimentoDAO();
     private Movimento movimento = new Movimento();
-    public TelaLocalizaBean(){}
-    public String atualizaLista(){
-        lista=new ListDataModel(md.pesquisa());
+
+    public TelaLocalizaBean() {
+    }
+
+    public String atualizaLista() {
+        lista = new ListDataModel(md.pesquisa());
         return "index";
     }
+
     public DataModel<Movimento> getLista() {
         atualizaLista();
         return lista;
     }
+
     public String novo() {
         setMovimento(new Movimento());
-        return "movimento";
+        System.out.println("deu boa");
+        return "cadastro_movimento";
     }
-    public String salva(){
+
+    public String salva() {
         md.salva(getMovimento());
+        return "index";
+    }
+
+    public String cancela() {
         return "index";
     }
 
