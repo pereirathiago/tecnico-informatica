@@ -21,21 +21,49 @@ import vo.Movimento;
 @RequestScoped
 public class TelaLocalizaBean implements Serializable {
 
-    private DataModel<Movimento> lista;
+    private DataModel<Movimento> lista;    
+    private DataModel<Movimento> listaSaida;
+    private DataModel<Movimento> listaEntrada;
     MovimentoDAO md = new MovimentoDAO();
     private Movimento movimento = new Movimento();
 
     public TelaLocalizaBean() {
     }
 
+    public Double saldo(){
+        return md.calcularSaldo();
+    }
+    public Double saldoEntradas(){
+        return md.calcularSaldoEntradas();
+    }
+    public Double saldoSaidas(){
+        return md.calcularSaldoSaidas();
+    }
+    
     public String atualizaLista() {
         lista = new ListDataModel(md.pesquisa());
         return "index";
+    }
+    public String atualizaListaSaidas() {
+        listaSaida = new ListDataModel(md.pesquisaSaidas());
+        return "saidas";
+    }
+    public String atualizaListaEntradas() {
+        listaEntrada = new ListDataModel(md.pesquisaEntradas());
+        return "entradas";
     }
 
     public DataModel<Movimento> getLista() {
         atualizaLista();
         return lista;
+    }
+    public DataModel<Movimento> getListaSaida() {
+        atualizaListaSaidas();
+        return listaSaida;
+    }
+    public DataModel<Movimento> getListaEntrada() {
+        atualizaListaEntradas();
+        return listaEntrada;
     }
 
     public String novo() {
@@ -52,7 +80,7 @@ public class TelaLocalizaBean implements Serializable {
     public String cancela() {
         return "index";
     }
-
+    
     /**
      * @return the movimento
      */

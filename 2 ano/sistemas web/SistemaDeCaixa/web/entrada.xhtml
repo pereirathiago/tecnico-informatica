@@ -10,22 +10,18 @@
     <h:body style="background-color: #cccccc;">
 
         <div class="geral">
-            <p:fieldset legend="Movimento" style="margin-bottom:20px">
+            <p:fieldset legend="Movimento de Entrada" style="margin-bottom:20px">
                 <h:form>
-                    <p:commandButton id="bNovo" icon="ui-icon-document" action="#{telaLocalizaBean.novo}" ajax="false" />
-                    <p:tooltip id="ttNovo" for="bNovo" value="Novo movimento" trackMouse="true" />
+                    <p:commandButton id="bVoltar" icon=" ui-icon-arrowthick-1-w" action="index" />
+                    <p:tooltip id="ttVoltar" for="bVoltar" value="Voltar" trackMouse="true" />
                     <p:commandButton id="bAtualiza" icon="ui-icon-refresh" action="#{telaLocalizaBean.atualizaLista}" update="tabela" /><br/>
-                    <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" /><br/>
-                    <p:commandButton id="bEntrada" value="Entradas" action="entrada" ajax="false" />
-                    <p:tooltip id="ttEntrada" for="bEntrada" value="Ver Entradas" trackMouse="true" />
-                    <p:commandButton id="bSaida" value="Saídas" action="saida" ajax="false" />
-                    <p:tooltip id="ttSaida" for="bSaida" value="Ver Saídas" trackMouse="true" />
+                    <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" />
                     <div style="text-align: center;">
                         Total: R$
-                        <p:outputLabel value="#{telaLocalizaBean.saldo()}"/>
+                        <p:outputLabel value="#{telaLocalizaBean.saldoEntradas()}" />
                     </div>
-                    <br/>
-                    <p:dataTable id="tabela" value="#{telaLocalizaBean.lista}" var="movimento" >
+                    <br/><br/>
+                    <p:dataTable id="tabela" value="#{telaLocalizaBean.listaEntrada}" var="movimento" >
                         <p:column style="width:10%; text-align: center;">
                             <f:facet name="header">
                                 <h:outputText value="Código" />
