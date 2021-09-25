@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 22-Set-2021 às 18:53
--- Versão do servidor: 5.7.22
--- PHP Version: 7.1.16
+-- Generation Time: 25-Set-2021 às 13:43
+-- Versão do servidor: 5.7.25
+-- versão do PHP: 7.1.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,7 +33,7 @@ CREATE TABLE `movimento` (
   `data` date NOT NULL,
   `descricao` varchar(50) NOT NULL,
   `valor` double NOT NULL,
-  `tipo` varchar(1) NOT NULL
+  `tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
