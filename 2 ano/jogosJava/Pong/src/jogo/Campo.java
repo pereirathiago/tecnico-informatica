@@ -42,7 +42,12 @@ public class Campo extends JPanel implements ActionListener {
         fundo = new ImageIcon(this.getClass().getResource("/imagens/campo.jpg")).getImage().getScaledInstance(largura, altura, 1);
         inicializa();
         t = new Timer(10, this);
-        t.start();
+        t.start(); 
+        msg = "Aperte:"
+                + "F1 - jogar contra o pc"
+                + "F2 - 2 jogadores"
+                + "P - pausa"
+                + "R - reinicia";
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 int tecla = e.getKeyCode();
