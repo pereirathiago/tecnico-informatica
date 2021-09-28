@@ -54,7 +54,7 @@ public class Campo extends JPanel implements ActionListener {
                 }
                 if (jogador2 == 1) {
                     if (tecla == 'w' || tecla == 'W') {
-                    raquetePc.setDy(-5);
+                        raquetePc.setDy(-5);
                     }
                     if (tecla == 's' || tecla == 'S') {
                         raquetePc.setDy(5);
@@ -81,7 +81,7 @@ public class Campo extends JPanel implements ActionListener {
                 if (tecla == KeyEvent.VK_F1) {
                     jogador2 = 0;
                     repaint();
-                    msg = "Habilitado jogar contrar pc - aperte R";   
+                    msg = "Habilitado jogar contrar pc - aperte R";
                     t.stop();
                 }
                 if (tecla == KeyEvent.VK_F2) {
@@ -122,7 +122,7 @@ public class Campo extends JPanel implements ActionListener {
             bola.setDy(-bola.getDy());
         }
         if(jogador2 == 0) {
-            mexerPc();           
+            mexerPc();
         } else {
             raquetePc.mexer();
             if (raquetePc.getY() > this.getHeight() - raquetePc.getAltura()) {
@@ -182,7 +182,7 @@ public class Campo extends JPanel implements ActionListener {
 
     private void mexerPc() {
         if (bola.getX() < this.getWidth() / 2 && bola.getDx() < 0) {
-            raquetePc.setDy((3 * Math.signum((int) (bola.getY() - raquetePc.getY()))));
+            raquetePc.setDy((5 * Math.signum((int) (bola.getY() - raquetePc.getY()))));
         } else {
             raquetePc.setDy(0);
         }
@@ -195,7 +195,7 @@ public class Campo extends JPanel implements ActionListener {
             return false;
         }
     }
-
+    
     @Override
     public void paint(Graphics g) {
         g.drawImage(fundo, 0, 0, null);
