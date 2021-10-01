@@ -41,13 +41,13 @@ public class Campo extends JPanel implements ActionListener {
         setSize(largura, altura);
         fundo = new ImageIcon(this.getClass().getResource("/imagens/campo.jpg")).getImage().getScaledInstance(largura, altura, 1);
         inicializa();
-        t = new Timer(10, this);
-        t.start(); 
-        msg = "Aperte:"
-                + "F1 - jogar contra o pc"
-                + "F2 - 2 jogadores"
-                + "P - pausa"
-                + "R - reinicia";
+        t = new Timer(10, this); 
+        t.start();
+        msg = "Aperte:  "
+                + "  F1 - jogar contra o pc  "
+                + "  F2 - 2 jogadores  "
+                + "  P - pausa  "
+                + "  R - reinicia";
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 int tecla = e.getKeyCode();
@@ -126,10 +126,9 @@ public class Campo extends JPanel implements ActionListener {
         if (bola.getY() < 10 || bola.getY() > this.getHeight() - bola.getAltura()) {
             bola.setDy(-bola.getDy());
         }
-        if(jogador2 == 0) {
+        if (jogador2 == 0) {
             mexerPc();
         } else {
-            raquetePc.mexer();
             if (raquetePc.getY() > this.getHeight() - raquetePc.getAltura()) {
                 raquetePc.setY(this.getHeight() - raquetePc.getAltura());
             }
@@ -200,7 +199,7 @@ public class Campo extends JPanel implements ActionListener {
             return false;
         }
     }
-    
+
     @Override
     public void paint(Graphics g) {
         g.drawImage(fundo, 0, 0, null);
