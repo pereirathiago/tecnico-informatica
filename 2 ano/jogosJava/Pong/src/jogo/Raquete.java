@@ -18,6 +18,8 @@ public class Raquete {
     private int altura = 70;
     private int largura = 20;
     private Image imagem = new ImageIcon(getClass().getResource("/imagens/raquete.png")).getImage().getScaledInstance(getLargura(), getAltura(), 1);
+    private Image imagemPc = new ImageIcon(getClass().getResource("/imagens/raquetePc.png")).getImage().getScaledInstance(getLargura(), getAltura(), 1);
+    private Image imagemJ2 = new ImageIcon(getClass().getResource("/imagens/raqueteJ2.png")).getImage().getScaledInstance(getLargura(), getAltura(), 1);
     private double x;
     private double y;
     private double dy = 0;
@@ -117,5 +119,33 @@ public class Raquete {
      */
     public void setDy(double dy) {
         this.dy = dy;
+    }
+
+    /**
+     * @return the imagemPc
+     */
+    public Image getImagemPc() {
+        return imagemPc;
+    }
+
+    /**
+     * @param imagemPc the imagemPc to set
+     */
+    public void setImagemPc(Image imagemPc) {
+        this.imagemPc = imagemPc;
+    }
+
+    /**
+     * @return the imagemJ2
+     */
+    public Image getImagemJ2() {
+        return imagemJ2;
+    }
+
+    /**
+     * @param imagemJ2 the imagemJ2 to set
+     */
+    public void setImagemJ2(Image imagemJ2) {
+        this.imagemJ2 = imagemJ2;
     }
 }
