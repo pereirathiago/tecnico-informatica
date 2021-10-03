@@ -1,6 +1,6 @@
 # Atividades Curso Técnico em Informática
 
-## :clipboard: Índice
+## :clipboard: Í ndice
 - [Sobre](#sobre)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Como executar o projeto](#como-executar-o-projeto)
