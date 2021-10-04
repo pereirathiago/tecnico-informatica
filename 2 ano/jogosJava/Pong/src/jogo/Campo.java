@@ -35,12 +35,13 @@ public class Campo extends JPanel implements ActionListener {
     int jogador2 = 0;
     String msg = "";
     double proxBolaDy;
+    boolean inicio = true;
 
     public Campo(int largura, final int altura) {
         setFocusable(true);
         setDoubleBuffered(true);
         setSize(largura, altura);
-        fundo = new ImageIcon(this.getClass().getResource("/imagens/campo.jpg")).getImage().getScaledInstance(largura, altura, 1);
+        fundo = new ImageIcon(this.getClass().getResource("/imagens/campo.png")).getImage().getScaledInstance(largura, altura, 1);
         inicializa();
         t = new Timer(10, this);
         t.start();
@@ -68,6 +69,7 @@ public class Campo extends JPanel implements ActionListener {
                         raquetePc.setDy(6);
                     }
                 }
+
                 if (tecla == 'P' || tecla == 'p') {
                     if (t.isRunning()) {
                         msg = "Pausa";
@@ -78,8 +80,18 @@ public class Campo extends JPanel implements ActionListener {
                         msg = "";
                     }
                 }
+                if (inicio) {
+                    if (tecla == 'i' || tecla == 'I') {
+                        bola.setDx(10);
+                        bola.setDy(new Random().nextDouble() * 5 - 2.5);
+                        inicio=false;
+                        msg="";
+                    }
+                }
                 if (tecla == 'r' || tecla == 'R') {
                     inicializa();
+                    bola.setDx(10);
+                    bola.setDy(new Random().nextDouble() * 5 - 2.5);
                     t.start();
                 }
                 if (tecla == KeyEvent.VK_SPACE && pontoJ < 5 && pontoPc < 5) {
@@ -109,6 +121,7 @@ public class Campo extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         bola.mexer();
         raquetePc.mexer();
         raqueteJ.mexer();
@@ -121,7 +134,7 @@ public class Campo extends JPanel implements ActionListener {
         if (verificaColisao(bola, raqueteJ)) {
             bola.setDx(-bola.getDx());
             proxBolaDy = new Random().nextDouble() * Math.signum(bola.getDy()) * 5;
-            while(proxBolaDy == 0) {
+            while (proxBolaDy == 0) {
                 proxBolaDy = new Random().nextDouble() * Math.signum(bola.getDy()) * 5;
             }
             bola.setDy(proxBolaDy);
@@ -129,7 +142,7 @@ public class Campo extends JPanel implements ActionListener {
         if (verificaColisao(bola, raquetePc)) {
             bola.setDx(-bola.getDx());
             proxBolaDy = new Random().nextDouble() * Math.signum(bola.getDy()) * 5;
-            while(proxBolaDy == 0) {
+            while (proxBolaDy == 0) {
                 proxBolaDy = new Random().nextDouble() * Math.signum(bola.getDy()) * 5;
             }
             bola.setDy(proxBolaDy);
@@ -163,6 +176,7 @@ public class Campo extends JPanel implements ActionListener {
         pontoPc = 0;
         msg = "";
         aumentarVeolcidade();
+        repaint();
     }
 
     private void verificaPonto() {
@@ -224,11 +238,12 @@ public class Campo extends JPanel implements ActionListener {
         ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 double velocidade = bola.getDx();
-                if(velocidade < 30 && velocidade != -30) {
-                    if(velocidade > 0) 
+                if (velocidade < 30 && velocidade != -30) {
+                    if (velocidade > 0) {
                         bola.setDx(velocidade + 3);
-                    else
+                    } else {
                         bola.setDx(velocidade - 3);
+                    }
                 }
             }
         };

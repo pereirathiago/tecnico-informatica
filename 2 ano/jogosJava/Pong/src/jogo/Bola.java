@@ -20,8 +20,8 @@ public class Bola {
     private Image imagem = new ImageIcon(getClass().getResource("/imagens/bola.png")).getImage().getScaledInstance(getLargura() ,getAltura(), 1);
     private double x;
     private double y;
-    private double dx = 10;
-    private double dy = new Random().nextDouble() * 5 -2.5;
+    private double dx = 0;
+    private double dy = 0;
     public Bola(int x, int y) {
         this.x = x;
         this.y = y;
