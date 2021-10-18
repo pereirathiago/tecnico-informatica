@@ -36,6 +36,14 @@ public class Cenario {
     public Rectangle getLimites() {
         return new Rectangle((int) getX(), (int) getY(), getLargura(), getAltura());
     }
+    
+    public Image getImagem() {
+        return fundo;
+    }
+    
+    public void setImagem(Image fundo) {
+        this.fundo = fundo;
+    }
 
     /**
      * @return the altura
