@@ -15,8 +15,8 @@ public class Pong extends JFrame{
 
     public Pong() {
         setTitle("Pong brabo");
-        setSize(1000, 733);
-        add(new Campo(1000, 733));
+        setSize(1200, 733);
+        add(new Campo(1200, 733));
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
