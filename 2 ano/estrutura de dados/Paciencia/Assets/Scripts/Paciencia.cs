@@ -12,13 +12,23 @@ public class Paciencia : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        JogarCartas();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void JogarCartas()
+    {
+        baralho = GerarBaralho();
+        Embaralhar(baralho);
+        foreach (string carta in baralho)
+        {
+            print(carta);
+        }
     }
 
     public static List<string> GerarBaralho()
@@ -32,5 +42,19 @@ public class Paciencia : MonoBehaviour
             }
         }
         return novoBaralho;
+    }
+
+    void Embaralhar<T>(List<T> list)
+    {
+        System.Random rng = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 }
