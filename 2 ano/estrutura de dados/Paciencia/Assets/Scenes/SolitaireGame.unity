@@ -1285,6 +1285,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0bc0a39dce7af2d40b541dddf4ed86dc, type: 3}
   - {fileID: 21300000, guid: 2c1a6354d1d441c4e97d432a7edc557c, type: 3}
   cardPrefab: {fileID: 405026501}
+  bottomPos:
+  - {fileID: 261182271}
+  - {fileID: 98660770}
+  - {fileID: 1458473185}
+  - {fileID: 878606093}
+  - {fileID: 915876105}
+  - {fileID: 1499619687}
+  - {fileID: 1146223081}
+  topPos:
+  - {fileID: 1206985215}
+  - {fileID: 1249838455}
+  - {fileID: 582963114}
+  - {fileID: 1021583273}
   baralho: []
 --- !u!4 &1172259712
 Transform:
