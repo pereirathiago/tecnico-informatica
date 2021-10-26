@@ -45,7 +45,7 @@ public class Campo extends JPanel implements ActionListener {
         fundo = new ImageIcon(getClass().getResource("/imagens/campo.png")).getImage().getScaledInstance(largura, altura, 1);
         inicializa();
         repaint();
-        t = new Timer(100, this);
+        t = new Timer(50, this);
         t.start();
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
