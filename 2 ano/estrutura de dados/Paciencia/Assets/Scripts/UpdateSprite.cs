@@ -9,6 +9,7 @@ public class UpdateSprite : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Selecionado selecionado;
     private Paciencia paciencia;
+    private UserInput userInput;
 
 
 
@@ -44,6 +45,13 @@ public class UpdateSprite : MonoBehaviour
         else
         {
             spriteRenderer.sprite = cardBack;
+        }
+        if(name == userInput.slot1.name)
+        {
+            spriteRenderer.color = Color.yellow;
+        } else
+        {
+            spriteRenderer.color = Color.white;
         }
     }
 }

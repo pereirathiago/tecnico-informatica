@@ -5,12 +5,15 @@ using System.Linq;
 
 public class UserInput : MonoBehaviour
 {
+    public GameObject slot1;
+
     private Paciencia paciencia;
 
     // Start is called before the first frame update
     void Start()
     {
         paciencia = FindObjectOfType<Paciencia>();
+        slot1 = this.gameObject;
     }
 
     // Update is called once per frame
@@ -35,7 +38,7 @@ public class UserInput : MonoBehaviour
                 } else if (hit.collider.CompareTag("Card"))
                 {
                     // clicou na carta
-                    Carta();
+                    Carta(hit.collider.gameObject);
                 }
                 else if (hit.collider.CompareTag("Top"))
                 {
@@ -57,10 +60,15 @@ public class UserInput : MonoBehaviour
         print("clicou no baralho");
         paciencia.DealFromDeck();
     }
-    void Carta()
+    void Carta(GameObject selected)
     {
         // click no carta
         print("clicou no carta");
+
+        if (slot1 = this.gameObject)
+        {
+            slot1 = selected;
+        }
     }
     void Top()
     {
