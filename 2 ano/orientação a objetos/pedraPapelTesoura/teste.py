@@ -1,5 +1,8 @@
 import PySimpleGUI as sg
-from random  import randint
+from random import randint
+
+from PySimpleGUI.PySimpleGUI import WIN_CLOSED
+
 
 class Jogo:
     def __init__(self, pontoJ=0, pontoPC=0):
@@ -8,54 +11,75 @@ class Jogo:
 
     @property
     def pontoJ(self):
-         return self._pontoJ
+        return self._pontoJ
+
     @pontoJ.setter
     def pontoJ(self, value):
-         self._pontoJ = value
+        self._pontoJ = value
 
     @property
     def pontoPC(self):
-         return self._pontoPC
+        return self._pontoPC
+
     @pontoPC.setter
     def pontoPC(self, value):
-         self._pontoPC = value
+        self._pontoPC = value
 
-    def main(self):
+    def main(self, pedra, papel, tesoura):
         tela = Tela()
-        tela.iniciar()
+        tela.iniciar(pedra, papel, tesoura)
 
 
 class Tela:
     sg.theme('DarkPurple6')
+
     def __init__(self):
         layout = [
-                #[sg.Image(r'C:\Users\fcsa\Desktop\papel.png')],
-                [sg.Button(image_filename=r'C:\Users\fcsa\Desktop\ppt\papel.png'),
-                sg.Button(image_filename=r'C:\Users\fcsa\Desktop\ppt\tesoura.png'),
-                sg.Button(image_filename=r'C:\Users\fcsa\Desktop\ppt\pedra.png')]
-            ]
+            [sg.Button(image_filename='images/papel.png', key="papel"),
+             sg.Button(image_filename='images/tesoura.png', key="tesoura"),
+             sg.Button(image_filename='images/pedra.png', key="pedra")]
+        ]
         self.janela = sg.Window("Joguinho massa").layout(layout)
 
-    def iniciar(self):
-        event, values = self.janela.read()
+    def iniciar(self, pedra, papel, tesoura):
         while True:
-            if event == sg.WIN_CLOSED: # if user closes window or clicks cancel
+            event, values = self.janela.read()
+            if event == sg.WIN_CLOSED or event == 'Cancel':
                 break
-        self.janela.close()
+            if event == 'papel':
+                print(papel.id,papel.nome)
+            if event == 'tesoura':
+                print(tesoura.id,tesoura.nome)
+            if event == 'pedra':
+                print(pedra.id,pedra.nome)
+
 
 class Coisa:
-    pass
+    def __init__(self, nome):
+        self.nome = nome
+        
+    @property
+    def nome(self):
+        return self._nome
+
+    @nome.setter
+    def nome(self, value):
+        self._nome = value
+
 
 class Tesoura(Coisa):
-    pass
+    id = 1
 
 
 class Papel(Coisa):
-    pass
-    
+    id = 2
+
 
 class Pedra(Coisa):
-    pass
+    id = 3
 
+pedra = Pedra('pedra')
+papel = Papel('papel')
+tesoura = Tesoura('tesoura')
 j = Jogo()
-j.main()
+j.main(pedra,papel, tesoura)
