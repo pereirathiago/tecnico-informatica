@@ -12,7 +12,7 @@ public class CardGame : MonoBehaviour
 
     public static string[] naipes = new string[] { "P", "O", "C", "E" };
     public static string[] valores = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-    public Queue<string> baralho;
+    public Stack<string> baralho;
     public Stack<string> tempBaralho = new Stack<string>();
     public List<string> discardPile = new List<string>();
 
@@ -40,27 +40,27 @@ public class CardGame : MonoBehaviour
         }
     }
 
-    public static Queue<string> GerarBaralho()
+    public static Stack<string> GerarBaralho()
     {
-        Queue<string> novoBaralho = new Queue<string>();
+        Stack<string> novoBaralho = new Stack<string>();
         foreach (string n in naipes)
         {
             foreach (string v in valores)
             {
-                novoBaralho.Enqueue(n + v);
+                novoBaralho.Push(n + v);
             }
         }
         return novoBaralho;
     }
 
 
-    public static void Embaralhar<T>(Queue<T> stack)
+    public static void Embaralhar<T>(Stack<T> stack)
     {
         System.Random rnd = new System.Random();
         var values = stack.ToArray();
         stack.Clear();
         foreach (var value in values.OrderBy(x => rnd.Next()))
-            stack.Enqueue(value);
+            stack.Push(value);
     }
 
     public void TirarCarta()
@@ -69,7 +69,7 @@ public class CardGame : MonoBehaviour
         {
             if (child.CompareTag("Card"))
             {
-                print("tirei"+baralho.Dequeue());
+                print("tirei"+baralho.Pop());
                 discardPile.Add(child.name);
                 //print("discardpile: " + discardPile.Last());
                 Destroy(child.gameObject);
@@ -104,9 +104,9 @@ public class CardGame : MonoBehaviour
         baralho.Clear();
         foreach (string carta in discardPile)
         {
-            baralho.Enqueue(carta);
+            baralho.Push(carta);
         }
-        baralho.Enqueue(primeiraCarta);
+        baralho.Push(primeiraCarta);
         discardPile.Clear();
         TirarCarta();
     }

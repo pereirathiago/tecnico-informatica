@@ -51,7 +51,7 @@ public class UserInput : MonoBehaviour
         // click no baralho
         //print("baralho");
         cardgame.TirarCarta();
-        //cardgame.DealFromDeck();
+        slot1 = this.gameObject;
     }
 
     void Card(GameObject selected)
@@ -86,13 +86,10 @@ public class UserInput : MonoBehaviour
 
     void Top(GameObject selected)
     {
-        //to aqui
         if (slot1.CompareTag("Card"))
         {
-            // to aqui n2
             if (slot1.GetComponent<Selecionado>().value == 1)
             {
-                //to aqui 3
                 Stack(selected);
             }
         }
@@ -156,6 +153,7 @@ public class UserInput : MonoBehaviour
         Selecionado s2 = selected.GetComponent<Selecionado>();
         float yOffset = 0.3f;
         print("s1:"+s1);
+        print("s2: " + s2.top);
 
         if (s2.top || (!s2.top && s1.value == 13))
         {
@@ -168,7 +166,7 @@ public class UserInput : MonoBehaviour
         {
 
             print("remove" + cardgame.tempBaralho.Pop());
-            print("remove" + cardgame.baralho.Dequeue());
+            print("remove" + cardgame.baralho.Pop());
 
 
         }
@@ -188,6 +186,10 @@ public class UserInput : MonoBehaviour
         {
             cardgame.topPos[s1.row].GetComponent<Selecionado>().value = s1.value;
             cardgame.topPos[s1.row].GetComponent<Selecionado>().suit = s1.suit;
+            s2.value = s1.value;
+            s2.suit = s1.suit;
+            print("jkfadsjlfajl ");
+
             s1.top = true;
         }
         else

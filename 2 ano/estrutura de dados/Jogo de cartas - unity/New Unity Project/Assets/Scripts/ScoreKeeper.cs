@@ -1,10 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    public Selecionado[] topStacks;
+    public Selectable[] topStacks;
     public GameObject highScorePanel;
 
     // Start is called before the first frame update
@@ -23,11 +23,10 @@ public class ScoreKeeper : MonoBehaviour
     }
 
     public bool HasWon()
+
     {
         int i = 0;
-
-
-        foreach (Selecionado topstack in topStacks)
+        foreach (Selectable topstack in topStacks)
         {
             i += topstack.value;
         }
@@ -39,11 +38,13 @@ public class ScoreKeeper : MonoBehaviour
         {
             return false;
         }
+
     }
 
     void Win()
     {
         highScorePanel.SetActive(true);
-        print("Ganhou");
+        print("You have won!");
     }
+
 }
