@@ -99,15 +99,37 @@ public class Campo extends JPanel implements ActionListener {
         cobra.mexer();
         if (verificaColisaoFruta(fruta, cobra)) {
             corpo[tamanho++] = new Cobra();
+            pontoJ++;
             posicionaFruta();
         }
         if (verificaColisaoCorpo()) {
             t.stop();
+            pontoJ = 0;
             msg = "Game over";
         }
         if (verificaColisaoCenario()) {
             t.stop();
+            pontoJ = 0;
             msg = "Game Over";
+        }
+
+        if (5 == pontoJ ) {
+            cobra = new Cobra(500, 400);
+            cobra.setDx(-20);
+            corpo[0] = new Cobra(520, 400);
+            corpo[1] = new Cobra(540, 400);
+            corpo[2] = new Cobra(560, 400);
+            corpo[3] = new Cobra(580, 400);
+            corpo[4] = new Cobra(600, 400);
+            corpo[5] = new Cobra(620, 400);
+            corpo[6] = new Cobra(640, 400);
+            corpo[7] = new Cobra(660, 400);
+            tamanho = 8;
+            cenario2();
+        } else if (10 <= pontoJ && pontoJ < 15) {
+            cenario3();
+        } else if (15 < pontoJ && pontoJ < 20) {
+            cenario4();
         }
         repaint();
     }
@@ -144,7 +166,7 @@ public class Campo extends JPanel implements ActionListener {
         corpo[2] = new Cobra(560, 400);
         msg = "";
         tamanho = 3;
-        cenario4();
+        cenario1();
         posicionaFruta();
     }
 
@@ -194,6 +216,8 @@ public class Campo extends JPanel implements ActionListener {
             g.drawImage(cenario[i].getImagem(), (int) cenario[i].getX(), (int) cenario[i].getY(), this);
         }
         g.drawImage(fruta.getImagem(), (int) fruta.getX(), (int) fruta.getY(), this);
+        g.setFont(new Font("Arial", 0, 20));
+        g.drawString(pontoJ + " ", this.getWidth() / 2, 50);
         Font f = new Font("Arial", Font.BOLD, 20);
         g.setFont(f);
         FontMetrics fm = g.getFontMetrics(f);
