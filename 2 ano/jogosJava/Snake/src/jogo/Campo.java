@@ -29,7 +29,7 @@ public class Campo extends JPanel implements ActionListener {
     Fruta fruta;
     Cobra cobra;
     Cobra corpo[] = new Cobra[1000];
-    Cenario cenario[] = new Cenario[10];
+    Cenario cenario[] = new Cenario[15];
     int tamanhoCenario = 4;
     int tamanho = 3;
     Timer t;
@@ -97,24 +97,25 @@ public class Campo extends JPanel implements ActionListener {
         corpo[0].setX(cobra.getX());
         corpo[0].setY(cobra.getY());
         cobra.mexer();
-        if(verificaColisaoFruta(fruta, cobra)) {
+        if (verificaColisaoFruta(fruta, cobra)) {
             corpo[tamanho++] = new Cobra();
             posicionaFruta();
         }
-        if(verificaColisaoCorpo()) {
+        if (verificaColisaoCorpo()) {
             t.stop();
             msg = "Game over";
         }
-        if(verificaColisaoCenario()) {
+        if (verificaColisaoCenario()) {
             t.stop();
             msg = "Game Over";
         }
         repaint();
     }
+
     private void posicionaFruta() {
         boolean ok = false;
         int x, y;
-        while(!ok) {
+        while (!ok) {
             ok = true;
             x = new Random().nextInt(this.getWidth());
             y = new Random().nextInt(this.getHeight());
@@ -122,18 +123,19 @@ public class Campo extends JPanel implements ActionListener {
             if (verificaColisaoFruta(fruta, cobra)) {
                 ok = false;
             }
-            for (int i = 0; i <tamanho; i++){
-                if(verificaColisaoFruta(fruta, corpo[i])) {
+            for (int i = 0; i < tamanho; i++) {
+                if (verificaColisaoFruta(fruta, corpo[i])) {
                     ok = false;
                 }
             }
-            for (int i =0; i <tamanhoCenario; i ++) {
-                if(verificaColisaoFruta(fruta, cenario[i])) {
+            for (int i = 0; i < tamanhoCenario; i++) {
+                if (verificaColisaoFruta(fruta, cenario[i])) {
                     ok = false;
                 }
             }
         }
     }
+
     private void inicializa() {
         cobra = new Cobra(500, 400);
         cobra.setDx(-20);
@@ -142,48 +144,53 @@ public class Campo extends JPanel implements ActionListener {
         corpo[2] = new Cobra(560, 400);
         msg = "";
         tamanho = 3;
-        cenario1();
+        cenario4();
         posicionaFruta();
     }
+
     private boolean verificaColisaoFruta(Fruta f, Cobra c) {
-        if(c.getLimites().intersects(f.getLimites())) {
+        if (c.getLimites().intersects(f.getLimites())) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     private boolean verificaColisaoFruta(Fruta f, Cenario c) {
-        if(c.getLimites().intersects(f.getLimites())) {
+        if (c.getLimites().intersects(f.getLimites())) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     private boolean verificaColisaoCorpo() {
-        for(int i = 0; i<tamanho; i++) {
-            if(cobra.getLimites().intersects(corpo[i].getLimites()))
+        for (int i = 0; i < tamanho; i++) {
+            if (cobra.getLimites().intersects(corpo[i].getLimites())) {
                 return true;
+            }
         }
         return false;
     }
+
     private boolean verificaColisaoCenario() {
-        for(int i=0; i < tamanhoCenario; i++) {
-            if(cobra.getLimites().intersects(cenario[i].getLimites()))
+        for (int i = 0; i < tamanhoCenario; i++) {
+            if (cobra.getLimites().intersects(cenario[i].getLimites())) {
                 return true;
+            }
         }
         return false;
     }
+
     @Override
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         g.drawImage(fundo, 0, 0, null);
         g.setColor(Color.WHITE);
         g.drawImage(cobra.getImagem(), (int) cobra.getX(), (int) cobra.getY(), this);
-        for(int i =0; i <tamanho; i++) {
-            g.drawImage(corpo[i].getImagem(), (int) corpo[i].getX(), (int) corpo[i].getY(), this);          
+        for (int i = 0; i < tamanho; i++) {
+            g.drawImage(corpo[i].getImagem(), (int) corpo[i].getX(), (int) corpo[i].getY(), this);
         }
-        for(int i =0; i <tamanhoCenario; i++) {
+        for (int i = 0; i < tamanhoCenario; i++) {
             g.drawImage(cenario[i].getImagem(), (int) cenario[i].getX(), (int) cenario[i].getY(), this);
         }
         g.drawImage(fruta.getImagem(), (int) fruta.getX(), (int) fruta.getY(), this);
@@ -196,13 +203,63 @@ public class Campo extends JPanel implements ActionListener {
         int x = (panelWidth - textWidth) / 2;
         g.drawString(msg, x, 3 * (this.getHeight() / 4));
     }
+
     private void cenario1() {
-        cenario[0] = new Cenario(0,0,25,700);
-        cenario[1] = new Cenario(0,0,1000,25);
-        cenario[2] = new Cenario(0,680,1000,25);
-        cenario[3] = new Cenario(970,0,25,700);
-        cenario[4] = new Cenario(200,100,25,500);
-        cenario[5] = new Cenario(770,100,25,500);
+        // limites
+        cenario[0] = new Cenario(0, 0, 25, 700);
+        cenario[1] = new Cenario(0, 0, 1000, 25);
+        cenario[2] = new Cenario(0, 680, 1000, 25);
+        cenario[3] = new Cenario(970, 0, 25, 700);
+        cenario[4] = new Cenario(200, 100, 25, 500);
+        cenario[5] = new Cenario(770, 100, 25, 500);
         tamanhoCenario = 6;
+    }
+
+    private void cenario2() {
+        // limites
+        cenario[0] = new Cenario(0, 0, 25, 700);
+        cenario[1] = new Cenario(0, 0, 1000, 25);
+        cenario[2] = new Cenario(0, 680, 1000, 25);
+        cenario[3] = new Cenario(970, 0, 25, 700);
+        // baras do centro
+        cenario[4] = new Cenario(250, 180, 500, 25);
+        cenario[5] = new Cenario(250, 470, 500, 25);
+        tamanhoCenario = 6;
+    }
+
+    private void cenario3() {
+        // limites
+        cenario[0] = new Cenario(0, 0, 25, 700);
+        cenario[1] = new Cenario(0, 0, 1000, 25);
+        cenario[2] = new Cenario(0, 680, 1000, 25);
+        cenario[3] = new Cenario(970, 0, 25, 700);
+        // baras do centro
+        // x, y, larg, alt
+        cenario[4] = new Cenario(270, 100, 450, 25);
+        cenario[5] = new Cenario(270, 575, 450, 25);
+        cenario[6] = new Cenario(200, 100, 25, 500);
+        cenario[7] = new Cenario(770, 100, 25, 500);
+        tamanhoCenario = 8;
+    }
+
+    private void cenario4() {
+        // limites
+        cenario[0] = new Cenario(0, 0, 25, 700);
+        cenario[1] = new Cenario(0, 0, 1000, 25);
+        cenario[2] = new Cenario(0, 680, 1000, 25);
+        cenario[3] = new Cenario(970, 0, 25, 700);
+        // baras do centro
+        cenario[4] = new Cenario(200, 100, 150, 25);
+        cenario[5] = new Cenario(200, 575, 150, 25);
+        cenario[6] = new Cenario(200, 100, 25, 150);
+        cenario[7] = new Cenario(200, 450, 25, 150);
+        cenario[8] = new Cenario(770, 100, 25, 150);
+        cenario[9] = new Cenario(770, 450, 25, 150);
+        cenario[10] = new Cenario(640, 575, 150, 25);
+        cenario[11] = new Cenario(640, 100, 150, 25);
+        cenario[12] = new Cenario(150, 100, 25, 500);
+        cenario[13] = new Cenario(820, 100, 25, 500);
+
+        tamanhoCenario = 14;
     }
 }
