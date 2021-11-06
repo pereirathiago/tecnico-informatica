@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &7666461476448565357
@@ -142,11 +142,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3764596245632552016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda12cfc56ddce8489b27b130a787cbd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ae44cfea8494174bb5a54d8fb23700e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardFace: {fileID: 0}
-  cardBack: {fileID: 0}
+  faceCima: 0
+  inDeckPile: 0
+  top: 0
+  suit: 
+  value: 0
+  row: 0
 --- !u!114 &916476569564704003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,12 +160,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3764596245632552016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892b9b5ac34a04d932312c1f3a7760, type: 3}
+  m_Script: {fileID: 11500000, guid: 547126b41b5b8674b90f60782c7b377b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceCima: 0
-  inDeckPile: 0
-  top: 0
-  suit: 
-  value: 0
-  row: 0
+  cardFace: {fileID: 0}
+  cardBack: {fileID: 0}
