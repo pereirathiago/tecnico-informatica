@@ -28,6 +28,7 @@ public class Campo extends JPanel implements ActionListener {
 
     Fruta fruta;
     Cobra cobra;
+    Poder poder;
     Cobra corpo[] = new Cobra[1000];
     Cenario cenario[] = new Cenario[15];
     int tamanhoCenario = 4;
@@ -35,7 +36,7 @@ public class Campo extends JPanel implements ActionListener {
     Timer t;
     Image fundo;
     int pontoJ = 0;
-    int vida = 3;
+    int vida = 1;
     String msg = "";
 
     public Campo(int largura, final int altura) {
@@ -81,7 +82,6 @@ public class Campo extends JPanel implements ActionListener {
                     t.start();
                 }
                 if (tecla == KeyEvent.VK_SPACE && vida == 0) {
-                    msg = "";
                     t.start();
                 }
             }
@@ -102,36 +102,69 @@ public class Campo extends JPanel implements ActionListener {
             pontoJ++;
             posicionaFruta();
         }
+        if (verificaColisaoPoder(poder, cobra)) {
+            if (vida == 1) {
+                vida++;
+                msg = "vida extra";
+                posicionaPoder();
+            }
+        }
         if (verificaColisaoCorpo()) {
-            t.stop();
-            pontoJ = 0;
-            msg = "Game over";
+            if (vida == 1) {
+                t.stop();
+                pontoJ = 0;
+                msg = "Game Over";
+            } else {
+                vida--;
+                msg = "";
+                cobra.setX(500);
+                cobra.setY(400);
+                cobra.setDx(-20);
+            }
         }
         if (verificaColisaoCenario()) {
-            t.stop();
-            pontoJ = 0;
-            msg = "Game Over";
+            if (vida == 1) {
+                t.stop();
+                pontoJ = 0;
+                msg = "Game Over";
+            } else {
+                vida--;
+                msg = "";
+                cobra.setX(500);
+                cobra.setY(400);
+                cobra.setDx(-20);
+            }
         }
-
-        if (5 == pontoJ ) {
-            cobra = new Cobra(500, 400);
-            cobra.setDx(-20);
-            corpo[0] = new Cobra(520, 400);
-            corpo[1] = new Cobra(540, 400);
-            corpo[2] = new Cobra(560, 400);
-            corpo[3] = new Cobra(580, 400);
-            corpo[4] = new Cobra(600, 400);
-            corpo[5] = new Cobra(620, 400);
-            corpo[6] = new Cobra(640, 400);
-            corpo[7] = new Cobra(660, 400);
-            tamanho = 8;
-            cenario2();
-        } else if (10 <= pontoJ && pontoJ < 15) {
-            cenario3();
-        } else if (15 < pontoJ && pontoJ < 20) {
-            cenario4();
-        }
+        System.out.println(tamanho);
+        trocaCenario();
         repaint();
+    }
+
+    private void posicionaPoder() {
+        boolean ok = false;
+        int x, y;
+        while (!ok) {
+            ok = true;
+            x = new Random().nextInt(this.getWidth());
+            y = new Random().nextInt(this.getHeight());
+            poder = new Poder(x, y);
+            if (verificaColisaoPoder(poder, cobra)) {
+                ok = false;
+            }
+            if (verificaColisaoPoder(poder, fruta)) {
+                ok = false;
+            }
+            for (int i = 0; i < tamanho; i++) {
+                if (verificaColisaoPoder(poder, corpo[i])) {
+                    ok = false;
+                }
+            }
+            for (int i = 0; i < tamanhoCenario; i++) {
+                if (verificaColisaoPoder(poder, cenario[i])) {
+                    ok = false;
+                }
+            }
+        }
     }
 
     private void posicionaFruta() {
@@ -154,6 +187,7 @@ public class Campo extends JPanel implements ActionListener {
                 if (verificaColisaoFruta(fruta, cenario[i])) {
                     ok = false;
                 }
+
             }
         }
     }
@@ -168,6 +202,7 @@ public class Campo extends JPanel implements ActionListener {
         tamanho = 3;
         cenario1();
         posicionaFruta();
+        posicionaPoder();
     }
 
     private boolean verificaColisaoFruta(Fruta f, Cobra c) {
@@ -178,8 +213,32 @@ public class Campo extends JPanel implements ActionListener {
         }
     }
 
+    private boolean verificaColisaoPoder(Poder p, Cobra c) {
+        if (c.getLimites().intersects(p.getLimites())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private boolean verificaColisaoFruta(Fruta f, Cenario c) {
         if (c.getLimites().intersects(f.getLimites())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean verificaColisaoPoder(Poder p, Cenario c) {
+        if (c.getLimites().intersects(p.getLimites())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean verificaColisaoPoder(Poder p, Fruta f) {
+        if (f.getLimites().intersects(p.getLimites())) {
             return true;
         } else {
             return false;
@@ -204,6 +263,64 @@ public class Campo extends JPanel implements ActionListener {
         return false;
     }
 
+    private void trocaCenario() {
+        if (5 == pontoJ) {
+            cobra = new Cobra(500, 400);
+            cobra.setDx(-20);
+            corpo[0] = new Cobra(520, 400);
+            corpo[1] = new Cobra(540, 400);
+            corpo[2] = new Cobra(560, 400);
+            corpo[3] = new Cobra(580, 400);
+            corpo[4] = new Cobra(600, 400);
+            corpo[5] = new Cobra(620, 400);
+            corpo[6] = new Cobra(640, 400);
+            corpo[7] = new Cobra(660, 400);
+            tamanho = 8;
+            cenario2();
+        } else if (10 == pontoJ) {
+            cobra = new Cobra(500, 400);
+            cobra.setDx(-20);
+            corpo[0] = new Cobra(520, 400);
+            corpo[1] = new Cobra(540, 400);
+            corpo[2] = new Cobra(560, 400);
+            corpo[3] = new Cobra(580, 400);
+            corpo[4] = new Cobra(600, 400);
+            corpo[5] = new Cobra(620, 400);
+            corpo[6] = new Cobra(640, 400);
+            corpo[7] = new Cobra(660, 400);
+            corpo[8] = new Cobra(680, 400);
+            corpo[9] = new Cobra(700, 400);
+            corpo[10] = new Cobra(720, 400);
+            corpo[11] = new Cobra(740, 400);
+            corpo[12] = new Cobra(660, 400);
+            tamanho = 13;
+            cenario3();
+        } else if (15 == pontoJ) {
+            cobra = new Cobra(500, 400);
+            cobra.setDx(-20);
+            corpo[0] = new Cobra(520, 400);
+            corpo[1] = new Cobra(540, 400);
+            corpo[2] = new Cobra(560, 400);
+            corpo[3] = new Cobra(580, 400);
+            corpo[4] = new Cobra(600, 400);
+            corpo[5] = new Cobra(620, 400);
+            corpo[6] = new Cobra(640, 400);
+            corpo[7] = new Cobra(660, 400);
+            corpo[8] = new Cobra(680, 400);
+            corpo[9] = new Cobra(700, 400);
+            corpo[10] = new Cobra(720, 400);
+            corpo[11] = new Cobra(740, 400);
+            corpo[12] = new Cobra(660, 400);
+            corpo[13] = new Cobra(680, 400);
+            corpo[14] = new Cobra(700, 400);
+            corpo[15] = new Cobra(720, 400);
+            corpo[16] = new Cobra(740, 400);
+            corpo[17] = new Cobra(660, 400);
+            tamanho = 18;
+            cenario4();
+        }
+    }
+
     @Override
     public void paint(Graphics g) {
         g.drawImage(fundo, 0, 0, null);
@@ -216,6 +333,7 @@ public class Campo extends JPanel implements ActionListener {
             g.drawImage(cenario[i].getImagem(), (int) cenario[i].getX(), (int) cenario[i].getY(), this);
         }
         g.drawImage(fruta.getImagem(), (int) fruta.getX(), (int) fruta.getY(), this);
+        g.drawImage(poder.getImagem(), (int) poder.getX(), (int) poder.getY(), this);
         g.setFont(new Font("Arial", 0, 20));
         g.drawString(pontoJ + " ", this.getWidth() / 2, 50);
         Font f = new Font("Arial", Font.BOLD, 20);
