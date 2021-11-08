@@ -265,6 +265,7 @@ public class Campo extends JPanel implements ActionListener {
 
     private void trocaCenario() {
         if (5 == pontoJ) {
+            pontoJ++;
             cobra = new Cobra(500, 400);
             cobra.setDx(-20);
             corpo[0] = new Cobra(520, 400);
@@ -278,6 +279,7 @@ public class Campo extends JPanel implements ActionListener {
             tamanho = 8;
             cenario2();
         } else if (10 == pontoJ) {
+            pontoJ++;
             cobra = new Cobra(500, 400);
             cobra.setDx(-20);
             corpo[0] = new Cobra(520, 400);
@@ -296,6 +298,7 @@ public class Campo extends JPanel implements ActionListener {
             tamanho = 13;
             cenario3();
         } else if (15 == pontoJ) {
+            pontoJ++;
             cobra = new Cobra(500, 400);
             cobra.setDx(-20);
             corpo[0] = new Cobra(520, 400);
