@@ -1,12 +1,25 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Menu</title>
     </h:head>
-    <h:body>
-        Hello from Facelets
+    <h:body style="background-color: #cccccc;">
+        <h:form>
+        <br/>
+        <div style="text-align: center">
+            <h1>Menu</h1>
+            <p:commandButton ajax="false" value="Alunos" action="aluno_tela.xhtml" />
+            <p:commandButton ajax="false" value="Responsável Finaceiro" action="respFin_tela.xhtml" />
+        </div>  
+        </h:form>
     </h:body>
 </html>
-
