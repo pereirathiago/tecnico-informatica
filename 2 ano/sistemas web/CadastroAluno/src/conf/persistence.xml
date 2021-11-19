@@ -5,5 +5,6 @@
     <persistence-unit name="PU" transaction-type="JTA">
         <jta-data-source>jdbc/aluno</jta-data-source>
         <class>vo.Aluno</class>
+        <class>vo.ResponsavelFin</class>
     </persistence-unit>
 </persistence>
