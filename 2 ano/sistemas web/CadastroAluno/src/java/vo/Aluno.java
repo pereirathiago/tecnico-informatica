@@ -28,7 +28,7 @@ public class Aluno implements Serializable {
     private Date datanasc; 
     private String endereco;
     private String Filiacao;
-    private Integer idfiliacao = 0;
+    private Integer idFiliacao = 0;
 
     /**
      * @return the id
@@ -89,15 +89,15 @@ public class Aluno implements Serializable {
     /**
      * @return the idfiliacao
      */
-    public Integer getIdfiliacao() {
-        return idfiliacao;
+    public Integer getIdFiliacao() {
+        return idFiliacao;
     }
 
     /**
-     * @param idfiliacao the idfiliacao to set
+     * @param idFiliacao the idfiliacao to set
      */
-    public void setIdfiliacao(Integer idfiliacao) {
-        this.idfiliacao = idfiliacao;
+    public void setIdFiliacao(Integer idFiliacao) {
+        this.idFiliacao = idFiliacao;
     }
 
     /**

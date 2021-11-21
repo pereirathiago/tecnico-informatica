@@ -48,4 +48,12 @@ public class AlunoDAO {
         List<Aluno> listaAluno = q.getResultList();
         return listaAluno;
     }
+    
+    public List<Aluno> pesquisaDependentes(Integer idFiliacao) {
+        Query q = em.createQuery("select a from Aluno a where a.idFiliacao = :idFiliacao order by a.nome");
+        q.setParameter("idFiliacao",idFiliacao);
+        System.out.println(idFiliacao);
+        List<Aluno> listaAluno = q.getResultList();
+        return listaAluno;
+    }
 }
