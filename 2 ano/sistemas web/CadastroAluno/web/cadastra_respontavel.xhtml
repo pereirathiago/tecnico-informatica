@@ -40,24 +40,24 @@
         <p:fieldset legend="Responsavel" style="margin-bottom:20px; font-size: small;">
             <h:form>
                 <p:outputLabel value="Código:" for="itCodigo" />
-                <p:inputText id="itCodigo" value="#{telaLocalizaBean.responsavel.id}" /><br/>
+                <p:inputText id="itCodigo" value="#{telaLocalizaBean.responsavel.id}" readonly="true"/><br/><br/>
                 <p:outputLabel value="Nome:" for="itNome"/>
                 <p:inputText id="itNome" value="#{telaLocalizaBean.responsavel.nome}" required="true"
-                             requiredMessage="É obrigatório um nome!" maxlength="50"/><br/>
+                             requiredMessage="É obrigatório um nome!" maxlength="50"/><br/><br/>
                 
                 <p:outputLabel value="Data de Nascimento:" for="itData"/>
                 <p:calendar id="itData" locale="pt" value="#{telaLocalizaBean.responsavel.datanasc}" pattern="dd/MM/yyyy" mask="true"
-                            required="true" requiredMessage="É obrigatório uma data de nascimento!" showOn="button"/><br/>
+                            required="true" requiredMessage="É obrigatório uma data de nascimento!" showOn="button"/><br/><br/>
                 <p:outputLabel value="Endereço" for="itEndereco"/>
-                <p:inputText id="itEndereco" value="#{telaLocalizaBean.responsavel.endereco}"/><br/>
+                <p:inputText id="itEndereco" value="#{telaLocalizaBean.responsavel.endereco}"/><br/><br/>
                 <p:outputLabel value="Telefone" for="itTelefone"/>
-                <p:inputText id="itTelefone" value="#{telaLocalizaBean.responsavel.telefone}"/><br/>
+                <p:inputText id="itTelefone" value="#{telaLocalizaBean.responsavel.telefone}"/><br/><br/>
                 <p:outputLabel value="Email" for="itMail"/>
-                <p:inputText id="itMail" value="#{telaLocalizaBean.responsavel.email}"/><br/>
+                <p:inputText id="itMail" value="#{telaLocalizaBean.responsavel.email}"/><br/><br/>
                 <p:outputLabel value="RG" for="itRg"/>
-                <p:inputText id="itRg" value="#{telaLocalizaBean.responsavel.rg}"/><br/>
+                <p:inputText id="itRg" value="#{telaLocalizaBean.responsavel.rg}"/><br/><br/>
                 <p:outputLabel value="CPF" for="itCpf"/>
-                <p:inputText id="itCpf" value="#{telaLocalizaBean.responsavel.cpf}"/><br/>
+                <p:inputText id="itCpf" value="#{telaLocalizaBean.responsavel.cpf}"/><br/><br/>
                 <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salvaResponsavel()}"/>
             </h:form>
             <h:form>

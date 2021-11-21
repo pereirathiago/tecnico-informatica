@@ -27,7 +27,8 @@ public class Aluno implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date datanasc; 
     private String endereco;
-    private String filiacao;
+    private String Filiacao;
+    private Integer idfiliacao = 0;
 
     /**
      * @return the id
@@ -86,16 +87,30 @@ public class Aluno implements Serializable {
     }
 
     /**
-     * @return the filiacao
+     * @return the idfiliacao
      */
-    public String getFiliacao() {
-        return filiacao;
+    public Integer getIdfiliacao() {
+        return idfiliacao;
     }
 
     /**
-     * @param filiacao the filiacao to set
+     * @param idfiliacao the idfiliacao to set
      */
-    public void setFiliacao(String filiacao) {
-        this.filiacao = filiacao;
+    public void setIdfiliacao(Integer idfiliacao) {
+        this.idfiliacao = idfiliacao;
+    }
+
+    /**
+     * @return the Filiacao
+     */
+    public String getFiliacao() {
+        return Filiacao;
+    }
+
+    /**
+     * @param Filiacao the Filiacao to set
+     */
+    public void setFiliacao(String Filiacao) {
+        this.Filiacao = Filiacao;
     }
 }

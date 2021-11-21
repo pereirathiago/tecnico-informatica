@@ -40,17 +40,17 @@
         <p:fieldset legend="Aluno" style="margin-bottom:20px; font-size: small;">
             <h:form>
                 <p:outputLabel value="Código:" for="itCodigo" />
-                <p:inputText id="itCodigo" value="#{telaLocalizaBean.aluno.id}" /><br/>
+                <p:inputText id="itCodigo" value="#{telaLocalizaBean.aluno.id}" readonly="true"/><br/><br/>
                 <p:outputLabel value="Nome:" for="itNome"/>
                 <p:inputText id="itNome" value="#{telaLocalizaBean.aluno.nome}" required="true"
-                             requiredMessage="É obrigatório um nome!" maxlength="50"/><br/>
+                             requiredMessage="É obrigatório um nome!" maxlength="50"/><br/><br/>
                 <p:outputLabel value="Endereço" for="itEndereco"/>
-                <p:inputText id="itEndereco" value="#{telaLocalizaBean.aluno.endereco}"/><br/>
+                <p:inputText id="itEndereco" value="#{telaLocalizaBean.aluno.endereco}"/><br/><br/>
                 <p:outputLabel value="Data de Nascimento:" for="itData"/>
                 <p:calendar id="itData" locale="pt" value="#{telaLocalizaBean.aluno.datanasc}" pattern="dd/MM/yyyy" mask="true"
-                            required="true" requiredMessage="É obrigatório uma data de nascimento!" showOn="button"/><br/>
-                <p:outputLabel value="Filiação" for="itFiliacao"/>
-                <p:inputText id="itFiliacao" value="#{telaLocalizaBean.aluno.filiacao}"/><br/>
+                            required="true" requiredMessage="É obrigatório uma data de nascimento!" showOn="button"/><br/><br/>
+                <p:outputLabel value=" Código Filiação" for="itFiliacao"/>
+                <p:inputText id="itFiliacao" value="#{telaLocalizaBean.aluno.idfiliacao}" readonly="true"/><br/><br/>
                 <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salvaAluno()}"/>
             </h:form>
             <h:form>
