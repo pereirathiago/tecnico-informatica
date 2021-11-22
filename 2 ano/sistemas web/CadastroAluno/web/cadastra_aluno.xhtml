@@ -49,8 +49,10 @@
                 <p:outputLabel value="Data de Nascimento:" for="itData"/>
                 <p:calendar id="itData" locale="pt" value="#{telaLocalizaBean.aluno.datanasc}" pattern="dd/MM/yyyy" mask="true"
                             required="true" requiredMessage="É obrigatório uma data de nascimento!" showOn="button"/><br/><br/>
-                <p:outputLabel value=" Código Filiação" for="itFiliacao"/>
-                <p:inputText id="itFiliacao" value="#{telaLocalizaBean.aluno.idfiliacao}" readonly="true"/><br/><br/>
+                <p:outputLabel value="Filiação" for="itFiliacao"/>
+                <p:inputText id="itFiliacao" value="#{telaLocalizaBean.aluno.filiacao}"/><br/><br/>
+                <p:outputLabel value=" Código Filiação" for="itIdFiliacao"/>
+                <p:inputText id="itIdFiliacao" value="#{telaLocalizaBean.aluno.idFiliacao}" readonly="true"/><br/><br/>
                 <p:commandButton icon="ui-icon-disk" ajax="false" action="#{telaLocalizaBean.salvaAluno()}"/>
             </h:form>
             <h:form>

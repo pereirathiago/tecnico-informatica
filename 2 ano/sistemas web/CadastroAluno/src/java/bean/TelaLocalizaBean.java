@@ -54,7 +54,7 @@ public class TelaLocalizaBean implements Serializable{
     }
     public String novoAluno() {
         ResponsavelFin r = responsavelSelecionado();
-        aluno = new Aluno();
+        setAluno(new Aluno());
         aluno.setIdFiliacao(r.getId());
         return "cadastra_aluno";
     }
