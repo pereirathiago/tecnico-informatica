@@ -28,7 +28,7 @@ public class Aluno implements Serializable {
     private Date datanasc; 
     private String endereco;
     private String Filiacao;
-    private Integer idFiliacao = 0;
+    private Integer idFiliacao;
 
     /**
      * @return the id
