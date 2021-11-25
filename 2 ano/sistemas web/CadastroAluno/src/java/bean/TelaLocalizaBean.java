@@ -7,7 +7,7 @@ package bean;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import persistencia.AlunoDAO;
@@ -20,7 +20,7 @@ import vo.ResponsavelFin;
  * @author Thiago
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class TelaLocalizaBean implements Serializable{
     private DataModel<Aluno> listaAluno;
     private Aluno aluno = new Aluno();
@@ -54,7 +54,7 @@ public class TelaLocalizaBean implements Serializable{
     }
     public String novoAluno() {
         ResponsavelFin r = responsavelSelecionado();
-        aluno = new Aluno();
+        setAluno(new Aluno());
         aluno.setIdFiliacao(r.getId());
         return "cadastra_aluno";
     }
