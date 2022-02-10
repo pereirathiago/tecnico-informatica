@@ -38,8 +38,8 @@ public class Desenho {
     }
 
     public void setMouse(int x, int y) {
-        mx = (((x - xvmin) / ((xvmax = xvmin) / (xwmax - xwmin))) + xwmin) / xmax;
-        my = (((y - yvmin) / ((yvmax = yvmin) / (ywmax - ywmin))) + ywmin) / ymax;
+        mx = (((x - xvmin) / ((xvmax - xvmin) / (xwmax - xwmin))) + xwmin) / xmax;
+        my = (((y - yvmin) / ((yvmax - yvmin) / (ywmax - ywmin))) + ywmin) / ymax;
     }
 
     public void setViewPort(double x1, double y1, double x2, double y2) {
@@ -116,7 +116,7 @@ public class Desenho {
             double xx = p.getX();
             double yy = p.getY();
             p.setX(xx * Math.cos(ang) + yy * (-Math.sin(ang)));
-            p.setY(yy * Math.cos(ang) + yy * Math.sin(ang));
+            p.setY(xx * Math.sin(ang) + yy * Math.cos(ang));
             desenho.set(i, p);
         }
     }
@@ -131,8 +131,8 @@ public class Desenho {
                 desenho.set(i, p);
             } else {
                 p = (Ponto) desenho.get(i);
-                p.setX(((p.getX() - (p.getX() - mx)) * 0.1));
-                p.setY(((p.getY() - (p.getY() - my)) * 0.1));
+                p.setX(p.getX() - ((p.getX() - mx) * 0.1));
+                p.setY(p.getY() - ((p.getY() - my) * 0.1));
                 desenho.set(i, p);
             }
         }
