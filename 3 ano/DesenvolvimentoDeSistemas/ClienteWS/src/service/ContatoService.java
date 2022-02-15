@@ -26,7 +26,7 @@ public class ContatoService {
 
     public void insere(Contato p) {
         try {
-            URL url = new URL("http://localhost:8080/crud/contatos");
+            URL url = new URL("http://localhost:8080/crud/contato");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
@@ -61,7 +61,7 @@ public class ContatoService {
 
     public void atualiza(Contato c) {
         try {
-            URL url = new URL("http://localhost:8080/crud/contatos/" + c.getId());
+            URL url = new URL("http://localhost:8080/crud/contato/" + c.getId());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("PUT");
@@ -92,7 +92,7 @@ public class ContatoService {
 
     public void exclui(Contato c) {
         try {
-            URL url = new URL("http://localhost:8080/crud/contatos/" + c.getId());
+            URL url = new URL("http://localhost:8080/crud/contato/" + c.getId());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("DELETE");
@@ -116,7 +116,7 @@ public class ContatoService {
     public Contato localiza(int id) {
         Contato p = new Contato();
         try {
-            URL url = new URL("http://localhost:8080/crud/contatos/" + id);
+            URL url = new URL("http://localhost:8080/crud/contato/" + id);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setRequestMethod("GET");
@@ -146,7 +146,7 @@ public class ContatoService {
     public List<Contato> pesquisa() {
         List<Contato> lista = new ArrayList<>();
         try {
-            URL url = new URL("http://localhost:8080/crud/contatos/");
+            URL url = new URL("http://localhost:8080/crud/contato/");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-type", "application/json");
