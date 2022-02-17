@@ -29,10 +29,10 @@ public class ContatoService {
             URL url = new URL("http://localhost:8080/crud/contato");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
+
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Authorization", "Basic YWRtaW46cGluZGFtb25oYW5nYWJh");
-
             Gson gson = new Gson();
             String json = gson.toJson(p);
             System.out.println(json);
@@ -41,7 +41,9 @@ public class ContatoService {
             os.flush();
             System.out.println("codigo: " + connection.getResponseCode());
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new RuntimeException("Failed: HTTP error code : " + connection.getResponseCode());
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + connection.getResponseCode());
+
             }
             connection.disconnect();
         } catch (MalformedURLException e) {
@@ -51,24 +53,24 @@ public class ContatoService {
         }
     }
 
-    public void salva(Contato c) {
-        if (c.getId() == 0) {
-            insere(c);
+    public void salva(Contato p) {
+        if (p.getId() == 0) {
+            insere(p);
         } else {
-            atualiza(c);
+            atualiza(p);
         }
     }
 
-    public void atualiza(Contato c) {
+    public void atualiza(Contato p) {
         try {
-            URL url = new URL("http://localhost:8080/crud/contato/" + c.getId());
+            URL url = new URL("http://localhost:8080/crud/contato/" + p.getId());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("PUT");
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Authorization", "Basic YWRtaW46cGluZGFtb25oYW5nYWJh");
             Gson gson = new Gson();
-            String json = gson.toJson(c);
+            String json = gson.toJson(p);
             System.out.println(json);
             OutputStream os = connection.getOutputStream();
             os.write(json.getBytes());
@@ -90,9 +92,9 @@ public class ContatoService {
         }
     }
 
-    public void exclui(Contato c) {
+    public void exclui(Contato p) {
         try {
-            URL url = new URL("http://localhost:8080/crud/contato/" + c.getId());
+            URL url = new URL("http://localhost:8080/crud/contato/" + p.getId());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("DELETE");
