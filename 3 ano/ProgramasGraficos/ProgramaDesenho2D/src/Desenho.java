@@ -99,6 +99,25 @@ public class Desenho {
         desenho.addElement(new Ponto(11, 9, false));
     }
 
+    public void stickman() {
+        desenho.addElement(new Ponto(10, 15, true));
+        desenho.addElement(new Ponto(9.7, 15, false));
+        desenho.addElement(new Ponto(10.1, 13, false));
+        desenho.addElement(new Ponto(10.5, 15, false));
+        desenho.addElement(new Ponto(10.8, 15, false));
+        desenho.addElement(new Ponto(10.1, 13, true));
+        desenho.addElement(new Ponto(10.1, 11, false));
+        desenho.addElement(new Ponto(10.7, 11.8, false));
+        desenho.addElement(new Ponto(10.1, 11, true));
+        desenho.addElement(new Ponto(9.6, 11.8, false));
+        desenho.addElement(new Ponto(10.1, 11, true));
+        desenho.addElement(new Ponto(9.8, 11, false));
+        desenho.addElement(new Ponto(10.4, 11, false));
+        desenho.addElement(new Ponto(10.4, 10, false));
+        desenho.addElement(new Ponto(9.8, 10, false));
+        desenho.addElement(new Ponto(9.8, 11, false));
+    }
+
     public void translada(double dx, double dy) {
         Ponto p;
         for (int i = 0; i < desenho.size(); i++) {
