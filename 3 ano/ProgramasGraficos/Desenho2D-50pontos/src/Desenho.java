@@ -84,8 +84,8 @@ public class Desenho {
         }
     }
 
-    public void nome() {
-        // T
+    public void nome() { // 64 pontos
+        // T 9
         desenho.addElement(new Ponto(3, 9, true));
         desenho.addElement(new Ponto(1, 9, false));
         desenho.addElement(new Ponto(1, 10, false));
@@ -95,7 +95,7 @@ public class Desenho {
         desenho.addElement(new Ponto(2.3, 10, false));
         desenho.addElement(new Ponto(3, 10, false));
         desenho.addElement(new Ponto(3, 9, false));
-        // H
+        // H 13
         desenho.addElement(new Ponto(3.5, 9, true));
         desenho.addElement(new Ponto(3.5, 13, false));
         desenho.addElement(new Ponto(4, 13, false));
@@ -109,13 +109,13 @@ public class Desenho {
         desenho.addElement(new Ponto(4, 10.5, false));
         desenho.addElement(new Ponto(4, 9, false));
         desenho.addElement(new Ponto(3.5, 9, false));
-        // I
+        // I 5
         desenho.addElement(new Ponto(5.5, 9, true));
         desenho.addElement(new Ponto(5.5, 13, false));
         desenho.addElement(new Ponto(6, 13, false));
         desenho.addElement(new Ponto(6, 9, false));
         desenho.addElement(new Ponto(5.5, 9, false));
-        // A
+        // A 9
         desenho.addElement(new Ponto(6.5, 9, true));
         desenho.addElement(new Ponto(6.5, 13, false));
         desenho.addElement(new Ponto(7, 13, false));
@@ -125,13 +125,13 @@ public class Desenho {
         desenho.addElement(new Ponto(8, 13, false));
         desenho.addElement(new Ponto(8, 9, false));
         desenho.addElement(new Ponto(6.5, 9, false));
-        // meio do A
+        // meio do A 5
         desenho.addElement(new Ponto(7, 10, true));
         desenho.addElement(new Ponto(7, 10.8, false));
         desenho.addElement(new Ponto(7.5, 10.8, false));
         desenho.addElement(new Ponto(7.5, 10, false));
         desenho.addElement(new Ponto(7, 10, false));
-        // G
+        // G 13
         desenho.addElement(new Ponto(8.5, 9, true));
         desenho.addElement(new Ponto(8.5, 13, false));
         desenho.addElement(new Ponto(10, 13, false));
@@ -145,13 +145,13 @@ public class Desenho {
         desenho.addElement(new Ponto(10, 9.8, false));
         desenho.addElement(new Ponto(10, 9, false));
         desenho.addElement(new Ponto(8.5, 9, false));
-        // O
+        // O 5 
         desenho.addElement(new Ponto(10.5, 9, true));
         desenho.addElement(new Ponto(10.5, 13, false));
         desenho.addElement(new Ponto(12, 13, false));
         desenho.addElement(new Ponto(12, 9, false));
         desenho.addElement(new Ponto(10.5, 9, false));
-        // parte de dentro O
+        // parte de dentro O 5
         desenho.addElement(new Ponto(11, 10, true));
         desenho.addElement(new Ponto(11, 12, false));
         desenho.addElement(new Ponto(11.5, 12, false));
