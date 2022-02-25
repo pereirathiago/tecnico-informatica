@@ -103,26 +103,31 @@
             // 
             this.id.HeaderText = "ID";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
             // data
             // 
             this.data.HeaderText = "Data";
             this.data.Name = "data";
+            this.data.ReadOnly = true;
             // 
             // descricao
             // 
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
             // 
             // valor
             // 
             this.valor.HeaderText = "Valor";
             this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
             // 
             // tipo
             // 
             this.tipo.HeaderText = "Tipo";
             this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
             // 
             // Form1
             // 

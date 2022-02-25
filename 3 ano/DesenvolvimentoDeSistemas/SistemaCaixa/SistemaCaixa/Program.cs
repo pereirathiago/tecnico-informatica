@@ -16,7 +16,7 @@ namespace SistemaCaixa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cadastra_Movimento());
+            Application.Run(new Form1());
         }
     }
 }
