@@ -28,35 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMovimento = new System.Windows.Forms.Button();
+            this.btnSaldo = new System.Windows.Forms.Button();
+            this.btnExtrato = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnMovimento
             // 
-            this.button1.Location = new System.Drawing.Point(92, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMovimento.Location = new System.Drawing.Point(53, 38);
+            this.btnMovimento.Name = "btnMovimento";
+            this.btnMovimento.Size = new System.Drawing.Size(187, 50);
+            this.btnMovimento.TabIndex = 0;
+            this.btnMovimento.Text = "Movimento";
+            this.btnMovimento.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSaldo
             // 
-            this.button2.Location = new System.Drawing.Point(92, 150);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSaldo.Location = new System.Drawing.Point(53, 95);
+            this.btnSaldo.Name = "btnSaldo";
+            this.btnSaldo.Size = new System.Drawing.Size(187, 50);
+            this.btnSaldo.TabIndex = 1;
+            this.btnSaldo.Text = "Saldo";
+            this.btnSaldo.UseVisualStyleBackColor = true;
+            // 
+            // btnExtrato
+            // 
+            this.btnExtrato.Location = new System.Drawing.Point(53, 152);
+            this.btnExtrato.Name = "btnExtrato";
+            this.btnExtrato.Size = new System.Drawing.Size(187, 50);
+            this.btnExtrato.TabIndex = 2;
+            this.btnExtrato.Text = "Extrato";
+            this.btnExtrato.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 351);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(292, 241);
+            this.Controls.Add(this.btnExtrato);
+            this.Controls.Add(this.btnSaldo);
+            this.Controls.Add(this.btnMovimento);
             this.Name = "Menu";
             this.Text = "Menu";
             this.ResumeLayout(false);
@@ -65,7 +76,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMovimento;
+        private System.Windows.Forms.Button btnSaldo;
+        private System.Windows.Forms.Button btnExtrato;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SistemaCaixa
 {
-    partial class Form1
+    partial class MobimentoForm
     {
         /// <summary>
         /// Variável de designer necessária.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaCaixa
 {
-    public partial class Form1 : Form
+    public partial class MobimentoForm : Form
     {
-        public Form1()
+        public MobimentoForm()
         {
             InitializeComponent();
         }
