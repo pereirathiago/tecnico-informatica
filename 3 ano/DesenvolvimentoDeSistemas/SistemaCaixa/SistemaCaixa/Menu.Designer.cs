@@ -35,16 +35,17 @@
             // 
             // btnMovimento
             // 
-            this.btnMovimento.Location = new System.Drawing.Point(53, 38);
+            this.btnMovimento.Location = new System.Drawing.Point(27, 43);
             this.btnMovimento.Name = "btnMovimento";
             this.btnMovimento.Size = new System.Drawing.Size(187, 50);
             this.btnMovimento.TabIndex = 0;
             this.btnMovimento.Text = "Movimento";
             this.btnMovimento.UseVisualStyleBackColor = true;
+            this.btnMovimento.Click += new System.EventHandler(this.btnMovimento_Click);
             // 
             // btnSaldo
             // 
-            this.btnSaldo.Location = new System.Drawing.Point(53, 95);
+            this.btnSaldo.Location = new System.Drawing.Point(27, 100);
             this.btnSaldo.Name = "btnSaldo";
             this.btnSaldo.Size = new System.Drawing.Size(187, 50);
             this.btnSaldo.TabIndex = 1;
@@ -53,7 +54,7 @@
             // 
             // btnExtrato
             // 
-            this.btnExtrato.Location = new System.Drawing.Point(53, 152);
+            this.btnExtrato.Location = new System.Drawing.Point(27, 157);
             this.btnExtrato.Name = "btnExtrato";
             this.btnExtrato.Size = new System.Drawing.Size(187, 50);
             this.btnExtrato.TabIndex = 2;
@@ -64,11 +65,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 241);
+            this.ClientSize = new System.Drawing.Size(240, 250);
             this.Controls.Add(this.btnExtrato);
             this.Controls.Add(this.btnSaldo);
             this.Controls.Add(this.btnMovimento);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
 

@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace SistemaCaixa
 {
-    public partial class MobimentoForm : Form
+    public partial class SistemaDeCaixa : Form
     {
-        public MobimentoForm()
+        public SistemaDeCaixa()
         {
             InitializeComponent();
+            HorizontalScroll.Visible = false;
+        }
+
+        private void SistemaDeCaixa_Load(object sender, EventArgs e)
+        {
+            Menu fm = new Menu(this);
+            fm.Show();
         }
     }
 }

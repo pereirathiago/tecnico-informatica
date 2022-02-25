@@ -10,20 +10,24 @@ using System.Windows.Forms;
 
 namespace SistemaCaixa
 {
-    public partial class Menu : Form
+    public partial class MovimentoForm : Form
     {
-        public Menu(Form parent)
+        public MovimentoForm(Form parent)
         {
             InitializeComponent();
-
             MdiParent = parent;
         }
 
-        private void btnMovimento_Click(object sender, EventArgs e)
+        private void btnVoltaMenu_Click(object sender, EventArgs e)
         {
-            MovimentoForm f = new MovimentoForm(MdiParent);
+            Menu f = new Menu(MdiParent);
             f.Show();
             Close();
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            Cadastra_Movimento.movimento = new Movimento();
         }
     }
 }

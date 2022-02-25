@@ -33,14 +33,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.NumericUpDown();
+            this.txtTipo = new System.Windows.Forms.ComboBox();
+            this.txtData = new System.Windows.Forms.MaskedTextBox();
+            this.btnSalva = new System.Windows.Forms.Button();
+            this.btnCancela = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,82 +88,82 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Tipo";
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(146, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(60, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "0";
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(146, 64);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(60, 20);
+            this.txtId.TabIndex = 5;
+            this.txtId.Text = "0";
             // 
-            // textBox3
+            // txtDescricao
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 154);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtDescricao.Location = new System.Drawing.Point(146, 154);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(121, 20);
+            this.txtDescricao.TabIndex = 7;
             // 
-            // numericUpDown1
+            // txtValor
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(146, 195);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 8;
+            this.txtValor.DecimalPlaces = 2;
+            this.txtValor.Location = new System.Drawing.Point(146, 195);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(120, 20);
+            this.txtValor.TabIndex = 8;
             // 
-            // comboBox1
+            // txtTipo
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.txtTipo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtTipo.FormattingEnabled = true;
+            this.txtTipo.Items.AddRange(new object[] {
             "E",
             "S"});
-            this.comboBox1.Location = new System.Drawing.Point(146, 236);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.Text = "-- Selecione o Tipo --";
+            this.txtTipo.Location = new System.Drawing.Point(146, 236);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(121, 21);
+            this.txtTipo.TabIndex = 9;
+            this.txtTipo.Text = "-- Selecione o Tipo --";
             // 
-            // maskedTextBox1
+            // txtData
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(146, 110);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 10;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.txtData.Location = new System.Drawing.Point(146, 110);
+            this.txtData.Mask = "00/00/0000";
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(100, 20);
+            this.txtData.TabIndex = 10;
+            this.txtData.ValidatingType = typeof(System.DateTime);
             // 
-            // button1
+            // btnSalva
             // 
-            this.button1.Location = new System.Drawing.Point(80, 272);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSalva.Location = new System.Drawing.Point(80, 272);
+            this.btnSalva.Name = "btnSalva";
+            this.btnSalva.Size = new System.Drawing.Size(75, 23);
+            this.btnSalva.TabIndex = 11;
+            this.btnSalva.Text = "Salvar";
+            this.btnSalva.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancela
             // 
-            this.button2.Location = new System.Drawing.Point(173, 272);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancela.Location = new System.Drawing.Point(173, 272);
+            this.btnCancela.Name = "btnCancela";
+            this.btnCancela.Size = new System.Drawing.Size(75, 23);
+            this.btnCancela.TabIndex = 12;
+            this.btnCancela.Text = "Cancelar";
+            this.btnCancela.UseVisualStyleBackColor = true;
             // 
             // Cadastra_Movimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 359);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCancela);
+            this.Controls.Add(this.btnSalva);
+            this.Controls.Add(this.txtData);
+            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -171,7 +171,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Cadastra_Movimento";
             this.Text = "Cadastra_Movimento";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,12 +184,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.NumericUpDown txtValor;
+        private System.Windows.Forms.ComboBox txtTipo;
+        private System.Windows.Forms.MaskedTextBox txtData;
+        private System.Windows.Forms.Button btnSalva;
+        private System.Windows.Forms.Button btnCancela;
     }
 }
