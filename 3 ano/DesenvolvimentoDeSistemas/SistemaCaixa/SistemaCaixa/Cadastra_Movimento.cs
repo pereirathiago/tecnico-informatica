@@ -22,15 +22,6 @@ namespace SistemaCaixa
             bd = new BdMovimento();
         }
 
-         private void movimentoToTela()
-         {
-             txtId.Text = Convert.ToString(movimento.Id);
-             txtData.Text = Convert.ToString(movimento.Data);
-             txtDescricao.Text = movimento.Descricao;
-             txtValor.Value = Convert.ToDecimal(movimento.Valor);
-             txtTipo.Text = movimento.Tipo;
-         }
-
          private void telaToMovimento()
          {
              movimento.Id = Convert.ToInt32(txtId.Text);
@@ -43,21 +34,13 @@ namespace SistemaCaixa
         private void btnSalva_Click(object sender, EventArgs e)
         {
             telaToMovimento();
-            bd.salva(movimento);
+            bd.inserir(movimento);
             this.Dispose();
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-        internal Movimento Movimento
-        {
-            set 
-            { 
-                this.Movimento = movimento;
-                movimentoToTela();
-            }
         }
     }
 }

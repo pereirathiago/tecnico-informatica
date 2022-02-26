@@ -43,6 +43,43 @@ namespace SistemaCaixa
             }
         }
 
+        public void atualiza(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update movimento set data=@data, descricao=@descricao, valor=@valor, tipo=@tipo where id=@id";
+                cmd.Parameters.AddWithValue("@id", movimento.Id);
+                cmd.Parameters.AddWithValue("@data", movimento.Data);
+                cmd.Parameters.AddWithValue("@descricao", movimento.Descricao);
+                cmd.Parameters.AddWithValue("@valor", movimento.Valor);
+                cmd.Parameters.AddWithValue("@tipo", movimento.Tipo);
+                cmd.Connection = Connection;
+                da.UpdateCommand= cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void salva(Movimento movimento)
+        {
+            if(movimento.Id == 0)
+            {
+                inserir(movimento);
+            }
+            else
+            {
+                atualiza(movimento);
+            }
+        }
+
         public void excuir(int id)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -94,9 +131,9 @@ namespace SistemaCaixa
             return movimento;
         }
 
-        public DataSet pesquisa(String descricao)
+        public DataTable pesquisa(String descricao)
         {
-           DataSet ds = new DataSet();
+            DataTable ds = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
             try
