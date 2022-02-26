@@ -142,6 +142,7 @@
             this.btnSalva.TabIndex = 11;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // btnCancela
             // 
@@ -151,6 +152,7 @@
             this.btnCancela.TabIndex = 12;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = true;
+            this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
             // 
             // Cadastra_Movimento
             // 

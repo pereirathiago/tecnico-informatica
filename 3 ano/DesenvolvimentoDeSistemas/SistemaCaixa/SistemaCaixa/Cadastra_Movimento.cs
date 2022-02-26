@@ -12,45 +12,52 @@ namespace SistemaCaixa
 {
     public partial class Cadastra_Movimento : Form
     {
+        Movimento movimento = new Movimento();
+        BdMovimento bd;
+
+
         public Cadastra_Movimento()
         {
             InitializeComponent();
+            bd = new BdMovimento();
         }
-
-        Movimento mMovimento;
-        Boolean mNovo;
 
          private void movimentoToTela()
          {
-             txtId.Text = Convert.ToString(mMovimento.Id);
-             txtData.Text = Convert.ToString(mMovimento.Data);
-             txtDescricao.Text = mMovimento.Descricao;
-             txtValor.Value = Convert.ToDecimal(mMovimento.Valor);
-             txtTipo.Text = mMovimento.Tipo;
+             txtId.Text = Convert.ToString(movimento.Id);
+             txtData.Text = Convert.ToString(movimento.Data);
+             txtDescricao.Text = movimento.Descricao;
+             txtValor.Value = Convert.ToDecimal(movimento.Valor);
+             txtTipo.Text = movimento.Tipo;
          }
 
          private void telaToMovimento()
          {
-             mMovimento.Id = Convert.ToInt32(txtId.Text);
-             mMovimento.Data = Convert.ToDateTime(txtData.Text);
-             mMovimento.Descricao = txtDescricao.Text;
-             mMovimento.Valor = Convert.ToDouble(txtValor.Value);
-             mMovimento.Tipo = Convert.ToString(txtTipo.Text);
+             movimento.Id = Convert.ToInt32(txtId.Text);
+             movimento.Data = Convert.ToDateTime(txtData.Text);
+             movimento.Descricao = txtDescricao.Text;
+             movimento.Valor = Convert.ToDouble(txtValor.Value);
+             movimento.Tipo = Convert.ToString(txtTipo.Text);
          }
 
-        internal Movimento movimento
+        private void btnSalva_Click(object sender, EventArgs e)
         {
-            get { return mMovimento; }
-            set
-            {
-                mMovimento = value;
+            telaToMovimento();
+            bd.salva(movimento);
+            this.Dispose();
+        }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+        internal Movimento Movimento
+        {
+            set 
+            { 
+                this.Movimento = movimento;
                 movimentoToTela();
             }
-        }
-        public Boolean novo
-        {
-            get { return mNovo; }
-            set { mNovo = value; }
         }
     }
 }
