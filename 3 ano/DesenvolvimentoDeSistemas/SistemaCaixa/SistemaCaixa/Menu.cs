@@ -25,5 +25,12 @@ namespace SistemaCaixa
             f.Show();
             Close();
         }
+
+        private void btnSaldo_Click(object sender, EventArgs e)
+        {
+            Form_Saldo f = new Form_Saldo(MdiParent);
+            f.Show();
+            Close();
+        }
     }
 }

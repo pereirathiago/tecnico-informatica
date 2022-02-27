@@ -28,8 +28,9 @@ namespace SistemaCaixa
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            Cadastra_Movimento cm = new Cadastra_Movimento();
+            Cadastra_Movimento cm = new Cadastra_Movimento(MdiParent);
             cm.Show();
+            Close();
         }
 
         private void MovimentoForm_Activated(object sender, System.EventArgs e) 
@@ -39,12 +40,24 @@ namespace SistemaCaixa
 
         private void MovimentoForm_Load(object sender, EventArgs e)
         {
-            foreach (DataRow dr in bd.PreencheTabela().Rows)
+            foreach (DataRow dr in bd.PreencheTabela("").Rows)
             {
                 dgFiltro.Rows.Add(dr.ItemArray);
                 dgFiltro.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgFiltro.Columns[4].DefaultCellStyle.Format = "0.00";
+                dgFiltro.Columns[3].DefaultCellStyle.Format = "0.#0";
             }
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            dgFiltro.Rows.Clear();
+            foreach (DataRow dr in bd.PreencheTabela(txtFiltro.Text).Rows)
+            {
+                dgFiltro.Rows.Add(dr.ItemArray);
+                dgFiltro.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgFiltro.Columns[3].DefaultCellStyle.Format = "0.#0";
+            }
+        }
+
     }
 }

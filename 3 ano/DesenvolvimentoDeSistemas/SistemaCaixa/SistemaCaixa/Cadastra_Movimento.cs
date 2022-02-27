@@ -16,10 +16,11 @@ namespace SistemaCaixa
         BdMovimento bd;
 
 
-        public Cadastra_Movimento()
+        public Cadastra_Movimento(Form parent)
         {
             InitializeComponent();
             bd = new BdMovimento();
+            MdiParent = parent;
         }
 
          private void telaToMovimento()
@@ -52,13 +53,17 @@ namespace SistemaCaixa
             {
                 telaToMovimento();
                 bd.inserir(movimento);
-                this.Dispose();
+                MovimentoForm f = new MovimentoForm(MdiParent);
+                f.Show();
+                Close();
             }
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            MovimentoForm f = new MovimentoForm(MdiParent);
+            f.Show();
+            Close();
         }
     }
 }

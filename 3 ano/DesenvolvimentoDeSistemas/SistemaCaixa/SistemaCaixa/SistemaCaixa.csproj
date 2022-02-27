@@ -68,11 +68,18 @@
   <ItemGroup>
     <Compile Include="Bd.cs" />
     <Compile Include="BdMovimento.cs" />
+    <Compile Include="BdSaldo.cs" />
     <Compile Include="Cadastra_Movimento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cadastra_Movimento.Designer.cs">
       <DependentUpon>Cadastra_Movimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Saldo.Designer.cs">
+      <DependentUpon>Form_Saldo.cs</DependentUpon>
     </Compile>
     <Compile Include="MovimentoForm.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="Cadastra_Movimento.resx">
       <DependentUpon>Cadastra_Movimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Saldo.resx">
+      <DependentUpon>Form_Saldo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovimentoForm.resx">
       <DependentUpon>MovimentoForm.cs</DependentUpon>

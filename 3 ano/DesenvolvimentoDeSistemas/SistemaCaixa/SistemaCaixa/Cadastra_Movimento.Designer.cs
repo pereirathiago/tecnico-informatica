@@ -107,6 +107,11 @@
             // txtValor
             // 
             this.txtValor.DecimalPlaces = 2;
+            this.txtValor.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.txtValor.Location = new System.Drawing.Point(146, 195);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(120, 20);
@@ -170,7 +175,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cadastra_Movimento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastra_Movimento";
             ((System.ComponentModel.ISupportInitialize)(this.txtValor)).EndInit();
             this.ResumeLayout(false);
