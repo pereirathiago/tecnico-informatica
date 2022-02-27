@@ -18,6 +18,7 @@ namespace SistemaCaixa
             bd = "caixa";
         }
 
+
         public void inserir(Movimento movimento)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -131,27 +132,25 @@ namespace SistemaCaixa
             return movimento;
         }
 
-        public DataTable pesquisa(String descricao)
+        public DataTable PreencheTabela()
         {
-            DataTable ds = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
+            DataTable movimento = new DataTable();
             try
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from aluno where descricao like @descricao";
-                cmd.Parameters.AddWithValue("@descricao", "%" + descricao + "%");
+                cmd.CommandText = "select * from movimento";
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
-                da.Fill(ds);
-                da.Dispose();
-                return ds;
+                da.Fill(movimento);
+                return movimento;
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            return ds;
+            return null;
         }
     }
 }

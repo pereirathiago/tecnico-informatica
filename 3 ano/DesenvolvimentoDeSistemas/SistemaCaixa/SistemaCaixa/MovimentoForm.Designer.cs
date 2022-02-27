@@ -51,6 +51,8 @@
             // 
             // dgFiltro
             // 
+            this.dgFiltro.AllowUserToAddRows = false;
+            this.dgFiltro.AllowUserToDeleteRows = false;
             this.dgFiltro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgFiltro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFiltro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -61,6 +63,7 @@
             this.tipo});
             this.dgFiltro.Location = new System.Drawing.Point(12, 52);
             this.dgFiltro.Name = "dgFiltro";
+            this.dgFiltro.ReadOnly = true;
             this.dgFiltro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgFiltro.Size = new System.Drawing.Size(612, 327);
             this.dgFiltro.TabIndex = 2;
@@ -69,31 +72,26 @@
             // 
             this.id.HeaderText = "ID";
             this.id.Name = "id";
-            this.id.ReadOnly = true;
             // 
             // data
             // 
             this.data.HeaderText = "Data";
             this.data.Name = "data";
-            this.data.ReadOnly = true;
             // 
             // descricao
             // 
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
             // 
             // valor
             // 
             this.valor.HeaderText = "Valor";
             this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
             // 
             // tipo
             // 
             this.tipo.HeaderText = "Tipo";
             this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
             // 
             // btnNovo
             // 

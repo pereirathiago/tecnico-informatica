@@ -23,7 +23,7 @@ namespace SistemaCaixa
 
         public void Abrir()
         {
-            string strConnString = "server=" + Servidor + "User id=" + User + ";password=" + Senha + ";database=" + bd + ";sslmode=none;";
+            string strConnString = "server=" + Servidor + ";User id=" + User + ";password=" + Senha + ";database=" + bd + ";sslmode=none;";
             if(Connection.State == System.Data.ConnectionState.Broken || Connection.State == System.Data.ConnectionState.Closed)
             {
                 Connection = new MySqlConnection();

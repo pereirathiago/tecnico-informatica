@@ -37,9 +37,9 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.NumericUpDown();
             this.txtTipo = new System.Windows.Forms.ComboBox();
-            this.txtData = new System.Windows.Forms.MaskedTextBox();
             this.btnSalva = new System.Windows.Forms.Button();
             this.btnCancela = new System.Windows.Forms.Button();
+            this.txtData = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.txtValor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 113);
+            this.label2.Location = new System.Drawing.Point(61, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 1;
@@ -125,21 +125,12 @@
             this.txtTipo.TabIndex = 9;
             this.txtTipo.Text = "-- Selecione o Tipo --";
             // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(146, 110);
-            this.txtData.Mask = "00/00/0000";
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(100, 20);
-            this.txtData.TabIndex = 10;
-            this.txtData.ValidatingType = typeof(System.DateTime);
-            // 
             // btnSalva
             // 
             this.btnSalva.Location = new System.Drawing.Point(80, 272);
             this.btnSalva.Name = "btnSalva";
             this.btnSalva.Size = new System.Drawing.Size(75, 23);
-            this.btnSalva.TabIndex = 11;
+            this.btnSalva.TabIndex = 10;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
             this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
@@ -149,19 +140,27 @@
             this.btnCancela.Location = new System.Drawing.Point(173, 272);
             this.btnCancela.Name = "btnCancela";
             this.btnCancela.Size = new System.Drawing.Size(75, 23);
-            this.btnCancela.TabIndex = 12;
+            this.btnCancela.TabIndex = 11;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = true;
             this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
+            // 
+            // txtData
+            // 
+            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtData.Location = new System.Drawing.Point(146, 107);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(102, 20);
+            this.txtData.TabIndex = 6;
             // 
             // Cadastra_Movimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 359);
+            this.Controls.Add(this.txtData);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnSalva);
-            this.Controls.Add(this.txtData);
             this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.txtDescricao);
@@ -190,8 +189,8 @@
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.NumericUpDown txtValor;
         private System.Windows.Forms.ComboBox txtTipo;
-        private System.Windows.Forms.MaskedTextBox txtData;
         private System.Windows.Forms.Button btnSalva;
         private System.Windows.Forms.Button btnCancela;
+        private System.Windows.Forms.DateTimePicker txtData;
     }
 }

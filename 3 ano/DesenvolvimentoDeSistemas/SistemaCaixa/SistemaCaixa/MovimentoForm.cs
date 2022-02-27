@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SistemaCaixa
 {
     public partial class MovimentoForm : Form
@@ -31,15 +32,19 @@ namespace SistemaCaixa
             cm.Show();
         }
 
-        private void MovimentoForm_Activated(object sender, System.EventArgs e)
+        private void MovimentoForm_Activated(object sender, System.EventArgs e) 
         {
-            dgFiltro.DataSource = bd.pesquisa("");
+
         }
 
         private void MovimentoForm_Load(object sender, EventArgs e)
         {
-
+            foreach (DataRow dr in bd.PreencheTabela().Rows)
+            {
+                dgFiltro.Rows.Add(dr.ItemArray);
+                dgFiltro.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgFiltro.Columns[4].DefaultCellStyle.Format = "0.00";
+            }
         }
-
     }
 }

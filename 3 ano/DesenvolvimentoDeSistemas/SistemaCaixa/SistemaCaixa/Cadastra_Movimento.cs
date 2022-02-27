@@ -24,18 +24,36 @@ namespace SistemaCaixa
 
          private void telaToMovimento()
          {
-             movimento.Id = Convert.ToInt32(txtId.Text);
-             movimento.Data = Convert.ToDateTime(txtData.Text);
-             movimento.Descricao = txtDescricao.Text;
-             movimento.Valor = Convert.ToDouble(txtValor.Value);
-             movimento.Tipo = Convert.ToString(txtTipo.Text);
+            movimento.Id = Convert.ToInt32(txtId.Text);
+            movimento.Data = Convert.ToDateTime(txtData.Text).Date;
+            movimento.Descricao = txtDescricao.Text;
+            movimento.Valor = Convert.ToDouble(txtValor.Value);
+            movimento.Tipo = Convert.ToString(txtTipo.Text);
          }
+
+        private bool VerificaCampos()
+        {
+            if (txtDescricao.Text == "")
+            {
+                MessageBox.Show("Preencha todos os campos");
+                return false;
+            }
+            if (txtTipo.Text.Length > 1)
+            {
+                MessageBox.Show("Selecione um Tipo");
+                return false;
+            }
+            return true;
+        }
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            telaToMovimento();
-            bd.inserir(movimento);
-            this.Dispose();
+            if (VerificaCampos())
+            {
+                telaToMovimento();
+                bd.inserir(movimento);
+                this.Dispose();
+            }
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
