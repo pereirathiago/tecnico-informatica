@@ -13,13 +13,14 @@ namespace SistemaCaixa
     public partial class Cadastra_Movimento : Form
     {
         Movimento movimento = new Movimento();
-        BdMovimento bd;
+        BdSaldo bdSaldo;
+        BdMovimento bdMovimento;
 
 
         public Cadastra_Movimento(Form parent)
         {
             InitializeComponent();
-            bd = new BdMovimento();
+            bdMovimento = new BdMovimento();
             MdiParent = parent;
         }
 
@@ -52,7 +53,8 @@ namespace SistemaCaixa
             if (VerificaCampos())
             {
                 telaToMovimento();
-                bd.inserir(movimento);
+                bdMovimento.inserir(movimento);
+                bdSaldo.salva(movimento);
                 MovimentoForm f = new MovimentoForm(MdiParent);
                 f.Show();
                 Close();

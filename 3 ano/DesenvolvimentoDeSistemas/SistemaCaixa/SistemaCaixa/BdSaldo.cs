@@ -36,5 +36,63 @@ namespace SistemaCaixa
             }
             return null;
         }
+
+        public void inserir(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into saldo (id, data, valor) values (@id, @data, @valor)";
+                cmd.Parameters.AddWithValue("@id", movimento.Id);
+                cmd.Parameters.AddWithValue("@data", movimento.Data);
+                cmd.Parameters.AddWithValue("@valor", movimento.Valor);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void atualiza(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update saldo set data=@data, valor=@valor, where id=@id";
+                cmd.Parameters.AddWithValue("@id", movimento.Id);
+                cmd.Parameters.AddWithValue("@data", movimento.Data);
+                cmd.Parameters.AddWithValue("@valor", movimento.Valor);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void salva(Movimento movimento)
+        {
+            if (movimento.Id == 0)
+            {
+                inserir(movimento);
+            }
+            else
+            {
+                atualiza(movimento);
+            }
+        }
     }
 }

@@ -15,7 +15,6 @@ namespace SistemaCaixa
             bd = "caixa";
         }
 
-
         public void inserir(Movimento movimento)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
