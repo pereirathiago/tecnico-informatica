@@ -50,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 double a = Double.parseDouble(tValorA.getText().toString());
                 double b = Double.parseDouble((tValorB.getText().toString()));
-                tResultado.setText(Double.toString(a / b));
+                if (b == 0)
+                    tResultado.setText("Erro, não pode dividir por 0");
+                else
+                    tResultado.setText(Double.toString(a / b));
             }
         });
 
