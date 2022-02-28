@@ -61,6 +61,7 @@
             this.btnExtrato.TabIndex = 2;
             this.btnExtrato.Text = "Extrato";
             this.btnExtrato.UseVisualStyleBackColor = true;
+            this.btnExtrato.Click += new System.EventHandler(this.btnExtrato_Click);
             // 
             // Menu
             // 

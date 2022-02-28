@@ -62,5 +62,29 @@ namespace SistemaCaixa
             }
             return null;
         }
+
+        public DataTable PreencheTabelaDatas(DateTime dataInicio, DateTime dataFinal)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable movimento = new DataTable();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from movimento where data between DATE(@dataInicio) and Date(@dataFinal)";
+                cmd.Parameters.AddWithValue("@dataInicio", dataInicio.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@dataFinal", dataFinal.ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(movimento);
+                return movimento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
     }
 }

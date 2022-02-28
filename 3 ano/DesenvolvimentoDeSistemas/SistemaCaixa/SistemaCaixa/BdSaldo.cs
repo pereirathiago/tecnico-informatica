@@ -8,6 +8,10 @@ namespace SistemaCaixa
 {
     class BdSaldo : Bd
     {
+        Double _saldoIni;
+
+        public double SaldoIni { get => _saldoIni; set => _saldoIni = value; }
+
         public BdSaldo()
         {
             User = "root";
@@ -148,6 +152,7 @@ namespace SistemaCaixa
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
             DataTable qtd = new DataTable();
+
             try
             {
                 Abrir();

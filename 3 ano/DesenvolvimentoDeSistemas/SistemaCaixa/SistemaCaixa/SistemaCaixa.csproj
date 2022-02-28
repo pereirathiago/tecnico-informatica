@@ -75,6 +75,12 @@
     <Compile Include="Cadastra_Movimento.Designer.cs">
       <DependentUpon>Cadastra_Movimento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormExtrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExtrato.Designer.cs">
+      <DependentUpon>FormExtrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Saldo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </Compile>
     <EmbeddedResource Include="Cadastra_Movimento.resx">
       <DependentUpon>Cadastra_Movimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExtrato.resx">
+      <DependentUpon>FormExtrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Saldo.resx">
       <DependentUpon>Form_Saldo.cs</DependentUpon>

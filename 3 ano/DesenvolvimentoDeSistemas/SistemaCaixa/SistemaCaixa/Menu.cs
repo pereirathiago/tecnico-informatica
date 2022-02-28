@@ -32,5 +32,12 @@ namespace SistemaCaixa
             f.Show();
             Close();
         }
+
+        private void btnExtrato_Click(object sender, EventArgs e)
+        {
+            FormExtrato f = new FormExtrato(MdiParent);
+            f.Show();
+            Close();
+        }
     }
 }
