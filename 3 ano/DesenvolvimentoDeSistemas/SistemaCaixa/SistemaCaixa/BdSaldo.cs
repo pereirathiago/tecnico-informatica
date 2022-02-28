@@ -44,9 +44,10 @@ namespace SistemaCaixa
             MySqlCommand cmd = new MySqlCommand();
             try
             {
+                string sql = AdicionarValorDiaAnter(movimento);
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into saldo (id, data, valor) values (@id, @data, @valor)";
+                cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", movimento.Id);
                 cmd.Parameters.AddWithValue("@data", movimento.Data);
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
@@ -67,10 +68,10 @@ namespace SistemaCaixa
             MySqlCommand cmd = new MySqlCommand();
             try
             {
+                string sql = VerificaEntradaSaida(movimento);
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update saldo set valor=@valor where data=DATE(@data)";
-                cmd.Parameters.AddWithValue("@id", movimento.Id);
+                cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
                 cmd.Connection = Connection;
@@ -125,6 +126,55 @@ namespace SistemaCaixa
                 MessageBox.Show(ex.Message);
             }
             return false;
+        }
+
+        public string VerificaEntradaSaida(Movimento movimento)
+        {
+            if(movimento.Tipo == "S")
+            {
+                string sql = "update saldo set valor = valor - @valor where data = DATE(@data)";
+                return sql;
+            } 
+            if(movimento.Tipo == "E")
+            {
+                string sql = "update saldo set valor = valor + @valor where data = DATE(@data)";
+                return sql;
+            }
+            return "";
+        }
+
+        public string AdicionarValorDiaAnter(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select valor from saldo where data = DATE(@data)";
+                cmd.Parameters.AddWithValue("@data", movimento.Data.AddDays(-1).ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Fechar();
+                if(qtd.Rows.Count <= 0)
+                {
+                    // não tem dia anterior
+                    string sql = "insert into saldo (id, data, valor) values (@id, @data, @valor)";
+                    return sql;
+                } else
+                {
+                    // tem dia anterior
+                    string sql = "insert into saldo (id, data, valor) values (@id, @data, "+qtd.Rows[0].ItemArray[0]+ "+ @valor)";
+                    return sql;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "";
         }
     }
 }
