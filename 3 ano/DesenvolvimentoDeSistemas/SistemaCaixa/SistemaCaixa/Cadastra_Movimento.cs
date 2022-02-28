@@ -21,6 +21,7 @@ namespace SistemaCaixa
         {
             InitializeComponent();
             bdMovimento = new BdMovimento();
+            bdSaldo = new BdSaldo();
             MdiParent = parent;
         }
 

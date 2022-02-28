@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SistemaCaixa
 {
@@ -68,9 +69,9 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update saldo set data=@data, valor=@valor, where id=@id";
+                cmd.CommandText = "update saldo set valor=@valor where data=DATE(@data)";
                 cmd.Parameters.AddWithValue("@id", movimento.Id);
-                cmd.Parameters.AddWithValue("@data", movimento.Data);
+                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
@@ -85,7 +86,7 @@ namespace SistemaCaixa
 
         public void salva(Movimento movimento)
         {
-            if (movimento.Id == 0)
+            if (!VerificaDataBd(movimento))
             {
                 inserir(movimento);
             }
@@ -93,6 +94,37 @@ namespace SistemaCaixa
             {
                 atualiza(movimento);
             }
+        }
+
+        public bool VerificaDataBd(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM saldo WHERE data = DATE(@data)";
+                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Fechar();
+                if (qtd.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
         }
     }
 }
