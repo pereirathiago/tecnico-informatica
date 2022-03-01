@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24-Fev-2022 às 19:45
--- Versão do servidor: 5.7.22
--- PHP Version: 7.1.16
+-- Generation Time: 01-Mar-2022 às 16:24
+-- Versão do servidor: 5.7.25
+-- versão do PHP: 7.1.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,6 +36,20 @@ CREATE TABLE `movimento` (
   `tipo` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `movimento`
+--
+
+INSERT INTO `movimento` (`id`, `data`, `descricao`, `valor`, `tipo`) VALUES
+(1, '2022-02-27', 'venda', 5, 'E'),
+(2, '2022-02-27', 'compra', 2, 'S'),
+(3, '2022-02-28', 'venda', 15, 'E'),
+(4, '2022-02-27', 'venda', 5, 'E'),
+(5, '2022-03-01', 'venda de x', 10, 'E'),
+(6, '2022-02-27', 'compra de y', 5, 'S'),
+(7, '2022-03-01', 'venda de produto', 15, 'E'),
+(8, '2022-02-27', 'compra', 2, 'S');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +61,15 @@ CREATE TABLE `saldo` (
   `data` date NOT NULL,
   `valor` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `saldo`
+--
+
+INSERT INTO `saldo` (`id`, `data`, `valor`) VALUES
+(1, '2022-02-27', 1),
+(2, '2022-02-28', 16),
+(3, '2022-03-01', 41);
 
 --
 -- Indexes for dumped tables
@@ -72,13 +95,13 @@ ALTER TABLE `saldo`
 -- AUTO_INCREMENT for table `movimento`
 --
 ALTER TABLE `movimento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `saldo`
 --
 ALTER TABLE `saldo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
