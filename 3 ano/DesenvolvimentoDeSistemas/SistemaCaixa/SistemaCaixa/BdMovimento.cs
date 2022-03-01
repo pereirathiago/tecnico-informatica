@@ -73,8 +73,17 @@ namespace SistemaCaixa
                 Abrir();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select * from movimento where data between DATE(@dataInicio) and Date(@dataFinal)";
-                cmd.Parameters.AddWithValue("@dataInicio", dataInicio.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@dataFinal", dataFinal.ToString("yyyy-MM-dd"));
+                if(verificaDatas(dataInicio, dataFinal))
+                {
+                    cmd.Parameters.AddWithValue("@dataInicio", dataInicio.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@dataFinal", dataFinal.ToString("yyyy-MM-dd"));
+                }
+                else
+                {
+                    MessageBox.Show("Data inicial: " + dataFinal.ToString("dd/MM/yyyy") + "\nData final: " + dataInicio.ToString("dd/MM/yyyy"));
+                    cmd.Parameters.AddWithValue("@dataInicio", dataFinal.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@dataFinal", dataInicio.ToString("yyyy-MM-dd"));
+                }
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(movimento);
@@ -136,5 +145,17 @@ namespace SistemaCaixa
             return 0;
         }
 
+        bool verificaDatas(DateTime dataInicio, DateTime dataFinal)
+        {
+            if(dataInicio > dataFinal)
+            {
+                MessageBox.Show("A data final deve ser depois da inicial");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
