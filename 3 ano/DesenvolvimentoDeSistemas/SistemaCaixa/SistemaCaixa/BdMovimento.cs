@@ -86,5 +86,55 @@ namespace SistemaCaixa
             }
             return null;
         }
+
+        public double SaldoInicial(DateTime dataInicio)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable dataInicial = new DataTable();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select valor from saldo where data = DATE(@dataInicio)";
+                cmd.Parameters.AddWithValue("@dataInicio", dataInicio.AddDays(-1).ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(dataInicial);
+                if (dataInicial.Rows.Count > 0)
+                    return Convert.ToDouble(dataInicial.Rows[0].ItemArray[0].ToString());
+                else
+                    return 0;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return 0;
+        }
+
+        public double SaldoFinal(DateTime dataFinal)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable dataInicial = new DataTable();
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select valor from saldo where data = DATE(@dataFinal)";
+                cmd.Parameters.AddWithValue("@dataFinal", dataFinal.ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(dataInicial);
+                return Convert.ToDouble(dataInicial.Rows[0].ItemArray[0].ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return 0;
+        }
+
     }
 }

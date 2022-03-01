@@ -36,6 +36,9 @@ namespace SistemaCaixa
                 dgFiltro.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgFiltro.Columns[3].DefaultCellStyle.Format = "0.#0";
             }
+            lSaldoInicio.Text = String.Format("{0:C}", bd.SaldoInicial(Convert.ToDateTime(dataInicio.Text)));
+            lSaldoFin.Text = String.Format("{0:C}", bd.SaldoFinal(Convert.ToDateTime(dataFinal.Text)));
+
         }
 
         private void FormExtrato_Load(object sender, EventArgs e)
@@ -47,6 +50,8 @@ namespace SistemaCaixa
                 dgFiltro.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgFiltro.Columns[3].DefaultCellStyle.Format = "0.#0";
             }
+            lSaldoInicio.Text = String.Format("{0:C}", bd.SaldoInicial(Convert.ToDateTime(dataInicio.Text)));
+            lSaldoFin.Text = String.Format("{0:C}", bd.SaldoFinal(Convert.ToDateTime(dataFinal.Text)));
         }
     }
 }
