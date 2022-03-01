@@ -70,6 +70,8 @@ namespace SistemaCaixa
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
+            DateTime hoje = DateTime.Today;
+
             try
             {
                 string sql = VerificaEntradaSaida(movimento);
@@ -77,6 +79,7 @@ namespace SistemaCaixa
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@hoje", hoje.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
@@ -134,14 +137,16 @@ namespace SistemaCaixa
 
         public string VerificaEntradaSaida(Movimento movimento)
         {
-            if(movimento.Tipo == "S")
+            if (movimento.Tipo == "S")
             {
-                string sql = "update saldo set valor = valor - @valor where data = DATE(@data)";
+                //string sql = "update saldo set valor = valor - @valor where data = DATE(@data)";
+                string sql = "update saldo set valor = valor - @valor where data between DATE(@data) and DATE(@hoje)";
                 return sql;
             } 
             if(movimento.Tipo == "E")
             {
-                string sql = "update saldo set valor = valor + @valor where data = DATE(@data)";
+                //string sql = "update saldo set valor = valor + @valor where data = DATE(@data)";
+                string sql = "update saldo set valor = valor + @valor where data between DATE(@data) and DATE(@hoje)";
                 return sql;
             }
             return "";
@@ -180,6 +185,33 @@ namespace SistemaCaixa
                 MessageBox.Show(ex.Message);
             }
             return "";
+        }
+
+        public DataTable AtualizarValorDiaAnter(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            DateTime hoje = DateTime.Today;
+
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update saldo set valor = @valor where data between DATE(@data) and DATE(@hoje)";
+                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@hoje", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Fechar();
+                return qtd;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
         }
     }
 }
