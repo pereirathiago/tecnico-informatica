@@ -162,13 +162,12 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select valor from saldo where data = DATE(@data)";
-                cmd.Parameters.AddWithValue("@data", movimento.Data.AddDays(-1).ToString("yyyy-MM-dd"));
+                cmd.CommandText = "select valor from saldo order by data desc limit 1";
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(qtd);
                 Fechar();
-                if(qtd.Rows.Count <= 0)
+                if(qtd.Rows[0].ItemArray[0] == null)
                 {
                     // não tem dia anterior
                     string sql = "insert into saldo (id, data, valor) values (@id, @data, @valor)";
