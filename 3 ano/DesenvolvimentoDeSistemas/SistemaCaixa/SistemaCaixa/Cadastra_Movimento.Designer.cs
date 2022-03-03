@@ -113,6 +113,11 @@
             0,
             65536});
             this.txtValor.Location = new System.Drawing.Point(146, 195);
+            this.txtValor.Maximum = new decimal(new int[] {
+            -1593835520,
+            466537709,
+            54210,
+            0});
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(120, 20);
             this.txtValor.TabIndex = 8;

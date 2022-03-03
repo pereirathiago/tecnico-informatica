@@ -20,7 +20,13 @@ namespace SistemaCaixa
 
         private void SistemaDeCaixa_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void SistemaDeCaixa_Activated(object sender, EventArgs e)
+        {
             Menu fm = new Menu(this);
+            fm.StartPosition = FormStartPosition.CenterScreen;
             fm.Show();
         }
     }

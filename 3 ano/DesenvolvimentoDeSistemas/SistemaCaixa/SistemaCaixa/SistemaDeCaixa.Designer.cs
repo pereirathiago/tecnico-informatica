@@ -42,6 +42,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SistemaDeCaixa";
+            this.Activated += new System.EventHandler(this.SistemaDeCaixa_Activated);
             this.Load += new System.EventHandler(this.SistemaDeCaixa_Load);
             this.ResumeLayout(false);
 
