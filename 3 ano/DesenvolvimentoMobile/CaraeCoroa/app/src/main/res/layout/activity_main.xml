@@ -26,5 +26,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/frente" />
+        app:srcCompat="@drawable/cara" />
 </androidx.constraintlayout.widget.ConstraintLayout>
