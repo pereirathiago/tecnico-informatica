@@ -14,20 +14,20 @@
         android:layout_marginBottom="24dp"
         android:text="Digite sua idade"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tIdade"
+        app:layout_constraintBottom_toTopOf="@+id/tDatanasc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tIdade"
+        android:id="@+id/tDatanasc"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="68dp"
         android:ems="10"
-        android:hint="Sua idade"
+        android:hint="Data Nascimento"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/bCalcular"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tResultado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tIdade" />
+        app:layout_constraintTop_toBottomOf="@+id/tDatanasc" />
 
     <TextView
         android:id="@+id/tResultado"
