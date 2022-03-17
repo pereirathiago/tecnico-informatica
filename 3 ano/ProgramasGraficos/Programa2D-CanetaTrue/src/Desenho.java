@@ -83,20 +83,15 @@ public class Desenho {
             movaPara(g, p.getX(), p.getY(), p.isPu());
         }
     }
-
-    public void triangulo() {
-        desenho.addElement(new Ponto(10d, 9d, true));
-        desenho.addElement(new Ponto(9d, 11d, false));
-        desenho.addElement(new Ponto(11d, 11d, false));
-        desenho.addElement(new Ponto(10d, 9d, false));
-    }
-
-    public void quadrado() {
-        desenho.addElement(new Ponto(11, 9, true));
-        desenho.addElement(new Ponto(9, 9, false));
-        desenho.addElement(new Ponto(9, 11, false));
-        desenho.addElement(new Ponto(11, 11, false));
-        desenho.addElement(new Ponto(11, 9, false));
+    
+    public void cenario() {
+        // cabeça
+        arco(3.42,10.28,.8,1.2,8.3);
+        desenho.addElement(new Ponto(3.42, 11.1, true));
+        desenho.addElement(new Ponto(3.42, 11.35, false));
+        // corpo
+            
+        
     }
     
     public void arco(double centroX,double centroY,double raio, double inicio, double fim ){

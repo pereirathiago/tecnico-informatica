@@ -112,9 +112,9 @@ public class Painel extends JPanel implements ActionListener {
                 tela.dispose();
             }
         });
-        desenho.setMundo(0, 0, 20, 20);
+        desenho.setMundo(0, 0, 30, 18);
         desenho.setViewPort(0, 0, 1, 1);
-        desenho.arco(11, 11 ,2, 0,20);
+        desenho.cenario();
     }
 
     @Override
