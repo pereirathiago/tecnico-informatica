@@ -98,6 +98,13 @@ public class Desenho {
         desenho.addElement(new Ponto(11, 11, false));
         desenho.addElement(new Ponto(11, 9, false));
     }
+    
+    public void arco(double centroX,double centroY,double raio, double inicio, double fim ){
+        desenho.add(new Ponto(centroX+raio*Math.cos(inicio),centroY+raio*Math.sin(inicio),true));
+        for(double z=inicio;z<=fim;z+=.1){
+            desenho.add(new Ponto(centroX+raio*Math.cos(z),centroY+raio*Math.sin(z),false));
+        }
+    }
 
     public void translada(double dx, double dy) {
         Ponto p;

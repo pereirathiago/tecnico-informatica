@@ -114,7 +114,7 @@ public class Painel extends JPanel implements ActionListener {
         });
         desenho.setMundo(0, 0, 20, 20);
         desenho.setViewPort(0, 0, 1, 1);
-        desenho.quadrado();
+        desenho.arco(11, 11 ,2, 0,20);
     }
 
     @Override
