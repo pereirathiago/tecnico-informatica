@@ -91,7 +91,12 @@ public class Desenho {
         desenho.addElement(new Ponto(3.42, 11.35, false));
         // corpo
         desenho.addElement(new Ponto(2.8, 11.35, false));
-        desenho.addElement(new Ponto(2.8, 13, false));
+        desenho.addElement(new Ponto(2.8, 13.5, false));
+        desenho.addElement(new Ponto(4.04, 13.5, false));
+        desenho.addElement(new Ponto(4.04, 11.35, false));
+        desenho.addElement(new Ponto(2.8, 11.35, false));
+        // pernas
+        desenho.addElement(new Ponto(3, 10, true))
     }
 
     public void arco(double centroX, double centroY, double raio, double inicio, double fim) {
