@@ -85,8 +85,32 @@ public class Desenho {
     }
 
     public void cenario() {
-        desenho.addElement(new Ponto(0, 25, true));
-        desenho.addElement(new Ponto(25, 25, false));
+        // linha
+        desenho.addElement(new Ponto(0, 9.15, true));
+        desenho.addElement(new Ponto(30, 9.15, false));
+        // ponte
+        desenho.addElement(new Ponto(18, 18, true));
+        desenho.addElement(new Ponto(16, 11, false));
+        desenho.addElement(new Ponto(13, 11, false));
+        desenho.addElement(new Ponto(11, 18, false));
+        // sol
+        arco(14.5, 8, 2.8, 2.7, 6.7);
+        // passaros
+        desenho.addElement(new Ponto(3.8, 4.5, true));
+        desenho.addElement(new Ponto(4.5, 5.5, false));
+        desenho.addElement(new Ponto(5.2, 4.5, false));
+        
+        desenho.addElement(new Ponto(7.8, 6.5, true));
+        desenho.addElement(new Ponto(8.5, 7.5, false));
+        desenho.addElement(new Ponto(9.2, 6.5, false));
+        
+        desenho.addElement(new Ponto(2.8, 7.5, true));
+        desenho.addElement(new Ponto(3.5, 8.5, false));
+        desenho.addElement(new Ponto(4.2, 7.5, false));
+        
+        desenho.addElement(new Ponto(10.8, 1.5, true));
+        desenho.addElement(new Ponto(11.5, 2.5, false));
+        desenho.addElement(new Ponto(12.2, 1.5, false));
     }
     
     public void arco(double centroX,double centroY,double raio, double inicio, double fim ){
