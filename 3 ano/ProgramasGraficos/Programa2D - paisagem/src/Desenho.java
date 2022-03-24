@@ -93,8 +93,22 @@ public class Desenho {
         desenho.addElement(new Ponto(16, 11, false));
         desenho.addElement(new Ponto(13, 11, false));
         desenho.addElement(new Ponto(11, 18, false));
+
+        desenho.addElement(new Ponto(16.3, 12, true));
+        desenho.addElement(new Ponto(12.7, 12, false));
+        desenho.addElement(new Ponto(16.5, 13, true));
+        desenho.addElement(new Ponto(12.5, 13, false));
+        desenho.addElement(new Ponto(16.8, 14, true));
+        desenho.addElement(new Ponto(12.2, 14, false));
+        desenho.addElement(new Ponto(17.1, 15, true));
+        desenho.addElement(new Ponto(11.9, 15, false));
+        desenho.addElement(new Ponto(17.45, 16, true));
+        desenho.addElement(new Ponto(11.55, 16, false));
+        desenho.addElement(new Ponto(17.7, 17, true));
+        desenho.addElement(new Ponto(11.3, 17, false));
         // sol
         arco(14.5, 8, 2.8, 2.7, 6.7);
+
         // passaros
         desenho.addElement(new Ponto(3.8, 4.5, true));
         desenho.addElement(new Ponto(4.5, 5.5, false));
@@ -111,6 +125,23 @@ public class Desenho {
         desenho.addElement(new Ponto(10.8, 1.5, true));
         desenho.addElement(new Ponto(11.5, 2.5, false));
         desenho.addElement(new Ponto(12.2, 1.5, false));
+
+
+        desenho.addElement(new Ponto(23.8, 4.5, true));
+        desenho.addElement(new Ponto(24.5, 5.5, false));
+        desenho.addElement(new Ponto(25.2, 4.5, false));
+        
+        desenho.addElement(new Ponto(27.8, 6.5, true));
+        desenho.addElement(new Ponto(28.5, 7.5, false));
+        desenho.addElement(new Ponto(29.2, 6.5, false));
+        
+        desenho.addElement(new Ponto(22.8, 7.5, true));
+        desenho.addElement(new Ponto(23.5, 8.5, false));
+        desenho.addElement(new Ponto(24.2, 7.5, false));
+        
+        desenho.addElement(new Ponto(20.8, 1.5, true));
+        desenho.addElement(new Ponto(21.5, 2.5, false));
+        desenho.addElement(new Ponto(22.2, 1.5, false));
     }
     
     public void arco(double centroX,double centroY,double raio, double inicio, double fim ){
