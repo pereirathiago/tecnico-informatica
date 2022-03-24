@@ -95,8 +95,139 @@ public class Desenho {
         desenho.addElement(new Ponto(4.04, 13.5, false));
         desenho.addElement(new Ponto(4.04, 11.35, false));
         desenho.addElement(new Ponto(2.8, 11.35, false));
+        // bracos
+        desenho.addElement(new Ponto(1.9, 12.5, false));
+        desenho.addElement(new Ponto(4.04, 11.35, true));
+        desenho.addElement(new Ponto(4.8, 12.8, false));
         // pernas
-        desenho.addElement(new Ponto(3, 10, true))
+        desenho.addElement(new Ponto(3.1, 13.5, true));
+        desenho.addElement(new Ponto(3.1, 14.7, false));
+        desenho.addElement(new Ponto(3.7, 13.5, true));
+        desenho.addElement(new Ponto(3.7, 14.7, false));
+
+        // sol
+        arco(.5, 0.5, 2.8, 1.2, 8.3);
+
+        // terra
+        desenho.addElement(new Ponto(0, 14.7, true));
+        desenho.addElement(new Ponto(30, 14.7, false));
+
+        // casa
+        //desenho.addElement(new Ponto(10, 14, true)); // linha de baixo
+        //desenho.addElement(new Ponto(25, 14, false)); // linha de baixo
+        desenho.addElement(new Ponto(25, 14, true));
+        desenho.addElement(new Ponto(25, 6, false));
+        desenho.addElement(new Ponto(10, 6, false));
+        desenho.addElement(new Ponto(10, 14, false));
+        // casa telhado
+        desenho.addElement(new Ponto(10, 6, true));
+        desenho.addElement(new Ponto(17, 2, false));
+        desenho.addElement(new Ponto(25, 6, false));
+        // casa porta
+        desenho.addElement(new Ponto(12, 14, true));
+        desenho.addElement(new Ponto(12, 8.5, false));
+        desenho.addElement(new Ponto(15, 8.5, false));
+        desenho.addElement(new Ponto(15, 14, false));
+        // casa janela
+        desenho.addElement(new Ponto(17, 9.4, true));
+        desenho.addElement(new Ponto(22, 9.4, false));
+        desenho.addElement(new Ponto(22, 12.5, false));
+        //desenho.addElement(new Ponto(17, 12.5, false));
+        desenho.addElement(new Ponto(17, 12.5, true));
+        desenho.addElement(new Ponto(17, 9.4, false));
+
+        // cerca
+        desenho.addElement(new Ponto(8, 14.7, true));
+        desenho.addElement(new Ponto(8, 12, false));
+        desenho.addElement(new Ponto(8.5, 11.4, false));
+        desenho.addElement(new Ponto(9, 12, false));
+        desenho.addElement(new Ponto(9, 14.7, false));
+        desenho.addElement(new Ponto(9, 12, true));
+        desenho.addElement(new Ponto(9.5, 11.4, false));
+        desenho.addElement(new Ponto(10, 12, false));
+        desenho.addElement(new Ponto(10, 14.7, false));
+        desenho.addElement(new Ponto(10, 12, true));
+        desenho.addElement(new Ponto(10.5, 11.4, false));
+        desenho.addElement(new Ponto(11, 12, false));
+        desenho.addElement(new Ponto(11, 14.7, false));
+        desenho.addElement(new Ponto(11, 12, true));
+        desenho.addElement(new Ponto(11.5, 11.4, false));
+        desenho.addElement(new Ponto(12, 12, false));
+        desenho.addElement(new Ponto(12, 14.7, false));
+        desenho.addElement(new Ponto(12, 12, true));
+        desenho.addElement(new Ponto(12.5, 11.4, false));
+        desenho.addElement(new Ponto(13, 12, false));
+        desenho.addElement(new Ponto(13, 14.7, false));
+        desenho.addElement(new Ponto(13, 12, true));
+        desenho.addElement(new Ponto(13.5, 11.4, false));
+        desenho.addElement(new Ponto(14, 12, false));
+        desenho.addElement(new Ponto(14, 14.7, false));
+        desenho.addElement(new Ponto(14, 12, true));
+        desenho.addElement(new Ponto(14.5, 11.4, false));
+        desenho.addElement(new Ponto(15, 12, false));
+        desenho.addElement(new Ponto(15, 14.7, false));
+        desenho.addElement(new Ponto(15, 12, true));
+        desenho.addElement(new Ponto(15.5, 11.4, false));
+        desenho.addElement(new Ponto(16, 12, false));
+        desenho.addElement(new Ponto(16, 14.7, false));
+        desenho.addElement(new Ponto(16, 12, true));
+        desenho.addElement(new Ponto(16.5, 11.4, false));
+        desenho.addElement(new Ponto(17, 12, false));
+        desenho.addElement(new Ponto(17, 14.7, false));
+        desenho.addElement(new Ponto(17, 12, true));
+        desenho.addElement(new Ponto(17.5, 11.4, false));
+        desenho.addElement(new Ponto(18, 12, false));
+        desenho.addElement(new Ponto(18, 14.7, false));
+        desenho.addElement(new Ponto(18, 12, true));
+        desenho.addElement(new Ponto(18.5, 11.4, false));
+        desenho.addElement(new Ponto(19, 12, false));
+        desenho.addElement(new Ponto(19, 14.7, false));
+        desenho.addElement(new Ponto(19, 12, true));
+        desenho.addElement(new Ponto(19.5, 11.4, false));
+        desenho.addElement(new Ponto(20, 12, false));
+        desenho.addElement(new Ponto(20, 14.7, false));
+        desenho.addElement(new Ponto(20, 12, true));
+        desenho.addElement(new Ponto(20.5, 11.4, false));
+        desenho.addElement(new Ponto(21, 12, false));
+        desenho.addElement(new Ponto(21, 14.7, false));
+        desenho.addElement(new Ponto(21, 12, true));
+        desenho.addElement(new Ponto(21.5, 11.4, false));
+        desenho.addElement(new Ponto(22, 12, false));
+        desenho.addElement(new Ponto(22, 14.7, false));
+        desenho.addElement(new Ponto(22, 12, true));
+        desenho.addElement(new Ponto(22.5, 11.4, false));
+        desenho.addElement(new Ponto(23, 12, false));
+        desenho.addElement(new Ponto(23, 14.7, false));
+        desenho.addElement(new Ponto(23, 12, true));
+        desenho.addElement(new Ponto(23.5, 11.4, false));
+        desenho.addElement(new Ponto(24, 12, false));
+        desenho.addElement(new Ponto(24, 14.7, false));
+        desenho.addElement(new Ponto(24, 12, true));
+        desenho.addElement(new Ponto(24.5, 11.4, false));
+        desenho.addElement(new Ponto(25, 12, false));
+        desenho.addElement(new Ponto(25, 14.7, false));
+        desenho.addElement(new Ponto(25, 12, true));
+        desenho.addElement(new Ponto(25.5, 11.4, false));
+        desenho.addElement(new Ponto(26, 12, false));
+        desenho.addElement(new Ponto(26, 14.7, false));
+        desenho.addElement(new Ponto(26, 12, true));
+        desenho.addElement(new Ponto(26.5, 11.4, false));
+        desenho.addElement(new Ponto(27, 12, false));
+        desenho.addElement(new Ponto(27, 14.7, false));
+        desenho.addElement(new Ponto(27, 12, true));
+        desenho.addElement(new Ponto(27.5, 11.4, false));
+        desenho.addElement(new Ponto(28, 12, false));
+        desenho.addElement(new Ponto(28, 14.7, false));
+        desenho.addElement(new Ponto(28, 12, true));
+        desenho.addElement(new Ponto(28.5, 11.4, false));
+        desenho.addElement(new Ponto(29, 12, false));
+        desenho.addElement(new Ponto(29, 14.7, false));
+        desenho.addElement(new Ponto(29, 12, true));
+        desenho.addElement(new Ponto(29.5, 11.4, false));
+        desenho.addElement(new Ponto(30, 12, false));
+        desenho.addElement(new Ponto(30, 14.7, false));
+        desenho.addElement(new Ponto(30, 12, true));
+        
     }
 
     public void arco(double centroX, double centroY, double raio, double inicio, double fim) {
