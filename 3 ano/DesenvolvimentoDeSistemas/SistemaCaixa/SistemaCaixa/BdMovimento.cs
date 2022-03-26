@@ -131,7 +131,7 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select valor from saldo where data = DATE(@dataFinal)";
+                cmd.CommandText = "select valor from saldo where data <= DATE(@dataFinal) order by data DESC limit 1";
                 cmd.Parameters.AddWithValue("@dataFinal", dataFinal.ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
