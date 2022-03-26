@@ -12,6 +12,7 @@ namespace SistemaCaixa
 {
     public partial class SistemaDeCaixa : Form
     {
+        bool formActivated = true;
         public SistemaDeCaixa()
         {
             InitializeComponent();
@@ -25,9 +26,13 @@ namespace SistemaCaixa
 
         private void SistemaDeCaixa_Activated(object sender, EventArgs e)
         {
-            Menu fm = new Menu(this);
-            fm.StartPosition = FormStartPosition.CenterScreen;
-            fm.Show();
+            if (formActivated)
+            {
+                formActivated = false;
+                Menu fm = new Menu(this);
+                fm.StartPosition = FormStartPosition.CenterScreen;
+                fm.Show();
+            }
         }
     }
 }
