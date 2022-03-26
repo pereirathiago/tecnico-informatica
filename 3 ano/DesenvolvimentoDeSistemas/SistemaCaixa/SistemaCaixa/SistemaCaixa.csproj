@@ -66,62 +66,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bd.cs" />
-    <Compile Include="BdMovimento.cs" />
-    <Compile Include="BdSaldo.cs" />
-    <Compile Include="Cadastra_Movimento.cs">
+    <Compile Include="Bd\Bd.cs" />
+    <Compile Include="Bd\BdMovimento.cs" />
+    <Compile Include="Bd\BdSaldo.cs" />
+    <Compile Include="Forms\Cadastra_Movimento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastra_Movimento.Designer.cs">
+    <Compile Include="Forms\Cadastra_Movimento.Designer.cs">
       <DependentUpon>Cadastra_Movimento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormExtrato.cs">
+    <Compile Include="Forms\FormExtrato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormExtrato.Designer.cs">
+    <Compile Include="Forms\FormExtrato.Designer.cs">
       <DependentUpon>FormExtrato.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Saldo.cs">
+    <Compile Include="Forms\Form_Saldo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Saldo.Designer.cs">
+    <Compile Include="Forms\Form_Saldo.Designer.cs">
       <DependentUpon>Form_Saldo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MovimentoForm.cs">
+    <Compile Include="Forms\MovimentoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovimentoForm.Designer.cs">
+    <Compile Include="Forms\MovimentoForm.Designer.cs">
       <DependentUpon>MovimentoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Forms\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Forms\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Movimento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saldo.cs" />
-    <Compile Include="SistemaDeCaixa.cs">
+    <Compile Include="Forms\SistemaDeCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SistemaDeCaixa.Designer.cs">
+    <Compile Include="Forms\SistemaDeCaixa.Designer.cs">
       <DependentUpon>SistemaDeCaixa.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cadastra_Movimento.resx">
+    <EmbeddedResource Include="Forms\Cadastra_Movimento.resx">
       <DependentUpon>Cadastra_Movimento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormExtrato.resx">
+    <EmbeddedResource Include="Forms\FormExtrato.resx">
       <DependentUpon>FormExtrato.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Saldo.resx">
+    <EmbeddedResource Include="Forms\Form_Saldo.resx">
       <DependentUpon>Form_Saldo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovimentoForm.resx">
+    <EmbeddedResource Include="Forms\MovimentoForm.resx">
       <DependentUpon>MovimentoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -133,7 +133,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SistemaDeCaixa.resx">
+    <EmbeddedResource Include="Forms\SistemaDeCaixa.resx">
       <DependentUpon>SistemaDeCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
