@@ -29,7 +29,7 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from saldo";
+                cmd.CommandText = "select * from saldo order by data";
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(saldo);
@@ -70,7 +70,7 @@ namespace SistemaCaixa
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
-            DateTime hoje = DateTime.Today;
+            DateTime ultimaData = Convert.ToDateTime(UltimaDataCadastrada(movimento));
 
             try
             {
@@ -79,7 +79,7 @@ namespace SistemaCaixa
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@hoje", hoje.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@ultimaData", ultimaData.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
@@ -128,7 +128,7 @@ namespace SistemaCaixa
                     return false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -140,13 +140,13 @@ namespace SistemaCaixa
             if (movimento.Tipo == "S")
             {
                 //string sql = "update saldo set valor = valor - @valor where data = DATE(@data)";
-                string sql = "update saldo set valor = valor - @valor where data between DATE(@data) and DATE(@hoje)";
+                string sql = "update saldo set valor = valor - @valor where data between DATE(@data) and DATE(@ultimaData)";
                 return sql;
-            } 
-            if(movimento.Tipo == "E")
+            }
+            if (movimento.Tipo == "E")
             {
                 //string sql = "update saldo set valor = valor + @valor where data = DATE(@data)";
-                string sql = "update saldo set valor = valor + @valor where data between DATE(@data) and DATE(@hoje)";
+                string sql = "update saldo set valor = valor + @valor where data between DATE(@data) and DATE(@ultimaData)";
                 return sql;
             }
             return "";
@@ -167,15 +167,21 @@ namespace SistemaCaixa
                 da.SelectCommand = cmd;
                 da.Fill(qtd);
                 Fechar();
-                if(qtd.Rows[0].ItemArray[0] == null)
+                if (qtd.Rows[0].ItemArray[0] == null)
                 {
                     // não tem dia anterior
                     string sql = "insert into saldo (id, data, valor) values (@id, @data, @valor)";
                     return sql;
-                } else
+                }
+                else if (movimento.Tipo == "E")
                 {
                     // tem dia anterior
-                    string sql = "insert into saldo (id, data, valor) values (@id, @data, "+qtd.Rows[0].ItemArray[0]+ "+ @valor)";
+                    string sql = "insert into saldo (id, data, valor) values (@id, @data, " + qtd.Rows[0].ItemArray[0] + "+ @valor)";
+                    return sql;
+                }
+                else
+                {
+                    string sql = "insert into saldo (id, data, valor) values (@id, @data, " + qtd.Rows[0].ItemArray[0] + "- @valor)";
                     return sql;
                 }
             }
@@ -191,15 +197,15 @@ namespace SistemaCaixa
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
             DataTable qtd = new DataTable();
-            DateTime hoje = DateTime.Today;
+            DateTime ultimaData = Convert.ToDateTime(UltimaDataCadastrada(movimento));
 
             try
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update saldo set valor = @valor where data between DATE(@data) and DATE(@hoje)";
+                cmd.CommandText = "update saldo set valor = @valor where data between DATE(@data) and DATE(@ultimaData)";
                 cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@hoje", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@ultimaData", ultimaData.ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(qtd);
@@ -211,6 +217,31 @@ namespace SistemaCaixa
                 MessageBox.Show(ex.Message);
             }
             return null;
+        }
+
+        public object UltimaDataCadastrada(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select data from saldo where data <= @data order by data desc limit 1";
+                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Fechar();
+                return qtd.Rows[0].ItemArray[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "";
         }
     }
 }
