@@ -57,6 +57,7 @@ namespace SistemaCaixa
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
+                MessageBox.Show(sql);
                 da.UpdateCommand.ExecuteNonQuery();
                 Fechar();
             }
@@ -176,12 +177,12 @@ namespace SistemaCaixa
                 else if (movimento.Tipo == "E")
                 {
                     // tem dia anterior
-                    string sql = "insert into saldo (id, data, valor) values (@id, @data, " + qtd.Rows[0].ItemArray[0] + "+ @valor)";
+                    string sql = "insert into saldo (id, data, valor) values (@id, @data, " + double.Parse(qtd.Rows[0].ItemArray[0].ToString()) + "+ @valor)";
                     return sql;
                 }
                 else
                 {
-                    string sql = "insert into saldo (id, data, valor) values (@id, @data, " + qtd.Rows[0].ItemArray[0] + "- @valor)";
+                    string sql = "insert into saldo (id, data, valor) values (@id, @data, " + double.Parse(qtd.Rows[0].ItemArray[0].ToString()) + "- @valor)";
                     return sql;
                 }
             }
