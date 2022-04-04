@@ -105,7 +105,7 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select valor from saldo where data = DATE(@dataInicio)";
+                cmd.CommandText = "select valor from saldo where data <= DATE(@dataInicio) order by data desc limit 1";
                 cmd.Parameters.AddWithValue("@dataInicio", dataInicio.AddDays(-1).ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
