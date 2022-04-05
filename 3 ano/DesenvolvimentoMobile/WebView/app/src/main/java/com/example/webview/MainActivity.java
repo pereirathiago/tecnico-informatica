@@ -19,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
         webview.getSettings().setSupportZoom(true);
         webview.getSettings().setAppCacheEnabled(true);
         webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("https://pt.z-lib.org/");
+        webview.loadUrl("https://sites.google.com/view/thiago-pereira/p%C3%A1gina-inicial");
     }
 }
