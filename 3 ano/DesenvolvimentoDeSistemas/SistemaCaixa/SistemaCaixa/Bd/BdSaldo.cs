@@ -59,6 +59,7 @@ namespace SistemaCaixa
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
                 Fechar();
+                AtualizarValorDiaPost(movimento);
             }
             catch (Exception ex)
             {
@@ -85,6 +86,7 @@ namespace SistemaCaixa
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
                 Fechar();
+                AtualizarValorDiaPost(movimento);
             }
             catch (Exception ex)
             {
@@ -167,8 +169,7 @@ namespace SistemaCaixa
                 da.SelectCommand = cmd;
                 da.Fill(qtd);
                 Fechar();
-                double valor = double.Parse(qtd.Rows[0].ItemArray[0].ToString());
-                if (qtd.Rows[0].ItemArray[0] == null)
+                if (qtd.Rows.Count == 0)
                 {
                     // não tem dia anterior
                     string sql = "insert into saldo (id, data, valor) values (@id, @data, @valor)";
@@ -176,6 +177,7 @@ namespace SistemaCaixa
                 }
                 else
                 {
+                    double valor = double.Parse(qtd.Rows[0].ItemArray[0].ToString());
                     if(movimento.Tipo == "S") 
                         valor -= movimento.Valor;
                     else 
@@ -192,31 +194,37 @@ namespace SistemaCaixa
             return "";
         }
 
-        public DataTable AtualizarValorDiaAnter(Movimento movimento)
+        public void AtualizarValorDiaPost(Movimento movimento)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
             DataTable qtd = new DataTable();
-            DateTime ultimaData = Convert.ToDateTime(UltimaDataCadastrada(movimento));
+            DateTime ultimaDataPost = Convert.ToDateTime(ProximasDataCadastrada(movimento));
 
             try
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update saldo set valor = @valor where data between DATE(@data) and DATE(@ultimaData)";
-                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@ultimaData", ultimaData.ToString("yyyy-MM-dd"));
+                if (movimento.Tipo == "S")
+                {
+                    MessageBox.Show("v" + movimento.Valor);
+                    movimento.Valor = (0-movimento.Valor);
+                    MessageBox.Show("val" + movimento.Valor);
+                }
+                cmd.CommandText = "update saldo set valor = valor + @valor where data between DATE(@data) and DATE(@ultimaDataPost)";
+                    //update saldo set valor = valor + 10.1 where data between DATE("2022-04-05") and DATE("2022-04-07")
+                cmd.Parameters.AddWithValue("@valor", movimento.Valor);
+                cmd.Parameters.AddWithValue("@data", movimento.Data.AddDays(1).ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@ultimaDataPost", ultimaDataPost.ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
-                da.SelectCommand = cmd;
-                da.Fill(qtd);
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
                 Fechar();
-                return qtd;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            return null;
         }
 
         public object UltimaDataCadastrada(Movimento movimento)
@@ -230,6 +238,30 @@ namespace SistemaCaixa
                 Abrir();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select data from saldo where data <= @data order by data desc limit 1";
+                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Fechar();
+                return qtd.Rows[0].ItemArray[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "";
+        }
+        public object ProximasDataCadastrada(Movimento movimento)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+
+            try
+            {
+                Abrir();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select data from saldo where data >= @data order by data desc limit 1";
                 cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
