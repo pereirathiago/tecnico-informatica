@@ -86,7 +86,7 @@ namespace SistemaCaixa
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
                 Fechar();
-                AtualizarValorDiaPost(movimento);
+                //AtualizarValorDiaPost(movimento);
             }
             catch (Exception ex)
             {
@@ -164,7 +164,8 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select valor from saldo order by data desc limit 1";
+                cmd.CommandText = "select valor from saldo where data < DATE(@data) order by data desc limit 1";
+                cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(qtd);
@@ -198,7 +199,6 @@ namespace SistemaCaixa
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
-            DataTable qtd = new DataTable();
             DateTime ultimaDataPost = Convert.ToDateTime(ProximasDataCadastrada(movimento));
 
             try
@@ -207,12 +207,12 @@ namespace SistemaCaixa
                 cmd.CommandType = CommandType.Text;
                 if (movimento.Tipo == "S")
                 {
-                    MessageBox.Show("v" + movimento.Valor);
-                    movimento.Valor = (0-movimento.Valor);
-                    MessageBox.Show("val" + movimento.Valor);
+                    cmd.CommandText = "update saldo set valor = valor - @valor where data between DATE(@data) and DATE(@ultimaDataPost)";
+                } else
+                {
+                    cmd.CommandText = "update saldo set valor = valor + @valor where data between DATE(@data) and DATE(@ultimaDataPost)";
                 }
-                cmd.CommandText = "update saldo set valor = valor + @valor where data between DATE(@data) and DATE(@ultimaDataPost)";
-                    //update saldo set valor = valor + 10.1 where data between DATE("2022-04-05") and DATE("2022-04-07")
+                //update saldo set valor = valor + 10.1 where data between DATE("2022-04-05") and DATE("2022-04-07")
                 cmd.Parameters.AddWithValue("@valor", movimento.Valor);
                 cmd.Parameters.AddWithValue("@data", movimento.Data.AddDays(1).ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@ultimaDataPost", ultimaDataPost.ToString("yyyy-MM-dd"));
@@ -237,7 +237,7 @@ namespace SistemaCaixa
             {
                 Abrir();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select data from saldo where data <= @data order by data desc limit 1";
+                cmd.CommandText = "select data from saldo order by data desc limit 1";
                 cmd.Parameters.AddWithValue("@data", movimento.Data.ToString("yyyy-MM-dd"));
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
