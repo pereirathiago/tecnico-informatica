@@ -1,8 +1,9 @@
 ﻿using System;
 
-public class Class1
+public class Funcionario
 {
-	public Class1()
+	public Funcionario()
 	{
+
 	}
 }
