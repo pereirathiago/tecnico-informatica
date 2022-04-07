@@ -5,6 +5,11 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaSalario", "SistemaSalario\SistemaSalario.csproj", "{509DE390-A99C-4A50-813F-EA9C899BF35A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vo", "vo", "{E12D9EB0-E0E7-4CBF-BD04-DA32F2875AC3}"
+	ProjectSection(SolutionItems) = preProject
+		Funcionario.cs = Funcionario.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
