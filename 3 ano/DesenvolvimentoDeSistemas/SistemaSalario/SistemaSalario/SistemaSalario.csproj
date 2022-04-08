@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bd\Bd.cs" />
+    <Compile Include="bd\BdFuncionario.cs" />
     <Compile Include="Forms\CadastraFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
