@@ -30,19 +30,19 @@
         {
             this.btnCancela = new System.Windows.Forms.Button();
             this.btnSalva = new System.Windows.Forms.Button();
-            this.txtValor = new System.Windows.Forms.NumericUpDown();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtDep14 = new System.Windows.Forms.NumericUpDown();
+            this.txtSalario = new System.Windows.Forms.TextBox();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtDepIr = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.boxVt = new System.Windows.Forms.CheckBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDep14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepIr)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancela
@@ -53,6 +53,7 @@
             this.btnCancela.TabIndex = 7;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = true;
+            this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
             // 
             // btnSalva
             // 
@@ -62,34 +63,35 @@
             this.btnSalva.TabIndex = 6;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
-            // txtValor
+            // txtDep14
             // 
-            this.txtValor.Location = new System.Drawing.Point(164, 176);
-            this.txtValor.Maximum = new decimal(new int[] {
+            this.txtDep14.Location = new System.Drawing.Point(164, 176);
+            this.txtDep14.Maximum = new decimal(new int[] {
             -1593835520,
             466537709,
             54210,
             0});
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(120, 20);
-            this.txtValor.TabIndex = 3;
+            this.txtDep14.Name = "txtDep14";
+            this.txtDep14.Size = new System.Drawing.Size(120, 20);
+            this.txtDep14.TabIndex = 3;
             // 
-            // txtDescricao
+            // txtSalario
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(164, 134);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(121, 20);
-            this.txtDescricao.TabIndex = 2;
+            this.txtSalario.Location = new System.Drawing.Point(164, 134);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(121, 20);
+            this.txtSalario.TabIndex = 2;
             // 
-            // txtId
+            // txtMatricula
             // 
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(164, 50);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 20);
-            this.txtId.TabIndex = 17;
-            this.txtId.Text = "0";
+            this.txtMatricula.Enabled = false;
+            this.txtMatricula.Location = new System.Drawing.Point(164, 50);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(60, 20);
+            this.txtMatricula.TabIndex = 17;
+            this.txtMatricula.Text = "0";
             // 
             // label4
             // 
@@ -127,17 +129,17 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "ID";
             // 
-            // numericUpDown1
+            // txtDepIr
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(164, 218);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.txtDepIr.Location = new System.Drawing.Point(164, 218);
+            this.txtDepIr.Maximum = new decimal(new int[] {
             -1593835520,
             466537709,
             54210,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 4;
+            this.txtDepIr.Name = "txtDepIr";
+            this.txtDepIr.Size = new System.Drawing.Size(120, 20);
+            this.txtDepIr.TabIndex = 4;
             // 
             // label5
             // 
@@ -148,37 +150,37 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "N° de Dependentes IR";
             // 
-            // checkBox1
+            // boxVt
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(114, 254);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(101, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Vale Transporte";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.boxVt.AutoSize = true;
+            this.boxVt.Location = new System.Drawing.Point(114, 254);
+            this.boxVt.Name = "boxVt";
+            this.boxVt.Size = new System.Drawing.Size(101, 17);
+            this.boxVt.TabIndex = 5;
+            this.boxVt.Text = "Vale Transporte";
+            this.boxVt.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtNome.Location = new System.Drawing.Point(164, 92);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(121, 20);
+            this.txtNome.TabIndex = 1;
             // 
             // CadastraFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 359);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.boxVt);
+            this.Controls.Add(this.txtDepIr);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnSalva);
-            this.Controls.Add(this.txtValor);
-            this.Controls.Add(this.txtDescricao);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtDep14);
+            this.Controls.Add(this.txtSalario);
+            this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -187,8 +189,8 @@
             this.Name = "CadastraFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.txtValor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDep14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepIr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,17 +200,17 @@
 
         private System.Windows.Forms.Button btnCancela;
         private System.Windows.Forms.Button btnSalva;
-        private System.Windows.Forms.NumericUpDown txtValor;
-        private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.NumericUpDown txtDep14;
+        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown txtDepIr;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox boxVt;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }
 

@@ -8,16 +8,18 @@ namespace SistemaSalario.vo
 {
     internal class Funcionario
     {
-        private int _id;
+        private int _matricula;
         private string _nome;
-        private int _nFilhos;
-        private int _nDepIR;
-        private string _valeTransporte;
+        private string _vt;
+        private int _dep14;
+        private int _depir;
+        private double _salario;
 
-        public int Id { get => _id; set => _id = value; }
+        public int Matricula { get => _matricula; set => _matricula = value; }
         public string Nome { get => _nome; set => _nome = value; }
-        public int NFilhos { get => _nFilhos; set => _nFilhos = value; }
-        public int NDepIR { get => _nDepIR; set => _nDepIR = value; }
-        public string ValeTransporte { get => _valeTransporte; set => _valeTransporte = value; }
+        public string Vt { get => _vt; set => _vt = value; }
+        public int Dep14 { get => _dep14; set => _dep14 = value; }
+        public int Depir { get => _depir; set => _depir = value; }
+        public double Salario { get => _salario; set => _salario = value; }
     }
 }
