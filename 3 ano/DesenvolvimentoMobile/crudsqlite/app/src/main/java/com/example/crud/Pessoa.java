@@ -1,4 +1,4 @@
-package com.example.crudsqlite;
+package com.example.crud;
 
 public class Pessoa {
     private int id=0;

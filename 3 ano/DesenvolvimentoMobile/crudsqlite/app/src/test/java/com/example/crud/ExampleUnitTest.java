@@ -1,4 +1,4 @@
-package com.example.crudsqlite;
+package com.example.crud;
 
 import org.junit.Test;
 
