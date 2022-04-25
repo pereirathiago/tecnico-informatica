@@ -37,7 +37,7 @@ namespace SistemaSalario
 
         private bool VerificaCampos()
         {
-            if (txtNome.Text == "" || txtSalario = "")
+            if (txtNome.Text == "" || txtSalario.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos");
                 return false;
@@ -52,7 +52,7 @@ namespace SistemaSalario
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-
+            bdFuncionario.salva
         }
     }
 }
