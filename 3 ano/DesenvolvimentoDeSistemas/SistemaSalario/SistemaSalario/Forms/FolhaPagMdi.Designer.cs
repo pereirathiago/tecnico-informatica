@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 462);
+            this.ClientSize = new System.Drawing.Size(941, 611);
             this.IsMdiContainer = true;
             this.Name = "FolhaPagMdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

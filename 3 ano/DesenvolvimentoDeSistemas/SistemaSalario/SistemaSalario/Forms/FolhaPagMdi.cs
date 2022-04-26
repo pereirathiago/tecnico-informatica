@@ -23,7 +23,7 @@ namespace SistemaSalario.Forms
             if (formActivated)
             {
                 formActivated = false;
-                CadastraFuncionario fc = new CadastraFuncionario(this);
+                TabelaFuncionarios fc = new TabelaFuncionarios(this);
                 fc.StartPosition = FormStartPosition.CenterScreen;
                 fc.Show();
             }

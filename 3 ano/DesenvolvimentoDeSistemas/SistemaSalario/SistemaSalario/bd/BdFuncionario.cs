@@ -17,7 +17,7 @@ namespace SistemaSalario.bd
             User = "root";
             Servidor = "localhost";
             Senha = "vertrigo";
-            bd = "folhaPagamento";
+            bd = "salarios";
         }
         public DataTable PreencheTabela(string nome)
         {

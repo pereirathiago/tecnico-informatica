@@ -52,7 +52,12 @@ namespace SistemaSalario
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            bdFuncionario.salva
+            if (VerificaCampos())
+            {
+                telaToFuncionario();
+                bdFuncionario.inserir(funcionario);
+
+            }
         }
     }
 }
