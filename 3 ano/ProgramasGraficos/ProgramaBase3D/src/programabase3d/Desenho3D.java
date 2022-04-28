@@ -40,7 +40,7 @@ public class Desenho3D {
         yvmin = y1;
     }
 
-    public void setDimersion(Dimension dim) {
+    public void setDimension(Dimension dim) {
         xmax = dim.width;
         ymax = dim.height;
     }
