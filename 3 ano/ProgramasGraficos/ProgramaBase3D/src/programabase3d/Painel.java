@@ -39,6 +39,7 @@ public class Painel extends JPanel implements ActionListener {
         setSize(largura, altura);
         inicializa();
         addKeyListener(new KeyAdapter() {
+            @Override
             public void keyPressed(KeyEvent e) {
                 int tecla = e.getKeyCode();
                 Color cor = tela.getForeground();
@@ -120,26 +121,27 @@ public class Painel extends JPanel implements ActionListener {
         });
         GroupLayout layout = new GroupLayout(tela.getContentPane());
         tela.getContentPane().setLayout(layout);
-        layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-            .addContainerGap(363, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addComponent(cX, GroupLayout.Alignment.TRAILING)
-            .addComponent(cY, GroupLayout.Alignment.TRAILING)
-            .addComponent(cZ, GroupLayout.Alignment.TRAILING)
-            .addComponent(bSair, GroupLayout.Alignment.TRAILING))
-            .addContainerGap());
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(363, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(cX, GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cY, GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cZ, GroupLayout.Alignment.TRAILING)
+                                        .addComponent(bSair, GroupLayout.Alignment.TRAILING))
+                                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-            .addGap(26, 26, 26)
-            .addComponent(cX)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(cY)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(cZ)
-            .addComponent(bSair)
-            .addContainerGap(202, Short.MAX_VALUE)));
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(cX)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cY)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cZ)
+                                .addComponent(bSair)
+                                .addContainerGap(202, Short.MAX_VALUE)));
         desenho.setMundo(0, 0, 0, 20, 20, 20);
         desenho.setViewPort(0, 0, 1, 1);
         desenho.cubo();
