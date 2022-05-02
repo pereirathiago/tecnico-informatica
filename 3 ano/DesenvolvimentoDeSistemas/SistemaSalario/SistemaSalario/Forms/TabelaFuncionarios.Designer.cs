@@ -31,20 +31,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.dgFiltro = new System.Windows.Forms.DataGridView();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mArquivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarValoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiltro)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -73,16 +79,6 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(17, 12);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 8;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
             // dgFiltro
             // 
             this.dgFiltro.AllowUserToAddRows = false;
@@ -109,59 +105,11 @@
             this.dgFiltro.TabIndex = 6;
             this.dgFiltro.TabStop = false;
             // 
-            // Column11
+            // Column1
             // 
-            this.Column11.HeaderText = "Salário Líquido";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "IRRF";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Vale Transporte";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Salário Família";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "INSS";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Salario Base";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Dep. para IR";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Dep. Menores 14 anos";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "VT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.Column1.HeaderText = "Matricula";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
@@ -169,11 +117,97 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // Column1
+            // Column3
             // 
-            this.Column1.HeaderText = "Matricula";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.Column3.HeaderText = "VT";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Dep. Menores 14 anos";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Dep. para IR";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Salario Base";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "INSS";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Salário Família";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Vale Transporte";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "IRRF";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Salário Líquido";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(881, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mArquivo
+            // 
+            this.mArquivo.Name = "mArquivo";
+            this.mArquivo.Size = new System.Drawing.Size(61, 20);
+            this.mArquivo.Text = "Arquivo";
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(180, 22);
+            this.btnNovo.Text = "Novo Funcionario";
+            // 
+            // editarFuncionarioToolStripMenuItem
+            // 
+            this.editarFuncionarioToolStripMenuItem.Name = "editarFuncionarioToolStripMenuItem";
+            this.editarFuncionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarFuncionarioToolStripMenuItem.Text = "Editar Funcionario";
+            // 
+            // excluirFuncionarioToolStripMenuItem
+            // 
+            this.excluirFuncionarioToolStripMenuItem.Name = "excluirFuncionarioToolStripMenuItem";
+            this.excluirFuncionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excluirFuncionarioToolStripMenuItem.Text = "Excluir Funcionario";
+            // 
+            // editarValoresToolStripMenuItem
+            // 
+            this.editarValoresToolStripMenuItem.Name = "editarValoresToolStripMenuItem";
+            this.editarValoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarValoresToolStripMenuItem.Text = "Editar valores ";
             // 
             // TabelaFuncionarios
             // 
@@ -183,14 +217,17 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.dgFiltro);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TabelaFuncionarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TabelaFuncionarios";
             this.Load += new System.EventHandler(this.TabelaFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgFiltro)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +238,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dgFiltro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -214,5 +250,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mArquivo;
+        private System.Windows.Forms.ToolStripMenuItem btnNovo;
+        private System.Windows.Forms.ToolStripMenuItem editarFuncionarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirFuncionarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarValoresToolStripMenuItem;
     }
 }
