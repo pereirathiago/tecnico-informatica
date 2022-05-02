@@ -1,4 +1,4 @@
-﻿namespace SistemaSalario.Forms
+﻿namespace SistemaSalario
 {
     partial class TabelaFuncionarios
     {

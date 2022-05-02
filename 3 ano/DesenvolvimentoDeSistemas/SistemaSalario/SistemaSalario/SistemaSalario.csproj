@@ -102,11 +102,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\matrix-356024__480.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WhatsApp Image 2022-04-26 at 13.37.40.jpeg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

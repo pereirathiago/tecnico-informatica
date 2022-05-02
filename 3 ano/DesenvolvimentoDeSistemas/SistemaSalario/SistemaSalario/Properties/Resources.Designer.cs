@@ -59,25 +59,5 @@ namespace SistemaSalario.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap matrix_356024__480 {
-            get {
-                object obj = ResourceManager.GetObject("matrix-356024__480", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WhatsApp_Image_2022_04_26_at_13_37_40 {
-            get {
-                object obj = ResourceManager.GetObject("WhatsApp Image 2022-04-26 at 13.37.40", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

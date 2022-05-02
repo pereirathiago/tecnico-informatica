@@ -31,7 +31,6 @@
             this.btnCancela = new System.Windows.Forms.Button();
             this.btnSalva = new System.Windows.Forms.Button();
             this.txtDep14 = new System.Windows.Forms.NumericUpDown();
-            this.txtSalario = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,8 +40,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.boxVt = new System.Windows.Forms.CheckBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtSalario = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.txtDep14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepIr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancela
@@ -76,13 +77,6 @@
             this.txtDep14.Name = "txtDep14";
             this.txtDep14.Size = new System.Drawing.Size(120, 20);
             this.txtDep14.TabIndex = 3;
-            // 
-            // txtSalario
-            // 
-            this.txtSalario.Location = new System.Drawing.Point(164, 134);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(121, 20);
-            this.txtSalario.TabIndex = 2;
             // 
             // txtMatricula
             // 
@@ -167,11 +161,30 @@
             this.txtNome.Size = new System.Drawing.Size(121, 20);
             this.txtNome.TabIndex = 1;
             // 
+            // txtSalario
+            // 
+            this.txtSalario.DecimalPlaces = 2;
+            this.txtSalario.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.txtSalario.Location = new System.Drawing.Point(164, 136);
+            this.txtSalario.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(120, 20);
+            this.txtSalario.TabIndex = 25;
+            // 
             // CadastraFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 359);
+            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.boxVt);
             this.Controls.Add(this.txtDepIr);
@@ -179,7 +192,6 @@
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnSalva);
             this.Controls.Add(this.txtDep14);
-            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -191,6 +203,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.txtDep14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepIr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +214,6 @@
         private System.Windows.Forms.Button btnCancela;
         private System.Windows.Forms.Button btnSalva;
         private System.Windows.Forms.NumericUpDown txtDep14;
-        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -211,6 +223,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox boxVt;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.NumericUpDown txtSalario;
     }
 }
 

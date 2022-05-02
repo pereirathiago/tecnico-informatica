@@ -1,13 +1,6 @@
 ﻿using SistemaSalario.bd;
 using SistemaSalario.vo;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaSalario
@@ -29,7 +22,6 @@ namespace SistemaSalario
             funcionario.Matricula = Convert.ToInt32(txtMatricula.Text);
             funcionario.Nome = txtNome.Text;
             funcionario.Vt = boxVt.Checked ? "S" : "N";
-            MessageBox.Show(funcionario.Vt);
             funcionario.Dep14 = Convert.ToInt32(txtDep14.Text);
             funcionario.Depir = Convert.ToInt32(txtDepIr.Text);
             funcionario.Salario = Convert.ToDouble(txtSalario.Text);
@@ -37,9 +29,14 @@ namespace SistemaSalario
 
         private bool VerificaCampos()
         {
-            if (txtNome.Text == "" || txtSalario.Text == "")
+            if (txtNome.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos");
+                return false;
+            }
+            if (txtSalario.Value == 0)
+            {
+                MessageBox.Show("Preencha um salario");
                 return false;
             }
             return true;
@@ -47,6 +44,8 @@ namespace SistemaSalario
 
         private void btnCancela_Click(object sender, EventArgs e)
         {
+            TabelaFuncionarios fm = new TabelaFuncionarios(MdiParent);
+            fm.Show();
             Close();
         }
 
@@ -56,7 +55,9 @@ namespace SistemaSalario
             {
                 telaToFuncionario();
                 bdFuncionario.inserir(funcionario);
-
+                TabelaFuncionarios fm = new TabelaFuncionarios(MdiParent);
+                fm.Show();
+                Close();
             }
         }
     }
