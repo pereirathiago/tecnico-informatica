@@ -65,7 +65,7 @@ public class BdPc {
     }
     public Cursor pesquisa(){
         Cursor cursor;
-        String[] campos = {"_id","componente"};
+        String[] campos = {"_id","componente", "preco"};
         db = banco.getReadableDatabase();
         cursor = db.query("pc", campos, null, null, null, null, null, null);
         if(cursor!=null){

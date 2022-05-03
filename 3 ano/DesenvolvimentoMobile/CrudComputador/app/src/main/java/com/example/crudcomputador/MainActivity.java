@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         cursor = bd.pesquisa();
 
-        String[] nomeCampos = new String[]{"_id", "componente"};
-        int[] idViews = new int[]{R.id._id, R.id.componente};
+        String[] nomeCampos = new String[]{"_id", "componente", "preco"};
+        int[] idViews = new int[]{R.id._id, R.id.componente, R.id.preco};
 
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(), R.layout.list_view, cursor, nomeCampos, idViews, 0);
         lista.setAdapter(adaptador);

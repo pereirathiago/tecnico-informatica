@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="Nome"
         android:textSize="24sp" />
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:layout_marginRight="15dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="Preço"
         android:textSize="24sp" />
