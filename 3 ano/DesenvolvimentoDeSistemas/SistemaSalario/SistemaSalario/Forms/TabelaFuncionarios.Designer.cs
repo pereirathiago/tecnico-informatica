@@ -44,8 +44,17 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mFuncionario = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNovoFunc = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditarFunc = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExcluirFunc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mTabelas = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnValores = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnINSS = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSalarioFamilia = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnIRRF = new System.Windows.Forms.ToolStripMenuItem();
             this.mArquivo = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarValoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,23 +182,93 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(881, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // arquivoToolStripMenuItem
+            // 
+            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mFuncionario,
+            this.mTabelas});
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.arquivoToolStripMenuItem.Text = "Arquivo";
+            // 
+            // mFuncionario
+            // 
+            this.mFuncionario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNovoFunc,
+            this.btnEditarFunc,
+            this.btnExcluirFunc});
+            this.mFuncionario.Name = "mFuncionario";
+            this.mFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.mFuncionario.Text = "Funcionario";
+            // 
+            // btnNovoFunc
+            // 
+            this.btnNovoFunc.Name = "btnNovoFunc";
+            this.btnNovoFunc.Size = new System.Drawing.Size(180, 22);
+            this.btnNovoFunc.Text = "Novo";
+            this.btnNovoFunc.Click += new System.EventHandler(this.btnNovoFunc_Click);
+            // 
+            // btnEditarFunc
+            // 
+            this.btnEditarFunc.Name = "btnEditarFunc";
+            this.btnEditarFunc.Size = new System.Drawing.Size(180, 22);
+            this.btnEditarFunc.Text = "Editar";
+            this.btnEditarFunc.Click += new System.EventHandler(this.btnEditarFunc_Click);
+            // 
+            // btnExcluirFunc
+            // 
+            this.btnExcluirFunc.Name = "btnExcluirFunc";
+            this.btnExcluirFunc.Size = new System.Drawing.Size(180, 22);
+            this.btnExcluirFunc.Text = "Excluir";
+            // 
+            // mTabelas
+            // 
+            this.mTabelas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnValores,
+            this.btnINSS,
+            this.btnSalarioFamilia,
+            this.btnIRRF});
+            this.mTabelas.Name = "mTabelas";
+            this.mTabelas.Size = new System.Drawing.Size(180, 22);
+            this.mTabelas.Text = "Tabelas";
+            // 
+            // btnValores
+            // 
+            this.btnValores.Name = "btnValores";
+            this.btnValores.Size = new System.Drawing.Size(150, 22);
+            this.btnValores.Text = "Valores";
+            // 
+            // btnINSS
+            // 
+            this.btnINSS.Name = "btnINSS";
+            this.btnINSS.Size = new System.Drawing.Size(150, 22);
+            this.btnINSS.Text = "INSS";
+            // 
+            // btnSalarioFamilia
+            // 
+            this.btnSalarioFamilia.Name = "btnSalarioFamilia";
+            this.btnSalarioFamilia.Size = new System.Drawing.Size(150, 22);
+            this.btnSalarioFamilia.Text = "Salário Família";
+            // 
+            // btnIRRF
+            // 
+            this.btnIRRF.Name = "btnIRRF";
+            this.btnIRRF.Size = new System.Drawing.Size(150, 22);
+            this.btnIRRF.Text = "IRRF";
+            // 
             // mArquivo
             // 
             this.mArquivo.Name = "mArquivo";
             this.mArquivo.Size = new System.Drawing.Size(61, 20);
             this.mArquivo.Text = "Arquivo";
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(180, 22);
-            this.btnNovo.Text = "Novo Funcionario";
             // 
             // editarFuncionarioToolStripMenuItem
             // 
@@ -252,9 +331,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mArquivo;
-        private System.Windows.Forms.ToolStripMenuItem btnNovo;
         private System.Windows.Forms.ToolStripMenuItem editarFuncionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excluirFuncionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarValoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mFuncionario;
+        private System.Windows.Forms.ToolStripMenuItem btnNovoFunc;
+        private System.Windows.Forms.ToolStripMenuItem btnEditarFunc;
+        private System.Windows.Forms.ToolStripMenuItem btnExcluirFunc;
+        private System.Windows.Forms.ToolStripMenuItem mTabelas;
+        private System.Windows.Forms.ToolStripMenuItem btnValores;
+        private System.Windows.Forms.ToolStripMenuItem btnINSS;
+        private System.Windows.Forms.ToolStripMenuItem btnSalarioFamilia;
+        private System.Windows.Forms.ToolStripMenuItem btnIRRF;
     }
 }

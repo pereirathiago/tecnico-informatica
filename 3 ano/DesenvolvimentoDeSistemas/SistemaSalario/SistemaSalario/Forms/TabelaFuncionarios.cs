@@ -15,13 +15,6 @@ namespace SistemaSalario
             bdFuncionario = new BdFuncionario();
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            CadastraFuncionario cf = new CadastraFuncionario(MdiParent);
-            cf.Show();
-            Close();
-        }
-
         private void TabelaFuncionarios_Load(object sender, EventArgs e)
         {
             foreach (DataRow dr in bdFuncionario.PreencheTabela("").Rows)
@@ -37,6 +30,27 @@ namespace SistemaSalario
             foreach (DataRow dr in bdFuncionario.PreencheTabela(txtFiltro.Text).Rows)
             {
                 dgFiltro.Rows.Add(dr.ItemArray);
+            }
+        }
+
+        private void btnNovoFunc_Click(object sender, EventArgs e)
+        {
+            CadastraFuncionario cf = new CadastraFuncionario(MdiParent);
+            cf.Show();
+            Close();
+        }
+
+
+        private void btnEditarFunc_Click(object sender, EventArgs e)
+        { 
+            int matricula = -1, linha;
+            linha = dgFiltro.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                matricula = int.Parse(dgFiltro.CurrentRow.Cells[0].Value.ToString());
+                CadastraFuncionario cf = new CadastraFuncionario(MdiParent);
+                cf.Show();
+                Close();
             }
         }
     }

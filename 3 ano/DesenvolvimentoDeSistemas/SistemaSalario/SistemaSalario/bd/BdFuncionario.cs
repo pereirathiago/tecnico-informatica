@@ -68,5 +68,50 @@ namespace SistemaSalario.bd
             }
         }
 
+        public void excluir(String idFuncionario)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from funcionario where matricula=@idFuncionario";
+                cmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void editar(Funcionario funcionario)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update funcionario set nome = @nome, vt=@vt, dep14=@dep14, depir=@depir, salario=@salario where matricula=@matricula";
+                cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
+                cmd.Parameters.AddWithValue("@vt", funcionario.Vt);
+                cmd.Parameters.AddWithValue("@dep14", funcionario.Dep14);
+                cmd.Parameters.AddWithValue("@depir", funcionario.Depir);
+                cmd.Parameters.AddWithValue("@salario", funcionario.Salario);
+                cmd.Parameters.AddWithValue("@matricula", funcionario.Matricula);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
