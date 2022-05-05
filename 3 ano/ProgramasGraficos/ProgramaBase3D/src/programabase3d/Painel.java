@@ -144,7 +144,7 @@ public class Painel extends JPanel implements ActionListener {
                                 .addContainerGap(202, Short.MAX_VALUE)));
         desenho.setMundo(0, 0, 0, 20, 20, 20);
         desenho.setViewPort(0, 0, 1, 1);
-        desenho.cubo();
+        desenho.triangulo();
     }
 
     @Override

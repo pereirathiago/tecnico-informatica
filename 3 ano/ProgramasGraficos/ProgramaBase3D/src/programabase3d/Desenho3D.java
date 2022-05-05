@@ -108,6 +108,23 @@ public class Desenho3D {
         
     }
     
+    public void triangulo(){
+        // bases
+        desenho.addElement(new Ponto(11, 10, 2, true));
+        desenho.addElement(new Ponto(11, 10, 1, false)); //
+        desenho.addElement(new Ponto(13, 10, 1, false));//
+        desenho.addElement(new Ponto(13, 10, 2, false)); //
+        desenho.addElement(new Ponto(11, 10, 2, false)); //
+        // faces
+        desenho.addElement(new Ponto(12, 5, 1.5, false));
+        desenho.addElement(new Ponto(13, 10, 1, false));
+        desenho.addElement(new Ponto(12, 5, 1.5, true));
+        desenho.addElement(new Ponto(13, 10, 2, false));
+        desenho.addElement(new Ponto(12, 5, 1.5, true));
+        desenho.addElement(new Ponto(11, 10, 1, false));
+        
+    }
+    
     public void translada(double dx, double dy, double dz) {
         Ponto p;
         for (int i = 0; i < desenho.size(); i++) {
