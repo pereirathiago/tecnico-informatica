@@ -1,4 +1,5 @@
 ﻿using SistemaSalario.bd;
+using SistemaSalario.vo;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace SistemaSalario
     public partial class TabelaFuncionarios : Form
     {
         BdFuncionario bdFuncionario;
+        private Funcionario funcionario = new Funcionario();
         public TabelaFuncionarios(Form parent)
         {
             InitializeComponent();
