@@ -10,6 +10,8 @@ namespace SistemaSalario
         Funcionario funcionario = new Funcionario();
         BdFuncionario bdFuncionario;
 
+        internal Funcionario Funcionario { get => funcionario; set => funcionario = value; }
+
         public CadastraFuncionario(Form parent)
         {
             InitializeComponent();
@@ -19,12 +21,22 @@ namespace SistemaSalario
 
         private void telaToFuncionario()
         {
-            funcionario.Matricula = Convert.ToInt32(txtMatricula.Text);
-            funcionario.Nome = txtNome.Text;
-            funcionario.Vt = boxVt.Checked ? "S" : "N";
-            funcionario.Dep14 = Convert.ToInt32(txtDep14.Text);
-            funcionario.Depir = Convert.ToInt32(txtDepIr.Text);
-            funcionario.Salario = Convert.ToDouble(txtSalario.Text);
+            Funcionario.Matricula = Convert.ToInt32(txtMatricula.Text);
+            Funcionario.Nome = txtNome.Text;
+            Funcionario.Vt = boxVt.Checked ? "S" : "N";
+            Funcionario.Dep14 = Convert.ToInt32(txtDep14.Text);
+            Funcionario.Depir = Convert.ToInt32(txtDepIr.Text);
+            Funcionario.Salario = Convert.ToDouble(txtSalario.Text);
+        }
+
+        private void funcionarioToTela()
+        {
+            txtMatricula.Text = Funcionario.Matricula.ToString();
+            txtNome.Text = Funcionario.Nome;
+            boxVt.Checked = Funcionario.Vt == "S" ? true : false;
+            txtDep14.Text = Funcionario.Dep14.ToString();
+            txtDepIr.Text = Funcionario.Depir.ToString();
+            txtSalario.Text = Funcionario.Salario.ToString();
         }
 
         private bool VerificaCampos()
@@ -54,7 +66,7 @@ namespace SistemaSalario
             if (VerificaCampos())
             {
                 telaToFuncionario();
-                bdFuncionario.inserir(funcionario);
+                bdFuncionario.inserir(Funcionario);
                 TabelaFuncionarios fm = new TabelaFuncionarios(MdiParent);
                 fm.Show();
                 Close();

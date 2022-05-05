@@ -113,5 +113,36 @@ namespace SistemaSalario.bd
             }
         }
 
+        public Funcionario localiza(int matricula)
+        {
+            MySqlDataReader dr = null;
+            MySqlCommand cmd = new MySqlCommand();
+            Funcionario funcionario = new Funcionario();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from funcionario where matricula = @matricula";
+                cmd.Parameters.AddWithValue("@matricula", matricula);
+                cmd.Connection=Connection;
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    funcionario.Matricula = dr.GetInt32("matricula");
+                    funcionario.Nome = dr.GetString("nome");
+                    funcionario.Vt = dr.GetString("vt");
+                    funcionario.Dep14 = dr.GetInt32("dep14");
+                    funcionario.Depir = dr.GetInt32("depir");
+                    funcionario.Salario = dr.GetDouble("salario");
+                }
+                cmd.Dispose();
+                Fechar();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return funcionario;
+        }
+
     }
 }

@@ -51,9 +51,12 @@ namespace SistemaSalario
             {
                 matricula = int.Parse(dgFiltro.CurrentRow.Cells[0].Value.ToString());
                 CadastraFuncionario cf = new CadastraFuncionario(MdiParent);
+                cf.Funcionario = bdFuncionario.localiza(matricula);
                 cf.Show();
                 Close();
             }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
         }
     }
 }
