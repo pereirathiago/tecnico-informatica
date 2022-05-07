@@ -50,7 +50,6 @@
             this.btnEditarFunc = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirFunc = new System.Windows.Forms.ToolStripMenuItem();
             this.mTabelas = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnValores = new System.Windows.Forms.ToolStripMenuItem();
             this.btnINSS = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalarioFamilia = new System.Windows.Forms.ToolStripMenuItem();
             this.btnIRRF = new System.Windows.Forms.ToolStripMenuItem();
@@ -235,7 +234,6 @@
             // mTabelas
             // 
             this.mTabelas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnValores,
             this.btnINSS,
             this.btnSalarioFamilia,
             this.btnIRRF});
@@ -243,28 +241,22 @@
             this.mTabelas.Size = new System.Drawing.Size(180, 22);
             this.mTabelas.Text = "Tabelas";
             // 
-            // btnValores
-            // 
-            this.btnValores.Name = "btnValores";
-            this.btnValores.Size = new System.Drawing.Size(150, 22);
-            this.btnValores.Text = "Valores";
-            // 
             // btnINSS
             // 
             this.btnINSS.Name = "btnINSS";
-            this.btnINSS.Size = new System.Drawing.Size(150, 22);
+            this.btnINSS.Size = new System.Drawing.Size(180, 22);
             this.btnINSS.Text = "INSS";
             // 
             // btnSalarioFamilia
             // 
             this.btnSalarioFamilia.Name = "btnSalarioFamilia";
-            this.btnSalarioFamilia.Size = new System.Drawing.Size(150, 22);
+            this.btnSalarioFamilia.Size = new System.Drawing.Size(180, 22);
             this.btnSalarioFamilia.Text = "Salário Família";
             // 
             // btnIRRF
             // 
             this.btnIRRF.Name = "btnIRRF";
-            this.btnIRRF.Size = new System.Drawing.Size(150, 22);
+            this.btnIRRF.Size = new System.Drawing.Size(180, 22);
             this.btnIRRF.Text = "IRRF";
             // 
             // mArquivo
@@ -349,7 +341,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnEditarFunc;
         private System.Windows.Forms.ToolStripMenuItem btnExcluirFunc;
         private System.Windows.Forms.ToolStripMenuItem mTabelas;
-        private System.Windows.Forms.ToolStripMenuItem btnValores;
         private System.Windows.Forms.ToolStripMenuItem btnINSS;
         private System.Windows.Forms.ToolStripMenuItem btnSalarioFamilia;
         private System.Windows.Forms.ToolStripMenuItem btnIRRF;

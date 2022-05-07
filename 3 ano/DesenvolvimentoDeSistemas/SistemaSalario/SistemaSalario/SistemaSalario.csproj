@@ -61,6 +61,12 @@
     <Compile Include="Forms\FolhaPagMdi.Designer.cs">
       <DependentUpon>FolhaPagMdi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Inss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inss.Designer.cs">
+      <DependentUpon>Inss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TabelaFuncionarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +76,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vo\Funcionario.cs" />
+    <Compile Include="vo\Tabela.cs" />
     <EmbeddedResource Include="Forms\CadastraFuncionario.resx">
       <DependentUpon>CadastraFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FolhaPagMdi.resx">
       <DependentUpon>FolhaPagMdi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inss.resx">
+      <DependentUpon>Inss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TabelaFuncionarios.resx">
       <DependentUpon>TabelaFuncionarios.cs</DependentUpon>
