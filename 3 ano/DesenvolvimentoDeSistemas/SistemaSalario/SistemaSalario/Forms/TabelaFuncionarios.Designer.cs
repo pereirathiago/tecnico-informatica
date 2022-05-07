@@ -58,6 +58,7 @@
             this.editarFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarValoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verHoleriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiltro)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -204,7 +205,8 @@
             this.mFuncionario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNovoFunc,
             this.btnEditarFunc,
-            this.btnExcluirFunc});
+            this.btnExcluirFunc,
+            this.verHoleriteToolStripMenuItem});
             this.mFuncionario.Name = "mFuncionario";
             this.mFuncionario.Size = new System.Drawing.Size(180, 22);
             this.mFuncionario.Text = "Funcionario";
@@ -289,6 +291,12 @@
             this.editarValoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarValoresToolStripMenuItem.Text = "Editar valores ";
             // 
+            // verHoleriteToolStripMenuItem
+            // 
+            this.verHoleriteToolStripMenuItem.Name = "verHoleriteToolStripMenuItem";
+            this.verHoleriteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verHoleriteToolStripMenuItem.Text = "Ver Holerite";
+            // 
             // TabelaFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,5 +353,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnINSS;
         private System.Windows.Forms.ToolStripMenuItem btnSalarioFamilia;
         private System.Windows.Forms.ToolStripMenuItem btnIRRF;
+        private System.Windows.Forms.ToolStripMenuItem verHoleriteToolStripMenuItem;
     }
 }
