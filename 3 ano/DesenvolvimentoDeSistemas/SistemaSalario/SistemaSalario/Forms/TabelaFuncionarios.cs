@@ -58,5 +58,24 @@ namespace SistemaSalario
             else
                 MessageBox.Show("Nenhuma linha selecionada");
         }
+
+        private void btnExcluirFunc_Click(object sender, EventArgs e)
+        {
+            int matricula = -1, linha;
+            linha = dgFiltro.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                matricula = int.Parse(dgFiltro.CurrentRow.Cells[0].Value.ToString());
+                bdFuncionario.excluir(matricula);
+                dgFiltro.Rows.Clear();
+                foreach (DataRow dr in bdFuncionario.PreencheTabela(txtFiltro.Text).Rows)
+                {
+                    dgFiltro.Rows.Add(dr.ItemArray);
+                    dgFiltro.Columns[5].DefaultCellStyle.Format = "0.#0";
+                }
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
+        }
     }
 }

@@ -78,7 +78,7 @@ namespace SistemaSalario.bd
             }
         }
 
-        public void excluir(String matricula)
+        public void excluir(int matricula)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();

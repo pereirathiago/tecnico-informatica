@@ -67,9 +67,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Filtrar descrição:";
+            this.label1.Text = "Filtrar nome:";
             // 
             // txtFiltro
             // 
@@ -228,6 +228,7 @@
             this.btnExcluirFunc.Name = "btnExcluirFunc";
             this.btnExcluirFunc.Size = new System.Drawing.Size(180, 22);
             this.btnExcluirFunc.Text = "Excluir";
+            this.btnExcluirFunc.Click += new System.EventHandler(this.btnExcluirFunc_Click);
             // 
             // mTabelas
             // 
