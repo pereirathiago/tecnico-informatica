@@ -42,7 +42,17 @@ namespace SistemaSalario.bd
             return null;
         }
 
-        public void inserir(Funcionario funcionario)
+        public void salva(Funcionario funcionario)
+        {
+            if(funcionario.Matricula == 0)
+            {
+                inserir(funcionario);
+            } else
+            {
+                editar(funcionario);
+            }
+        }
+        private void inserir(Funcionario funcionario)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -68,7 +78,7 @@ namespace SistemaSalario.bd
             }
         }
 
-        public void excluir(String idFuncionario)
+        public void excluir(String matricula)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -76,8 +86,8 @@ namespace SistemaSalario.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from funcionario where matricula=@idFuncionario";
-                cmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                cmd.CommandText = "delete from funcionario where matricula=@matricula";
+                cmd.Parameters.AddWithValue("@matricula", matricula);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
@@ -88,7 +98,7 @@ namespace SistemaSalario.bd
             }
         }
 
-        public void editar(Funcionario funcionario)
+        private void editar(Funcionario funcionario)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -96,7 +106,7 @@ namespace SistemaSalario.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update funcionario set nome = @nome, vt=@vt, dep14=@dep14, depir=@depir, salario=@salario where matricula=@matricula";
+                cmd.CommandText = "update funcionario set nome=@nome, vt=@vt, dep14=@dep14, depir=@depir, salario=@salario where matricula=@matricula";
                 cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
                 cmd.Parameters.AddWithValue("@vt", funcionario.Vt);
                 cmd.Parameters.AddWithValue("@dep14", funcionario.Dep14);

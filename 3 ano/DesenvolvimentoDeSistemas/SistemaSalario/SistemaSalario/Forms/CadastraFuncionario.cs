@@ -10,7 +10,13 @@ namespace SistemaSalario
         Funcionario funcionario = new Funcionario();
         BdFuncionario bdFuncionario;
 
-        internal Funcionario Funcionario { get => funcionario; set => funcionario = value; }
+        internal Funcionario Funcionario {
+            get => funcionario; 
+            set { 
+                funcionario = value;
+                funcionarioToTela();
+            }
+        }
 
         public CadastraFuncionario(Form parent)
         {
@@ -66,7 +72,7 @@ namespace SistemaSalario
             if (VerificaCampos())
             {
                 telaToFuncionario();
-                bdFuncionario.inserir(Funcionario);
+                bdFuncionario.salva(Funcionario);
                 TabelaFuncionarios fm = new TabelaFuncionarios(MdiParent);
                 fm.Show();
                 Close();
