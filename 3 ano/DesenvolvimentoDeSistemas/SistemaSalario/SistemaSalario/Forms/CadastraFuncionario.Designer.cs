@@ -177,7 +177,7 @@
             0});
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(120, 20);
-            this.txtSalario.TabIndex = 25;
+            this.txtSalario.TabIndex = 2;
             // 
             // CadastraFuncionario
             // 
