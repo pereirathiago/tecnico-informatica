@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 26-Abr-2022 às 16:50
--- Versão do servidor: 5.7.22
--- PHP Version: 7.1.16
+-- Generation Time: 07-Maio-2022 às 21:01
+-- Versão do servidor: 5.7.25
+-- versão do PHP: 7.1.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,10 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `funcionario` (
   `matricula` int(11) NOT NULL,
-  `dep14` int(11) NOT NULL,
-  `depir` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `vt` varchar(50) NOT NULL,
+  `dep14` int(11) NOT NULL,
+  `depir` int(11) NOT NULL,
   `salario` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -41,16 +41,15 @@ CREATE TABLE `funcionario` (
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`matricula`, `dep14`, `depir`, `nome`, `vt`, `salario`) VALUES
-(10, 2, 3, 'Cassio', 's', 1100),
-(11, 0, 0, 'Rafael', 'n', 1100),
-(12, 1, 2, 'Anna', 's', 2000),
-(13, 0, 0, 'Nicolas', 'n', 3000),
-(14, 1, 1, 'Allan', 'n', 6400),
-(15, 1, 1, 'Arthur', 'n', 15000),
-(16, 0, 0, 'Vitor', 'n', 15000),
-(17, 0, 1, 'Lucio', 'n', 20000),
-(18, 1, 2, 'teste', 'N', 1000);
+INSERT INTO `funcionario` (`matricula`, `nome`, `vt`, `dep14`, `depir`, `salario`) VALUES
+(10, 'Cassio', 'N', 3, 3, 1100),
+(11, 'Rafael', 'n', 0, 0, 1100),
+(12, 'Anna', 's', 1, 2, 2000),
+(13, 'Nicolas', 'n', 0, 0, 3000),
+(14, 'Allan', 'n', 1, 1, 6400),
+(15, 'Arthur', 'n', 1, 1, 15000),
+(16, 'Vitor', 'n', 0, 0, 15000),
+(17, 'Lucio', 'n', 0, 1, 20000);
 
 -- --------------------------------------------------------
 
@@ -116,7 +115,7 @@ ALTER TABLE `tabela`
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tabela`
