@@ -79,8 +79,9 @@
             // funcionarioToolStripMenuItem
             // 
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
+            this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
             // tabelasToolStripMenuItem
             // 
@@ -89,7 +90,7 @@
             this.salárioFamíliaToolStripMenuItem,
             this.iRRFToolStripMenuItem});
             this.tabelasToolStripMenuItem.Name = "tabelasToolStripMenuItem";
-            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tabelasToolStripMenuItem.Text = "Tabelas";
             // 
             // iNSSToolStripMenuItem
@@ -101,8 +102,9 @@
             // salárioFamíliaToolStripMenuItem
             // 
             this.salárioFamíliaToolStripMenuItem.Name = "salárioFamíliaToolStripMenuItem";
-            this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salárioFamíliaToolStripMenuItem.Text = "Salário Família";
+            this.salárioFamíliaToolStripMenuItem.Click += new System.EventHandler(this.salárioFamíliaToolStripMenuItem_Click);
             // 
             // iRRFToolStripMenuItem
             // 

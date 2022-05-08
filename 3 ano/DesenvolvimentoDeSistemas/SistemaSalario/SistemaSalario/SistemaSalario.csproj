@@ -62,6 +62,12 @@
     <Compile Include="Forms\FolhaPagMdi.Designer.cs">
       <DependentUpon>FolhaPagMdi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TabelaSalarioFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TabelaSalarioFamilia.Designer.cs">
+      <DependentUpon>TabelaSalarioFamilia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TabelaInss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TabelaFuncionarios.resx">
       <DependentUpon>TabelaFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TabelaSalarioFamilia.resx">
+      <DependentUpon>TabelaSalarioFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -114,5 +114,19 @@ namespace SistemaSalario.Forms
                 return 0;
             }
         }
+
+        private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaFuncionarios tf = new TabelaFuncionarios(MdiParent);
+            tf.Show();
+            Close();
+        }
+
+        private void salárioFamíliaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaSalarioFamilia fsf = new TabelaSalarioFamilia(MdiParent);
+            fsf.Show();
+            Close();
+        }
     }
 }

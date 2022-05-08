@@ -85,5 +85,12 @@ namespace SistemaSalario
             inss.Show();
             Close();
         }
+
+        private void btnSalarioFamilia_Click(object sender, EventArgs e)
+        {
+            TabelaSalarioFamilia fsf = new TabelaSalarioFamilia(MdiParent);
+            fsf.Show();
+            Close();
+        }
     }
 }

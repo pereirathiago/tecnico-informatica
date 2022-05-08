@@ -12,10 +12,24 @@ namespace SistemaSalario.Forms
 {
     public partial class TabelaSalarioFamilia : Form
     {
-        public TabelaSalarioFamilia()
+        public TabelaSalarioFamilia(Form parent)
         {
             InitializeComponent();
+            MdiParent = parent;
         }
 
+        private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaFuncionarios tf = new TabelaFuncionarios(MdiParent);
+            tf.Show();
+            Close();
+        }
+
+        private void iNSSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaInss ti = new TabelaInss(MdiParent);
+            ti.Show();
+            Close();
+        }
     }
 }

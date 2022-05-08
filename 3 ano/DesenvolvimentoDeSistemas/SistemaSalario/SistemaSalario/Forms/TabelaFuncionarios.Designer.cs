@@ -259,6 +259,7 @@
             this.btnSalarioFamilia.Name = "btnSalarioFamilia";
             this.btnSalarioFamilia.Size = new System.Drawing.Size(180, 22);
             this.btnSalarioFamilia.Text = "Salário Família";
+            this.btnSalarioFamilia.Click += new System.EventHandler(this.btnSalarioFamilia_Click);
             // 
             // btnIRRF
             // 
