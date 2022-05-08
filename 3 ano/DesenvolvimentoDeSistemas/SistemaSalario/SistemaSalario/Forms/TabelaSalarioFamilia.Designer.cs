@@ -35,14 +35,15 @@
             this.iNSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salárioFamíliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iRRFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAtualizarInss = new System.Windows.Forms.Button();
+            this.btnAtualizarSal = new System.Windows.Forms.Button();
             this.txtTsf = new System.Windows.Forms.MaskedTextBox();
-            this.txtVsf = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtVsf = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVsf)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,7 +68,7 @@
             // funcionarioToolStripMenuItem
             // 
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
             this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
@@ -78,13 +79,13 @@
             this.salárioFamíliaToolStripMenuItem,
             this.iRRFToolStripMenuItem});
             this.tabelasToolStripMenuItem.Name = "tabelasToolStripMenuItem";
-            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.tabelasToolStripMenuItem.Text = "Tabelas";
             // 
             // iNSSToolStripMenuItem
             // 
             this.iNSSToolStripMenuItem.Name = "iNSSToolStripMenuItem";
-            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.iNSSToolStripMenuItem.Text = "INSS";
             this.iNSSToolStripMenuItem.Click += new System.EventHandler(this.iNSSToolStripMenuItem_Click);
             // 
@@ -100,14 +101,15 @@
             this.iRRFToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.iRRFToolStripMenuItem.Text = "IRRF";
             // 
-            // btnAtualizarInss
+            // btnAtualizarSal
             // 
-            this.btnAtualizarInss.Location = new System.Drawing.Point(144, 206);
-            this.btnAtualizarInss.Name = "btnAtualizarInss";
-            this.btnAtualizarInss.Size = new System.Drawing.Size(124, 37);
-            this.btnAtualizarInss.TabIndex = 45;
-            this.btnAtualizarInss.Text = "Atualizar Salário Família";
-            this.btnAtualizarInss.UseVisualStyleBackColor = true;
+            this.btnAtualizarSal.Location = new System.Drawing.Point(144, 206);
+            this.btnAtualizarSal.Name = "btnAtualizarSal";
+            this.btnAtualizarSal.Size = new System.Drawing.Size(124, 37);
+            this.btnAtualizarSal.TabIndex = 45;
+            this.btnAtualizarSal.Text = "Atualizar Salário Família";
+            this.btnAtualizarSal.UseVisualStyleBackColor = true;
+            this.btnAtualizarSal.Click += new System.EventHandler(this.btnAtualizarSal_Click);
             // 
             // txtTsf
             // 
@@ -115,13 +117,6 @@
             this.txtTsf.Name = "txtTsf";
             this.txtTsf.Size = new System.Drawing.Size(111, 20);
             this.txtTsf.TabIndex = 38;
-            // 
-            // txtVsf
-            // 
-            this.txtVsf.Location = new System.Drawing.Point(231, 159);
-            this.txtVsf.Name = "txtVsf";
-            this.txtVsf.Size = new System.Drawing.Size(111, 20);
-            this.txtVsf.TabIndex = 34;
             // 
             // label4
             // 
@@ -162,14 +157,27 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Salário Família";
             // 
+            // txtVsf
+            // 
+            this.txtVsf.DecimalPlaces = 2;
+            this.txtVsf.Location = new System.Drawing.Point(231, 159);
+            this.txtVsf.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
+            this.txtVsf.Name = "txtVsf";
+            this.txtVsf.Size = new System.Drawing.Size(111, 20);
+            this.txtVsf.TabIndex = 46;
+            // 
             // TabelaSalarioFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 303);
-            this.Controls.Add(this.btnAtualizarInss);
-            this.Controls.Add(this.txtTsf);
             this.Controls.Add(this.txtVsf);
+            this.Controls.Add(this.btnAtualizarSal);
+            this.Controls.Add(this.txtTsf);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -180,8 +188,10 @@
             this.Name = "TabelaSalarioFamilia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SalarioFamilia";
+            this.Load += new System.EventHandler(this.TabelaSalarioFamilia_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVsf)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,12 +206,12 @@
         private System.Windows.Forms.ToolStripMenuItem iNSSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salárioFamíliaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iRRFToolStripMenuItem;
-        private System.Windows.Forms.Button btnAtualizarInss;
+        private System.Windows.Forms.Button btnAtualizarSal;
         private System.Windows.Forms.MaskedTextBox txtTsf;
-        private System.Windows.Forms.TextBox txtVsf;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown txtVsf;
     }
 }

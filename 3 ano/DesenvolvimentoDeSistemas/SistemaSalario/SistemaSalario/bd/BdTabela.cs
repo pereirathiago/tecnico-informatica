@@ -90,5 +90,27 @@ namespace SistemaSalario.bd
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void atualizaSalarioF(Tabela tabela)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update tabela set tsf=@tsf, vsf=@vsf";
+                cmd.Parameters.AddWithValue("@tsf", tabela.Tsf);
+                cmd.Parameters.AddWithValue("@vsf", tabela.Vsf);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
