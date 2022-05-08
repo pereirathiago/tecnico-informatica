@@ -49,6 +49,7 @@
             this.btnNovoFunc = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditarFunc = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirFunc = new System.Windows.Forms.ToolStripMenuItem();
+            this.verHoleriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mTabelas = new System.Windows.Forms.ToolStripMenuItem();
             this.btnINSS = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalarioFamilia = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,6 @@
             this.editarFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarValoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verHoleriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiltro)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -213,23 +213,29 @@
             // btnNovoFunc
             // 
             this.btnNovoFunc.Name = "btnNovoFunc";
-            this.btnNovoFunc.Size = new System.Drawing.Size(180, 22);
+            this.btnNovoFunc.Size = new System.Drawing.Size(135, 22);
             this.btnNovoFunc.Text = "Novo";
             this.btnNovoFunc.Click += new System.EventHandler(this.btnNovoFunc_Click);
             // 
             // btnEditarFunc
             // 
             this.btnEditarFunc.Name = "btnEditarFunc";
-            this.btnEditarFunc.Size = new System.Drawing.Size(180, 22);
+            this.btnEditarFunc.Size = new System.Drawing.Size(135, 22);
             this.btnEditarFunc.Text = "Editar";
             this.btnEditarFunc.Click += new System.EventHandler(this.btnEditarFunc_Click);
             // 
             // btnExcluirFunc
             // 
             this.btnExcluirFunc.Name = "btnExcluirFunc";
-            this.btnExcluirFunc.Size = new System.Drawing.Size(180, 22);
+            this.btnExcluirFunc.Size = new System.Drawing.Size(135, 22);
             this.btnExcluirFunc.Text = "Excluir";
             this.btnExcluirFunc.Click += new System.EventHandler(this.btnExcluirFunc_Click);
+            // 
+            // verHoleriteToolStripMenuItem
+            // 
+            this.verHoleriteToolStripMenuItem.Name = "verHoleriteToolStripMenuItem";
+            this.verHoleriteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.verHoleriteToolStripMenuItem.Text = "Ver Holerite";
             // 
             // mTabelas
             // 
@@ -246,6 +252,7 @@
             this.btnINSS.Name = "btnINSS";
             this.btnINSS.Size = new System.Drawing.Size(180, 22);
             this.btnINSS.Text = "INSS";
+            this.btnINSS.Click += new System.EventHandler(this.btnINSS_Click);
             // 
             // btnSalarioFamilia
             // 
@@ -282,12 +289,6 @@
             this.editarValoresToolStripMenuItem.Name = "editarValoresToolStripMenuItem";
             this.editarValoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarValoresToolStripMenuItem.Text = "Editar valores ";
-            // 
-            // verHoleriteToolStripMenuItem
-            // 
-            this.verHoleriteToolStripMenuItem.Name = "verHoleriteToolStripMenuItem";
-            this.verHoleriteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verHoleriteToolStripMenuItem.Text = "Ver Holerite";
             // 
             // TabelaFuncionarios
             // 

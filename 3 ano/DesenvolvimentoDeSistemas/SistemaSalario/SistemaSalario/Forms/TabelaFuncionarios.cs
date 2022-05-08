@@ -1,4 +1,5 @@
 ﻿using SistemaSalario.bd;
+using SistemaSalario.Forms;
 using SistemaSalario.vo;
 using System;
 using System.Data;
@@ -76,6 +77,13 @@ namespace SistemaSalario
             }
             else
                 MessageBox.Show("Nenhuma linha selecionada");
+        }
+
+        private void btnINSS_Click(object sender, EventArgs e)
+        {
+            TabelaInss inss = new TabelaInss(MdiParent);
+            inss.Show();
+            Close();
         }
     }
 }

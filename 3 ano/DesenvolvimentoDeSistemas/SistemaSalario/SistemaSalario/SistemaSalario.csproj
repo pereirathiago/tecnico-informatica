@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="bd\Bd.cs" />
     <Compile Include="bd\BdFuncionario.cs" />
+    <Compile Include="bd\BdTabela.cs" />
     <Compile Include="Forms\CadastraFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,11 +62,11 @@
     <Compile Include="Forms\FolhaPagMdi.Designer.cs">
       <DependentUpon>FolhaPagMdi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inss.cs">
+    <Compile Include="Forms\TabelaInss.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inss.Designer.cs">
-      <DependentUpon>Inss.cs</DependentUpon>
+    <Compile Include="Forms\TabelaInss.Designer.cs">
+      <DependentUpon>TabelaInss.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TabelaFuncionarios.cs">
       <SubType>Form</SubType>
@@ -83,8 +84,8 @@
     <EmbeddedResource Include="Forms\FolhaPagMdi.resx">
       <DependentUpon>FolhaPagMdi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inss.resx">
-      <DependentUpon>Inss.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\TabelaInss.resx">
+      <DependentUpon>TabelaInss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TabelaFuncionarios.resx">
       <DependentUpon>TabelaFuncionarios.cs</DependentUpon>
