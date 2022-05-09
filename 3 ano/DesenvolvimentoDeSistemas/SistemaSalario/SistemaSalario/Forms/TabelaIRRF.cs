@@ -55,5 +55,39 @@ namespace SistemaSalario.Forms
             fin.Show();
             Close();
         }
+
+        private void TabelaIRRF_Load(object sender, EventArgs e)
+        {
+            preenchaTabela();
+        }
+
+        private void preenchaTabela()
+        {
+            Tabela tabela = bdTabela.PreencheTabela();
+            txtTirrf1.Text = tabela.Tirrf1.ToString("C");
+            txtTirrf1a.Text = (tabela.Tirrf1 + 0.01).ToString("C");
+            txtTirrf2.Text = tabela.Tirrf2.ToString("C");
+            txtTirrf2a.Text = (tabela.Tirrf2 + 0.01).ToString("C");
+            txtTirrf3.Text = tabela.Tirrf3.ToString("C");
+            txtTirrf3a.Text = (tabela.Tirrf3 + 0.01).ToString("C");
+            txtTirrf4.Text = tabela.Tirrf4.ToString("C");
+            txtTirrf5.Text = tabela.Tirrf4.ToString("C");
+            txtAirrf1.Text = "-";
+            txtAirrf2.Text = tabela.Airrf2.ToString() + "%";
+            txtAirrf3.Text = tabela.Airrf3.ToString() + "%";
+            txtAirrf4.Text = tabela.Airrf4.ToString() + "%";
+            txtAirrf5.Text = tabela.Airrf5.ToString() + "%";
+            txtDirrf1.Text = "-";
+            txtDirrf2.Text = tabela.Dirrf2.ToString("C");
+            txtDirrf3.Text = tabela.Dirrf3.ToString("C");
+            txtDirrf4.Text = tabela.Dirrf4.ToString("C");
+            txtDirrf5.Text = tabela.Dirrf5.ToString("C");
+            txtDedpdep.Text = tabela.Dedpdep.ToString("C");
+        }
+
+        private void btnAtualizarInss_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

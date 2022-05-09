@@ -37,11 +37,11 @@
             this.iRRfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAtualizarInss = new System.Windows.Forms.Button();
             this.txtTirrf4 = new System.Windows.Forms.MaskedTextBox();
-            this.tTinss3a = new System.Windows.Forms.MaskedTextBox();
+            this.txtTirrf3a = new System.Windows.Forms.MaskedTextBox();
             this.txtTirrf3 = new System.Windows.Forms.MaskedTextBox();
-            this.tTinss2a = new System.Windows.Forms.MaskedTextBox();
+            this.txtTirrf2a = new System.Windows.Forms.MaskedTextBox();
             this.txtTirrf2 = new System.Windows.Forms.MaskedTextBox();
-            this.tTinss1a = new System.Windows.Forms.MaskedTextBox();
+            this.txtTirrf1a = new System.Windows.Forms.MaskedTextBox();
             this.txtTirrf1 = new System.Windows.Forms.MaskedTextBox();
             this.txtAirrf4 = new System.Windows.Forms.TextBox();
             this.txtAirrf3 = new System.Windows.Forms.TextBox();
@@ -129,90 +129,94 @@
             this.btnAtualizarInss.Location = new System.Drawing.Point(33, 358);
             this.btnAtualizarInss.Name = "btnAtualizarInss";
             this.btnAtualizarInss.Size = new System.Drawing.Size(127, 23);
-            this.btnAtualizarInss.TabIndex = 45;
+            this.btnAtualizarInss.TabIndex = 16;
             this.btnAtualizarInss.Text = "Atualizar INSS";
             this.btnAtualizarInss.UseVisualStyleBackColor = true;
+            this.btnAtualizarInss.Click += new System.EventHandler(this.btnAtualizarInss_Click);
             // 
             // txtTirrf4
             // 
             this.txtTirrf4.Location = new System.Drawing.Point(158, 266);
             this.txtTirrf4.Name = "txtTirrf4";
             this.txtTirrf4.Size = new System.Drawing.Size(100, 20);
-            this.txtTirrf4.TabIndex = 44;
+            this.txtTirrf4.TabIndex = 4;
             // 
-            // tTinss3a
+            // txtTirrf3a
             // 
-            this.tTinss3a.BackColor = System.Drawing.Color.White;
-            this.tTinss3a.Enabled = false;
-            this.tTinss3a.Location = new System.Drawing.Point(33, 266);
-            this.tTinss3a.Name = "tTinss3a";
-            this.tTinss3a.Size = new System.Drawing.Size(100, 20);
-            this.tTinss3a.TabIndex = 43;
+            this.txtTirrf3a.BackColor = System.Drawing.Color.White;
+            this.txtTirrf3a.Enabled = false;
+            this.txtTirrf3a.Location = new System.Drawing.Point(33, 266);
+            this.txtTirrf3a.Name = "txtTirrf3a";
+            this.txtTirrf3a.Size = new System.Drawing.Size(100, 20);
+            this.txtTirrf3a.TabIndex = 43;
             // 
             // txtTirrf3
             // 
             this.txtTirrf3.Location = new System.Drawing.Point(158, 231);
             this.txtTirrf3.Name = "txtTirrf3";
             this.txtTirrf3.Size = new System.Drawing.Size(100, 20);
-            this.txtTirrf3.TabIndex = 42;
+            this.txtTirrf3.TabIndex = 3;
             // 
-            // tTinss2a
+            // txtTirrf2a
             // 
-            this.tTinss2a.BackColor = System.Drawing.Color.White;
-            this.tTinss2a.Enabled = false;
-            this.tTinss2a.Location = new System.Drawing.Point(33, 231);
-            this.tTinss2a.Name = "tTinss2a";
-            this.tTinss2a.Size = new System.Drawing.Size(100, 20);
-            this.tTinss2a.TabIndex = 41;
+            this.txtTirrf2a.BackColor = System.Drawing.Color.White;
+            this.txtTirrf2a.Enabled = false;
+            this.txtTirrf2a.Location = new System.Drawing.Point(33, 231);
+            this.txtTirrf2a.Name = "txtTirrf2a";
+            this.txtTirrf2a.Size = new System.Drawing.Size(100, 20);
+            this.txtTirrf2a.TabIndex = 41;
             // 
             // txtTirrf2
             // 
             this.txtTirrf2.Location = new System.Drawing.Point(158, 196);
             this.txtTirrf2.Name = "txtTirrf2";
             this.txtTirrf2.Size = new System.Drawing.Size(100, 20);
-            this.txtTirrf2.TabIndex = 40;
+            this.txtTirrf2.TabIndex = 2;
             // 
-            // tTinss1a
+            // txtTirrf1a
             // 
-            this.tTinss1a.BackColor = System.Drawing.Color.White;
-            this.tTinss1a.Enabled = false;
-            this.tTinss1a.Location = new System.Drawing.Point(33, 196);
-            this.tTinss1a.Name = "tTinss1a";
-            this.tTinss1a.Size = new System.Drawing.Size(100, 20);
-            this.tTinss1a.TabIndex = 39;
+            this.txtTirrf1a.BackColor = System.Drawing.Color.White;
+            this.txtTirrf1a.Enabled = false;
+            this.txtTirrf1a.Location = new System.Drawing.Point(33, 196);
+            this.txtTirrf1a.Name = "txtTirrf1a";
+            this.txtTirrf1a.Size = new System.Drawing.Size(100, 20);
+            this.txtTirrf1a.TabIndex = 39;
             // 
             // txtTirrf1
             // 
             this.txtTirrf1.Location = new System.Drawing.Point(90, 161);
             this.txtTirrf1.Name = "txtTirrf1";
             this.txtTirrf1.Size = new System.Drawing.Size(111, 20);
-            this.txtTirrf1.TabIndex = 38;
+            this.txtTirrf1.TabIndex = 1;
             // 
             // txtAirrf4
             // 
             this.txtAirrf4.Location = new System.Drawing.Point(330, 269);
             this.txtAirrf4.Name = "txtAirrf4";
             this.txtAirrf4.Size = new System.Drawing.Size(111, 20);
-            this.txtAirrf4.TabIndex = 37;
+            this.txtAirrf4.TabIndex = 8;
             // 
             // txtAirrf3
             // 
             this.txtAirrf3.Location = new System.Drawing.Point(330, 233);
             this.txtAirrf3.Name = "txtAirrf3";
             this.txtAirrf3.Size = new System.Drawing.Size(111, 20);
-            this.txtAirrf3.TabIndex = 36;
+            this.txtAirrf3.TabIndex = 7;
             // 
             // txtAirrf2
             // 
             this.txtAirrf2.Location = new System.Drawing.Point(330, 197);
             this.txtAirrf2.Name = "txtAirrf2";
             this.txtAirrf2.Size = new System.Drawing.Size(111, 20);
-            this.txtAirrf2.TabIndex = 35;
+            this.txtAirrf2.TabIndex = 6;
             // 
             // txtAirrf1
             // 
+            this.txtAirrf1.BackColor = System.Drawing.Color.White;
+            this.txtAirrf1.Enabled = false;
             this.txtAirrf1.Location = new System.Drawing.Point(330, 161);
             this.txtAirrf1.Name = "txtAirrf1";
+            this.txtAirrf1.ReadOnly = true;
             this.txtAirrf1.Size = new System.Drawing.Size(111, 20);
             this.txtAirrf1.TabIndex = 34;
             // 
@@ -287,14 +291,14 @@
             this.txtTirrf5.Location = new System.Drawing.Point(90, 306);
             this.txtTirrf5.Name = "txtTirrf5";
             this.txtTirrf5.Size = new System.Drawing.Size(111, 20);
-            this.txtTirrf5.TabIndex = 49;
+            this.txtTirrf5.TabIndex = 5;
             // 
             // txtAirrf5
             // 
             this.txtAirrf5.Location = new System.Drawing.Point(330, 305);
             this.txtAirrf5.Name = "txtAirrf5";
             this.txtAirrf5.Size = new System.Drawing.Size(111, 20);
-            this.txtAirrf5.TabIndex = 47;
+            this.txtAirrf5.TabIndex = 9;
             // 
             // label8
             // 
@@ -310,35 +314,38 @@
             this.txtDirrf5.Location = new System.Drawing.Point(495, 305);
             this.txtDirrf5.Name = "txtDirrf5";
             this.txtDirrf5.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf5.TabIndex = 55;
+            this.txtDirrf5.TabIndex = 14;
             // 
             // txtDirrf4
             // 
             this.txtDirrf4.Location = new System.Drawing.Point(495, 269);
             this.txtDirrf4.Name = "txtDirrf4";
             this.txtDirrf4.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf4.TabIndex = 54;
+            this.txtDirrf4.TabIndex = 13;
             // 
             // txtDirrf3
             // 
             this.txtDirrf3.Location = new System.Drawing.Point(495, 233);
             this.txtDirrf3.Name = "txtDirrf3";
             this.txtDirrf3.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf3.TabIndex = 53;
+            this.txtDirrf3.TabIndex = 12;
             // 
             // txtDirrf2
             // 
             this.txtDirrf2.Location = new System.Drawing.Point(495, 197);
             this.txtDirrf2.Name = "txtDirrf2";
             this.txtDirrf2.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf2.TabIndex = 52;
+            this.txtDirrf2.TabIndex = 11;
             // 
             // txtDirrf1
             // 
+            this.txtDirrf1.BackColor = System.Drawing.Color.White;
+            this.txtDirrf1.Enabled = false;
             this.txtDirrf1.Location = new System.Drawing.Point(495, 161);
             this.txtDirrf1.Name = "txtDirrf1";
+            this.txtDirrf1.ReadOnly = true;
             this.txtDirrf1.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf1.TabIndex = 51;
+            this.txtDirrf1.TabIndex = 10;
             // 
             // label9
             // 
@@ -364,7 +371,7 @@
             this.txtDedpdep.Location = new System.Drawing.Point(495, 361);
             this.txtDedpdep.Name = "txtDedpdep";
             this.txtDedpdep.Size = new System.Drawing.Size(145, 20);
-            this.txtDedpdep.TabIndex = 57;
+            this.txtDedpdep.TabIndex = 15;
             // 
             // TabelaIRRF
             // 
@@ -384,11 +391,11 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAtualizarInss);
             this.Controls.Add(this.txtTirrf4);
-            this.Controls.Add(this.tTinss3a);
+            this.Controls.Add(this.txtTirrf3a);
             this.Controls.Add(this.txtTirrf3);
-            this.Controls.Add(this.tTinss2a);
+            this.Controls.Add(this.txtTirrf2a);
             this.Controls.Add(this.txtTirrf2);
-            this.Controls.Add(this.tTinss1a);
+            this.Controls.Add(this.txtTirrf1a);
             this.Controls.Add(this.txtTirrf1);
             this.Controls.Add(this.txtAirrf4);
             this.Controls.Add(this.txtAirrf3);
@@ -407,6 +414,7 @@
             this.Name = "TabelaIRRF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TabelaIRRF";
+            this.Load += new System.EventHandler(this.TabelaIRRF_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -425,11 +433,11 @@
         private System.Windows.Forms.ToolStripMenuItem iRRfToolStripMenuItem;
         private System.Windows.Forms.Button btnAtualizarInss;
         private System.Windows.Forms.MaskedTextBox txtTirrf4;
-        private System.Windows.Forms.MaskedTextBox tTinss3a;
+        private System.Windows.Forms.MaskedTextBox txtTirrf3a;
         private System.Windows.Forms.MaskedTextBox txtTirrf3;
-        private System.Windows.Forms.MaskedTextBox tTinss2a;
+        private System.Windows.Forms.MaskedTextBox txtTirrf2a;
         private System.Windows.Forms.MaskedTextBox txtTirrf2;
-        private System.Windows.Forms.MaskedTextBox tTinss1a;
+        private System.Windows.Forms.MaskedTextBox txtTirrf1a;
         private System.Windows.Forms.MaskedTextBox txtTirrf1;
         private System.Windows.Forms.TextBox txtAirrf4;
         private System.Windows.Forms.TextBox txtAirrf3;
