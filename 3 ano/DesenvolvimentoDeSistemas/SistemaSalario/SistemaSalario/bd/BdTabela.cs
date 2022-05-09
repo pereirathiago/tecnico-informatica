@@ -112,5 +112,38 @@ namespace SistemaSalario.bd
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void atualizaIRRF(Tabela tabela)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update tabela set tirrf1=@tirrf1, tirrf2=@tirrf2, tirrf3=@tirrf3, tirrf4=@tirrf4, airrf2=@airrf2, airrf3=@airrf3, airrf4=@airrf4, airrf5=@airrf5, dirrf2=@dirrf2, dirrf3=@dirrf3, dirrf4=@dirrf4, dirrf5=@dirrf5, dedpdep=@dedpdep";
+                cmd.Parameters.AddWithValue("@tirrf1", tabela.Tirrf1);
+                cmd.Parameters.AddWithValue("@tirrf2", tabela.Tirrf2);
+                cmd.Parameters.AddWithValue("@tirrf3", tabela.Tirrf3);
+                cmd.Parameters.AddWithValue("@tirrf4", tabela.Tirrf4);
+                cmd.Parameters.AddWithValue("@airrf2", tabela.Airrf2);
+                cmd.Parameters.AddWithValue("@airrf3", tabela.Airrf3);
+                cmd.Parameters.AddWithValue("@airrf4", tabela.Airrf4);
+                cmd.Parameters.AddWithValue("@airrf5", tabela.Airrf5);
+                cmd.Parameters.AddWithValue("@dirrf2", tabela.Dirrf2);
+                cmd.Parameters.AddWithValue("@dirrf3", tabela.Dirrf3);
+                cmd.Parameters.AddWithValue("@dirrf4", tabela.Dirrf4);
+                cmd.Parameters.AddWithValue("@dirrf5", tabela.Dirrf5);
+                cmd.Parameters.AddWithValue("@dedpdep", tabela.Dedpdep);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Fechar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

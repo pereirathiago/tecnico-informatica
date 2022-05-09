@@ -92,7 +92,7 @@ namespace SistemaSalario.Forms
                 telaToTabela();
                 try
                 {
-                    bdTabela.atualizaIRRf(tabela);
+                    bdTabela.atualizaIRRF(tabela);
                     MessageBox.Show("Tabela atualizado com sucesso");
                 }
                 catch (Exception ex)
