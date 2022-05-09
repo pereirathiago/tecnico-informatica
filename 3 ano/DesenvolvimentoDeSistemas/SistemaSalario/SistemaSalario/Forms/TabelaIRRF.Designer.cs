@@ -57,14 +57,14 @@
             this.txtTirrf5 = new System.Windows.Forms.MaskedTextBox();
             this.txtAirrf5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDirrf5 = new System.Windows.Forms.TextBox();
-            this.txtDirrf4 = new System.Windows.Forms.TextBox();
-            this.txtDirrf3 = new System.Windows.Forms.TextBox();
-            this.txtDirrf2 = new System.Windows.Forms.TextBox();
-            this.txtDirrf1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtDedpdep = new System.Windows.Forms.TextBox();
+            this.txtDirrf1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDirrf5 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDirrf2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDirrf3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDirrf4 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDedpdep = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,7 @@
             // funcionarioToolStripMenuItem
             // 
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
             this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
@@ -101,27 +101,27 @@
             this.salárioFamíliaToolStripMenuItem,
             this.iRRfToolStripMenuItem});
             this.tabelasToolStripMenuItem.Name = "tabelasToolStripMenuItem";
-            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.tabelasToolStripMenuItem.Text = "Tabelas";
             // 
             // iNSSToolStripMenuItem
             // 
             this.iNSSToolStripMenuItem.Name = "iNSSToolStripMenuItem";
-            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.iNSSToolStripMenuItem.Text = "INSS";
             this.iNSSToolStripMenuItem.Click += new System.EventHandler(this.iNSSToolStripMenuItem_Click);
             // 
             // salárioFamíliaToolStripMenuItem
             // 
             this.salárioFamíliaToolStripMenuItem.Name = "salárioFamíliaToolStripMenuItem";
-            this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.salárioFamíliaToolStripMenuItem.Text = "Salário Família";
             this.salárioFamíliaToolStripMenuItem.Click += new System.EventHandler(this.salárioFamíliaToolStripMenuItem_Click);
             // 
             // iRRfToolStripMenuItem
             // 
             this.iRRfToolStripMenuItem.Name = "iRRfToolStripMenuItem";
-            this.iRRfToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iRRfToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.iRRfToolStripMenuItem.Text = "IRRF";
             // 
             // btnAtualizarInss
@@ -310,44 +310,6 @@
             this.label8.TabIndex = 46;
             this.label8.Text = "Acima de";
             // 
-            // txtDirrf5
-            // 
-            this.txtDirrf5.Location = new System.Drawing.Point(495, 305);
-            this.txtDirrf5.Name = "txtDirrf5";
-            this.txtDirrf5.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf5.TabIndex = 14;
-            // 
-            // txtDirrf4
-            // 
-            this.txtDirrf4.Location = new System.Drawing.Point(495, 269);
-            this.txtDirrf4.Name = "txtDirrf4";
-            this.txtDirrf4.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf4.TabIndex = 13;
-            // 
-            // txtDirrf3
-            // 
-            this.txtDirrf3.Location = new System.Drawing.Point(495, 233);
-            this.txtDirrf3.Name = "txtDirrf3";
-            this.txtDirrf3.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf3.TabIndex = 12;
-            // 
-            // txtDirrf2
-            // 
-            this.txtDirrf2.Location = new System.Drawing.Point(495, 197);
-            this.txtDirrf2.Name = "txtDirrf2";
-            this.txtDirrf2.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf2.TabIndex = 11;
-            // 
-            // txtDirrf1
-            // 
-            this.txtDirrf1.BackColor = System.Drawing.Color.White;
-            this.txtDirrf1.Enabled = false;
-            this.txtDirrf1.Location = new System.Drawing.Point(495, 161);
-            this.txtDirrf1.Name = "txtDirrf1";
-            this.txtDirrf1.ReadOnly = true;
-            this.txtDirrf1.Size = new System.Drawing.Size(111, 20);
-            this.txtDirrf1.TabIndex = 10;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -367,12 +329,49 @@
             this.label10.TabIndex = 56;
             this.label10.Text = "Dedução por dependente";
             // 
+            // txtDirrf1
+            // 
+            this.txtDirrf1.BackColor = System.Drawing.Color.White;
+            this.txtDirrf1.Enabled = false;
+            this.txtDirrf1.Location = new System.Drawing.Point(495, 161);
+            this.txtDirrf1.Name = "txtDirrf1";
+            this.txtDirrf1.Size = new System.Drawing.Size(111, 20);
+            this.txtDirrf1.TabIndex = 57;
+            // 
+            // txtDirrf5
+            // 
+            this.txtDirrf5.Location = new System.Drawing.Point(495, 305);
+            this.txtDirrf5.Name = "txtDirrf5";
+            this.txtDirrf5.Size = new System.Drawing.Size(111, 20);
+            this.txtDirrf5.TabIndex = 58;
+            // 
+            // txtDirrf2
+            // 
+            this.txtDirrf2.Location = new System.Drawing.Point(495, 196);
+            this.txtDirrf2.Name = "txtDirrf2";
+            this.txtDirrf2.Size = new System.Drawing.Size(111, 20);
+            this.txtDirrf2.TabIndex = 59;
+            // 
+            // txtDirrf3
+            // 
+            this.txtDirrf3.Location = new System.Drawing.Point(495, 233);
+            this.txtDirrf3.Name = "txtDirrf3";
+            this.txtDirrf3.Size = new System.Drawing.Size(111, 20);
+            this.txtDirrf3.TabIndex = 60;
+            // 
+            // txtDirrf4
+            // 
+            this.txtDirrf4.Location = new System.Drawing.Point(495, 269);
+            this.txtDirrf4.Name = "txtDirrf4";
+            this.txtDirrf4.Size = new System.Drawing.Size(111, 20);
+            this.txtDirrf4.TabIndex = 61;
+            // 
             // txtDedpdep
             // 
             this.txtDedpdep.Location = new System.Drawing.Point(495, 361);
             this.txtDedpdep.Name = "txtDedpdep";
             this.txtDedpdep.Size = new System.Drawing.Size(145, 20);
-            this.txtDedpdep.TabIndex = 15;
+            this.txtDedpdep.TabIndex = 62;
             // 
             // TabelaIRRF
             // 
@@ -380,12 +379,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 396);
             this.Controls.Add(this.txtDedpdep);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtDirrf5);
             this.Controls.Add(this.txtDirrf4);
             this.Controls.Add(this.txtDirrf3);
             this.Controls.Add(this.txtDirrf2);
+            this.Controls.Add(this.txtDirrf5);
             this.Controls.Add(this.txtDirrf1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtTirrf5);
             this.Controls.Add(this.txtAirrf5);
@@ -454,13 +453,14 @@
         private System.Windows.Forms.MaskedTextBox txtTirrf5;
         private System.Windows.Forms.TextBox txtAirrf5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDirrf5;
-        private System.Windows.Forms.TextBox txtDirrf4;
-        private System.Windows.Forms.TextBox txtDirrf3;
-        private System.Windows.Forms.TextBox txtDirrf2;
-        private System.Windows.Forms.TextBox txtDirrf1;
+        private System.Windows.Forms.TextBox a;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtDedpdep;
+        private System.Windows.Forms.MaskedTextBox txtDirrf1;
+        private System.Windows.Forms.MaskedTextBox txtDirrf5;
+        private System.Windows.Forms.MaskedTextBox txtDirrf2;
+        private System.Windows.Forms.MaskedTextBox txtDirrf3;
+        private System.Windows.Forms.MaskedTextBox txtDirrf4;
+        private System.Windows.Forms.MaskedTextBox txtDedpdep;
     }
 }
