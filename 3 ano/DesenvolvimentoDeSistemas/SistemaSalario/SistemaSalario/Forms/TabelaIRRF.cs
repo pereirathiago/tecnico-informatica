@@ -87,7 +87,65 @@ namespace SistemaSalario.Forms
 
         private void btnAtualizarInss_Click(object sender, EventArgs e)
         {
+            if (verificaCampos())
+            {
+                telaToTabela();
+                try
+                {
+                    bdTabela.atualizaIRRf(tabela);
+                    MessageBox.Show("Tabela atualizado com sucesso");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                preenchaTabela();
+            }
+        }
 
+        private bool verificaCampos()
+        {
+            if (TextNoFormatting(txtTirrf1) != 0 && TextNoFormatting(txtTirrf2) != 0 && TextNoFormatting(txtTirrf3) != 0 && TextNoFormatting(txtTirrf4) != 0)
+            {
+                if (TextNoFormatting(txtAirrf1) != 0 && TextNoFormatting(txtAirrf2) != 0 && TextNoFormatting(txtAirrf3) != 0 && TextNoFormatting(txtAirrf4) != 0 && TextNoFormatting(txtAirrf5) != 0)
+                {
+                    if (TextNoFormatting(txtDirrf1) != 0 && TextNoFormatting(txtDirrf2) != 0 && TextNoFormatting(txtDirrf3) != 0 && TextNoFormatting(txtDirrf4) != 0 && TextNoFormatting(txtDirrf5) != 0)
+                        if(TextNoFormatting(txtDedpdep) != 0)
+                            return true;
+                }
+
+            }
+            return false;
+        }
+
+        private double TextNoFormatting(MaskedTextBox _mask)
+        {
+            String retString = _mask.Text.Replace("R$", "").Trim();
+            retString = retString.Replace(".", "");
+            try
+            {
+                return double.Parse(retString);
+            }
+            catch
+            {
+                MessageBox.Show("Preencha os valores corretamente!");
+                return 0;
+            }
+        }
+
+        private double TextNoFormatting(TextBox _text)
+        {
+            String retString = _text.Text.Replace("%", "").Trim();
+            retString = retString.Replace(".", "");
+            try
+            {
+                return double.Parse(retString);
+            }
+            catch
+            {
+                MessageBox.Show("Preencha os valores corretamente!");
+                return 0;
+            }
         }
     }
 }

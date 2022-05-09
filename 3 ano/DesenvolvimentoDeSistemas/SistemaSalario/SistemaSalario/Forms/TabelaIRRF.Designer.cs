@@ -288,6 +288,7 @@
             // 
             // txtTirrf5
             // 
+            this.txtTirrf5.Enabled = false;
             this.txtTirrf5.Location = new System.Drawing.Point(90, 306);
             this.txtTirrf5.Name = "txtTirrf5";
             this.txtTirrf5.Size = new System.Drawing.Size(111, 20);
