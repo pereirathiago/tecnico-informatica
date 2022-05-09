@@ -35,5 +35,25 @@ namespace SistemaSalario.Forms
             tabela.Airrf5 = Convert.ToDouble(txtAirrf5.Text.Replace("R$", "").Replace(".", "").Trim());
         }
 
+        private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaFuncionarios tf = new TabelaFuncionarios(MdiParent);
+            tf.Show();
+            Close();
+        }
+
+        private void salárioFamíliaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaSalarioFamilia fsf = new TabelaSalarioFamilia(MdiParent);
+            fsf.Show();
+            Close();
+        }
+
+        private void iNSSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaInss fin = new TabelaInss(MdiParent);
+            fin.Show();
+            Close();
+        }
     }
 }

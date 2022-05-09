@@ -103,5 +103,12 @@ namespace SistemaSalario.Forms
                 return 0;
             }
         }
+
+        private void iRRFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabelaIRRF fir = new TabelaIRRF(MdiParent);
+            fir.Show();
+            Close();
+        }
     }
 }

@@ -92,5 +92,12 @@ namespace SistemaSalario
             fsf.Show();
             Close();
         }
+
+        private void btnIRRF_Click(object sender, EventArgs e)
+        {
+            TabelaIRRF fir = new TabelaIRRF(MdiParent);
+            fir.Show();
+            Close();
+        }
     }
 }

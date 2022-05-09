@@ -68,7 +68,7 @@
             // funcionarioToolStripMenuItem
             // 
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
             this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
@@ -79,27 +79,28 @@
             this.salárioFamíliaToolStripMenuItem,
             this.iRRFToolStripMenuItem});
             this.tabelasToolStripMenuItem.Name = "tabelasToolStripMenuItem";
-            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.tabelasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tabelasToolStripMenuItem.Text = "Tabelas";
             // 
             // iNSSToolStripMenuItem
             // 
             this.iNSSToolStripMenuItem.Name = "iNSSToolStripMenuItem";
-            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iNSSToolStripMenuItem.Text = "INSS";
             this.iNSSToolStripMenuItem.Click += new System.EventHandler(this.iNSSToolStripMenuItem_Click);
             // 
             // salárioFamíliaToolStripMenuItem
             // 
             this.salárioFamíliaToolStripMenuItem.Name = "salárioFamíliaToolStripMenuItem";
-            this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salárioFamíliaToolStripMenuItem.Text = "Salário Família";
             // 
             // iRRFToolStripMenuItem
             // 
             this.iRRFToolStripMenuItem.Name = "iRRFToolStripMenuItem";
-            this.iRRFToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.iRRFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iRRFToolStripMenuItem.Text = "IRRF";
+            this.iRRFToolStripMenuItem.Click += new System.EventHandler(this.iRRFToolStripMenuItem_Click);
             // 
             // btnAtualizarSal
             // 

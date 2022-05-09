@@ -96,7 +96,7 @@
             // iNSSToolStripMenuItem
             // 
             this.iNSSToolStripMenuItem.Name = "iNSSToolStripMenuItem";
-            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iNSSToolStripMenuItem.Text = "INSS";
             // 
             // salárioFamíliaToolStripMenuItem
@@ -109,8 +109,9 @@
             // iRRFToolStripMenuItem
             // 
             this.iRRFToolStripMenuItem.Name = "iRRFToolStripMenuItem";
-            this.iRRFToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.iRRFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iRRFToolStripMenuItem.Text = "IRRF";
+            this.iRRFToolStripMenuItem.Click += new System.EventHandler(this.iRRFToolStripMenuItem_Click);
             // 
             // label1
             // 

@@ -92,6 +92,7 @@
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
             this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
+            this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
             // tabelasToolStripMenuItem
             // 
@@ -108,12 +109,14 @@
             this.iNSSToolStripMenuItem.Name = "iNSSToolStripMenuItem";
             this.iNSSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iNSSToolStripMenuItem.Text = "INSS";
+            this.iNSSToolStripMenuItem.Click += new System.EventHandler(this.iNSSToolStripMenuItem_Click);
             // 
             // salárioFamíliaToolStripMenuItem
             // 
             this.salárioFamíliaToolStripMenuItem.Name = "salárioFamíliaToolStripMenuItem";
             this.salárioFamíliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salárioFamíliaToolStripMenuItem.Text = "Salário Família";
+            this.salárioFamíliaToolStripMenuItem.Click += new System.EventHandler(this.salárioFamíliaToolStripMenuItem_Click);
             // 
             // iRRfToolStripMenuItem
             // 

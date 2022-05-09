@@ -266,6 +266,7 @@
             this.btnIRRF.Name = "btnIRRF";
             this.btnIRRF.Size = new System.Drawing.Size(180, 22);
             this.btnIRRF.Text = "IRRF";
+            this.btnIRRF.Click += new System.EventHandler(this.btnIRRF_Click);
             // 
             // mArquivo
             // 
