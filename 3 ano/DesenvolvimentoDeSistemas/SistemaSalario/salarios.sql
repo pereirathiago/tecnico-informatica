@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 07-Maio-2022 às 21:01
+-- Generation Time: 10-Maio-2022 às 00:59
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -42,14 +42,15 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`matricula`, `nome`, `vt`, `dep14`, `depir`, `salario`) VALUES
-(10, 'Cassio', 'N', 3, 3, 1100),
-(11, 'Rafael', 'n', 0, 0, 1100),
-(12, 'Anna', 's', 1, 2, 2000),
-(13, 'Nicolas', 'n', 0, 0, 3000),
-(14, 'Allan', 'n', 1, 1, 6400),
-(15, 'Arthur', 'n', 1, 1, 15000),
-(16, 'Vitor', 'n', 0, 0, 15000),
-(17, 'Lucio', 'n', 0, 1, 20000);
+(10, 'Vinicius', 'S', 2, 3, 1300),
+(11, 'Giovanne', 'N', 0, 0, 1300),
+(12, 'João Pedro', 'S', 1, 2, 2000),
+(13, 'Thiago', 'N', 0, 0, 3000),
+(14, 'Tiago', 'N', 1, 1, 4500),
+(15, 'Gustavo', 'N', 1, 1, 6400),
+(16, 'Danilo', 'N', 1, 1, 15000),
+(17, 'Matheus', 'N', 0, 0, 15000),
+(18, 'Lucio', 'N', 0, 1, 20000);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ CREATE TABLE `tabela` (
 --
 
 INSERT INTO `tabela` (`id`, `tinss1`, `tinss2`, `tinss3`, `tinss4`, `ainss1`, `ainss2`, `ainss3`, `ainss4`, `tsf`, `vsf`, `tirrf1`, `tirrf2`, `airrf2`, `dirrf2`, `tirrf3`, `airrf3`, `dirrf3`, `tirrf4`, `airrf4`, `dirrf4`, `airrf5`, `dirrf5`, `dedpdep`) VALUES
-(1, 1100, 2203.48, 3305.22, 6433.57, 7.5, 9, 12, 14, 1503.25, 51.27, 1903.98, 2826.65, 7.5, 142.8, 3751.05, 15, 354.8, 4664.68, 22.5, 646.13, 27.5, 869.36, 189.59);
+(1, 1212, 2427.36, 3641.03, 7087.22, 7.5, 9, 12, 14, 1655.98, 56.47, 1903.98, 2826.65, 7.5, 142.8, 3751.05, 15, 354.8, 4664.68, 22.5, 646.13, 27.5, 869.36, 189.59);
 
 --
 -- Indexes for dumped tables
@@ -115,7 +116,7 @@ ALTER TABLE `tabela`
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tabela`
