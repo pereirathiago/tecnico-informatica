@@ -117,7 +117,12 @@ namespace SistemaSalario.Forms
                     if (TextNoFormatting(txtDirrf2) != 0 && TextNoFormatting(txtDirrf3) != 0 && TextNoFormatting(txtDirrf4) != 0 && TextNoFormatting(txtDirrf5) != 0)
                     {
                         if (TextNoFormatting(txtDedpdep) != 0)
-                            return true;
+                            if (TextNoFormatting(txtTirrf1) < TextNoFormatting(txtTirrf2) && TextNoFormatting(txtTirrf2) < TextNoFormatting(txtTirrf3) && TextNoFormatting(txtTirrf3) < TextNoFormatting(txtTirrf4)
+                                && TextNoFormatting(txtAirrf1) < TextNoFormatting(txtAirrf2) && TextNoFormatting(txtAirrf2) < TextNoFormatting(txtAirrf3) && TextNoFormatting(txtAirrf3) < TextNoFormatting(txtAirrf4)
+                                && TextNoFormatting(txtDirrf1) < TextNoFormatting(txtDirrf2) && TextNoFormatting(txtDirrf2) < TextNoFormatting(txtDirrf3) && TextNoFormatting(txtDirrf3) < TextNoFormatting(txtDirrf4))
+                                return true;
+                            else
+                                MessageBox.Show("Preencha os valores corretamente!");
                     }
                 }
 

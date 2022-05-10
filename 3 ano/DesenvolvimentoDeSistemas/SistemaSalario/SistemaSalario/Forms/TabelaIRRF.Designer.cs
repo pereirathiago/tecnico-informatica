@@ -288,6 +288,7 @@
             // 
             // txtTirrf5
             // 
+            this.txtTirrf5.BackColor = System.Drawing.Color.White;
             this.txtTirrf5.Enabled = false;
             this.txtTirrf5.Location = new System.Drawing.Point(90, 306);
             this.txtTirrf5.Name = "txtTirrf5";

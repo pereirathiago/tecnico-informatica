@@ -80,7 +80,11 @@ namespace SistemaSalario.Forms
             {
                 if (TextNoFormatting(tAinss1) != 0 && TextNoFormatting(tAinss2) != 0 && TextNoFormatting(tAinss3) != 0 && TextNoFormatting(tAinss4) != 0)
                 {
-                    return true;
+                    if (TextNoFormatting(tTinss1) < TextNoFormatting(tTinss2) && TextNoFormatting(tTinss2) < TextNoFormatting(tTinss3) && TextNoFormatting(tTinss3) < TextNoFormatting(tTinss4)
+                        && TextNoFormatting(tAinss1) < TextNoFormatting(tAinss2) && TextNoFormatting(tAinss2) < TextNoFormatting(tAinss3) && TextNoFormatting(tAinss3) < TextNoFormatting(tAinss4))
+                        return true;
+                    else
+                        MessageBox.Show("Preencha os valores corretamente!");
                 }
 
             }  
