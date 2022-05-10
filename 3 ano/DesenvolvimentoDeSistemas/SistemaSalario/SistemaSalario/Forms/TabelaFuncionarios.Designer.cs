@@ -209,7 +209,7 @@
             this.btnExcluirFunc,
             this.verHoleriteToolStripMenuItem});
             this.mFuncionario.Name = "mFuncionario";
-            this.mFuncionario.Size = new System.Drawing.Size(137, 22);
+            this.mFuncionario.Size = new System.Drawing.Size(180, 22);
             this.mFuncionario.Text = "Funcionario";
             // 
             // btnNovoFunc
@@ -236,8 +236,8 @@
             // verHoleriteToolStripMenuItem
             // 
             this.verHoleriteToolStripMenuItem.Name = "verHoleriteToolStripMenuItem";
-            this.verHoleriteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.verHoleriteToolStripMenuItem.Text = "Ver Holerite";
+            this.verHoleriteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verHoleriteToolStripMenuItem.Text = "Gerar/Ver Holerite";
             this.verHoleriteToolStripMenuItem.Click += new System.EventHandler(this.verHoleriteToolStripMenuItem_Click);
             // 
             // mTabelas
