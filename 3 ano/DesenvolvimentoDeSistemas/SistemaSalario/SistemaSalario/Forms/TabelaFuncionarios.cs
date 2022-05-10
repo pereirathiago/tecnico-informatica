@@ -147,14 +147,14 @@ namespace SistemaSalario
             {
                 documento.ReplaceText("#nome", funcionario.Nome);
                 documento.ReplaceText("#matricula", funcionario.Matricula.ToString());
-                documento.ReplaceText("#salarioBase", funcionario.Salario.ToString());
-                documento.ReplaceText("#salarioFam", funcionario.Sf.ToString());
-                documento.ReplaceText("#irrf", funcionario.Irrf.ToString());
-                documento.ReplaceText("#inss", funcionario.Inss.ToString());
-                documento.ReplaceText("#vt", funcionario.Vvt.ToString());
-                documento.ReplaceText("#salliq", funcionario.Salliq.ToString());
-                documento.ReplaceText("#totalVenc", (funcionario.Salario + funcionario.Sf).ToString());
-                documento.ReplaceText("#totalDesc", (funcionario.Irrf + funcionario.Inss + funcionario.Vvt).ToString());
+                documento.ReplaceText("#salarioBase", funcionario.Salario.ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#salarioFam", funcionario.Sf.ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#irrf", funcionario.Irrf.ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#inss", funcionario.Inss.ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#vt", funcionario.Vvt.ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#salliq", funcionario.Salliq.ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#totalVenc", (funcionario.Salario + funcionario.Sf).ToString("N2", new CultureInfo("pt-BR")));
+                documento.ReplaceText("#totalDesc", (funcionario.Irrf + funcionario.Inss + funcionario.Vvt).ToString("N2", new CultureInfo("pt-BR")));
 
                 string mes = DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("pt-br"));
                 documento.ReplaceText("#mes", mes);
