@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabelaFuncionarios));
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@
             this.editarFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarValoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiltro)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +209,7 @@
             this.btnExcluirFunc,
             this.verHoleriteToolStripMenuItem});
             this.mFuncionario.Name = "mFuncionario";
-            this.mFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.mFuncionario.Size = new System.Drawing.Size(137, 22);
             this.mFuncionario.Text = "Funcionario";
             // 
             // btnNovoFunc
@@ -236,6 +238,7 @@
             this.verHoleriteToolStripMenuItem.Name = "verHoleriteToolStripMenuItem";
             this.verHoleriteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.verHoleriteToolStripMenuItem.Text = "Ver Holerite";
+            this.verHoleriteToolStripMenuItem.Click += new System.EventHandler(this.verHoleriteToolStripMenuItem_Click);
             // 
             // mTabelas
             // 
@@ -244,27 +247,27 @@
             this.btnSalarioFamilia,
             this.btnIRRF});
             this.mTabelas.Name = "mTabelas";
-            this.mTabelas.Size = new System.Drawing.Size(180, 22);
+            this.mTabelas.Size = new System.Drawing.Size(137, 22);
             this.mTabelas.Text = "Tabelas";
             // 
             // btnINSS
             // 
             this.btnINSS.Name = "btnINSS";
-            this.btnINSS.Size = new System.Drawing.Size(180, 22);
+            this.btnINSS.Size = new System.Drawing.Size(150, 22);
             this.btnINSS.Text = "INSS";
             this.btnINSS.Click += new System.EventHandler(this.btnINSS_Click);
             // 
             // btnSalarioFamilia
             // 
             this.btnSalarioFamilia.Name = "btnSalarioFamilia";
-            this.btnSalarioFamilia.Size = new System.Drawing.Size(180, 22);
+            this.btnSalarioFamilia.Size = new System.Drawing.Size(150, 22);
             this.btnSalarioFamilia.Text = "Salário Família";
             this.btnSalarioFamilia.Click += new System.EventHandler(this.btnSalarioFamilia_Click);
             // 
             // btnIRRF
             // 
             this.btnIRRF.Name = "btnIRRF";
-            this.btnIRRF.Size = new System.Drawing.Size(180, 22);
+            this.btnIRRF.Size = new System.Drawing.Size(150, 22);
             this.btnIRRF.Text = "IRRF";
             this.btnIRRF.Click += new System.EventHandler(this.btnIRRF_Click);
             // 
@@ -291,6 +294,16 @@
             this.editarValoresToolStripMenuItem.Name = "editarValoresToolStripMenuItem";
             this.editarValoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarValoresToolStripMenuItem.Text = "Editar valores ";
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // TabelaFuncionarios
             // 
@@ -348,5 +361,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnSalarioFamilia;
         private System.Windows.Forms.ToolStripMenuItem btnIRRF;
         private System.Windows.Forms.ToolStripMenuItem verHoleriteToolStripMenuItem;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

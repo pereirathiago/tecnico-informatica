@@ -3,7 +3,10 @@ using SistemaSalario.Forms;
 using SistemaSalario.vo;
 using System;
 using System.Data;
+using System.Diagnostics;
+using System.Globalization;
 using System.Windows.Forms;
+using Xceed.Words.NET;
 
 namespace SistemaSalario
 {
@@ -108,6 +111,58 @@ namespace SistemaSalario
             TabelaIRRF fir = new TabelaIRRF(MdiParent);
             fir.Show();
             Close();
+        }
+
+        private void verHoleriteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"..\..\";
+            int matricula = -1, linha;
+            linha = dgFiltro.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                matricula = int.Parse(dgFiltro.CurrentRow.Cells[0].Value.ToString());
+                funcionario = bdFuncionario.localiza(matricula);
+                funcionario.Inss = (double)dgFiltro.CurrentRow.Cells[6].Value;
+                funcionario.Sf = (double)dgFiltro.CurrentRow.Cells[7].Value;
+                funcionario.Vvt = (double)dgFiltro.CurrentRow.Cells[8].Value;
+                funcionario.Irrf = (double)dgFiltro.CurrentRow.Cells[9].Value;
+                funcionario.Salliq = (double)dgFiltro.CurrentRow.Cells[10].Value;
+                try
+                {
+                    string pathdoc = Replace(path, funcionario);
+                    MessageBox.Show("Arquivo criado");
+                    Process.Start(pathdoc);
+                } catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
+        }
+
+        static string Replace(string path, Funcionario funcionario)
+        {
+            using (var documento = DocX.Load(path + @"holerite.docx"))
+            {
+                documento.ReplaceText("#nome", funcionario.Nome);
+                documento.ReplaceText("#matricula", funcionario.Matricula.ToString());
+                documento.ReplaceText("#salarioBase", funcionario.Salario.ToString());
+                documento.ReplaceText("#salarioFam", funcionario.Sf.ToString());
+                documento.ReplaceText("#irrf", funcionario.Irrf.ToString());
+                documento.ReplaceText("#inss", funcionario.Inss.ToString());
+                documento.ReplaceText("#vt", funcionario.Vvt.ToString());
+                documento.ReplaceText("#salliq", funcionario.Salliq.ToString());
+                documento.ReplaceText("#totalVenc", (funcionario.Salario + funcionario.Sf).ToString());
+                documento.ReplaceText("#totalDesc", (funcionario.Irrf + funcionario.Inss + funcionario.Vvt).ToString());
+
+                string mes = DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("pt-br"));
+                documento.ReplaceText("#mes", mes);
+
+                documento.SaveAs(path + "holerite-"+funcionario.Nome+"-"+mes+".docx");
+
+                return path + "holerite-" + funcionario.Nome + "-" + mes + ".docx";
+            }
         }
     }
 }
