@@ -47,6 +47,11 @@ namespace SistemaSalario
 
         private bool VerificaCampos()
         {
+            if(txtDep14.Value > txtDepIr.Value)
+            {
+                MessageBox.Show("N° de filhos não pode ser maior que o n° de dependentes!");
+                return false;
+            }
             if (txtNome.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos");
