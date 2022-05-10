@@ -78,6 +78,11 @@ namespace SistemaSalario
                 {
                     dgFiltro.Rows.Add(dr.ItemArray);
                     dgFiltro.Columns[5].DefaultCellStyle.Format = "0.#0";
+                    dgFiltro.Columns[6].DefaultCellStyle.Format = "0.#0";
+                    dgFiltro.Columns[7].DefaultCellStyle.Format = "0.#0";
+                    dgFiltro.Columns[8].DefaultCellStyle.Format = "0.#0";
+                    dgFiltro.Columns[9].DefaultCellStyle.Format = "0.#0";
+                    dgFiltro.Columns[10].DefaultCellStyle.Format = "0.#0";
                 }
             }
             else
