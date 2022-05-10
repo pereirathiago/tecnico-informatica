@@ -20,17 +20,22 @@ namespace SistemaSalario
 
         private void TabelaFuncionarios_Load(object sender, EventArgs e)
         {
-            foreach (DataRow dr in bdFuncionario.PreencheTabela("").Rows)
+            foreach (DataRow dr in bdFuncionario.calculaNovaTabela("").Rows)
             {
                 dgFiltro.Rows.Add(dr.ItemArray);
                 dgFiltro.Columns[5].DefaultCellStyle.Format = "0.#0";
+                dgFiltro.Columns[6].DefaultCellStyle.Format = "0.#0";
+                dgFiltro.Columns[7].DefaultCellStyle.Format = "0.#0";
+                dgFiltro.Columns[8].DefaultCellStyle.Format = "0.#0";
+                dgFiltro.Columns[9].DefaultCellStyle.Format = "0.#0";
+                dgFiltro.Columns[10].DefaultCellStyle.Format = "0.#0";
             }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             dgFiltro.Rows.Clear();
-            foreach (DataRow dr in bdFuncionario.PreencheTabela(txtFiltro.Text).Rows)
+            foreach (DataRow dr in bdFuncionario.calculaNovaTabela(txtFiltro.Text).Rows)
             {
                 dgFiltro.Rows.Add(dr.ItemArray);
             }
@@ -69,7 +74,7 @@ namespace SistemaSalario
                 matricula = int.Parse(dgFiltro.CurrentRow.Cells[0].Value.ToString());
                 bdFuncionario.excluir(matricula);
                 dgFiltro.Rows.Clear();
-                foreach (DataRow dr in bdFuncionario.PreencheTabela(txtFiltro.Text).Rows)
+                foreach (DataRow dr in bdFuncionario.calculaNovaTabela(txtFiltro.Text).Rows)
                 {
                     dgFiltro.Rows.Add(dr.ItemArray);
                     dgFiltro.Columns[5].DefaultCellStyle.Format = "0.#0";

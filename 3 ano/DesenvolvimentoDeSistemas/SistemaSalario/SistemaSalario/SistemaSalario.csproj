@@ -50,6 +50,7 @@
     <Compile Include="bd\Bd.cs" />
     <Compile Include="bd\BdFuncionario.cs" />
     <Compile Include="bd\BdTabela.cs" />
+    <Compile Include="bd\CalculaFolha.cs" />
     <Compile Include="Forms\CadastraFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>

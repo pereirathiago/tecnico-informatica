@@ -12,12 +12,16 @@ namespace SistemaSalario.bd
 {
     internal class BdFuncionario : Bd
     {
+        CalculaFolha calculaFolha = new CalculaFolha();
+        BdTabela bdTabela = new BdTabela();
         public BdFuncionario()
         {
             User = "root";
             Servidor = "localhost";
             Senha = "vertrigo";
             bd = "salarios";
+
+            bdTabela = new BdTabela();
         }
         public DataTable PreencheTabela(string nome)
         {
@@ -40,6 +44,43 @@ namespace SistemaSalario.bd
                 MessageBox.Show(ex.Message);
             }
             return null;
+        }
+
+        public DataTable calculaNovaTabela(string nome)
+        {
+            DataTable funcionario = new DataTable();
+            funcionario.Columns.Add("Matricula", typeof(int));
+            funcionario.Columns.Add("Nome", typeof(System.String));
+            funcionario.Columns.Add("Vt", typeof(System.String));
+            funcionario.Columns.Add("Dep14", typeof(double));
+            funcionario.Columns.Add("DepIR", typeof(double));
+            funcionario.Columns.Add("SalarioBase", typeof(double));
+            funcionario.Columns.Add("INSS", typeof(double));
+            funcionario.Columns.Add("Sf", typeof(double));
+            funcionario.Columns.Add("VVt", typeof(double));
+            funcionario.Columns.Add("IRRF", typeof(double));
+            funcionario.Columns.Add("Salliq", typeof(double));
+            object [] obj = new object[11];
+            foreach (DataRow dr in PreencheTabela(nome).Rows)
+            {
+                calculaFolha.Tabela = bdTabela.PreencheTabela();
+                calculaFolha.Funcionario = localiza((int)dr.ItemArray[0]);
+                calculaFolha.calcula();
+                obj[0] = dr.ItemArray[0];
+                obj[1] = dr.ItemArray[1];
+                obj[2] = dr.ItemArray[2];
+                obj[3] = dr.ItemArray[3];
+                obj[4] = dr.ItemArray[4];
+                obj[5] = dr.ItemArray[5];
+                obj[6] = calculaFolha.Inss.ToString();
+                obj[7] = calculaFolha.Sf.ToString();
+                obj[8] = calculaFolha.Vt.ToString();
+                obj[9] = calculaFolha.Irrf.ToString();
+                obj[10] = calculaFolha.Salliq.ToString();
+
+                funcionario.Rows.Add(obj);
+            }
+            return funcionario;
         }
 
         public void salva(Funcionario funcionario)
