@@ -75,17 +75,21 @@ namespace SistemaSalario
             if (linha > -1)
             {
                 matricula = int.Parse(dgFiltro.CurrentRow.Cells[0].Value.ToString());
-                bdFuncionario.excluir(matricula);
-                dgFiltro.Rows.Clear();
-                foreach (DataRow dr in bdFuncionario.calculaNovaTabela(txtFiltro.Text).Rows)
+                DialogResult result = MessageBox.Show("Tem certeza que deseja excluir " + dgFiltro.CurrentRow.Cells[1].Value.ToString(), "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result.Equals(DialogResult.OK))
                 {
-                    dgFiltro.Rows.Add(dr.ItemArray);
-                    dgFiltro.Columns[5].DefaultCellStyle.Format = "0.#0";
-                    dgFiltro.Columns[6].DefaultCellStyle.Format = "0.#0";
-                    dgFiltro.Columns[7].DefaultCellStyle.Format = "0.#0";
-                    dgFiltro.Columns[8].DefaultCellStyle.Format = "0.#0";
-                    dgFiltro.Columns[9].DefaultCellStyle.Format = "0.#0";
-                    dgFiltro.Columns[10].DefaultCellStyle.Format = "0.#0";
+                    bdFuncionario.excluir(matricula);
+                    dgFiltro.Rows.Clear();
+                    foreach (DataRow dr in bdFuncionario.calculaNovaTabela(txtFiltro.Text).Rows)
+                    {
+                        dgFiltro.Rows.Add(dr.ItemArray);
+                        dgFiltro.Columns[5].DefaultCellStyle.Format = "0.#0";
+                        dgFiltro.Columns[6].DefaultCellStyle.Format = "0.#0";
+                        dgFiltro.Columns[7].DefaultCellStyle.Format = "0.#0";
+                        dgFiltro.Columns[8].DefaultCellStyle.Format = "0.#0";
+                        dgFiltro.Columns[9].DefaultCellStyle.Format = "0.#0";
+                        dgFiltro.Columns[10].DefaultCellStyle.Format = "0.#0";
+                    }
                 }
             }
             else
