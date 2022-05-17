@@ -17,7 +17,7 @@ model mensagem {
 }
 
 model usuario {
-  usuario String @id @db.VarChar(10)
+  usuario String @id @db.VarChar(10) @unique
   nome    String @db.VarChar(50)  
   senha   String @db.VarChar(40)
 }
