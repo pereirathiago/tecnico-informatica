@@ -23,6 +23,10 @@ export default {
                 .json({ message: 'User created', user })
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     },
 
@@ -32,8 +36,12 @@ export default {
             return res.status(200).json(users)
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
-    },
+    }, 
 
     async findUser(req, res) {
         try {
@@ -44,6 +52,10 @@ export default {
             return res.status(200).json(user)
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     },
 
@@ -67,6 +79,10 @@ export default {
             })
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     },
 
@@ -85,6 +101,10 @@ export default {
             })
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     }
 }
