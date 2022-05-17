@@ -63,5 +63,20 @@ export default {
         } catch (error) {
             return res.json({ error })
         }
+    },
+
+    async deleteUser(req, res) {
+        try {
+            const { usuario } = req.params
+            const user = await prisma.usuario.findUnique({ where: { usuario } })
+            if (!user)
+                return res.json({ error: 'Usuário não encontrado' })
+
+            await prisma.usuario.delete({ where: { usuario } })
+
+            return res.json({message: "Usuário deletado"})
+        } catch (error) {
+            return res.json({ error })
+        }
     }
 }
