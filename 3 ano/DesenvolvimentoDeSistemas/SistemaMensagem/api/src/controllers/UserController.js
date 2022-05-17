@@ -29,7 +29,7 @@ export default {
     async findAllUsers(req, res) {
         try {
             const users = await prisma.usuario.findMany()
-            return res.json(users)
+            return res.status(200).json(users)
         } catch (error) {
             return res.json({ error })
         }
@@ -40,8 +40,8 @@ export default {
             const { usuario } = req.params
             const user = await prisma.usuario.findUnique({ where: { usuario } })
             if (!user)
-                return res.status()
-            return res.json(user)
+                return res.status(404).json({ message: 'Usurario não encontrado' })
+            return res.status(200).json(user)
         } catch (error) {
             return res.json({ error })
         }
@@ -54,14 +54,17 @@ export default {
 
             let user = await prisma.usuario.findUnique({ where: { usuario } })
             if (!user)
-                return res.status()
+                return res.status(404).json({ message: 'Usurario não encontrado' })
 
             user = await prisma.usuario.update({
                 where: { usuario },
                 data: { nome, senha }
             })
 
-            return res.json(user)
+            return res.status(200).json({
+                message: 'Usuário atualizado com sucesso',
+                user,
+            })
         } catch (error) {
             return res.json({ error })
         }
@@ -72,11 +75,14 @@ export default {
             const { usuario } = req.params
             const user = await prisma.usuario.findUnique({ where: { usuario } })
             if (!user)
-                return res.status()
+                return res.status(404).json({ message: 'Usurario não encontrado' })
 
             await prisma.usuario.delete({ where: { usuario } })
 
-            return res.status()
+            return res.status(200).json({
+                message: 'Usuário deletado com sucesso',
+                user,
+            })
         } catch (error) {
             return res.json({ error })
         }
