@@ -8,7 +8,7 @@ export default {
             let user = await prisma.usuario.findUnique({ where: { usuario } })
 
             if (user) {
-                return res.json({ error: 'Já existe um usuario com esse email' })
+                return res.status(409).json({ message: 'User is already used' })
             }
 
             user = await prisma.usuario.create({
@@ -18,7 +18,9 @@ export default {
                     senha
                 },
             })
-            return res.json(user)
+            return res
+                .status(201)
+                .json({ message: 'User created', user })
         } catch (error) {
             return res.json({ error })
         }
@@ -38,7 +40,7 @@ export default {
             const { usuario } = req.params
             const user = await prisma.usuario.findUnique({ where: { usuario } })
             if (!user)
-                return res.json({ error: 'Usuário não encontrado' })
+                return res.status()
             return res.json(user)
         } catch (error) {
             return res.json({ error })
@@ -52,7 +54,7 @@ export default {
 
             let user = await prisma.usuario.findUnique({ where: { usuario } })
             if (!user)
-                return res.json({ error: 'Usuário não encontrado' })
+                return res.status()
 
             user = await prisma.usuario.update({
                 where: { usuario },
@@ -70,11 +72,11 @@ export default {
             const { usuario } = req.params
             const user = await prisma.usuario.findUnique({ where: { usuario } })
             if (!user)
-                return res.json({ error: 'Usuário não encontrado' })
+                return res.status()
 
             await prisma.usuario.delete({ where: { usuario } })
 
-            return res.json({message: "Usuário deletado"})
+            return res.status()
         } catch (error) {
             return res.json({ error })
         }
