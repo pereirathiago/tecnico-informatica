@@ -35,13 +35,33 @@ export default {
 
     async findUser(req, res) {
         try {
-            const { usuario } = req.params;
+            const { usuario } = req.params
             const user = await prisma.usuario.findUnique({ where: { usuario } })
-            if(!user) 
-                return res.json({error: 'Usuário não encontrado'})
+            if (!user)
+                return res.json({ error: 'Usuário não encontrado' })
             return res.json(user)
         } catch (error) {
             return res.json({ error })
         }
     },
+
+    async updateUser(req, res) {
+        try {
+            const { usuario } = req.params
+            const { nome, senha } = req.body
+
+            let user = await prisma.usuario.findUnique({ where: { usuario } })
+            if (!user)
+                return res.json({ error: 'Usuário não encontrado' })
+
+            user = await prisma.usuario.update({
+                where: { usuario },
+                data: { nome, senha }
+            })
+
+            return res.json(user)
+        } catch (error) {
+            return res.json({ error })
+        }
+    }
 }
