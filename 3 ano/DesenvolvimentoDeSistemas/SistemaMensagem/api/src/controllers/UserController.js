@@ -6,11 +6,11 @@ export default {
         try {
             const { usuario, nome, senha } = req.body
             let user = await prisma.usuario.findUnique({ where: { usuario } })
-    
+
             if (user) {
                 return res.json({ error: 'Já existe um usuario com esse email' })
             }
-    
+
             user = await prisma.usuario.create({
                 data: {
                     usuario,
@@ -31,5 +31,17 @@ export default {
         } catch (error) {
             return res.json({ error })
         }
-    }
+    },
+
+    async findUser(req, res) {
+        try {
+            const { usuario } = req.params;
+            const user = await prisma.usuario.findUnique({ where: { usuario } })
+            if(!user) 
+                return res.json({error: 'Usuário não encontrado'})
+            return res.json(user)
+        } catch (error) {
+            return res.json({ error })
+        }
+    },
 }
