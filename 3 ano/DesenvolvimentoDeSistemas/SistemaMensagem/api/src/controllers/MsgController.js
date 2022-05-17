@@ -4,23 +4,19 @@ const prisma = new PrismaClient()
 export default {
     async sendMsg(req, res) {
         try {
-            const { usuario, nome, senha } = req.body
-            let user = await prisma.usuario.findUnique({ where: { usuario } })
-
-            if (user) {
-                return res.status(409).json({ message: 'User is already used' })
-            }
-
-            user = await prisma.usuario.create({
+            const { destinatario, assunto, mensagem } = req.body
+            const { usuario } = req.params
+            const msg = await prisma.mensagem.create({
                 data: {
-                    usuario,
-                    nome,
-                    senha
+                    destinatario,
+                    assunto,
+                    mensagem,
+                    remetente: usuario
                 },
             })
             return res
                 .status(201)
-                .json({ message: 'User created', user })
+                .json({ message: 'Msg enviada', msg })
         } catch (error) {
             return res.json({ error })
         }
@@ -28,8 +24,8 @@ export default {
 
     async findAllMsg(req, res) {
         try {
-            const users = await prisma.usuario.findMany()
-            return res.status(200).json(users)
+            const msgs = await prisma.mensagem.findMany()
+            return res.status(200).json(msgs)
         } catch (error) {
             return res.json({ error })
         }
@@ -38,51 +34,28 @@ export default {
     async findMsg(req, res) {
         try {
             const { usuario } = req.params
-            const user = await prisma.usuario.findUnique({ where: { usuario } })
-            if (!user)
-                return res.status(404).json({ message: 'Usurario não encontrado' })
+            const msgs = await prisma.mensagem.findMany({ where: { destinatario: usuario } })
+            if (!msgs)
+                return res.status(404).json({ message: 'Nehnuma mensagem encontrado' })
             
-            return res.status(200).json(user)
+            return res.status(200).json(msgs)
         } catch (error) {
             return res.json({ error })
         }
     },
 
-    async updateUser(req, res) {
+    async deleteMsg(req, res) {
         try {
-            const { usuario } = req.params
-            const { nome, senha } = req.body
+            const { id } = req.params
+            const msg = await prisma.mensagem.findUnique({ where: { id: Number(id) } })
+            if (!msg)
+                return res.status(404).json({ message: 'Mensagem não encontrado' })
 
-            let user = await prisma.usuario.findUnique({ where: { usuario } })
-            if (!user)
-                return res.status(404).json({ message: 'Usurario não encontrado' })
-
-            user = await prisma.usuario.update({
-                where: { usuario },
-                data: { nome, senha }
-            })
+            await prisma.mensagem.delete({ where: { id: Number(id) } })
 
             return res.status(200).json({
-                message: 'Usuário atualizado com sucesso',
-                user,
-            })
-        } catch (error) {
-            return res.json({ error })
-        }
-    },
-
-    async deleteUser(req, res) {
-        try {
-            const { usuario } = req.params
-            const user = await prisma.usuario.findUnique({ where: { usuario } })
-            if (!user)
-                return res.status(404).json({ message: 'Usurario não encontrado' })
-
-            await prisma.usuario.delete({ where: { usuario } })
-
-            return res.status(200).json({
-                message: 'Usuário deletado com sucesso',
-                user,
+                message: 'Mensagem deletada com sucesso',
+                msg,
             })
         } catch (error) {
             return res.json({ error })

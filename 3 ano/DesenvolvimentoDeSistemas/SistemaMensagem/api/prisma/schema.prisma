@@ -8,7 +8,7 @@ datasource db {
 }
 
 model mensagem {
-  id           Int      @id @default(autoincrement())
+  id           Int      @id @default(autoincrement()) @unique
   remetente    String   @db.VarChar(10)
   destinatario String   @db.VarChar(10)
   assunto      String   @db.VarChar(255)
