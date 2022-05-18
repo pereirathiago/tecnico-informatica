@@ -106,5 +106,17 @@ export default {
                 await prisma.$disconnect()
             }
         }
+    },
+
+    async loginUser(req, res) {
+        const { usuario, senha } = req.body
+        const user = await prisma.usuario.findUnique({ where: { usuario: usuario }})
+
+        if(user){
+            if(senha == user.senha){
+                return res.status(200).json({ message: 'conectado' }) 
+            }
+        }
+        return res.status(401).json({message: "usuário ou senha incorreto"})
     }
 }

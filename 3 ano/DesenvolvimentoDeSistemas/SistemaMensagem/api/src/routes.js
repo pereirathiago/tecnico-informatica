@@ -9,6 +9,7 @@ router.get("/users", UserController.findAllUsers)
 router.get("/user/:usuario", UserController.findUser)
 router.put("/user/:usuario", UserController.updateUser)
 router.delete("/user/:usuario", UserController.deleteUser)
+router.post("/user/login", UserController.loginUser)
 
 router.post("/msg/user/:usuario", MsgController.sendMsg)
 router.get("/msgs", MsgController.findAllMsg)
