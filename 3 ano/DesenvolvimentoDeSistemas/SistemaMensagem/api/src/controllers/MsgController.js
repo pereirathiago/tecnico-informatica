@@ -19,6 +19,10 @@ export default {
                 .json({ message: 'Msg enviada', msg })
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     },
 
@@ -28,6 +32,10 @@ export default {
             return res.status(200).json(msgs)
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     },
 
@@ -41,6 +49,10 @@ export default {
             return res.status(200).json(msgs)
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     },
 
@@ -59,6 +71,10 @@ export default {
             })
         } catch (error) {
             return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
         }
     }
 }
