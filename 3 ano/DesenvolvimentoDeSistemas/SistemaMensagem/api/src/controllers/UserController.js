@@ -109,14 +109,22 @@ export default {
     },
 
     async loginUser(req, res) {
-        const { usuario, senha } = req.body
-        const user = await prisma.usuario.findUnique({ where: { usuario: usuario }})
-
-        if(user){
-            if(senha == user.senha){
-                return res.status(200).json({ message: 'conectado' }) 
+        try {
+            const { usuario, senha } = req.body
+            const user = await prisma.usuario.findUnique({ where: { usuario: usuario }})
+    
+            if(user){
+                if(senha == user.senha){
+                    return res.status(200).json({ message: 'conectado' }) 
+                }
+            }
+            return res.status(401).json({message: "usuário ou senha incorreto"})
+        } catch (error) {
+            return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
             }
         }
-        return res.status(401).json({message: "usuário ou senha incorreto"})
     }
 }
