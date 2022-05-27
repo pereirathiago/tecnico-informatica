@@ -27,11 +27,17 @@
 }
 
 .link_items a {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
     color: var(--color-primary);
     text-decoration: none;
     padding: 5px;
     transition: .5s;
     border-bottom: 2px solid transparent;
+}
+.link_items a svg {
+    margin-right: .2em;
 }
 
 .link_items a:hover {
