@@ -1,11 +1,10 @@
 :root {
   --color-background: #F0F0F7;
-  --color-line-in-white: #E6E6F0;
   --color-input-background: #F8F8FC;
   --color-text-complement: #9C98A6;
   --color-small-info: #C1BCCC;
   --color-primary: #F9A826;
-  --color-secondary: #f5c577;
+  --color-secondary: #e99000;
 }
 
 * {

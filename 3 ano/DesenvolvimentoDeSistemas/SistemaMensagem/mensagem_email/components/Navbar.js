@@ -16,25 +16,25 @@ export default function Navbar(){
     }, [])
 
     return (
-        <nav className={styles.navbar}>
+        <>
             {cookieAuth && 
-                <div className={styles.logo}>
-                    <Image src="/mail.svg" width="30" height="30" alt="Mail"/>
-                    <h1>Gmail²</h1>
-                </div>
+            <nav className={styles.navbar}>
+                    <div className={styles.logo}>
+                        <Image src="/mail.svg" width="30" height="30" alt="Mail"/>
+                        <h1>Gmail²</h1>
+                    </div>
+                <ul className={styles.link_items}>
+                        <li>
+                            <Link href="/">
+                                <a>
+                                    <IoExitOutline />
+                                    Sair
+                                </a>
+                            </Link>
+                        </li>
+                </ul>
+            </nav>
             }
-            <ul className={styles.link_items}>
-                {cookieAuth &&
-                    <li>
-                        <Link href="/">
-                            <a>
-                                <IoExitOutline />
-                                Sair
-                            </a>
-                        </Link>
-                    </li>
-                }
-            </ul>
-        </nav>
+        </>
     )
 }
