@@ -1,0 +1,20 @@
+:root {
+  --color-background: #F0F0F7;
+  --color-line-in-white: #E6E6F0;
+  --color-input-background: #F8F8FC;
+  --color-text-complement: #9C98A6;
+  --color-small-info: #C1BCCC;
+  --color-primary: #F9A826;
+  --color-secondary: #f5c577;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, arial, sans-serif;
+}
+
+body {
+  background: var(--color-background);
+}
