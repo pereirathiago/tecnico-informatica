@@ -1,5 +1,3 @@
-import Swal from 'sweetalert2'
-
 import Head from 'next/head'
 import Image from 'next/image'
 import Input from '../components/form/Input'
@@ -9,6 +7,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import styles from '../styles/Login.module.css'
+import Alert from '../components/Alert'
 
 export default function Login() {
     const [user, setUser] = useState([])
@@ -36,12 +35,8 @@ export default function Login() {
             if(resp.status == 200) {
                 router.push('/')
             }
-            else if(resp.status == 401) {
-                Swal.fire(
-                    'Erro',
-                    'Verifique seu usuário e senha!',
-                    'error'
-                  )
+            else {
+                Alert({message: 'Usuário ou senha incorretos', type: 'error'})
             }
         }))
         .catch(err => console.error(err))      
