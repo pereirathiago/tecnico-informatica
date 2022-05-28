@@ -43,3 +43,9 @@
 .link_items a:hover {
     border-color: var(--color-primary)f;
 }
+
+.link_items button {
+    background: none;
+    border: none;
+    font-size: 1em;
+}
