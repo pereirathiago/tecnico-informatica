@@ -5,11 +5,15 @@ import cookie from 'js-cookie'
 import Image from "next/image"
 import Link from "next/link";
 
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
+
 import styles from '../styles/Navbar.module.css'
 
 export default function Navbar(){
 
     const [cookieAuth, setCookieAuth] = useState(false)
+    const { logout } =  useContext(AuthContext)
 
     useEffect(() => {
         setCookieAuth(cookie.get('user-auth') || false)
@@ -25,12 +29,12 @@ export default function Navbar(){
                     </div>
                 <ul className={styles.link_items}>
                         <li>
-                            <Link href="/">
-                                <a>
+                            <button onClick={logout} href="/login">
+                                <a >
                                     <IoExitOutline />
                                     Sair
                                 </a>
-                            </Link>
+                            </button>
                         </li>
                 </ul>
             </nav>
