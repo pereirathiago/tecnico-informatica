@@ -67,9 +67,10 @@ export default function Login() {
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={submit}>
-                        <h1>Login</h1>
-                        <Input type="text" text="Seu Usuário" name="name" placeholder="Digite seu usuário" handleOnChange={handleChange} value={user.name ? user.name : ''}/>
-                        <Input type="password" text="Sua senha" name="password" placeholder="Digite sua senha" handleOnChange={handleChange} value={user.password ? user.password : ''}/>
+                        <p>Bem-vindo de volta! 👋</p>
+                        <h1>Faça login na sua conta</h1>
+                        <Input type="text" text="Usuário" name="name" placeholder="Digite seu usuário" handleOnChange={handleChange} value={user.name ? user.name : ''}/>
+                        <Input type="password" text="Senha" name="password" placeholder="Digite aqui sua senha" handleOnChange={handleChange} value={user.password ? user.password : ''}/>
                         <SubmitButton text={'Entrar'}/>
                     </form>
                 </div>
