@@ -25,7 +25,7 @@ export default function Login() {
     }
 
     const verifyLogin = async () => {
-        fetch("http://localhost:3030/user/login", {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
