@@ -1,14 +1,19 @@
+import Swal from 'sweetalert2'
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Input from '../components/form/Input'
 import SubmitButton from '../components/form/SubmitButton'
 
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import styles from '../styles/Login.module.css'
 
 export default function Login() {
     const [user, setUser] = useState([])
+
+    const router = useRouter()
 
     const submit = (e) => {
         e.preventDefault()
@@ -29,10 +34,14 @@ export default function Login() {
         })
         .then(((resp) => {
             if(resp.status == 200) {
-                console.log('conectado')
+                router.push('/')
             }
             else if(resp.status == 401) {
-                console.log('Usuario ou senha incorretos')
+                Swal.fire(
+                    'Erro',
+                    'Verifique seu usuário e senha!',
+                    'error'
+                  )
             }
         }))
         .catch(err => console.error(err))      
