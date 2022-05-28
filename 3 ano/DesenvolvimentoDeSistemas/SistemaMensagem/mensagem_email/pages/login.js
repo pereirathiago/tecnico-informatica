@@ -20,17 +20,22 @@ export default function Login() {
     }
 
     const verifyLogin = async () => {
-        try{
-            fetch('http://localhost:3030/user/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            })
-        }catch (e) {
-            console.log(e)
-        }
+        fetch("http://localhost:3030/user/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify({"usuario": user.name, "senha": user.password})
+        })
+        .then(((resp) => {
+            if(resp.status == 200) {
+                console.log('conectado')
+            }
+            else if(resp.status == 401) {
+                console.log('Usuario ou senha incorretos')
+            }
+        }))
+        .catch(err => console.error(err))      
     }
 
     function handleChange(e) {
