@@ -13,3 +13,16 @@
 .btn:hover{
     background-color: var(--color-secondary);;
 }
+
+.spinner {
+    animation: spin infinite 2s linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

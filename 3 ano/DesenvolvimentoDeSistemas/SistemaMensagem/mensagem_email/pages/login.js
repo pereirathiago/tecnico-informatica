@@ -11,6 +11,7 @@ import Alert from '../components/Alert'
 
 export default function Login() {
     const [user, setUser] = useState([])
+    const [loading, isLoading] = useState(false)
 
     const router = useRouter()
 
@@ -32,12 +33,17 @@ export default function Login() {
             body: JSON.stringify({"usuario": user.name, "senha": user.password})
         })
         .then(((resp) => {
-            if(resp.status == 200) {
-                router.push('/')
-            }
-            else {
-                Alert({message: 'Usuário ou senha incorretos', type: 'error'})
-            }
+            isLoading(true)
+            setTimeout(() => {
+                if(resp.status == 200) {
+                    isLoading(false)
+                    router.push('/')
+                }
+                else {
+                    isLoading(false)
+                    Alert({message: 'Usuário ou senha incorretos', type: 'error'})
+                }
+            }, 300)
         }))
         .catch(err => console.error(err))      
     }
@@ -66,7 +72,7 @@ export default function Login() {
                         <h1>Faça login na sua conta</h1>
                         <Input type="text" text="Usuário" name="name" placeholder="Digite seu usuário" handleOnChange={handleChange} value={user.name ? user.name : ''}/>
                         <Input type="password" text="Senha" name="password" placeholder="Digite aqui sua senha" handleOnChange={handleChange} value={user.password ? user.password : ''}/>
-                        <SubmitButton text={'Entrar'}/>
+                        <SubmitButton text={!loading ? 'Entrar' : ''}/>
                     </form>
                 </div>
             </div>
