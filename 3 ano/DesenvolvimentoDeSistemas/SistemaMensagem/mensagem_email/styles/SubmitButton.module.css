@@ -5,10 +5,9 @@
     text-decoration: none;
     transition: .5s;
     cursor: pointer;
-    border: none;
-    border-radius: 2em;
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
     width: 100%;
-    box-shadow: 0 10px 40px var(--color-small-info);
 }
 
 .btn:hover{

@@ -63,7 +63,7 @@ export default function Login() {
 
             <div className={styles.login_page}>
                 <div className={styles.image}>
-                    <Image src="/envelope.svg" alt="Gmail²" width={300} height={300} />
+                    <Image src="/envelope.svg" alt="Gmail²" width={400} height={400} />
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={submit}>

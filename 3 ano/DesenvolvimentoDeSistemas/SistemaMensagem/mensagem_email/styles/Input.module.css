@@ -6,26 +6,32 @@
 }
 
 .form_control label {
-    margin-bottom: .6em;
-    font-weight: bold;
-    color: var(--color-primary);
+    margin-bottom: .3em;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--color-text-complement);
 }
 
 .form_control input {
     background-color: var(--color-input-background);
     padding: .7em;
-    border-radius: 2em;
-    border: none;
-    box-shadow: 0 10px 40px var(--color-small-info);
+    border-radius: 4px;
+    border: 1px solid var(--color-input-background-border);
+    margin-bottom: .3em;
 }
 
 .form_control input::placeholder{
-    color: var(--color-text-complement);
+    color: var(--color-small-info);
+}
+
+.form_control input:focus {
+    outline: none;
+    border: 2px solid var(--color-primary);
 }
 
 .password_icon {
     position: absolute;
-    top: 2.3em;
+    top: 1.7em;
     right: .5em;
     cursor: pointer;
 }

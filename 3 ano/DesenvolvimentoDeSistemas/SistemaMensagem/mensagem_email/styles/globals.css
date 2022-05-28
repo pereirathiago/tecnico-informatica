@@ -1,10 +1,13 @@
 :root {
-  --color-background: #F0F0F7;
-  --color-input-background: #F8F8FC;
-  --color-text-complement: #9C98A6;
-  --color-small-info: #C1BCCC;
+  --color-background: #FFFFFF;
+  --color-background-secondary: #F4F5F5;
+  --color-text: #333333;
+  --color-small-info: #757575;
+  --color-input-background: #F8F8F8;
+  --color-input-background-border: #D8D8D8;
+  --color-input-background-active: #FFFFFF;
   --color-primary: #F9A826;
-  --color-secondary: #e99000;
+  --color-secondary: #EE9300;
 }
 
 * {
