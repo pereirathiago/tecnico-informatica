@@ -8,7 +8,6 @@ export default function Layout({children}) {
             <link rel="shortcut icon" href="/mail.ico"/>
             <title>Gmail²</title>
         </Head>
-            <Navbar />
             <main className="container">{children}</main>
         </>
     )

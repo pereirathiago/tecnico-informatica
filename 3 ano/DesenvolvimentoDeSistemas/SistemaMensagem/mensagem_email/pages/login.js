@@ -4,16 +4,16 @@ import Input from '../components/form/Input'
 import SubmitButton from '../components/form/SubmitButton'
 
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useContext } from 'react'
+
+import { AuthContext } from '../context/AuthContext';
 
 import styles from '../styles/Login.module.css'
-import Alert from '../components/Alert'
 
 export default function Login() {
     const [user, setUser] = useState([])
-    const [loading, isLoading] = useState(false)
 
-    const router = useRouter()
+    const { loginUser, loading } =  useContext(AuthContext)
 
     const submit = (e) => {
         e.preventDefault()
@@ -25,27 +25,7 @@ export default function Login() {
     }
 
     const verifyLogin = async () => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-            body: JSON.stringify({"usuario": user.name, "senha": user.password})
-        })
-        .then(((resp) => {
-            isLoading(true)
-            setTimeout(() => {
-                if(resp.status == 200) {
-                    isLoading(false)
-                    router.push('/')
-                }
-                else {
-                    isLoading(false)
-                    Alert({message: 'Usuário ou senha incorretos', type: 'error'})
-                }
-            }, 300)
-        }))
-        .catch(err => console.error(err))      
+        loginUser(user)
     }
 
     function handleChange(e) {
