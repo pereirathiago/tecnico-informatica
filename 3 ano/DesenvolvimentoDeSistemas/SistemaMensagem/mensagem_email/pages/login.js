@@ -8,13 +8,11 @@ import { useState } from 'react'
 import styles from '../styles/Login.module.css'
 
 export default function Login() {
-
-    const [user, setUser] = useState('')
-    const [password, setPassword] = useState('')
+    const [user, setUser] = useState([])
 
     const submit = (e) => {
         e.preventDefault()
-        if(user == 'admin' && password == '1234') {
+        if(user.name == 'admin' && user.password == '123456') {
             window.location.href = '/admin'
         } else {
             verifyLogin()
@@ -22,20 +20,22 @@ export default function Login() {
     }
 
     const verifyLogin = async () => {
-        const response = await fetch(`${process.env.API}/user/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({user, password})
-        })
-        const data = await response.json()
-        if(data.status == 200) {
-            alert('conectado')
-        } else {
-            alert('Usuário ou senha incorretos')
+        try{
+            fetch('http://localhost:3030/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+        }catch (e) {
+            console.log(e)
         }
     }
+
+    function handleChange(e) {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    }   
 
     return (
         <>
@@ -54,8 +54,8 @@ export default function Login() {
                 <div className={styles.form}>
                     <form onSubmit={submit}>
                         <h1>Login</h1>
-                        <Input type="text" text="Seu Usuário" name="user" placeholder="Digite seu usuário" handleOnChange={(e) => e.target.value} value={user}/>
-                        <Input type="password" text="Sua senha" name="password" placeholder="Digite sua senha" handleOnChange={(e) => e.target.value} value={password}/>
+                        <Input type="text" text="Seu Usuário" name="name" placeholder="Digite seu usuário" handleOnChange={handleChange} value={user.name ? user.name : ''}/>
+                        <Input type="password" text="Sua senha" name="password" placeholder="Digite sua senha" handleOnChange={handleChange} value={user.password ? user.password : ''}/>
                         <SubmitButton text={'Entrar'}/>
                     </form>
                 </div>
