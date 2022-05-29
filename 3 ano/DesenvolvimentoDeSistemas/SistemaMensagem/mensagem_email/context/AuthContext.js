@@ -61,7 +61,9 @@ export function AuthProvider({ children }) {
     }
 
     const logout = () => {
-        return ''
+        cookie.remove('user-auth')
+        setUser(null)
+        router.push('/login')
     }
 
     return <AuthContext.Provider value={{

@@ -1,7 +1,24 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 
-export default function Home() {
+import { AuthContext } from '../context/AuthContext'
+
+import Navbar from '../components/Navbar'
+import styles from '../styles/Home.module.css'
+import Loading from '../components/Loading'
+
+export async function getServerSideProps(context) {
+  const cookie = context.req.cookies['user-auth'];
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${cookie}`)
+  const data = await res.json()
+  
+  return {
+    props: {user: data},
+  };
+}
+export default function Home({ user }) {
+  const [removeLoading, setRemoveLoading] = useState(true)
   return (
     <>
       <Head>
@@ -11,6 +28,11 @@ export default function Home() {
           }`,
         }} />
       </Head>
+      <Navbar />
+      <div className={styles.container}>
+        {/* {!removeLoading && <Loading />} */}
+        {removeLoading && <h1>Bem-vindo {user.nome}</h1>}
+      </div>
     </>
   )
 }
