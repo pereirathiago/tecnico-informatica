@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext'
 
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
+import Table from '../components/table/Table'
 import Loading from '../components/Loading'
 
 export async function getServerSideProps(context) {
@@ -18,7 +19,7 @@ export async function getServerSideProps(context) {
   };
 }
 export default function Home({ user }) {
-  const [removeLoading, setRemoveLoading] = useState(true)
+  // const [removeLoading, setRemoveLoading] = useState(true)
   return (
     <>
       <Head>
@@ -31,7 +32,9 @@ export default function Home({ user }) {
       <Navbar />
       <div className={styles.container}>
         {/* {!removeLoading && <Loading />} */}
-        {removeLoading && <h1>Bem-vindo {user.nome}</h1>}
+        {/* {removeLoading && <h1 className={styles.h1}>Bem-vindo {user.nome}</h1>} */}
+        <h1 className={styles.h1}>Bem-vindo {user.nome}</h1>
+        <Table />
       </div>
     </>
   )
