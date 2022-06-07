@@ -1,11 +1,18 @@
+import styles from '../../styles/Row.module.css'
+
 export default function Row() {
     return (
         <>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr className={styles.row}>
+                <td>remetente</td>
+                <td>dest</td>
+                <td>assunto</td>
+                <td>data</td>
+                <td>
+                    <div className={styles.msgTable}>
+                        MensageMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemm
+                    </div>
+                </td>
             </tr>
         </>
     )
