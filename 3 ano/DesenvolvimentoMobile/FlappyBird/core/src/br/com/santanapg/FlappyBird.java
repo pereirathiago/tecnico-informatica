@@ -1,5 +1,10 @@
 package br.com.santanapg;
 
+
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,10 +16,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
 import java.util.Random;
 
 public class FlappyBird extends ApplicationAdapter {
@@ -33,7 +36,7 @@ public class FlappyBird extends ApplicationAdapter {
 	Random numeroRandomico;
 	int pontuacao;
 	float alturaDispositivo, larguraDispositivo;
-	float variacao = 0;
+	float variacao=0;
 	float velocidadeQueda=0;
 	float posicaoInicialVertical;
 	float posicaoMovimentoCanoHorizontal;
@@ -43,21 +46,17 @@ public class FlappyBird extends ApplicationAdapter {
 	boolean pontuou=false;
 	OrthographicCamera camera;
 	Viewport viewport;
-	final float LARGURAVIRTUAL=1024;
-	final float ALTURAVIRTUAL=768;
-	
+	final float LARGURAVIRTUAL=768;
+	final float ALTURAVIRTUAL=1024;
 	@Override
 	public void create () {
-		pontuacao = 0;
+		pontuacao=0;
 		numeroRandomico=new Random();
-		float posicaoInicialVertical;
-		float posicaoMovimentoCanoHorizontal;
-		float espacoEntreCanos;
-		float alturaEntreCanosRandomica;
-		int estadoJogo=0;
-		boolean pontuou=false;
-		final float LARGURAVIRTUAL=768;
-		final float ALTURAVIRTUAL=1024;
+		alturaDispositivo=ALTURAVIRTUAL;
+		larguraDispositivo=LARGURAVIRTUAL;
+		posicaoInicialVertical=alturaDispositivo/2;
+		posicaoMovimentoCanoHorizontal=larguraDispositivo-100;
+		espacoEntreCanos=300;
 		batch = new SpriteBatch();
 		passaros= new Texture[3];
 		passaros[0]=new Texture("passaro1.png");
@@ -76,6 +75,7 @@ public class FlappyBird extends ApplicationAdapter {
 		camera=new OrthographicCamera();
 		camera.position.set(LARGURAVIRTUAL/2,ALTURAVIRTUAL/2,0);
 		viewport=new StretchViewport(LARGURAVIRTUAL,ALTURAVIRTUAL,camera);
+		img = new Texture("badlogic.jpg");
 	}
 
 	@Override
@@ -148,10 +148,7 @@ public class FlappyBird extends ApplicationAdapter {
 		if (posicaoInicialVertical > 0 || velocidadeQueda < 0) {
 			posicaoInicialVertical -= velocidadeQueda;
 		}
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+
 	}
 	
 	@Override
@@ -159,9 +156,9 @@ public class FlappyBird extends ApplicationAdapter {
 		batch.dispose();
 		img.dispose();
 	}
-
 	@Override
 	public void resize(int width, int height) {
 		viewport.update(width,height);
 	}
+
 }
