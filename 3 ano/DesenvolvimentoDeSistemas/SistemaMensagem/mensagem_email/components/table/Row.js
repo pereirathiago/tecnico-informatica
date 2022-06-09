@@ -1,16 +1,17 @@
 import styles from '../../styles/Row.module.css'
 
-export default function Row() {
+export default function Row({msg}) {  
+
     return (
         <>
             <tr className={styles.row}>
-                <td>remetente</td>
-                <td>dest</td>
-                <td>assunto</td>
-                <td>data</td>
+                <td>{msg.remetente}</td>
+                <td>{msg.destinatario}</td>
+                <td>{msg.assunto}</td>
+                <td>{msg.data}</td>
                 <td>
                     <div className={styles.msgTable}>
-                        MensageMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemMensagemm
+                        {msg.mensagem}
                     </div>
                 </td>
             </tr>

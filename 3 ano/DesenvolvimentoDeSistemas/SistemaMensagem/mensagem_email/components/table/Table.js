@@ -1,8 +1,16 @@
 import Row from "./Row";
+import { useContext, useEffect } from 'react'
 
 import styles from '../../styles/Table.module.css'
+import { MsgsContext } from "../../context/MsgsContext"
 
-export default function Table() {
+export default function Table({username}) {
+    const { msgs, getMsgs } =  useContext(MsgsContext)
+
+    useEffect(() => {
+        getMsgs(username)
+    }, [])
+
     return (
         <div className="center">
             <table className={styles.table}>
@@ -16,15 +24,12 @@ export default function Table() {
                     </tr>
                 </thead>
                 <tbody>
-                    <Row />
-                    <Row />
-                    <Row />
-                    <Row />
-                    <Row />
-                    <Row />
-                    <Row />
-                    <Row />
-                    <Row />
+                    {
+                        msgs.map((msg, index) => {
+                            console.log(msg);
+                            <p>{msg}</p>
+                        })
+                    }
                 </tbody>
             </table>
         </div>
