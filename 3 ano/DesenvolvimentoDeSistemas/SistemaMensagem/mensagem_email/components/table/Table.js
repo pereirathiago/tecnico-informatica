@@ -21,14 +21,14 @@ export default function Table({username}) {
                         <th scope="col" className={styles.th}>Assunto</th>
                         <th scope="col" className={styles.th}>Data</th>
                         <th scope="col" className={styles.th}>Mensagem</th>
+                        <th scope="col" className={styles.th}>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        msgs.map((msg, index) => {
-                            console.log(msg);
-                            <p>{msg}</p>
-                        })
+                        msgs.map((msg, index) => (
+                            <Row key={index} msg={msg} />
+                        ))
                     }
                 </tbody>
             </table>

@@ -1,4 +1,5 @@
 import styles from '../../styles/Row.module.css'
+import { BsFillTrashFill } from 'react-icons/bs'
 
 export default function Row({msg}) {  
 
@@ -14,6 +15,9 @@ export default function Row({msg}) {
                         {msg.mensagem}
                     </div>
                 </td>
+                <td>
+                    <BsFillTrashFill />
+                </td> 
             </tr>
         </>
     )
