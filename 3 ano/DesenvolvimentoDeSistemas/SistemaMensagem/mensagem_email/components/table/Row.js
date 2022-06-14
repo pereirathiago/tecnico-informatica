@@ -16,7 +16,7 @@ export default function Row({msg}) {
                     </div>
                 </td>
                 <td>
-                    <BsFillTrashFill />
+                    <BsFillTrashFill className={styles.btnExclui} />
                 </td> 
             </tr>
         </>

@@ -14,7 +14,7 @@ export default function Table({username}) {
     return (
         <div className="center">
             <table className={styles.table}>
-                <thead>
+                <thead className={styles.thead}>
                     <tr className={styles.tr}>
                         <th scope="col" className={styles.th}>Remetente</th>
                         <th scope="col" className={styles.th}>Destinatario</th>

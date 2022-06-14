@@ -1,9 +1,14 @@
 /* table styles */
 .table {
+    border-spacing: 1;
     border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
     width: 90vw;
     margin: 2rem;
 }
+
+.th
 .table th, .table td {
     padding: 0.6rem;
     width: 10%;

@@ -33,7 +33,7 @@ export default function Home({ user }) {
       <div className={styles.container}>
         {/* {!removeLoading && <Loading />} */}
         {/* {removeLoading && <h1 className={styles.h1}>Bem-vindo {user.nome}</h1>} */}
-        <h1 className={styles.h1}>Bem-vindo {user.nome}</h1>
+        <h1 className={styles.h1}>Bem-vindo <span className={styles.spanName}>{user.nome}</span></h1>
         <Table username={user.usuario}/>
       </div>
     </>
