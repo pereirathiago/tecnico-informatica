@@ -1,7 +1,16 @@
 import styles from '../../styles/Row.module.css'
 import { BsFillTrashFill } from 'react-icons/bs'
 
-export default function Row({msg}) {  
+import { useContext } from 'react'
+import { MsgsContext } from "../../context/MsgsContext"
+
+export default function Row({msg, updateTable}) {  
+    
+    const { deleteMsgs } =  useContext(MsgsContext)
+    function deleteMsg() {
+        deleteMsgs(msg.id)
+        updateTable
+    }
 
     return (
         <>
@@ -16,7 +25,7 @@ export default function Row({msg}) {
                     </div>
                 </td>
                 <td>
-                    <BsFillTrashFill className={styles.btnExclui} />
+                    <BsFillTrashFill onClick={deleteMsg} className={styles.btnExclui} />
                 </td> 
             </tr>
         </>

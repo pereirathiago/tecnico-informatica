@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import cookie from 'js-cookie'
 
-import Alert from '../components/Alert'
+import Alert from '../components/Alerts/Alert'
 
 export const AuthContext = createContext();
 
