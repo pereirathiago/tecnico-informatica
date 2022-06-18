@@ -7,6 +7,8 @@ import { AuthContext } from '../context/AuthContext'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
 import Table from '../components/table/Table'
+import ButtonMail from '../components/sendMail/ButtonMail'
+import SendMailContainer from '../components/sendMail/SendMailContainer'
 
 export async function getServerSideProps(context) {
   const cookie = context.req.cookies['user-auth'];
@@ -18,6 +20,13 @@ export async function getServerSideProps(context) {
   };
 }
 export default function Home({ user }) {
+  const [sending, setSending] = useState(false)
+  
+  function sendMsg(){
+    setSending(!sending)
+    alert('Mensagem enviada')
+  }
+
   return (
     <>
       <Head>
@@ -30,7 +39,9 @@ export default function Home({ user }) {
       <Navbar />
       <div className={styles.container}>
         <h1 className={styles.h1}>Bem-vindo <span className={styles.spanName}>{user.nome}</span></h1>
+        <ButtonMail text="Enviar mensagem" func={sendMsg} styleClass="btn1"/>
         <Table username={user.usuario}/>
+        {sending && <SendMailContainer/>}
       </div>
     </>
   )
