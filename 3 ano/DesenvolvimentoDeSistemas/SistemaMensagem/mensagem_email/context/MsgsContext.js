@@ -1,5 +1,6 @@
 import { useEffect, useState, createContext } from 'react'
 
+import Swal from 'sweetalert2'
 import Alert from '../components/Alerts/Alert'
 
 export const MsgsContext = createContext() 
@@ -28,22 +29,37 @@ export function MsgsProvider({ children }){
         .catch(err => console.error(err))
     }
 
-    const deleteMsgs = (idMsg) => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/msg/${idMsg}`,{
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
+    const deleteMsgs = async (idMsg) => {
+        Swal.fire({
+            title: 'Deseja excluir a mensagem?',
+            text: "Isso não pode ser desfeito!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, deletar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`${process.env.NEXT_PUBLIC_API_URL}/msg/${idMsg}`,{
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    }
+                }).then(((resp) => {
+                    if(resp.status == 200) {
+                        Alert({message: `Mensagem deletada com sucesso`, type: 'success'})
+                        getMsgs(username)
+                        return resp.json()
+                    }
+                    else {
+                        return Alert({message: 'Erro ao deletar mensagem', type: 'error'})
+                    }
+                }))
+                .catch(err => console.error(err))
+            } else {
+                Alert({message: 'Mensagem não deletada', type: 'info'})
             }
-        }).then(((resp) => {
-            if(resp.status == 200) {
-                Alert({message: 'Mensagem excluída com sucesso', type: 'confirm'})
-                return resp.json()
-            }
-            else {
-                return Alert({message: 'Erro ao deletar mensagem', type: 'error'})
-            }
-        }))
-        .catch(err => console.error(err))
+          })
     }
 
 

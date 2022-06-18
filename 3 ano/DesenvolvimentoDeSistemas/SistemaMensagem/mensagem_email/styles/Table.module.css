@@ -26,3 +26,20 @@
   background-color: var(--color-primary);
   color: white;
 }
+
+.thReload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reload {
+  cursor: pointer;
+}
+
+.loading {
+  display:flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
