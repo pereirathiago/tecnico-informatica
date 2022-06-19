@@ -24,7 +24,6 @@ export default function Home({ user }) {
   
   function sendMsg(){
     setSending(!sending)
-    alert('Mensagem enviada')
   }
 
   return (
