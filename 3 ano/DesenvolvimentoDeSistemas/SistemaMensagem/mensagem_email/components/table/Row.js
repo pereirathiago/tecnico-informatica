@@ -5,11 +5,16 @@ import { IoArrowUndoSharp } from 'react-icons/io5'
 import { useContext } from 'react'
 import { MsgsContext } from "../../context/MsgsContext"
 
-export default function Row({msg}) {  
+export default function Row({msg, username, loading}) {  
     
-    const { deleteMsgs } =  useContext(MsgsContext)
-    function deleteMsg() {
-        deleteMsgs(msg.id)
+    const { deleteMsgs, getMsgs } =  useContext(MsgsContext)
+    async function deleteMsg(e) {
+        await deleteMsgs(msg.id)
+        setTimeout(() => {
+            e.preventDefault()
+            loading()
+            getMsgs(username)
+        } , 1000)
     }
 
     function replayMsg() {

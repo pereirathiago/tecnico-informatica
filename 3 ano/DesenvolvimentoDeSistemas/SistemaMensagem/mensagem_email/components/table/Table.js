@@ -49,7 +49,7 @@ export default function Table({username}) {
                     <tbody>
                         {
                             msgs.map((msg, index) => (
-                                <Row key={index} msg={msg} />
+                                <Row key={index} msg={msg} username={username} loading={handleLoading} />
                                 ))
                             }
                     </tbody>

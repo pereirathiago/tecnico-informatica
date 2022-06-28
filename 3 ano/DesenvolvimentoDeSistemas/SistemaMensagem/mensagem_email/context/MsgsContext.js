@@ -48,8 +48,7 @@ export function MsgsProvider({ children }){
                 }).then(((resp) => {
                     if(resp.status == 200) {
                         Alert({message: `Mensagem deletada com sucesso`, type: 'success'})
-                        getMsgs(username)
-                        return resp.json()
+                        return true
                     }
                     else {
                         return Alert({message: 'Erro ao deletar mensagem', type: 'error'})
