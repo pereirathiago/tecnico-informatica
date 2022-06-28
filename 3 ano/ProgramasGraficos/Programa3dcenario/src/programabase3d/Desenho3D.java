@@ -438,22 +438,22 @@ public class Desenho3D {
     }
 
     public void mouse(){
-        desenho.addElement(new Ponto(11.2, 10, 3.4, true));
-        desenho.addElement(new Ponto(11.2, 10.1, 3.4, false));
-        desenho.addElement(new Ponto(11.7, 10.1, 3.4, false));
-        desenho.addElement(new Ponto(11.7, 10, 3.4, false));
-        desenho.addElement(new Ponto(11.2, 10, 3.4, false));
-        desenho.addElement(new Ponto(11.2, 10, 3.6, false));
-        desenho.addElement(new Ponto(11.2, 10.1, 3.6, false));
-        desenho.addElement(new Ponto(11.7, 10.1, 3.6, false));
-        desenho.addElement(new Ponto(11.7, 10, 3.6, false));
-        desenho.addElement(new Ponto(11.2, 10, 3.6, false));
-        desenho.addElement(new Ponto(11.2, 10.1, 3.6, false));
-        desenho.addElement(new Ponto(11.2, 10.1, 3.4, false));
-        desenho.addElement(new Ponto(11.7, 10.1, 3.4, false));
-        desenho.addElement(new Ponto(11.7, 10.1, 3.6, false));
-        desenho.addElement(new Ponto(11.7, 10, 3.6, false));
-        desenho.addElement(new Ponto(11.7, 10, 3.4, false));
+        desenho.addElement(new Ponto(11.2, 10, 2, true));
+        desenho.addElement(new Ponto(11.2, 10.1, 2, false));
+        desenho.addElement(new Ponto(11.7, 10.1, 2, false));
+        desenho.addElement(new Ponto(11.7, 10, 2, false));
+        desenho.addElement(new Ponto(11.2, 10, 2, false));
+        desenho.addElement(new Ponto(11.2, 10, 2.2, false));
+        desenho.addElement(new Ponto(11.2, 10.1, 2.2, false));
+        desenho.addElement(new Ponto(11.7, 10.1, 2.2, false));
+        desenho.addElement(new Ponto(11.7, 10, 2.2, false));
+        desenho.addElement(new Ponto(11.2, 10, 2.2, false));
+        desenho.addElement(new Ponto(11.2, 10.1, 2.2, false));
+        desenho.addElement(new Ponto(11.2, 10.1, 2, false));
+        desenho.addElement(new Ponto(11.7, 10.1, 2, false));
+        desenho.addElement(new Ponto(11.7, 10.1, 2.2, false));
+        desenho.addElement(new Ponto(11.7, 10, 2.2, false));
+        desenho.addElement(new Ponto(11.7, 10, 2, false));
     }
     
     public void translada(double dx, double dy, double dz) {
