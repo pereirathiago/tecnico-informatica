@@ -29,7 +29,7 @@ export function MsgsProvider({ children }){
         .catch(err => console.error(err))
     }
 
-    const deleteMsgs = async (idMsg) => {
+    const deleteMsgs = async (idMsg, user) => {
         Swal.fire({
             title: 'Deseja excluir a mensagem?',
             text: "Isso não pode ser desfeito!",
@@ -48,7 +48,7 @@ export function MsgsProvider({ children }){
                 }).then(((resp) => {
                     if(resp.status == 200) {
                         Alert({message: `Mensagem deletada com sucesso`, type: 'success'})
-                        return true
+                        return getMsgs(user)
                     }
                     else {
                         return Alert({message: 'Erro ao deletar mensagem', type: 'error'})

@@ -9,12 +9,7 @@ export default function Row({msg, username, loading}) {
     
     const { deleteMsgs, getMsgs } =  useContext(MsgsContext)
     async function deleteMsg(e) {
-        await deleteMsgs(msg.id)
-        setTimeout(() => {
-            e.preventDefault()
-            loading()
-            getMsgs(username)
-        } , 1000)
+        await deleteMsgs(msg.id, username)
     }
 
     function replayMsg() {
