@@ -4,7 +4,7 @@ import InputMail from './InputMail'
 import TextAreaMail from './TextAreaMail'
 
 import { UserContext } from '../../context/UserContext'
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 
 export default function SendMailContainer() {
     const { users, getAllUsers } =  useContext(UserContext)
@@ -16,9 +16,6 @@ export default function SendMailContainer() {
     useEffect(() => {
         getAllUsers()
     }, [])
-
-    
-
 
     return (
         <div className={styles.container}>

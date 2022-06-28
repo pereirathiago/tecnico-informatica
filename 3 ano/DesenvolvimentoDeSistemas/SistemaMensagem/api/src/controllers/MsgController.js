@@ -42,7 +42,7 @@ export default {
     async findMsg(req, res) {
         try {
             const { usuario } = req.params
-            const msgs = await prisma.mensagem.findMany({orderBy: [{data: 'desc'}]}, { where: { destinatario: usuario } })
+            const msgs = await prisma.mensagem.findMany({ where: { destinatario: usuario } })
             if (!msgs)
                 return res.status(404).json({ message: 'Nehnuma mensagem encontrado' })
             

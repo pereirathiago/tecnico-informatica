@@ -18,7 +18,7 @@ export default function Row({msg, username, loading}) {
 
     const dataFormatada = new Date(
         msg.data
-    ).toLocaleString()
+    ).toString('yyyy-MM-dd')
 
     return (
         <>
@@ -26,7 +26,7 @@ export default function Row({msg, username, loading}) {
                 <td>{msg.remetente}</td>
                 <td>{msg.destinatario}</td>
                 <td>{msg.assunto}</td>
-                <td>{dataFormatada}</td>
+                <td>{msg.data}</td>
                 <td>
                     <div className={styles.msgDivDiv}>
                         <div className={styles.msgTable}>
@@ -36,9 +36,9 @@ export default function Row({msg, username, loading}) {
                 </td>
                 <td>
                     <div className={styles.actions}>
-                        <div className={styles.btns} title="Responder">
+                        {/* <div className={styles.btns} title="Responder">
                             <IoArrowUndoSharp onClick={replayMsg} className={styles.btnExclui} />
-                        </div>
+                        </div> */}
                         <div className={styles.btns} title="Excluir">
                             <BsFillTrashFill onClick={deleteMsg} className={styles.btnExclui} />
                         </div>

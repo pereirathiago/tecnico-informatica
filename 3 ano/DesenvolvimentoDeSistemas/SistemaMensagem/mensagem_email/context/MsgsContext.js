@@ -16,6 +16,7 @@ export function MsgsProvider({ children }){
             }
         })
         .then(((resp) => {
+            setMsgs([])
             if(resp.status == 200) {
                 return resp.json()
             }
