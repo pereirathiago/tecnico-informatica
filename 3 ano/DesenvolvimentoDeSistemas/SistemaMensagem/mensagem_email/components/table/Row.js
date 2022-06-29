@@ -16,9 +16,14 @@ export default function Row({msg, username, loading}) {
         alert('replay')
     }
 
-    const dataFormatada = new Date(
-        msg.data
-    ).toString('yyyy-MM-dd')
+    const formatDate = (date) => {
+        date = date.slice(0, -14);
+        let year = date.substring(0, 4);
+        let month = date.substring(7, 5);
+        let day = date.substring(10, 8);
+
+        return `${day}/${month}/${year}`;
+    }
 
     return (
         <>
@@ -26,7 +31,7 @@ export default function Row({msg, username, loading}) {
                 <td>{msg.remetente}</td>
                 <td>{msg.destinatario}</td>
                 <td>{msg.assunto}</td>
-                <td>{msg.data}</td>
+                <td>{formatDate(msg.data)}</td>
                 <td>
                     <div className={styles.msgDivDiv}>
                         <div className={styles.msgTable}>

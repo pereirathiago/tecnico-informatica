@@ -38,9 +38,9 @@ export default function Home({ user }) {
       <Navbar />
       <div className={styles.container}>
         <h1 className={styles.h1}>Bem-vindo <span className={styles.spanName}>{user.nome}</span></h1>
-        <ButtonMail text="Enviar mensagem" func={sendMsg} styleClass="btn1"/>
+        <ButtonMail text="Enviar mensagem" func={sendMsg} styleClass="btnContainer"/>
         <Table username={user.usuario}/>
-        {sending && <SendMailContainer/>}
+        {sending && <SendMailContainer btnCancel={sendMsg}/>}
       </div>
     </>
   )
