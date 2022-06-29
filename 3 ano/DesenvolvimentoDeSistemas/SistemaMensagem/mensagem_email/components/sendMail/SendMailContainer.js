@@ -6,9 +6,11 @@ import Alert from '../Alerts/Alert'
 
 import { UserContext } from '../../context/UserContext'
 import { useEffect, useContext, useState } from 'react'
+import { MsgsContext } from '../../context/MsgsContext'
 
-export default function SendMailContainer({btnCancel}) {
+export default function SendMailContainer({btnCancel, usuario}) {
     const { users, getAllUsers } =  useContext(UserContext)
+    const { sendMsg } =  useContext(MsgsContext)
     
     const [msgData, setMsgData] = useState([])
 
@@ -25,7 +27,7 @@ export default function SendMailContainer({btnCancel}) {
             Alert({message: 'Selecione um destinatário', type: 'error'})
             return
         }
-        if(msgData.assunto == null || msgData.mensagem == null){
+        if(msgData.assunto == '' || msgData.mensagem == ''){
             Swal.fire({
                 title: 'Atenção',
                 text: "Não é recomendado enviar mensagem sem assunto e conteudo",
@@ -36,13 +38,18 @@ export default function SendMailContainer({btnCancel}) {
                 confirmButtonText: 'Confirmar'
               }).then((result) => {
                 if (result.isConfirmed) {
-                    console.log(msgData)
+                    sendMail2()
                 }
               }
             )
         } else {
-            console.log(msgData)
+            sendMail2()
         }
+    }
+
+    async function sendMail2(){
+        await sendMsg(msgData,usuario)
+        setMsgData({destinatario: null, assunto: '', mensagem: ''})
     }
 
     return (
