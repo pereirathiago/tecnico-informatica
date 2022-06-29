@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
-import { useContext } from 'react'
-
-import { AuthContext } from '../context/AuthContext'
+import {useState} from 'react'
 
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'

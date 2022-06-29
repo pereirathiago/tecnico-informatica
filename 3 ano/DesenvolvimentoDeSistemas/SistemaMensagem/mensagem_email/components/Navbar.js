@@ -16,7 +16,7 @@ export default function Navbar(){
     const { logout } =  useContext(AuthContext)
 
     useEffect(() => {
-        setCookieAuth(cookie.get('user-auth') || false)
+        setCookieAuth(cookie.get('user-auth') || cookie.get('admin') || false)
     }, [])
 
     return (

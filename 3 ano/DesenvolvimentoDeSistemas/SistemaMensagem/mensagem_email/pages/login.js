@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Input from '../components/form/Input'
 import SubmitButton from '../components/form/SubmitButton'
+import cookie from 'js-cookie'
 
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -18,6 +19,7 @@ export default function Login() {
     const submit = (e) => {
         e.preventDefault()
         if(user.name == 'admin' && user.password == '123456') {
+            cookie.set('admin', 'admin', { expires: 1 })
             window.location.href = '/admin'
         } else {
             verifyLogin()
