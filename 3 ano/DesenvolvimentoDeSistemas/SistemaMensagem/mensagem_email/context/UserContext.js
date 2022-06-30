@@ -46,7 +46,7 @@ export function UserProvider({ children }) {
                 }).then(((resp) => {
                     if(resp.status == 200) {
                         Alert({message: `Usuario deletada com sucesso`, type: 'success'})
-                        return getMsgs(user)
+                        return getAllUsers()
                     }
                     else {
                         return Alert({message: 'Erro ao deletar Usuario', type: 'error'})

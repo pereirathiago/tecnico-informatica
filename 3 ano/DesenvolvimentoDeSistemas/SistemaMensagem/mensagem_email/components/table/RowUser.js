@@ -10,19 +10,34 @@ import Alert from '../Alerts/Alert'
 export default function Row({user}) {  
     
     const { deleteUsers } =  useContext(UserContext)
-    const { getMsgs, msgs } = useContext(MsgsContext)
+    const { verifyMsgs } = useContext(MsgsContext)
     async function deleteUser(e) {
-        await getMsgs(user.usuario)
-        alert(msgs)
-        if(msgs.length >= 0) {
-            await deleteUsers(user.usuario)
-        } else {
-            Alert({message: 'Não é possível deletar um usuário com mensagens', type: 'error'})
-        }
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/msgs/user/${user.usuario}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        })
+        .then(((resp) => {
+            if(resp.status == 200) {
+                return resp.json()
+            }
+            else {
+                return Alert({message: 'Usuário não encontrado', type: 'error'})
+            }
+        })).then((data) =>{
+            // alert(data.length)
+            if(data.length == 0) {
+                return deleteUsers(user.usuario)
+            } else {
+                return Alert({message: 'Não é possível deletar um usuário com mensagens', type: 'error'})
+            }
+        })
+        .catch(err => console.error(err))
     }
 
     function replayMsg() {
-        alert('replay')
+        alert('editar')
     }
 
     return (

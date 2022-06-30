@@ -8,7 +8,7 @@ export const MsgsContext = createContext()
 export function MsgsProvider({ children }){
     const [msgs, setMsgs] = useState([])
 
-    const getMsgs = (username) => {
+    const getMsgs = async (username) => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/msgs/user/${username}`, {
             method: 'GET',
             headers: {
@@ -86,11 +86,25 @@ export function MsgsProvider({ children }){
           })
     }
 
+    const verifyMsgs = async (user) => {
+        setMsgs([])
+        getMsgs(user).then(
+            function (response) {
+                alert(msgs.length)
+                if(msgs.length == 0) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        )
+    }
 
     return <MsgsContext.Provider value={{
         getMsgs,
         deleteMsgs,
         sendMsg,
+        verifyMsgs,
         msgs
     }}>{children}</MsgsContext.Provider>
 }

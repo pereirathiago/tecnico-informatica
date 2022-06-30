@@ -28,6 +28,7 @@ export default function SendMailContainer({btnCancel, usuario, type}) {
         }
         else {
             await createUser(UserData)
+            setUserData({'usuario': '', 'senha': '', 'nome': ''})
         }
     }
 
