@@ -7,7 +7,7 @@ import styles2 from '../styles/Table.module.css'
 import ButtonMail from '../components/sendMail/ButtonMail'
 import ContainerUser from '../components/admin/ContainerUser'
 import RowUser from '../components/table/RowUser'
-
+import Loading from '../components/Loading'
 
 import { IoReloadCircleSharp } from 'react-icons/io5'
 import { UserContext } from '../context/UserContext'

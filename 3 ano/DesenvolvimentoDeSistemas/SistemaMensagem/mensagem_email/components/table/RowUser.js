@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext'
 import { MsgsContext } from '../../context/MsgsContext'
 import Alert from '../Alerts/Alert'
 
-export default function Row({user, username, loading}) {  
+export default function Row({user}) {  
     
     const { deleteUsers } =  useContext(UserContext)
     const { getMsgs, msgs } = useContext(MsgsContext)
