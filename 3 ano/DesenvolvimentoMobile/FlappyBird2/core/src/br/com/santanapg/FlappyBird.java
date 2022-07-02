@@ -60,8 +60,8 @@ public class FlappyBird extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		passaros= new Texture[3];
 		passaros[0]=new Texture("passaro1.png");
-		passaros[1]=new Texture("passaro2.png");
-		passaros[2]=new Texture("passaro3.png");
+		passaros[1]=new Texture("passaro1.png");
+		passaros[2]=new Texture("passaro1.png");
 		canoBaixo=new Texture("cano_baixo.png");
 		canoTopo=new Texture("cano_topo.png");
 		fundo=new Texture("fundo.png");
