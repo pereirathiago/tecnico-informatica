@@ -14,6 +14,7 @@ router.post("/user/login", UserController.loginUser)
 router.post("/msg/user/:usuario", MsgController.sendMsg)
 router.get("/msgs", MsgController.findAllMsg)
 router.get("/msgs/user/:usuario", MsgController.findMsg)
+router.get("/msgs/msg/:idp", MsgController.findMsgById)
 router.delete("/msg/:id", MsgController.deleteMsg)
 
 export { router }

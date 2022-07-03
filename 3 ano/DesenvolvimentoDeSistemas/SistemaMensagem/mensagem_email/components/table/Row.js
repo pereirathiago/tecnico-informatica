@@ -4,6 +4,7 @@ import { IoArrowUndoSharp } from 'react-icons/io5'
 
 import { useContext } from 'react'
 import { MsgsContext } from "../../context/MsgsContext"
+import Link from 'next/link'
 
 export default function Row({msg, username, loading}) {  
     
@@ -27,29 +28,31 @@ export default function Row({msg, username, loading}) {
 
     return (
         <>
-            <tr className={styles.row}>
-                <td>{msg.remetente}</td>
-                <td>{msg.destinatario}</td>
-                <td>{msg.assunto}</td>
-                <td>{formatDate(msg.data)}</td>
-                <td>
-                    <div className={styles.msgDivDiv}>
-                        <div className={styles.msgTable}>
-                            {msg.mensagem}
+            <Link href={`/mails/${msg.id}`}>
+                <tr className={styles.row}>
+                    <td>{msg.remetente}</td>
+                    <td>{msg.destinatario}</td>
+                    <td>{msg.assunto}</td>
+                    <td>{formatDate(msg.data)}</td>
+                    <td>
+                        <div className={styles.msgDivDiv}>
+                            <div className={styles.msgTable}>
+                                {msg.mensagem}
+                            </div>
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <div className={styles.actions}>
-                        {/* <div className={styles.btns} title="Responder">
-                            <IoArrowUndoSharp onClick={replayMsg} className={styles.btnExclui} />
-                        </div> */}
-                        <div className={styles.btns} title="Excluir">
-                            <BsFillTrashFill onClick={deleteMsg} className={styles.btnExclui} />
+                    </td>
+                    <td>
+                        <div className={styles.actions}>
+                            {/* <div className={styles.btns} title="Responder">
+                                <IoArrowUndoSharp onClick={replayMsg} className={styles.btnExclui} />
+                            </div> */}
+                            <div className={styles.btns} title="Excluir">
+                                <BsFillTrashFill onClick={deleteMsg} className={styles.btnExclui} />
+                            </div>
                         </div>
-                    </div>
-                </td> 
-            </tr>
+                    </td> 
+                </tr>
+            </Link>
         </>
     )
 }

@@ -7,6 +7,7 @@ export const MsgsContext = createContext()
 
 export function MsgsProvider({ children }){
     const [msgs, setMsgs] = useState([])
+    const [msg, setMsg] = useState([])
 
     const getMsgs = async (username) => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/msgs/user/${username}`, {
@@ -100,11 +101,34 @@ export function MsgsProvider({ children }){
         )
     }
 
+    const getMsg = async (id) => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/msgs/msg/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        })
+        .then(((resp) => {
+            if(resp.status == 200) {
+                return resp.json()
+            }
+            else {
+                return Alert({message: 'Mensagem não encontrada', type: 'error'})
+            }
+        }))
+        .then(((data) => {
+            setMsg(data)
+        }))
+        .catch(err => console.error(err))
+    }
+
     return <MsgsContext.Provider value={{
         getMsgs,
         deleteMsgs,
         sendMsg,
         verifyMsgs,
+        getMsg,
+        msg,
         msgs
     }}>{children}</MsgsContext.Provider>
 }

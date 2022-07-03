@@ -63,6 +63,25 @@ export default {
         }
     },
 
+    async findMsgById(req, res) {
+        try {
+            const { idp } = req.params
+            const msgs = await prisma.mensagem.findUnique({ 
+                where: { id: parseInt(idp) }
+            })
+            if (!msgs)
+                return res.status(404).json({ message: 'Nehnuma mensagem encontrado' })
+            
+            return res.status(200).json(msgs)
+        } catch (error) {
+            return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
+        }
+    },
+
     async deleteMsg(req, res) {
         try {
             const { id } = req.params
