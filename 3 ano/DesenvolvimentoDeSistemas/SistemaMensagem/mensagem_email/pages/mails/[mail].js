@@ -26,7 +26,7 @@ export default function Home({mail}) {
     <>
       <Head>
         <script dangerouslySetInnerHTML={{
-          __html: `if(!document.cookie || !document.cookie.includes('user-auth')){
+          __html: `if(!document.cookie || !document.cookie.includes('user-auth') || ${query.mail} == null){
               window.location.href = "/login"
           }`,
         }} />
