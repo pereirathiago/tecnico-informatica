@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext'
 import { MsgsContext } from '../../context/MsgsContext'
 import Alert from '../Alerts/Alert'
 
-export default function Row({user}) {  
+export default function Row({user, childToParent}) {  
     
     const { deleteUsers } =  useContext(UserContext)
     const { verifyMsgs } = useContext(MsgsContext)
@@ -49,7 +49,7 @@ export default function Row({user}) {
                 <td>
                     <div className={styles.actions}>
                         <div className={styles.btns} title="Editar">
-                            <AiFillEdit onClick={replayMsg} className={styles.btnExclui} />
+                            <AiFillEdit onClick={() => childToParent([user.usuario, user.nome, user.senha])} className={styles.btnExclui} />
                         </div>
                         <div className={styles.btns} title="Excluir">
                             <BsFillTrashFill onClick={deleteUser} className={styles.btnExclui} />

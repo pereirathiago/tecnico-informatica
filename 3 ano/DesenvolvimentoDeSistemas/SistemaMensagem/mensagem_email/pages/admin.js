@@ -16,6 +16,7 @@ export default function Admin() {
   const [removeLoading, setRemoveLoading] = useState(true)
   const { users, getAllUsers } =  useContext(UserContext)
   const [creating, setCreating] = useState(false)
+  const [editing, setEditing] = useState(false)
 
   useEffect(() => {
     getAllUsers()
@@ -31,11 +32,22 @@ export default function Admin() {
     setCreating(!creating)
   }
 
+  function editingUser(){ 
+    setEditing(!editing)
+  }
+
   const handleLoading = () => {
     setRemoveLoading(false)
     setTimeout(() => {
         setRemoveLoading(true)
     } , 1000)
+  }
+
+  const [data, setData] = useState('');
+
+  const childToParent = (childdata) => {
+    setData(childdata);
+    setEditing(!editing)
   }
 
   return (
@@ -69,14 +81,15 @@ export default function Admin() {
                     <tbody>
                         {
                             users.map((user, index) => (
-                                <RowUser key={index} user={user} username={user.nome} loading={handleLoading} />
+                                <RowUser childToParent={childToParent} key={index} user={user} username={user.nome} loading={handleLoading} />
                                 ))
                             }
                     </tbody>
                 }
             </table>
         </div>
-        {creating && <ContainerUser type="Criar" btnCancel={createUser} />}
+        {creating && <ContainerUser type="Criar" btnCancel={createUser} user="" />}
+        {editing && <ContainerUser type="Editar" btnCancel={editingUser } user={data} />}
       </div>
     </>
   )

@@ -7,7 +7,7 @@ import Alert from '../Alerts/Alert'
 import { UserContext } from '../../context/UserContext'
 import { useEffect, useContext, useState } from 'react'
 
-export default function SendMailContainer({btnCancel, usuario, type}) {
+export default function SendMailContainer({btnCancel, user, type}) {
     const { users, createUser } =  useContext(UserContext)
     
     const [UserData, setUserData] = useState([])
@@ -38,7 +38,7 @@ export default function SendMailContainer({btnCancel, usuario, type}) {
                 <h1 className={styles.h1}>{type} Usuario</h1>
 
                 <label>Usuario</label>
-                <input type="text" className={styles.input} name="usuario" placeholder="Digite o Usuario" onChange={handleChange} value={UserData.usuario}/>
+                <input type="text" className={styles.input} name="usuario" placeholder="Digite o Usuario" onChange={handleChange} value={UserData.usuario || user[0]}/>
 
                 <label htmlFor="nome">Nome</label>
                 <input 
@@ -46,7 +46,7 @@ export default function SendMailContainer({btnCancel, usuario, type}) {
                 placeholder="Digite o nome..." 
                 name="nome"  
                 onChange={handleChange} 
-                value={UserData.nome ? UserData.nome : ''}
+                value={UserData.nome ? UserData.nome : '' || user[1]}
                 required/>
 
                 <label>Senha</label>
@@ -55,7 +55,7 @@ export default function SendMailContainer({btnCancel, usuario, type}) {
                 placeholder="Digite a senha..." 
                 name="senha"  
                 onChange={handleChange} 
-                value={UserData.senha ? UserData.senha : ''}
+                value={UserData.senha ? UserData.senha : '' || user[2]}
                 required/>
 
             </form>
