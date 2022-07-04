@@ -74,6 +74,7 @@ export function MsgsProvider({ children }){
                 }).then(((resp) => {
                     if(resp.status == 200) {
                         Alert({message: `Mensagem deletada com sucesso`, type: 'success'})
+                        window.location.href = '/'
                         return getMsgs(user)
                     }
                     else {

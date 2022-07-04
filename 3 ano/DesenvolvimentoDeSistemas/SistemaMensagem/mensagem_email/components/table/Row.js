@@ -28,12 +28,20 @@ export default function Row({msg, username, loading}) {
 
     return (
         <>
-            <Link href={`/mails/${msg.id}`}>
                 <tr className={styles.row}>
-                    <td>{msg.remetente}</td>
-                    <td>{msg.destinatario}</td>
-                    <td>{msg.assunto}</td>
-                    <td>{formatDate(msg.data)}</td>
+                    <Link href={`/mails/${msg.id}`}>
+                        <td>{msg.remetente}</td>
+                    </Link>
+                    <Link href={`/mails/${msg.id}`}>
+                        <td>{msg.destinatario}</td>
+                    </Link>
+                    <Link href={`/mails/${msg.id}`}>
+                        <td>{msg.assunto}</td>
+                    </Link>
+                    <Link href={`/mails/${msg.id}`}>
+                        <td>{formatDate(msg.data)}</td>
+                    </Link>
+                    <Link href={`/mails/${msg.id}`}>
                     <td>
                         <div className={styles.msgDivDiv}>
                             <div className={styles.msgTable}>
@@ -41,6 +49,7 @@ export default function Row({msg, username, loading}) {
                             </div>
                         </div>
                     </td>
+                    </Link>
                     <td>
                         <div className={styles.actions}>
                             {/* <div className={styles.btns} title="Responder">
@@ -52,7 +61,6 @@ export default function Row({msg, username, loading}) {
                         </div>
                     </td> 
                 </tr>
-            </Link>
         </>
     )
 }
