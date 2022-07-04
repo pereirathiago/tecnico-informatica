@@ -15,6 +15,11 @@ export default function Navbar(){
     const [cookieAuth, setCookieAuth] = useState(false)
     const { logout } =  useContext(AuthContext)
 
+    const logoutAccount = () => {
+        cookie.remove('admin')
+        logout()
+    }
+
     useEffect(() => {
         setCookieAuth(cookie.get('user-auth') || cookie.get('admin') || false)
     }, [])
@@ -29,7 +34,7 @@ export default function Navbar(){
                     </div>
                 <ul className={styles.link_items}>
                         <li>
-                            <button onClick={logout} href="/login">
+                            <button onClick={logoutAccount} href="/login">
                                 <a >
                                     <IoExitOutline />
                                     Sair
