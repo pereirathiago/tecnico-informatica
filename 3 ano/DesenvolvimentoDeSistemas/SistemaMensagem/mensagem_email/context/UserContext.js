@@ -80,9 +80,31 @@ export function UserProvider({ children }) {
             .catch(err => console.error(err))
     }
 
+    const updateUser= async (user) => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${user.usuario}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(user)
+        }).then(((resp) => {
+            if(resp.status == 200) {
+                Alert({message: `Usuario atualizado com sucesso`, type: 'success'})
+                return getAllUsers()
+            } else if(resp.status == 404 ){
+                Alert({message: 'Usuario não encontrado', type: 'error'})
+            }
+            else {
+                return Alert({message: 'Erro ao atualizar Usuario', type: 'error'})
+            }
+        }))
+            .catch(err => console.error(err))
+    }
+
     return <UserContext.Provider value={{
         getAllUsers,
         deleteUsers,
+        updateUser,
         createUser,
         users
     }}>{children}</UserContext.Provider>

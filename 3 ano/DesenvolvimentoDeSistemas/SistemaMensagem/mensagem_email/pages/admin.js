@@ -30,6 +30,7 @@ export default function Admin() {
 
   function createUser(){
     setCreating(!creating)
+    setEditing(false)
   }
 
   function editingUser(){ 
@@ -48,6 +49,7 @@ export default function Admin() {
   const childToParent = (childdata) => {
     setData(childdata);
     setEditing(!editing)
+    setCreating(false)
   }
 
   return (
@@ -88,8 +90,8 @@ export default function Admin() {
                 }
             </table>
         </div>
-        {creating && <ContainerUser type="Criar" btnCancel={createUser} user="" />}
-        {editing && <ContainerUser type="Editar" btnCancel={editingUser } user={data} />}
+        {creating && <ContainerUser type="Criar" btnCancel={createUser} user="" type2={creating}/>}
+        {editing && <ContainerUser type="Editar" btnCancel={editingUser } user={data} type2={editing}/>}
       </div>
     </>
   )
