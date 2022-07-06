@@ -30,6 +30,10 @@ export default function SendMailContainer({btnCancel, user, type}) {
             Alert({ message: 'O usuario não pode conter espaços', type: 'error'} )
         } else if(UserData.usuario.length > 10) {
             Alert({ message: 'O usuario não pode conter mais de 10 caracteres', type: 'error'} )
+        } else if(UserData.usuario == null || UserData.usuario == ''){
+            Alert({ message: 'Preencha o usuario', type: 'error'} )
+        } else if(UserData.nome == null || UserData.nome == ''){
+            Alert({ message: 'Preencha o nome', type: 'error'} )
         }
         else {
             await createUser(UserData)

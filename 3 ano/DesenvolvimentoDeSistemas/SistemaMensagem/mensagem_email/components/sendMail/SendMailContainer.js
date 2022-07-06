@@ -49,7 +49,7 @@ export default function SendMailContainer({btnCancel, usuario}) {
 
     async function sendMail2(){
         await sendMsg(msgData,usuario)
-        setMsgData({destinatario: null, assunto: '', mensagem: ''})
+        setMsgData({destinatario: 'null', assunto: '', mensagem: ''})
     }
 
     return (
@@ -62,7 +62,7 @@ export default function SendMailContainer({btnCancel, usuario}) {
                 value={msgData.destinatario}
                 onChange={handleChange}
                 name="destinatario" required>
-                    <option value={null} disabled selected>Selecione um usuário</option>
+                    <option value={'null'} disabled selected>Selecione um usuário</option>
                     {users.map((user, index) => {
                         return <option key={index} value={user.usuario}>{user.nome}</option>
                     }
