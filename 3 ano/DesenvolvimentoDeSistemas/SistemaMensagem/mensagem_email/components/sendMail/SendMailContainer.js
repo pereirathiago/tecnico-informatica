@@ -82,6 +82,8 @@ export default function SendMailContainer({btnCancel, usuario}) {
                 <textarea 
                 placeholder="Mensagem..." 
                 name="mensagem" 
+                cols="30"
+                rows="10"
                 onChange={handleChange}
                 value={msgData.mensagem ? msgData.mensagem : ''}
                 required></textarea>
