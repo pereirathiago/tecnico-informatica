@@ -32,27 +32,32 @@ export function MsgsProvider({ children }){
     }
 
     const sendMsg = (msg, user) => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/msg/user/${user}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-            body: JSON.stringify(msg)
-        })
-        .then(((resp) => {
-            console.log(resp)
-            if(resp.status == 201) {
+        if(msg.destinatario == ''){
+            Alert({message: 'Selecione um destinatário', type: 'error'})
+            return
+        } else{
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/msg/user/${user}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify(msg)
+            })
+            .then(((resp) => {
+                console.log(resp)
+                if(resp.status == 201) {
 
-                return Alert({message: 'Mensagem enviada com sucesso', type: 'success'})
-            }
-            else {
-                return Alert({message: 'Erro ao enviar mensagem', type: 'error'})
-            }
-        }))
-        .then(((data) => {
-            getMsgs(user)
-        }))
-        .catch(err => console.error(err))
+                    return Alert({message: 'Mensagem enviada com sucesso', type: 'success'})
+                }
+                else {
+                    return Alert({message: 'Erro ao enviar mensagem', type: 'error'})
+                }
+            }))
+            .then(((data) => {
+                getMsgs(user)
+            }))
+            .catch(err => console.error(err))
+        }
     }
 
     const deleteMsgs = async (idMsg, user) => {
