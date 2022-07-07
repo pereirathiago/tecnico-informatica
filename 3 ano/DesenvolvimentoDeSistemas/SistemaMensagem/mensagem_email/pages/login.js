@@ -42,6 +42,11 @@ export default function Login() {
                         window.location.href = "/"
                     }`,
                 }} />
+                <script dangerouslySetInnerHTML={{
+                    __html: `if(document.cookie.includes('admin')){
+                        window.location.href = "/admin"
+                    }`,
+                }} />
             </Head>
 
             <div className={styles.login_page}>
