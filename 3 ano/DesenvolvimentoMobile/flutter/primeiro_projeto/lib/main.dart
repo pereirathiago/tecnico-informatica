@@ -17,19 +17,45 @@ class MyApp extends StatelessWidget {
   }
 
   Widget home() {
-    return Container(
-      color: Colors.red,
-      child: const Center(
-        child: Text(
-          "Texto",
-          style: TextStyle(
-            color: Colors.lightBlueAccent,
-            fontSize: 48,
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic,
-            decoration: TextDecoration.none,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Olá mundo'),
+      ),
+      body: Container(
+        color: Colors.red,
+        height: double.infinity,
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              "Texto",
+              style: TextStyle(
+                color: Colors.lightBlueAccent,
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.none,
+              ),
+            ),
+            Image.asset(
+              "castle.png",
+              height: 200,
+              width: 200,
+            ),
+            const Text(
+              "Outro texto",
+            ),
+          ],
         ),
+      ),
+      drawer: Container(
+        color: Colors.yellow,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.ac_unit),
       ),
     );
   }
