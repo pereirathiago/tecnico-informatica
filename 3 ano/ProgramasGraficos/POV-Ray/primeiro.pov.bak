@@ -31,6 +31,8 @@ box {
                          1} // end normal
                 finish { phong 0.1  phong_size 500 reflection{ 0.45 } }
               }  
+
+
 }    
 cylinder {
     <2,0,0>
