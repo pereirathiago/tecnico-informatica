@@ -87,5 +87,9 @@ sphere {
    }
    
 }
-                                                 
+        
+fog {
+    distance 1000
+    color White
+}                                         
 
