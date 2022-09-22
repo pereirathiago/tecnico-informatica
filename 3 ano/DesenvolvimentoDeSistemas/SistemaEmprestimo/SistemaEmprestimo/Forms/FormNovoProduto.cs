@@ -10,19 +10,16 @@ using System.Windows.Forms;
 
 namespace SistemaEmprestimo.Forms
 {
-    public partial class FormEmprestimo : Form
+    public partial class FormNovoProduto : Form
     {
-        public FormEmprestimo(Form parent)
+        public FormNovoProduto()
         {
             InitializeComponent();
-            MdiParent = parent;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void FormNovoProduto_Load(object sender, EventArgs e)
         {
-            MenuForm f = new MenuForm(MdiParent);
-            f.Show();
-            Close();
+
         }
     }
 }

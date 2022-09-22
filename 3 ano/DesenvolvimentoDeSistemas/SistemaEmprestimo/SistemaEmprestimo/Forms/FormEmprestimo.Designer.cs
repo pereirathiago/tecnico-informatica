@@ -32,10 +32,6 @@
             this.txtFiltroCpf = new System.Windows.Forms.TextBox();
             this.btnOkCpf = new System.Windows.Forms.Button();
             this.dgClientes = new System.Windows.Forms.DataGridView();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFiltroProduto = new System.Windows.Forms.TextBox();
-            this.btnOkProduto = new System.Windows.Forms.Button();
             this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +40,10 @@
             this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataPrevisao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFiltroProduto = new System.Windows.Forms.TextBox();
+            this.btnOkProduto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,41 +93,6 @@
             this.dgClientes.ReadOnly = true;
             this.dgClientes.Size = new System.Drawing.Size(769, 389);
             this.dgClientes.TabIndex = 11;
-            this.dgClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellContentClick);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(24, 23);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(83, 26);
-            this.btnVoltar.TabIndex = 10;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(483, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Buscar por produto:";
-            // 
-            // txtFiltroProduto
-            // 
-            this.txtFiltroProduto.Location = new System.Drawing.Point(589, 69);
-            this.txtFiltroProduto.Name = "txtFiltroProduto";
-            this.txtFiltroProduto.Size = new System.Drawing.Size(155, 20);
-            this.txtFiltroProduto.TabIndex = 15;
-            // 
-            // btnOkProduto
-            // 
-            this.btnOkProduto.Location = new System.Drawing.Point(750, 67);
-            this.btnOkProduto.Name = "btnOkProduto";
-            this.btnOkProduto.Size = new System.Drawing.Size(41, 23);
-            this.btnOkProduto.TabIndex = 16;
-            this.btnOkProduto.Text = "Ok";
-            this.btnOkProduto.UseVisualStyleBackColor = true;
             // 
             // idEmprestimo
             // 
@@ -176,6 +141,41 @@
             this.dataEntrega.HeaderText = "Data Entrega";
             this.dataEntrega.Name = "dataEntrega";
             this.dataEntrega.ReadOnly = true;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(24, 23);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(83, 26);
+            this.btnVoltar.TabIndex = 10;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(483, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Buscar por produto:";
+            // 
+            // txtFiltroProduto
+            // 
+            this.txtFiltroProduto.Location = new System.Drawing.Point(589, 69);
+            this.txtFiltroProduto.Name = "txtFiltroProduto";
+            this.txtFiltroProduto.Size = new System.Drawing.Size(155, 20);
+            this.txtFiltroProduto.TabIndex = 15;
+            // 
+            // btnOkProduto
+            // 
+            this.btnOkProduto.Location = new System.Drawing.Point(750, 67);
+            this.btnOkProduto.Name = "btnOkProduto";
+            this.btnOkProduto.Size = new System.Drawing.Size(41, 23);
+            this.btnOkProduto.TabIndex = 16;
+            this.btnOkProduto.Text = "Ok";
+            this.btnOkProduto.UseVisualStyleBackColor = true;
             // 
             // FormEmprestimo
             // 

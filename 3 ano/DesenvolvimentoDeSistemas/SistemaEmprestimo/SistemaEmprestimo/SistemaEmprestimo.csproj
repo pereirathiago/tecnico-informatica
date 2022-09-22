@@ -64,6 +64,24 @@
     <Compile Include="Forms\FormEmprestimo.Designer.cs">
       <DependentUpon>FormEmprestimo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormNovoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNovoCliente.Designer.cs">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNovoEmprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNovoEmprestimo.Designer.cs">
+      <DependentUpon>FormNovoEmprestimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNovoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNovoProduto.Designer.cs">
+      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +104,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEmprestimo.resx">
       <DependentUpon>FormEmprestimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNovoCliente.resx">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNovoEmprestimo.resx">
+      <DependentUpon>FormNovoEmprestimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNovoProduto.resx">
+      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProdutos.resx">
+      <DependentUpon>FormProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
