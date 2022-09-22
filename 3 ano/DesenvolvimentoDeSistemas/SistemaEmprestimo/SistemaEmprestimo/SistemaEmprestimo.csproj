@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="vo\Cliente.cs" />
+    <Compile Include="vo\Emprestimos.cs" />
+    <Compile Include="vo\Equipamentos.cs" />
     <EmbeddedResource Include="Forms\EmprestimoMdi.resx">
       <DependentUpon>EmprestimoMdi.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bd\" />
-    <Folder Include="vo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

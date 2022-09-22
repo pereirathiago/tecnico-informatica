@@ -59,7 +59,7 @@
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(210, 47);
             this.btnProduto.TabIndex = 2;
-            this.btnProduto.Text = "Produtos";
+            this.btnProduto.Text = "Equipamentos";
             this.btnProduto.UseVisualStyleBackColor = true;
             this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
             // 

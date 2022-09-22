@@ -12,14 +12,22 @@ namespace SistemaEmprestimo.Forms
 {
     public partial class FormNovoProduto : Form
     {
-        public FormNovoProduto()
+        public FormNovoProduto(Form parent)
         {
             InitializeComponent();
+            MdiParent = parent;
         }
 
         private void FormNovoProduto_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            FormProdutos f = new FormProdutos(MdiParent);
+            f.Show();
+            Close();
         }
     }
 }

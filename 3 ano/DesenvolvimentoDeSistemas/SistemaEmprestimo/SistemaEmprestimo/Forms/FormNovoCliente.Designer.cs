@@ -58,6 +58,7 @@
             this.btnCancela.TabIndex = 23;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = true;
+            this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
             // 
             // btnSalva
             // 
@@ -89,11 +90,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 131);
+            this.label3.Location = new System.Drawing.Point(34, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Data";
+            this.label3.Text = "Data Nascimento";
             // 
             // label2
             // 

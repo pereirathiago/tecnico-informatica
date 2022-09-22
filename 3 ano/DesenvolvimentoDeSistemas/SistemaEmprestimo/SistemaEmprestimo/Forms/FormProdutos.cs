@@ -17,5 +17,19 @@ namespace SistemaEmprestimo.Forms
             InitializeComponent();
             MdiParent = parent;
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            MenuForm f = new MenuForm(MdiParent);
+            f.Show();
+            Close();
+        }
+
+        private void btnProduto_Click(object sender, EventArgs e)
+        {
+            FormNovoProduto f = new FormNovoProduto(MdiParent);
+            f.Show();
+            Close();
+        }
     }
 }

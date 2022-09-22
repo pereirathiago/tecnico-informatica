@@ -34,5 +34,19 @@ namespace SistemaEmprestimo.Forms
         {
 
         }
+
+        private void btnNovoCliente_Click(object sender, EventArgs e)
+        {
+            FormNovoCliente f = new FormNovoCliente(MdiParent);
+            f.Show();
+            Close();
+        }
+
+        private void btnNovoEmprestimo_Click(object sender, EventArgs e)
+        {
+            FormNovoEmprestimo f = new FormNovoEmprestimo(MdiParent);
+            f.Show();
+            Close();
+        }
     }
 }

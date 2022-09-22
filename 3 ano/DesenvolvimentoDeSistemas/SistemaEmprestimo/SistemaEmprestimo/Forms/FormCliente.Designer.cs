@@ -137,6 +137,7 @@
             this.btnNovoCliente.TabIndex = 9;
             this.btnNovoCliente.Text = "Novo Cliente";
             this.btnNovoCliente.UseVisualStyleBackColor = true;
+            this.btnNovoCliente.Click += new System.EventHandler(this.btnNovoCliente_Click);
             // 
             // btnNovoEmprestimo
             // 
@@ -146,6 +147,7 @@
             this.btnNovoEmprestimo.TabIndex = 10;
             this.btnNovoEmprestimo.Text = "Novo Emprestimo";
             this.btnNovoEmprestimo.UseVisualStyleBackColor = true;
+            this.btnNovoEmprestimo.Click += new System.EventHandler(this.btnNovoEmprestimo_Click);
             // 
             // FormCliente
             // 

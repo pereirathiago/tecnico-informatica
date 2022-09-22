@@ -46,10 +46,11 @@
             // 
             this.btnProduto.Location = new System.Drawing.Point(116, 23);
             this.btnProduto.Name = "btnProduto";
-            this.btnProduto.Size = new System.Drawing.Size(83, 26);
+            this.btnProduto.Size = new System.Drawing.Size(122, 26);
             this.btnProduto.TabIndex = 15;
-            this.btnProduto.Text = "Novo Produto";
+            this.btnProduto.Text = "Novo Equipamento";
             this.btnProduto.UseVisualStyleBackColor = true;
+            this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
             // 
             // label1
             // 
@@ -133,6 +134,7 @@
             this.btnVoltar.TabIndex = 10;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // FormProdutos
             // 

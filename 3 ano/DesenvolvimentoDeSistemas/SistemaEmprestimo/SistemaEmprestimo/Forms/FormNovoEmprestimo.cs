@@ -12,10 +12,17 @@ namespace SistemaEmprestimo.Forms
 {
     public partial class FormNovoEmprestimo : Form
     {
-        public FormNovoEmprestimo()
+        public FormNovoEmprestimo(Form parent)
         {
             InitializeComponent();
+            MdiParent = parent;
         }
 
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            FormCliente f = new FormCliente(MdiParent);
+            f.Show();
+            Close();
+        }
     }
 }
