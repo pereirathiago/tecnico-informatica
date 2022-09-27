@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Spotify'),
       ),
       body: Container(
-        child: ListView(
+        child: PageView(
           children: [
             Image.asset(
               'logo.png',
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 200,
             ),
             Image.asset(
-              'camaro.png',
+              'camaro.jpg',
               width: 200,
             ),
             Image.asset(
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 200,
             ),
             Image.asset(
-              'camaro.png',
+              'camaro.jpg',
               width: 200,
             ),
             Image.asset(
