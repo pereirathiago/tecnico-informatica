@@ -48,14 +48,14 @@
             this.txtData.Location = new System.Drawing.Point(138, 127);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(102, 20);
-            this.txtData.TabIndex = 18;
+            this.txtData.TabIndex = 3;
             // 
             // btnCancela
             // 
             this.btnCancela.Location = new System.Drawing.Point(165, 250);
             this.btnCancela.Name = "btnCancela";
             this.btnCancela.Size = new System.Drawing.Size(75, 23);
-            this.btnCancela.TabIndex = 23;
+            this.btnCancela.TabIndex = 7;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = true;
             this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
@@ -65,9 +65,10 @@
             this.btnSalva.Location = new System.Drawing.Point(72, 250);
             this.btnSalva.Name = "btnSalva";
             this.btnSalva.Size = new System.Drawing.Size(75, 23);
-            this.btnSalva.TabIndex = 22;
+            this.btnSalva.TabIndex = 6;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // label5
             // 
@@ -83,9 +84,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(57, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Número";
+            this.label4.Text = "Telefone";
             // 
             // label3
             // 
@@ -120,14 +121,14 @@
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(121, 20);
-            this.txtCpf.TabIndex = 24;
+            this.txtCpf.TabIndex = 1;
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(138, 86);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(120, 20);
-            this.txtNome.TabIndex = 25;
+            this.txtNome.TabIndex = 2;
             // 
             // txtTelefone
             // 
@@ -135,14 +136,14 @@
             this.txtTelefone.Mask = "(00) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(120, 20);
-            this.txtTelefone.TabIndex = 26;
+            this.txtTelefone.TabIndex = 4;
             // 
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(138, 211);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(121, 20);
-            this.txtEndereco.TabIndex = 27;
+            this.txtEndereco.TabIndex = 5;
             // 
             // FormNovoCliente
             // 

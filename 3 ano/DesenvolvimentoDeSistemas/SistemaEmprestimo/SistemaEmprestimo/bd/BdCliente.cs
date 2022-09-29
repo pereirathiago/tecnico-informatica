@@ -168,7 +168,7 @@ namespace SistemaEmprestimo.bd
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    cliente.Cpf = dr.GetInt32("cpf");
+                    cliente.Cpf = dr.GetString("cpf");
                     cliente.Nome = dr.GetString("nome");
                     cliente.Endereco = dr.GetString("endereco");
                     cliente.Telefone = dr.GetString("telefone");

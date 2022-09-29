@@ -66,12 +66,41 @@ namespace SistemaEmprestimo.Forms
 
         private void btnEditarCliente_Click(object sender, EventArgs e)
         {
-
+            string cpf = ""; int  linha;
+            linha = dgClientes.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                cpf = dgClientes.CurrentRow.Cells[0].Value.ToString();
+                FormNovoCliente cf = new FormNovoCliente(MdiParent);
+                cf.Cliente = bdCliente.localiza(cpf);
+                cf.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
         }
 
         private void btnExcluirCliente_Click(object sender, EventArgs e)
         {
-
+            string cpf = ""; int linha;
+            linha = dgClientes.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                cpf = (dgClientes.CurrentRow.Cells[0].Value.ToString());
+                DialogResult result = MessageBox.Show("Tem certeza que deseja excluir " + dgClientes.CurrentRow.Cells[1].Value.ToString() + ". CPF: " + dgClientes.CurrentRow.Cells[0].Value.ToString(), "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result.Equals(DialogResult.OK))
+                {
+                    bdCliente.excluir(cpf);
+                    dgClientes.Rows.Clear();
+                    foreach (DataRow dr in bdCliente.PreencheTabelaClientes(txtFiltro.Text).Rows)
+                    {
+                        dgClientes.Rows.Add(dr.ItemArray);
+                        dgClientes.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
         }
     }
 }

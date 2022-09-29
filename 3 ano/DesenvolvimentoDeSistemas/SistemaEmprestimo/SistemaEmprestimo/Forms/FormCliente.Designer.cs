@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgClientes = new System.Windows.Forms.DataGridView();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,39 +39,14 @@
             this.btnEditarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNovoEmprestimo = new System.Windows.Forms.ToolStripMenuItem();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // endereco
-            // 
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            this.endereco.ReadOnly = true;
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.ReadOnly = true;
-            // 
-            // dataNasc
-            // 
-            this.dataNasc.HeaderText = "Data de nascimento";
-            this.dataNasc.Name = "dataNasc";
-            this.dataNasc.ReadOnly = true;
-            // 
-            // cpf
-            // 
-            this.cpf.HeaderText = "CPF";
-            this.cpf.Name = "cpf";
-            this.cpf.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
             // 
             // dgClientes
             // 
@@ -85,8 +55,8 @@
             this.dgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nome,
             this.cpf,
+            this.nome,
             this.dataNasc,
             this.telefone,
             this.endereco});
@@ -153,21 +123,21 @@
             // btnNovoCliente
             // 
             this.btnNovoCliente.Name = "btnNovoCliente";
-            this.btnNovoCliente.Size = new System.Drawing.Size(180, 22);
+            this.btnNovoCliente.Size = new System.Drawing.Size(109, 22);
             this.btnNovoCliente.Text = "Novo";
             this.btnNovoCliente.Click += new System.EventHandler(this.btnNovoCliente_Click);
             // 
             // btnEditarCliente
             // 
             this.btnEditarCliente.Name = "btnEditarCliente";
-            this.btnEditarCliente.Size = new System.Drawing.Size(180, 22);
+            this.btnEditarCliente.Size = new System.Drawing.Size(109, 22);
             this.btnEditarCliente.Text = "Editar";
             this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
             // 
             // btnExcluirCliente
             // 
             this.btnExcluirCliente.Name = "btnExcluirCliente";
-            this.btnExcluirCliente.Size = new System.Drawing.Size(180, 22);
+            this.btnExcluirCliente.Size = new System.Drawing.Size(109, 22);
             this.btnExcluirCliente.Text = "Excluir";
             this.btnExcluirCliente.Click += new System.EventHandler(this.btnExcluirCliente_Click);
             // 
@@ -177,6 +147,36 @@
             this.btnNovoEmprestimo.Size = new System.Drawing.Size(186, 22);
             this.btnNovoEmprestimo.Text = "Realizar emprestimos";
             this.btnNovoEmprestimo.Click += new System.EventHandler(this.btnNovoEmprestimo_Click);
+            // 
+            // cpf
+            // 
+            this.cpf.HeaderText = "CPF";
+            this.cpf.Name = "cpf";
+            this.cpf.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // dataNasc
+            // 
+            this.dataNasc.HeaderText = "Data de nascimento";
+            this.dataNasc.Name = "dataNasc";
+            this.dataNasc.ReadOnly = true;
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            // 
+            // endereco
+            // 
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
             // 
             // FormCliente
             // 
@@ -202,11 +202,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataNasc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridView dgClientes;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
@@ -218,5 +213,10 @@
         private System.Windows.Forms.ToolStripMenuItem btnEditarCliente;
         private System.Windows.Forms.ToolStripMenuItem btnExcluirCliente;
         private System.Windows.Forms.ToolStripMenuItem btnNovoEmprestimo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataNasc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
     }
 }
