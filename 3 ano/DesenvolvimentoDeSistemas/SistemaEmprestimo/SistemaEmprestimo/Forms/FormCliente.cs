@@ -63,5 +63,15 @@ namespace SistemaEmprestimo.Forms
                 dgClientes.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
         }
+
+        private void btnEditarCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluirCliente_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
