@@ -35,7 +35,6 @@
             this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgClientes = new System.Windows.Forms.DataGridView();
-            this.btnOk = new System.Windows.Forms.Button();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNovoCliente = new System.Windows.Forms.Button();
@@ -102,16 +101,6 @@
             this.dgClientes.Size = new System.Drawing.Size(769, 389);
             this.dgClientes.TabIndex = 1;
             // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(275, 65);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(41, 23);
-            this.btnOk.TabIndex = 7;
-            this.btnOk.Text = "Ok";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
             // txtFiltro
             // 
             this.txtFiltro.Location = new System.Drawing.Point(114, 67);
@@ -158,13 +147,13 @@
             this.Controls.Add(this.btnNovoCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltro);
-            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dgClientes);
             this.Controls.Add(this.btnVoltar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCliente";
+            this.Load += new System.EventHandler(this.FormCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -180,7 +169,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridView dgClientes;
-        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNovoCliente;

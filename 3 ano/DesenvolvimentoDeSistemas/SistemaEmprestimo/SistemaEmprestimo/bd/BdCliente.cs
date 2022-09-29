@@ -29,7 +29,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from cliente where cpf = @cpf order by cpf";
+                cmd.CommandText = "select * from clientes where cpf like @cpf";
                 cmd.Parameters.AddWithValue("@cpf", "%" + cpf + "%");
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
@@ -51,7 +51,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into cliente (cpf, nome, dataNasc, telefone, endereco) values (@cpf, @nome, @dataNasc, @telefone, @endereco)";
+                cmd.CommandText = "insert into clientes (cpf, nome, dataNasc, telefone, endereco) values (@cpf, @nome, @dataNasc, @telefone, @endereco)";
                 cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 cmd.Parameters.AddWithValue("@nome", cliente.Nome);
                 cmd.Parameters.AddWithValue("@dataNasc", cliente.DataNasc);
@@ -76,7 +76,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update cliente set nome = @nome, dataNasc = @dataNasc, telefone = @telefone, endereco = @endereco where cpf = @cpf";
+                cmd.CommandText = "update clientes set nome = @nome, dataNasc = @dataNasc, telefone = @telefone, endereco = @endereco where cpf = @cpf";
                 cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 cmd.Parameters.AddWithValue("@nome", cliente.Nome);
                 cmd.Parameters.AddWithValue("@dataNasc", cliente.DataNasc);
@@ -114,7 +114,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * FROM cliente WHERE cpf = @cpf";
+                cmd.CommandText = "SELECT * FROM clientes WHERE cpf = @cpf";
                 cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
@@ -140,7 +140,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from cliente where cpf=@cpf";
+                cmd.CommandText = "delete from clientes where cpf=@cpf";
                 cmd.Parameters.AddWithValue("@cpf", cpf);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
@@ -162,7 +162,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from cliente where cpf = @cpf";
+                cmd.CommandText = "select * from clientes where cpf = @cpf";
                 cmd.Parameters.AddWithValue("@cpf", cpf);
                 cmd.Connection = Connection;
                 dr = cmd.ExecuteReader();
