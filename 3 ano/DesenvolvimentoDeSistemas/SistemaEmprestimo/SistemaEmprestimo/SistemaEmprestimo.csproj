@@ -51,6 +51,7 @@
     <Compile Include="bd\BdCliente.cs" />
     <Compile Include="bd\BdEmprestimos.cs" />
     <Compile Include="bd\BdEquipamentos.cs" />
+    <Compile Include="bd\Equipamento.cs" />
     <Compile Include="Forms\EmprestimoMdi.cs">
       <SubType>Form</SubType>
     </Compile>

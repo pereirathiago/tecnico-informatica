@@ -23,13 +23,6 @@ namespace SistemaEmprestimo.Forms
             bdCliente = new BdCliente();
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            MenuForm f = new MenuForm(MdiParent);
-            f.Show();
-            Close();
-        }
-
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             dgClientes.Rows.Clear();
@@ -101,6 +94,13 @@ namespace SistemaEmprestimo.Forms
             }
             else
                 MessageBox.Show("Nenhuma linha selecionada");
+        }
+
+        private void mVoltar_Click(object sender, EventArgs e)
+        {
+            MenuForm f = new MenuForm(MdiParent);
+            f.Show();
+            Close();
         }
     }
 }

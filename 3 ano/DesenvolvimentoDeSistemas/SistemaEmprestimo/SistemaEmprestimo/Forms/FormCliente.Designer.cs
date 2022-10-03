@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgClientes = new System.Windows.Forms.DataGridView();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -39,11 +44,6 @@
             this.btnEditarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNovoEmprestimo = new System.Windows.Forms.ToolStripMenuItem();
-            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,36 @@
             this.dgClientes.ReadOnly = true;
             this.dgClientes.Size = new System.Drawing.Size(769, 415);
             this.dgClientes.TabIndex = 1;
+            // 
+            // cpf
+            // 
+            this.cpf.HeaderText = "CPF";
+            this.cpf.Name = "cpf";
+            this.cpf.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // dataNasc
+            // 
+            this.dataNasc.HeaderText = "Data de nascimento";
+            this.dataNasc.Name = "dataNasc";
+            this.dataNasc.ReadOnly = true;
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            // 
+            // endereco
+            // 
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
             // 
             // txtFiltro
             // 
@@ -109,6 +139,7 @@
             this.mVoltar.Name = "mVoltar";
             this.mVoltar.Size = new System.Drawing.Size(186, 22);
             this.mVoltar.Text = "Voltar";
+            this.mVoltar.Click += new System.EventHandler(this.mVoltar_Click);
             // 
             // clienteToolStripMenuItem
             // 
@@ -147,36 +178,6 @@
             this.btnNovoEmprestimo.Size = new System.Drawing.Size(186, 22);
             this.btnNovoEmprestimo.Text = "Realizar emprestimos";
             this.btnNovoEmprestimo.Click += new System.EventHandler(this.btnNovoEmprestimo_Click);
-            // 
-            // cpf
-            // 
-            this.cpf.HeaderText = "CPF";
-            this.cpf.Name = "cpf";
-            this.cpf.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            // 
-            // dataNasc
-            // 
-            this.dataNasc.HeaderText = "Data de nascimento";
-            this.dataNasc.Name = "dataNasc";
-            this.dataNasc.ReadOnly = true;
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.ReadOnly = true;
-            // 
-            // endereco
-            // 
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            this.endereco.ReadOnly = true;
             // 
             // FormCliente
             // 
