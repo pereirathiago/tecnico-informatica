@@ -35,7 +35,7 @@ namespace SistemaEmprestimo.Forms
         {
             foreach (DataRow dr in bdEquipamentos.PreencheTabelaEquipamentos("").Rows)
             {
-                dgClientes.Rows.Add(dr.ItemArray);
+                dgProdutos.Rows.Add(dr.ItemArray);
             }
         }
 
@@ -44,6 +44,44 @@ namespace SistemaEmprestimo.Forms
             FormNovoProduto f = new FormNovoProduto(MdiParent);
             f.Show();
             Close();
+        }
+
+        private void btnEditarEquipamento_Click(object sender, EventArgs e)
+        {
+            int codigo = -1, linha;
+            linha = dgProdutos.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                codigo = int.Parse(dgProdutos.CurrentRow.Cells[0].Value.ToString());
+                FormNovoProduto fnp = new FormNovoProduto(MdiParent);
+                fnp.Equipamentos = bdEquipamentos.localiza(codigo);
+                fnp.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
+        }
+
+        private void btnExcluirEquipamento_Click(object sender, EventArgs e)
+        {
+            int codigo = -1, linha;
+            linha = dgProdutos.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                codigo = int.Parse(dgProdutos.CurrentRow.Cells[0].Value.ToString());
+                DialogResult result = MessageBox.Show("Tem certeza que deseja excluir " + dgProdutos.CurrentRow.Cells[1].Value.ToString() , "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result.Equals(DialogResult.OK))
+                {
+                    bdEquipamentos.excluir(codigo);
+                    dgProdutos.Rows.Clear();
+                    foreach (DataRow dr in bdEquipamentos.PreencheTabelaEquipamentos(txtFiltro.Text).Rows)
+                    {
+                        dgProdutos.Rows.Add(dr.ItemArray);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
         }
     }
 }

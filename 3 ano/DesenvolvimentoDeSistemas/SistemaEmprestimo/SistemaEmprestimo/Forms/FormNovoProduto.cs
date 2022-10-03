@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaEmprestimo.bd;
+using SistemaEmprestimo.vo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,19 @@ namespace SistemaEmprestimo.Forms
 {
     public partial class FormNovoProduto : Form
     {
+        Equipamentos equipamentos = new Equipamentos();
+        BdEquipamentos bdEquipamentos;
+
+        internal Equipamentos Equipamentos
+        {
+            get => equipamentos;
+            set
+            {
+                equipamentos = value;
+                equipamentoToTela();
+            }
+        }
+
         public FormNovoProduto(Form parent)
         {
             InitializeComponent();

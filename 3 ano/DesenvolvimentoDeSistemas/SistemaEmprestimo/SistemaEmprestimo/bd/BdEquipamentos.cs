@@ -126,7 +126,7 @@ namespace SistemaEmprestimo.bd
             }
         }
 
-        public Equipamentos localiza(string nome)
+        public Equipamentos localiza(int codigo)
         {
             MySqlDataReader dr = null;
             MySqlCommand cmd = new MySqlCommand();
@@ -135,8 +135,8 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from equipamentos where nome = @nome";
-                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.CommandText = "select * from equipamentos where id = @codigo";
+                cmd.Parameters.AddWithValue("@codigo", codigo);
                 cmd.Connection = Connection;
                 dr = cmd.ExecuteReader();
                 if (dr.Read())

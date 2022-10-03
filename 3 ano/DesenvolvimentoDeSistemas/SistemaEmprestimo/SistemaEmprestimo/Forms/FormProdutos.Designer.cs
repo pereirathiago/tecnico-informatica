@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
-            this.dgClientes = new System.Windows.Forms.DataGridView();
+            this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             this.btnNovoEquipamento = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditarEquipamento = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirEquipamento = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,24 +73,24 @@
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // dgClientes
+            // dgProdutos
             // 
-            this.dgClientes.AllowUserToAddRows = false;
-            this.dgClientes.AllowUserToDeleteRows = false;
-            this.dgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgProdutos.AllowUserToAddRows = false;
+            this.dgProdutos.AllowUserToDeleteRows = false;
+            this.dgProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.nome,
             this.descricao,
             this.marca,
             this.voltagem});
-            this.dgClientes.Location = new System.Drawing.Point(27, 89);
-            this.dgClientes.MultiSelect = false;
-            this.dgClientes.Name = "dgClientes";
-            this.dgClientes.ReadOnly = true;
-            this.dgClientes.Size = new System.Drawing.Size(769, 389);
-            this.dgClientes.TabIndex = 11;
+            this.dgProdutos.Location = new System.Drawing.Point(27, 89);
+            this.dgProdutos.MultiSelect = false;
+            this.dgProdutos.Name = "dgProdutos";
+            this.dgProdutos.ReadOnly = true;
+            this.dgProdutos.Size = new System.Drawing.Size(769, 389);
+            this.dgProdutos.TabIndex = 11;
             // 
             // id
             // 
@@ -170,12 +170,14 @@
             this.btnEditarEquipamento.Name = "btnEditarEquipamento";
             this.btnEditarEquipamento.Size = new System.Drawing.Size(180, 22);
             this.btnEditarEquipamento.Text = "Editar";
+            this.btnEditarEquipamento.Click += new System.EventHandler(this.btnEditarEquipamento_Click);
             // 
             // btnExcluirEquipamento
             // 
             this.btnExcluirEquipamento.Name = "btnExcluirEquipamento";
             this.btnExcluirEquipamento.Size = new System.Drawing.Size(180, 22);
             this.btnExcluirEquipamento.Text = "Excluir";
+            this.btnExcluirEquipamento.Click += new System.EventHandler(this.btnExcluirEquipamento_Click);
             // 
             // FormProdutos
             // 
@@ -185,7 +187,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.dgClientes);
+            this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
@@ -193,7 +195,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProdutos";
             this.Load += new System.EventHandler(this.FormProdutos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -205,7 +207,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.DataGridView dgClientes;
+        private System.Windows.Forms.DataGridView dgProdutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
