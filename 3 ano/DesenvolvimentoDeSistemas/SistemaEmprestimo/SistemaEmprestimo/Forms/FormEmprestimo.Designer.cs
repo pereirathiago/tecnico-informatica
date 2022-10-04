@@ -32,14 +32,6 @@
             this.txtFiltroCpf = new System.Windows.Forms.TextBox();
             this.btnOkCpf = new System.Windows.Forms.Button();
             this.dgEmprestimos = new System.Windows.Forms.DataGridView();
-            this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataPrevisao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFiltroProduto = new System.Windows.Forms.TextBox();
             this.btnOkProduto = new System.Windows.Forms.Button();
@@ -50,6 +42,15 @@
             this.atrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataPrevisao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entregue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -93,61 +94,14 @@
             this.nomeProduto,
             this.dataEmprestimo,
             this.dataPrevisao,
-            this.dataEntrega});
+            this.dataEntrega,
+            this.entregue});
             this.dgEmprestimos.Location = new System.Drawing.Point(28, 111);
             this.dgEmprestimos.MultiSelect = false;
             this.dgEmprestimos.Name = "dgEmprestimos";
             this.dgEmprestimos.ReadOnly = true;
             this.dgEmprestimos.Size = new System.Drawing.Size(769, 389);
             this.dgEmprestimos.TabIndex = 11;
-            // 
-            // idEmprestimo
-            // 
-            this.idEmprestimo.HeaderText = "Código";
-            this.idEmprestimo.Name = "idEmprestimo";
-            this.idEmprestimo.ReadOnly = true;
-            // 
-            // cpf
-            // 
-            this.cpf.HeaderText = "CPF";
-            this.cpf.Name = "cpf";
-            this.cpf.ReadOnly = true;
-            // 
-            // idProduto
-            // 
-            this.idProduto.HeaderText = "Código Produto";
-            this.idProduto.Name = "idProduto";
-            this.idProduto.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            // 
-            // nomeProduto
-            // 
-            this.nomeProduto.HeaderText = "Produto";
-            this.nomeProduto.Name = "nomeProduto";
-            this.nomeProduto.ReadOnly = true;
-            // 
-            // dataEmprestimo
-            // 
-            this.dataEmprestimo.HeaderText = "Data Emprestimo";
-            this.dataEmprestimo.Name = "dataEmprestimo";
-            this.dataEmprestimo.ReadOnly = true;
-            // 
-            // dataPrevisao
-            // 
-            this.dataPrevisao.HeaderText = "Data prevista";
-            this.dataPrevisao.Name = "dataPrevisao";
-            this.dataPrevisao.ReadOnly = true;
-            // 
-            // dataEntrega
-            // 
-            this.dataEntrega.HeaderText = "Data Entrega";
-            this.dataEntrega.Name = "dataEntrega";
-            this.dataEntrega.ReadOnly = true;
             // 
             // label2
             // 
@@ -227,6 +181,60 @@
             this.devolvidosDepoisDoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.devolvidosDepoisDoPrazoToolStripMenuItem.Text = "Devolvidos depois do prazo";
             // 
+            // idEmprestimo
+            // 
+            this.idEmprestimo.HeaderText = "Código";
+            this.idEmprestimo.Name = "idEmprestimo";
+            this.idEmprestimo.ReadOnly = true;
+            // 
+            // cpf
+            // 
+            this.cpf.HeaderText = "CPF";
+            this.cpf.Name = "cpf";
+            this.cpf.ReadOnly = true;
+            // 
+            // idProduto
+            // 
+            this.idProduto.HeaderText = "Código Produto";
+            this.idProduto.Name = "idProduto";
+            this.idProduto.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // nomeProduto
+            // 
+            this.nomeProduto.HeaderText = "Produto";
+            this.nomeProduto.Name = "nomeProduto";
+            this.nomeProduto.ReadOnly = true;
+            // 
+            // dataEmprestimo
+            // 
+            this.dataEmprestimo.HeaderText = "Data Emprestimo";
+            this.dataEmprestimo.Name = "dataEmprestimo";
+            this.dataEmprestimo.ReadOnly = true;
+            // 
+            // dataPrevisao
+            // 
+            this.dataPrevisao.HeaderText = "Data prevista";
+            this.dataPrevisao.Name = "dataPrevisao";
+            this.dataPrevisao.ReadOnly = true;
+            // 
+            // dataEntrega
+            // 
+            this.dataEntrega.HeaderText = "Data Entrega";
+            this.dataEntrega.Name = "dataEntrega";
+            this.dataEntrega.ReadOnly = true;
+            // 
+            // entregue
+            // 
+            this.entregue.HeaderText = "Entregue";
+            this.entregue.Name = "entregue";
+            this.entregue.ReadOnly = true;
+            // 
             // FormEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +270,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFiltroProduto;
         private System.Windows.Forms.Button btnOkProduto;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem noPrazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atrasadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devolvidosNoPrazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devolvidosDepoisDoPrazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem voltarToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEmprestimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProduto;
@@ -270,12 +285,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEmprestimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPrevisao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEntrega;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem noPrazoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem atrasadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem devolvidosNoPrazoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem devolvidosDepoisDoPrazoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem voltarToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entregue;
     }
 }

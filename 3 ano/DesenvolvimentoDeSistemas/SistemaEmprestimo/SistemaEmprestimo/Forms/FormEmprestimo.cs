@@ -30,9 +30,13 @@ namespace SistemaEmprestimo.Forms
 
         private void FormEmprestimo_Load(object sender, EventArgs e)
         {
-            foreach (DataRow dr in bdEmprestimos.PreencheTabelaEmprstimos("").Rows)
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("").Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+
             }
         }
     }
