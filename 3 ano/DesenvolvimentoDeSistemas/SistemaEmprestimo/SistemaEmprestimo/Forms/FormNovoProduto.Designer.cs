@@ -38,7 +38,7 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
-            this.txtTipo = new System.Windows.Forms.ComboBox();
+            this.txtVoltagem = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.btnSalva.TabIndex = 22;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // txtId
             // 
@@ -127,18 +128,18 @@
             this.txtMarca.Size = new System.Drawing.Size(146, 20);
             this.txtMarca.TabIndex = 28;
             // 
-            // txtTipo
+            // txtVoltagem
             // 
-            this.txtTipo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtTipo.FormattingEnabled = true;
-            this.txtTipo.Items.AddRange(new object[] {
+            this.txtVoltagem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtVoltagem.FormattingEnabled = true;
+            this.txtVoltagem.Items.AddRange(new object[] {
             "110 V",
             "220 V"});
-            this.txtTipo.Location = new System.Drawing.Point(126, 201);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(146, 21);
-            this.txtTipo.TabIndex = 31;
-            this.txtTipo.Text = "-- Selecione o Voltagem --";
+            this.txtVoltagem.Location = new System.Drawing.Point(126, 201);
+            this.txtVoltagem.Name = "txtVoltagem";
+            this.txtVoltagem.Size = new System.Drawing.Size(146, 21);
+            this.txtVoltagem.TabIndex = 31;
+            this.txtVoltagem.Text = "-- Selecione o Voltagem --";
             // 
             // label5
             // 
@@ -154,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 320);
-            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.txtVoltagem);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMarca);
@@ -170,7 +171,6 @@
             this.Name = "FormNovoProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNovoProduto";
-            this.Load += new System.EventHandler(this.FormNovoProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,7 +187,7 @@
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.ComboBox txtTipo;
+        private System.Windows.Forms.ComboBox txtVoltagem;
         private System.Windows.Forms.Label label5;
     }
 }
