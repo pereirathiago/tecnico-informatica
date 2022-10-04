@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaEmprestimo.bd;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,27 @@ namespace SistemaEmprestimo.Forms
 {
     public partial class FormEmprestimo : Form
     {
+        BdEmprestimos bdEmprestimos;
         public FormEmprestimo(Form parent)
         {
             InitializeComponent();
+            bdEmprestimos = new BdEmprestimos();
             MdiParent = parent;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void voltarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuForm f = new MenuForm(MdiParent);
             f.Show();
             Close();
+        }
+
+        private void FormEmprestimo_Load(object sender, EventArgs e)
+        {
+            foreach (DataRow dr in bdEmprestimos.PreencheTabelaEmprstimos("").Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+            }
         }
     }
 }

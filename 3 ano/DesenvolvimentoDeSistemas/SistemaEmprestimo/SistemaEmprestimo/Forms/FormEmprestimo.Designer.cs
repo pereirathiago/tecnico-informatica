@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltroCpf = new System.Windows.Forms.TextBox();
             this.btnOkCpf = new System.Windows.Forms.Button();
-            this.dgClientes = new System.Windows.Forms.DataGridView();
+            this.dgEmprestimos = new System.Windows.Forms.DataGridView();
             this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +45,12 @@
             this.btnOkProduto = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.voltarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,13 +79,13 @@
             this.btnOkCpf.Text = "Ok";
             this.btnOkCpf.UseVisualStyleBackColor = true;
             // 
-            // dgClientes
+            // dgEmprestimos
             // 
-            this.dgClientes.AllowUserToAddRows = false;
-            this.dgClientes.AllowUserToDeleteRows = false;
-            this.dgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgEmprestimos.AllowUserToAddRows = false;
+            this.dgEmprestimos.AllowUserToDeleteRows = false;
+            this.dgEmprestimos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgEmprestimos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEmprestimos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idEmprestimo,
             this.cpf,
             this.idProduto,
@@ -93,12 +94,12 @@
             this.dataEmprestimo,
             this.dataPrevisao,
             this.dataEntrega});
-            this.dgClientes.Location = new System.Drawing.Point(28, 111);
-            this.dgClientes.MultiSelect = false;
-            this.dgClientes.Name = "dgClientes";
-            this.dgClientes.ReadOnly = true;
-            this.dgClientes.Size = new System.Drawing.Size(769, 389);
-            this.dgClientes.TabIndex = 11;
+            this.dgEmprestimos.Location = new System.Drawing.Point(28, 111);
+            this.dgEmprestimos.MultiSelect = false;
+            this.dgEmprestimos.Name = "dgEmprestimos";
+            this.dgEmprestimos.ReadOnly = true;
+            this.dgEmprestimos.Size = new System.Drawing.Size(769, 389);
+            this.dgEmprestimos.TabIndex = 11;
             // 
             // idEmprestimo
             // 
@@ -186,6 +187,7 @@
             // arquivoToolStripMenuItem
             // 
             this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.voltarToolStripMenuItem,
             this.noPrazoToolStripMenuItem,
             this.atrasadosToolStripMenuItem,
             this.devolvidosNoPrazoToolStripMenuItem,
@@ -194,11 +196,18 @@
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.arquivoToolStripMenuItem.Text = "Emprestimos";
             // 
-            // devolvidosNoPrazoToolStripMenuItem
+            // voltarToolStripMenuItem
             // 
-            this.devolvidosNoPrazoToolStripMenuItem.Name = "devolvidosNoPrazoToolStripMenuItem";
-            this.devolvidosNoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.devolvidosNoPrazoToolStripMenuItem.Text = "Devolvidos no prazo";
+            this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
+            this.voltarToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.voltarToolStripMenuItem.Text = "Voltar";
+            this.voltarToolStripMenuItem.Click += new System.EventHandler(this.voltarToolStripMenuItem_Click);
+            // 
+            // noPrazoToolStripMenuItem
+            // 
+            this.noPrazoToolStripMenuItem.Name = "noPrazoToolStripMenuItem";
+            this.noPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.noPrazoToolStripMenuItem.Text = "No prazo";
             // 
             // atrasadosToolStripMenuItem
             // 
@@ -206,11 +215,11 @@
             this.atrasadosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.atrasadosToolStripMenuItem.Text = "Atrasados";
             // 
-            // noPrazoToolStripMenuItem
+            // devolvidosNoPrazoToolStripMenuItem
             // 
-            this.noPrazoToolStripMenuItem.Name = "noPrazoToolStripMenuItem";
-            this.noPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.noPrazoToolStripMenuItem.Text = "No prazo";
+            this.devolvidosNoPrazoToolStripMenuItem.Name = "devolvidosNoPrazoToolStripMenuItem";
+            this.devolvidosNoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.devolvidosNoPrazoToolStripMenuItem.Text = "Devolvidos no prazo";
             // 
             // devolvidosDepoisDoPrazoToolStripMenuItem
             // 
@@ -229,14 +238,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltroCpf);
             this.Controls.Add(this.btnOkCpf);
-            this.Controls.Add(this.dgClientes);
+            this.Controls.Add(this.dgEmprestimos);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEmprestimo";
-            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+            this.Load += new System.EventHandler(this.FormEmprestimo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -248,7 +258,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFiltroCpf;
         private System.Windows.Forms.Button btnOkCpf;
-        private System.Windows.Forms.DataGridView dgClientes;
+        private System.Windows.Forms.DataGridView dgEmprestimos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFiltroProduto;
         private System.Windows.Forms.Button btnOkProduto;
@@ -266,5 +276,6 @@
         private System.Windows.Forms.ToolStripMenuItem atrasadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolvidosNoPrazoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolvidosDepoisDoPrazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem voltarToolStripMenuItem;
     }
 }
