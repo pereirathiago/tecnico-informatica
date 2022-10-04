@@ -36,7 +36,7 @@ namespace SistemaEmprestimo.Forms
 
         private void telaToClientes()
         {
-            cliente.Cpf = txtCpf.Text;
+            cliente.Cpf = txtCpf.Text.Replace(',', '.');
             cliente.Nome = txtNome.Text;
             cliente.DataNasc = Convert.ToDateTime(txtData.Text).Date;
             cliente.Endereco = txtEndereco.Text;
