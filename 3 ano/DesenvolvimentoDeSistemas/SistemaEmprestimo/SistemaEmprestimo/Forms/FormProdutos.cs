@@ -83,5 +83,33 @@ namespace SistemaEmprestimo.Forms
             else
                 MessageBox.Show("Nenhuma linha selecionada");
         }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            dgProdutos.Rows.Clear();
+            foreach (DataRow dr in bdEquipamentos.PreencheTabelaEquipamentos(txtFiltro.Text).Rows)
+            {
+                dgProdutos.Rows.Add(dr.ItemArray);
+            }
+        }
+
+        private void cVoltagem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cVoltagem.SelectedIndex == 0)
+            {
+                dgProdutos.Rows.Clear();
+                foreach (DataRow dr in bdEquipamentos.PreencheTabelaEquipamentos(txtFiltro.Text).Rows)
+                {
+                    dgProdutos.Rows.Add(dr.ItemArray);
+                }
+            }else
+            {
+                dgProdutos.Rows.Clear();
+                foreach (DataRow dr in bdEquipamentos.PreencheTabelaEquipamentosVoltagem(cVoltagem.Text).Rows)
+                {
+                    dgProdutos.Rows.Add(dr.ItemArray);
+                }
+            }
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,8 @@
             this.btnNovoEquipamento = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditarEquipamento = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirEquipamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.cVoltagem = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,15 +64,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(155, 20);
             this.txtFiltro.TabIndex = 12;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(284, 45);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(41, 23);
-            this.btnOk.TabIndex = 13;
-            this.btnOk.Text = "Ok";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // dgProdutos
             // 
@@ -144,7 +137,7 @@
             // mVoltar
             // 
             this.mVoltar.Name = "mVoltar";
-            this.mVoltar.Size = new System.Drawing.Size(180, 22);
+            this.mVoltar.Size = new System.Drawing.Size(150, 22);
             this.mVoltar.Text = "Voltar";
             this.mVoltar.Click += new System.EventHandler(this.mVoltar_Click);
             // 
@@ -155,38 +148,62 @@
             this.btnEditarEquipamento,
             this.btnExcluirEquipamento});
             this.equipamentosToolStripMenuItem.Name = "equipamentosToolStripMenuItem";
-            this.equipamentosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.equipamentosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.equipamentosToolStripMenuItem.Text = "Equipamentos";
             // 
             // btnNovoEquipamento
             // 
             this.btnNovoEquipamento.Name = "btnNovoEquipamento";
-            this.btnNovoEquipamento.Size = new System.Drawing.Size(180, 22);
+            this.btnNovoEquipamento.Size = new System.Drawing.Size(109, 22);
             this.btnNovoEquipamento.Text = "Novo";
             this.btnNovoEquipamento.Click += new System.EventHandler(this.btnNovoEquipamento_Click);
             // 
             // btnEditarEquipamento
             // 
             this.btnEditarEquipamento.Name = "btnEditarEquipamento";
-            this.btnEditarEquipamento.Size = new System.Drawing.Size(180, 22);
+            this.btnEditarEquipamento.Size = new System.Drawing.Size(109, 22);
             this.btnEditarEquipamento.Text = "Editar";
             this.btnEditarEquipamento.Click += new System.EventHandler(this.btnEditarEquipamento_Click);
             // 
             // btnExcluirEquipamento
             // 
             this.btnExcluirEquipamento.Name = "btnExcluirEquipamento";
-            this.btnExcluirEquipamento.Size = new System.Drawing.Size(180, 22);
+            this.btnExcluirEquipamento.Size = new System.Drawing.Size(109, 22);
             this.btnExcluirEquipamento.Text = "Excluir";
             this.btnExcluirEquipamento.Click += new System.EventHandler(this.btnExcluirEquipamento_Click);
+            // 
+            // cVoltagem
+            // 
+            this.cVoltagem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cVoltagem.FormattingEnabled = true;
+            this.cVoltagem.Items.AddRange(new object[] {
+            "Todas as voltagens",
+            "110 V",
+            "220 V"});
+            this.cVoltagem.Location = new System.Drawing.Point(641, 50);
+            this.cVoltagem.Name = "cVoltagem";
+            this.cVoltagem.Size = new System.Drawing.Size(155, 21);
+            this.cVoltagem.TabIndex = 13;
+            this.cVoltagem.SelectedIndexChanged += new System.EventHandler(this.cVoltagem_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(638, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Filtro por Voltagem";
             // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 522);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cVoltagem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltro);
-            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -206,7 +223,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFiltro;
-        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.DataGridView dgProdutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
@@ -220,5 +236,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnNovoEquipamento;
         private System.Windows.Forms.ToolStripMenuItem btnEditarEquipamento;
         private System.Windows.Forms.ToolStripMenuItem btnExcluirEquipamento;
+        private System.Windows.Forms.ComboBox cVoltagem;
+        private System.Windows.Forms.Label label2;
     }
 }

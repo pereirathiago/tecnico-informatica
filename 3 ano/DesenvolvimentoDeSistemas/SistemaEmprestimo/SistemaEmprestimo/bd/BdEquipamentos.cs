@@ -43,6 +43,29 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
+        public DataTable PreencheTabelaEquipamentosVoltagem(string voltagem)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable clientes = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from equipamentos where voltagem like @voltagem";
+                cmd.Parameters.AddWithValue("@voltagem", "%" + voltagem + "%");
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(clientes);
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
         public void cadastrarEquipamento(Equipamentos equipamento)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
