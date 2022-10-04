@@ -40,11 +40,17 @@
             this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataPrevisao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFiltroProduto = new System.Windows.Forms.TextBox();
             this.btnOkProduto = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -142,16 +148,6 @@
             this.dataEntrega.Name = "dataEntrega";
             this.dataEntrega.ReadOnly = true;
             // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(24, 23);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(83, 26);
-            this.btnVoltar.TabIndex = 10;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -177,6 +173,51 @@
             this.btnOkProduto.Text = "Ok";
             this.btnOkProduto.UseVisualStyleBackColor = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(821, 24);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // arquivoToolStripMenuItem
+            // 
+            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.noPrazoToolStripMenuItem,
+            this.atrasadosToolStripMenuItem,
+            this.devolvidosNoPrazoToolStripMenuItem,
+            this.devolvidosDepoisDoPrazoToolStripMenuItem});
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.arquivoToolStripMenuItem.Text = "Emprestimos";
+            // 
+            // devolvidosNoPrazoToolStripMenuItem
+            // 
+            this.devolvidosNoPrazoToolStripMenuItem.Name = "devolvidosNoPrazoToolStripMenuItem";
+            this.devolvidosNoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.devolvidosNoPrazoToolStripMenuItem.Text = "Devolvidos no prazo";
+            // 
+            // atrasadosToolStripMenuItem
+            // 
+            this.atrasadosToolStripMenuItem.Name = "atrasadosToolStripMenuItem";
+            this.atrasadosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.atrasadosToolStripMenuItem.Text = "Atrasados";
+            // 
+            // noPrazoToolStripMenuItem
+            // 
+            this.noPrazoToolStripMenuItem.Name = "noPrazoToolStripMenuItem";
+            this.noPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.noPrazoToolStripMenuItem.Text = "No prazo";
+            // 
+            // devolvidosDepoisDoPrazoToolStripMenuItem
+            // 
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Name = "devolvidosDepoisDoPrazoToolStripMenuItem";
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Text = "Devolvidos depois do prazo";
+            // 
             // FormEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,12 +230,15 @@
             this.Controls.Add(this.txtFiltroCpf);
             this.Controls.Add(this.btnOkCpf);
             this.Controls.Add(this.dgClientes);
-            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEmprestimo";
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +249,6 @@
         private System.Windows.Forms.TextBox txtFiltroCpf;
         private System.Windows.Forms.Button btnOkCpf;
         private System.Windows.Forms.DataGridView dgClientes;
-        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFiltroProduto;
         private System.Windows.Forms.Button btnOkProduto;
@@ -217,5 +260,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEmprestimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPrevisao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEntrega;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem noPrazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atrasadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devolvidosNoPrazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devolvidosDepoisDoPrazoToolStripMenuItem;
     }
 }

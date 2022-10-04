@@ -31,7 +31,7 @@
             this.btnCancela = new System.Windows.Forms.Button();
             this.btnSalva = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.ComboBox();
+            this.cEquipamentos = new System.Windows.Forms.ComboBox();
             this.txtDataEntrega = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -64,22 +64,22 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Produto";
             // 
-            // txtTipo
+            // cEquipamentos
             // 
-            this.txtTipo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtTipo.FormattingEnabled = true;
-            this.txtTipo.Location = new System.Drawing.Point(129, 63);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(148, 21);
-            this.txtTipo.TabIndex = 37;
-            this.txtTipo.Text = "-- Selecione o Produto --";
+            this.cEquipamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cEquipamentos.FormattingEnabled = true;
+            this.cEquipamentos.Location = new System.Drawing.Point(129, 63);
+            this.cEquipamentos.Name = "cEquipamentos";
+            this.cEquipamentos.Size = new System.Drawing.Size(167, 21);
+            this.cEquipamentos.TabIndex = 37;
+            this.cEquipamentos.Text = "-- Selecione o Equipamento --";
             // 
             // txtDataEntrega
             // 
             this.txtDataEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataEntrega.Location = new System.Drawing.Point(174, 108);
+            this.txtDataEntrega.Location = new System.Drawing.Point(187, 108);
             this.txtDataEntrega.Name = "txtDataEntrega";
-            this.txtDataEntrega.Size = new System.Drawing.Size(102, 20);
+            this.txtDataEntrega.Size = new System.Drawing.Size(109, 20);
             this.txtDataEntrega.TabIndex = 39;
             // 
             // label2
@@ -98,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(328, 233);
             this.Controls.Add(this.txtDataEntrega);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.cEquipamentos);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnSalva);
             this.Controls.Add(this.label1);
@@ -106,6 +106,7 @@
             this.Name = "FormNovoEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNovoEmprestimo";
+            this.Load += new System.EventHandler(this.FormNovoEmprestimo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,7 +116,7 @@
         private System.Windows.Forms.Button btnCancela;
         private System.Windows.Forms.Button btnSalva;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox txtTipo;
+        private System.Windows.Forms.ComboBox cEquipamentos;
         private System.Windows.Forms.DateTimePicker txtDataEntrega;
         private System.Windows.Forms.Label label2;
     }

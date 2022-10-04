@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaEmprestimo.bd;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace SistemaEmprestimo.Forms
 {
     public partial class FormNovoEmprestimo : Form
     {
+        BdEmprestimos bdEmprestimos;
+
         public FormNovoEmprestimo(Form parent)
         {
             InitializeComponent();
+            bdEmprestimos = new BdEmprestimos();
             MdiParent = parent;
         }
 
@@ -23,6 +27,14 @@ namespace SistemaEmprestimo.Forms
             FormCliente f = new FormCliente(MdiParent);
             f.Show();
             Close();
+        }
+
+        private void FormNovoEmprestimo_Load(object sender, EventArgs e)
+        {
+            cEquipamentos.DataSource = bdEmprestimos.PreencheComboBoxEquipamentos();
+            cEquipamentos.ValueMember = "id";
+            cEquipamentos.DisplayMember = "nome";
+            cEquipamentos.Text = "selecione o equipamento";
         }
     }
 }
