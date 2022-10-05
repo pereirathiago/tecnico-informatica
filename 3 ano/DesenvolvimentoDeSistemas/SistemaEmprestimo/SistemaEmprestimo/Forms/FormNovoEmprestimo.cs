@@ -1,4 +1,5 @@
 ﻿using SistemaEmprestimo.bd;
+using SistemaEmprestimo.vo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,32 @@ namespace SistemaEmprestimo.Forms
     public partial class FormNovoEmprestimo : Form
     {
         BdEmprestimos bdEmprestimos;
+        Emprestimos emprestimos = new Emprestimos();
+
+        internal Emprestimos Emprestimos
+        {
+            get => emprestimos;
+            set
+            {
+                emprestimos = value;
+            }
+        }
 
         public FormNovoEmprestimo(Form parent)
         {
             InitializeComponent();
             bdEmprestimos = new BdEmprestimos();
             MdiParent = parent;
+        }
+
+        private void telaToEmprestimo()
+        {
+            emprestimos.IdCliente = txtCpf.Text;
+            emprestimos.IdEquipamento = Convert.ToInt32(cEquipamentos.ValueMember);
+            emprestimos.DataPrevista = Convert.ToDateTime(txtDataEntrega.Text).Date;
+            emprestimos.DataEmprestimo = DateTime.Now;
+            emprestimos.IsEntregue = false;
+            emprestimos.DataEntregue = null;
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
@@ -35,6 +56,15 @@ namespace SistemaEmprestimo.Forms
             cEquipamentos.ValueMember = "id";
             cEquipamentos.DisplayMember = "nome";
             cEquipamentos.Text = "selecione o equipamento";
+        }
+
+        private void btnSalva_Click(object sender, EventArgs e)
+        {
+            telaToEmprestimo();
+            bdEmprestimos.realizarEmprestimo(emprestimos);
+            FormEmprestimo f = new FormEmprestimo(MdiParent);
+            f.Show();
+            Close();
         }
     }
 }

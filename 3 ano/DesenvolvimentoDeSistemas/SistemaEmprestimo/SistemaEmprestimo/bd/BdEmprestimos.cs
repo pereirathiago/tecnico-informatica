@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SistemaEmprestimo.vo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -92,6 +93,34 @@ namespace SistemaEmprestimo.bd
                 emprestimo.Rows.Add(obj);
             }
             return emprestimo;
+        }
+
+        public void realizarEmprestimo(Emprestimos emprestimos)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into emprestimo (id, idCliente, idEquipamento, dataEmprestimo, dataPrevista, dataEntrega, entregue) " +
+                    "values (@id, @idCliente, @idEquipamento, @dataEmprestimo, @dataPrevista, @dataEntrega, @entregue)";
+                cmd.Parameters.AddWithValue("@id", emprestimos.Id);
+                cmd.Parameters.AddWithValue("@idCliente", emprestimos.IdCliente);
+                cmd.Parameters.AddWithValue("@idEquipamento", emprestimos.IdEquipamento);
+                cmd.Parameters.AddWithValue("@dataEmprestimo", emprestimos.DataEmprestimo);
+                cmd.Parameters.AddWithValue("@dataPrevista", emprestimos.DataPrevista);
+                cmd.Parameters.AddWithValue("@dataEntrega", emprestimos.DataEntregue);
+                cmd.Parameters.AddWithValue("@entregue", emprestimos.IsEntregue);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

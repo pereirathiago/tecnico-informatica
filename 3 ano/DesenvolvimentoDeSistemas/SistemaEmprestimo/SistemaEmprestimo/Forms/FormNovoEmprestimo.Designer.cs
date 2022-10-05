@@ -34,6 +34,8 @@
             this.cEquipamentos = new System.Windows.Forms.ComboBox();
             this.txtDataEntrega = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancela
@@ -54,6 +56,7 @@
             this.btnSalva.TabIndex = 34;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // label1
             // 
@@ -91,11 +94,30 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Data Prevista de entrega";
             // 
+            // txtCpf
+            // 
+            this.txtCpf.Location = new System.Drawing.Point(129, 27);
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.ReadOnly = true;
+            this.txtCpf.Size = new System.Drawing.Size(167, 20);
+            this.txtCpf.TabIndex = 40;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "CPF do Cliente";
+            // 
             // FormNovoEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 233);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.txtDataEntrega);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cEquipamentos);
@@ -119,5 +141,7 @@
         private System.Windows.Forms.ComboBox cEquipamentos;
         private System.Windows.Forms.DateTimePicker txtDataEntrega;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.Label label3;
     }
 }
