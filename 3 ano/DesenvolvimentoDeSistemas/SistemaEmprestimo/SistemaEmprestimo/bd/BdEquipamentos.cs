@@ -134,19 +134,52 @@ namespace SistemaEmprestimo.bd
             MySqlCommand cmd = new MySqlCommand();
             try
             {
-                Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from equipamentos where id=@id";
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Connection = Connection;
-                da.UpdateCommand = cmd;
-                da.UpdateCommand.ExecuteNonQuery();
-                Close();
+                if (!verificaExcluir(id))
+                {
+                    Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "delete from equipamentos where id=@id";
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Connection = Connection;
+                    da.UpdateCommand = cmd;
+                    da.UpdateCommand.ExecuteNonQuery();
+                    Close();
+                } else
+                {
+                    MessageBox.Show("O item não pode ser excluido porque já foi emprestado");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public bool verificaExcluir(int id)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM emprestimo WHERE idEquipamento = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Close();
+                if (qtd.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
         }
 
         public Equipamentos localiza(int codigo)

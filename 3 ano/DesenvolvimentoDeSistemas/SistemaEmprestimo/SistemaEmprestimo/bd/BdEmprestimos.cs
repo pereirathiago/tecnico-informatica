@@ -65,6 +65,32 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
+        public bool VerificaEquipamentos()
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM equipamentos";
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Close();
+                if (qtd.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
+        }
+
         public Emprestimos localiza(string cpf)
         {
             Emprestimos emprestimos = new Emprestimos();

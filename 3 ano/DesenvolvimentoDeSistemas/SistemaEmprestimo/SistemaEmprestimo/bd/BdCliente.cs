@@ -138,19 +138,52 @@ namespace SistemaEmprestimo.bd
             MySqlCommand cmd = new MySqlCommand();
             try
             {
-                Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from clientes where cpf=@cpf";
-                cmd.Parameters.AddWithValue("@cpf", cpf);
-                cmd.Connection = Connection;
-                da.UpdateCommand = cmd;
-                da.UpdateCommand.ExecuteNonQuery();
-                Close();
+                if (!verificaExcluir(cpf))
+                {
+                    Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "delete from clientes where cpf=@cpf";
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    cmd.Connection = Connection;
+                    da.UpdateCommand = cmd;
+                    da.UpdateCommand.ExecuteNonQuery();
+                    Close();
+                } else
+                {
+                    MessageBox.Show("O cliente não pode ser excluir, já realizou emprestimos");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public bool verificaExcluir(string cpf)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM emprestimo WHERE idCliente = @cpf";
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Close();
+                if (qtd.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
         }
 
         public Cliente localiza(string cpf)

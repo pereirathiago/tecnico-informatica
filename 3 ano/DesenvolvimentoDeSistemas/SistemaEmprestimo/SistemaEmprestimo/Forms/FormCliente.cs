@@ -49,11 +49,17 @@ namespace SistemaEmprestimo.Forms
             linha = dgClientes.Rows.GetFirstRow(DataGridViewElementStates.Selected);
             if (linha > -1)
             {
-                cpf = dgClientes.CurrentRow.Cells[0].Value.ToString();
-                FormNovoEmprestimo ne = new FormNovoEmprestimo(MdiParent);
-                ne.Emprestimos = bdEmprestimos.localiza(cpf);
-                ne.Show();
-                Close();
+                if (bdEmprestimos.VerificaEquipamentos())
+                {
+                    cpf = dgClientes.CurrentRow.Cells[0].Value.ToString();
+                    FormNovoEmprestimo ne = new FormNovoEmprestimo(MdiParent);
+                    ne.Emprestimos = bdEmprestimos.localiza(cpf);
+                    ne.Show();
+                    Close();
+                } else
+                {
+                    MessageBox.Show("Cadastre um equipamento primeiro");
+                }
             }
             else
                 MessageBox.Show("Nenhuma linha selecionada");
