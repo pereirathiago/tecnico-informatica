@@ -65,6 +65,13 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
+        public Emprestimos localiza(string cpf)
+        {
+            Emprestimos emprestimos = new Emprestimos();
+            emprestimos.IdCliente = cpf;
+            return emprestimos;
+        }
+
         public DataTable calculaNovaTabela(string cpf)
         {
             DataTable emprestimo = new DataTable();

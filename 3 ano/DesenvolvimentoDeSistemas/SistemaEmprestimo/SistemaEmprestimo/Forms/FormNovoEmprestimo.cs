@@ -23,6 +23,7 @@ namespace SistemaEmprestimo.Forms
             set
             {
                 emprestimos = value;
+                emprestimoToTela();
             }
         }
 
@@ -36,11 +37,16 @@ namespace SistemaEmprestimo.Forms
         private void telaToEmprestimo()
         {
             emprestimos.IdCliente = txtCpf.Text;
-            emprestimos.IdEquipamento = Convert.ToInt32(cEquipamentos.ValueMember);
+            emprestimos.IdEquipamento = Convert.ToInt32(cIdProduto.Text);
             emprestimos.DataPrevista = Convert.ToDateTime(txtDataEntrega.Text).Date;
             emprestimos.DataEmprestimo = DateTime.Now;
             emprestimos.IsEntregue = false;
             emprestimos.DataEntregue = null;
+        }
+
+        private void emprestimoToTela()
+        {
+            txtCpf.Text = Emprestimos.IdCliente;
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
@@ -55,16 +61,48 @@ namespace SistemaEmprestimo.Forms
             cEquipamentos.DataSource = bdEmprestimos.PreencheComboBoxEquipamentos();
             cEquipamentos.ValueMember = "id";
             cEquipamentos.DisplayMember = "nome";
-            cEquipamentos.Text = "selecione o equipamento";
+            cEquipamentos.Text = "Selecione o equipamento";
+
+            cIdProduto.DataSource = bdEmprestimos.PreencheComboBoxEquipamentos();
+            cIdProduto.ValueMember = "id";
+            cIdProduto.DisplayMember = "id";
+            cIdProduto.Text = "Código do equipamento";
         }
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            telaToEmprestimo();
-            bdEmprestimos.realizarEmprestimo(emprestimos);
-            FormEmprestimo f = new FormEmprestimo(MdiParent);
-            f.Show();
-            Close();
+            if (VerificaCampos())
+            {
+                telaToEmprestimo();
+                bdEmprestimos.realizarEmprestimo(emprestimos);
+                FormEmprestimo f = new FormEmprestimo(MdiParent);
+                f.Show();
+                Close();
+            }
+        }
+
+        private void cEquipamentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string index = cEquipamentos.SelectedIndex.ToString();
+            try
+            {
+                if (index == "0")
+                    cIdProduto.SelectedIndex = 1;
+                cIdProduto.SelectedIndex = Convert.ToInt32(index);
+            } catch
+            {
+              // nada
+            }
+        }
+
+        private bool VerificaCampos()
+        {
+            if (cEquipamentos.Text == "Selecione o equipamento")
+            {
+                MessageBox.Show("Selecione um equipamento para emprestar");
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -15,12 +15,14 @@ namespace SistemaEmprestimo.Forms
     public partial class FormCliente : Form
     {
         BdCliente bdCliente;
+        BdEmprestimos bdEmprestimos;
         private Cliente cliente = new Cliente();
         public FormCliente(Form parent)
         {
             InitializeComponent();
             MdiParent = parent;
             bdCliente = new BdCliente();
+            bdEmprestimos = new BdEmprestimos();
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
@@ -43,9 +45,18 @@ namespace SistemaEmprestimo.Forms
 
         private void btnNovoEmprestimo_Click(object sender, EventArgs e)
         {
-            FormNovoEmprestimo f = new FormNovoEmprestimo(MdiParent);
-            f.Show();
-            Close();
+            string cpf = ""; int linha;
+            linha = dgClientes.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                cpf = dgClientes.CurrentRow.Cells[0].Value.ToString();
+                FormNovoEmprestimo ne = new FormNovoEmprestimo(MdiParent);
+                ne.Emprestimos = bdEmprestimos.localiza(cpf);
+                ne.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
         }
 
         private void FormCliente_Load(object sender, EventArgs e)
