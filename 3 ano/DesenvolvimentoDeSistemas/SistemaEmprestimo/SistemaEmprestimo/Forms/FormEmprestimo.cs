@@ -36,7 +36,6 @@ namespace SistemaEmprestimo.Forms
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
-
             }
         }
     }

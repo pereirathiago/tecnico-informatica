@@ -1,13 +1,6 @@
 ﻿using SistemaEmprestimo.bd;
 using SistemaEmprestimo.vo;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaEmprestimo.Forms
@@ -36,7 +29,7 @@ namespace SistemaEmprestimo.Forms
 
         private void telaToEmprestimo()
         {
-            emprestimos.IdCliente = txtCpf.Text;
+            emprestimos.IdCliente = txtCpf.Text.Replace(',', '.');
             emprestimos.IdEquipamento = Convert.ToInt32(cIdProduto.Text);
             emprestimos.DataPrevista = Convert.ToDateTime(txtDataEntrega.Text).Date;
             emprestimos.DataEmprestimo = DateTime.Now;
@@ -46,7 +39,7 @@ namespace SistemaEmprestimo.Forms
 
         private void emprestimoToTela()
         {
-            txtCpf.Text = Emprestimos.IdCliente;
+            txtCpf.Text = Emprestimos.IdCliente.Replace(',', '.');
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
@@ -100,6 +93,12 @@ namespace SistemaEmprestimo.Forms
             if (cEquipamentos.Text == "Selecione o equipamento")
             {
                 MessageBox.Show("Selecione um equipamento para emprestar");
+                return false;
+            }
+            int result = DateTime.Compare(Convert.ToDateTime(txtDataEntrega.Text).Date, DateTime.Now.Date);
+            if (result < 0)
+            {
+                MessageBox.Show("A data prevista para entrega não pode ser anterior a data de hoje");
                 return false;
             }
             return true;

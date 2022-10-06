@@ -82,24 +82,76 @@ namespace SistemaEmprestimo.bd
             emprestimo.Columns.Add("Produto", typeof(System.String));
             emprestimo.Columns.Add("Data emprestimo", typeof(System.DateTime));
             emprestimo.Columns.Add("Data Prevista", typeof(System.DateTime));
-            emprestimo.Columns.Add("Data Entrega", typeof(System.DateTime));
-            emprestimo.Columns.Add("Entregue", typeof(int));
+            emprestimo.Columns.Add("Data Entrega", typeof(System.String));
+            emprestimo.Columns.Add("Entregue", typeof(System.String));
             object[] obj = new object[9];
             foreach (DataRow dr in PreencheTabelaEmprstimos(cpf).Rows)
             {
                 obj[0] = dr.ItemArray[0];
                 obj[1] = dr.ItemArray[1];
                 obj[2] = dr.ItemArray[2];
-                obj[3] = null;
-                obj[4] = null;
+                foreach (DataRow dr2 in localizaNome(dr.ItemArray[1].ToString()).Rows)
+                {
+                    obj[3] = dr2.ItemArray[0];
+                }
+                foreach (DataRow dr2 in localizaProduto(Convert.ToInt32(dr.ItemArray[2])).Rows)
+                {
+                    obj[4] = dr2.ItemArray[0];
+                }
                 obj[5] = dr.ItemArray[3];
                 obj[6] = dr.ItemArray[4];
-                obj[7] = dr.ItemArray[5];
-                obj[8] = dr.ItemArray[6];
-
+                obj[7] = dr.ItemArray[5].ToString() == "" ? "Não devolvido" : Convert.ToDateTime(dr.ItemArray[5]).ToString("dd/MM/yyyy");
+                obj[8] = dr.ItemArray[6].ToString() == "True" ? "Sim" : "Não";
                 emprestimo.Rows.Add(obj);
             }
             return emprestimo;
+        }
+
+        private DataTable localizaNome(string cpf)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable cliente = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                MessageBox.Show(cpf);
+                cmd.CommandText = "select nome from clientes where cpf like @cpf";
+                cmd.Parameters.AddWithValue("@cpf", "%" + cpf + "%");
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(cliente);
+                return cliente;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        private DataTable localizaProduto(int id)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable equipamento = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select nome from equipamentos where id like @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(equipamento);
+                return equipamento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
         }
 
         public void realizarEmprestimo(Emprestimos emprestimos)
