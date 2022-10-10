@@ -142,7 +142,6 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                MessageBox.Show(cpf);
                 cmd.CommandText = "select nome from clientes where cpf like @cpf";
                 cmd.Parameters.AddWithValue("@cpf", "%" + cpf + "%");
                 cmd.Connection = Connection;
@@ -206,6 +205,94 @@ namespace SistemaEmprestimo.bd
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+    
+        public DataTable localizaNoPrazo()
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable emprestimos = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from emprestimo where dataEmprestimo <= dataPrevista";
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(emprestimos);
+                return emprestimos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        public DataTable localizaAtrazados()
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable emprestimos = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from emprestimo where dataEmprestimo >= dataPrevista";
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(emprestimos);
+                return emprestimos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        public DataTable localizaDevolvidosNoPrazo()
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable emprestimos = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from emprestimo where dataEntrega <= dataPrevista and entregue = 1";
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(emprestimos);
+                return emprestimos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        public DataTable localizaDevolvidosDepoisDoPrazo()
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable emprestimos = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from emprestimo where dataEntrega >= dataPrevista and entregue = 1";
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(emprestimos);
+                return emprestimos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
         }
     }
 }

@@ -38,5 +38,65 @@ namespace SistemaEmprestimo.Forms
                 dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
         }
+
+        private void noPrazoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            foreach (DataRow dr in bdEmprestimos.localizaNoPrazo().Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
+
+        private void atrasadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            foreach (DataRow dr in bdEmprestimos.localizaAtrazados().Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
+
+        private void mostrarTodosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("").Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
+
+        private void devolvidosNoPrazoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            foreach (DataRow dr in bdEmprestimos.localizaDevolvidosNoPrazo().Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
+
+        private void devolvidosDepoisDoPrazoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            foreach (DataRow dr in bdEmprestimos.localizaDevolvidosDepoisDoPrazo().Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
     }
 }

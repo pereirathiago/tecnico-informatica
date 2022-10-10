@@ -32,6 +32,15 @@
             this.txtFiltroCpf = new System.Windows.Forms.TextBox();
             this.btnOkCpf = new System.Windows.Forms.Button();
             this.dgEmprestimos = new System.Windows.Forms.DataGridView();
+            this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataPrevisao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entregue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFiltroProduto = new System.Windows.Forms.TextBox();
             this.btnOkProduto = new System.Windows.Forms.Button();
@@ -42,15 +51,7 @@
             this.atrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataPrevisao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entregue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mostrarTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,84 +103,6 @@
             this.dgEmprestimos.ReadOnly = true;
             this.dgEmprestimos.Size = new System.Drawing.Size(769, 389);
             this.dgEmprestimos.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(483, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Buscar por produto:";
-            // 
-            // txtFiltroProduto
-            // 
-            this.txtFiltroProduto.Location = new System.Drawing.Point(589, 69);
-            this.txtFiltroProduto.Name = "txtFiltroProduto";
-            this.txtFiltroProduto.Size = new System.Drawing.Size(155, 20);
-            this.txtFiltroProduto.TabIndex = 15;
-            // 
-            // btnOkProduto
-            // 
-            this.btnOkProduto.Location = new System.Drawing.Point(750, 67);
-            this.btnOkProduto.Name = "btnOkProduto";
-            this.btnOkProduto.Size = new System.Drawing.Size(41, 23);
-            this.btnOkProduto.TabIndex = 16;
-            this.btnOkProduto.Text = "Ok";
-            this.btnOkProduto.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(821, 24);
-            this.menuStrip1.TabIndex = 18;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // arquivoToolStripMenuItem
-            // 
-            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.voltarToolStripMenuItem,
-            this.noPrazoToolStripMenuItem,
-            this.atrasadosToolStripMenuItem,
-            this.devolvidosNoPrazoToolStripMenuItem,
-            this.devolvidosDepoisDoPrazoToolStripMenuItem});
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.arquivoToolStripMenuItem.Text = "Emprestimos";
-            // 
-            // voltarToolStripMenuItem
-            // 
-            this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
-            this.voltarToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.voltarToolStripMenuItem.Text = "Voltar";
-            this.voltarToolStripMenuItem.Click += new System.EventHandler(this.voltarToolStripMenuItem_Click);
-            // 
-            // noPrazoToolStripMenuItem
-            // 
-            this.noPrazoToolStripMenuItem.Name = "noPrazoToolStripMenuItem";
-            this.noPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.noPrazoToolStripMenuItem.Text = "No prazo";
-            // 
-            // atrasadosToolStripMenuItem
-            // 
-            this.atrasadosToolStripMenuItem.Name = "atrasadosToolStripMenuItem";
-            this.atrasadosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.atrasadosToolStripMenuItem.Text = "Atrasados";
-            // 
-            // devolvidosNoPrazoToolStripMenuItem
-            // 
-            this.devolvidosNoPrazoToolStripMenuItem.Name = "devolvidosNoPrazoToolStripMenuItem";
-            this.devolvidosNoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.devolvidosNoPrazoToolStripMenuItem.Text = "Devolvidos no prazo";
-            // 
-            // devolvidosDepoisDoPrazoToolStripMenuItem
-            // 
-            this.devolvidosDepoisDoPrazoToolStripMenuItem.Name = "devolvidosDepoisDoPrazoToolStripMenuItem";
-            this.devolvidosDepoisDoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.devolvidosDepoisDoPrazoToolStripMenuItem.Text = "Devolvidos depois do prazo";
             // 
             // idEmprestimo
             // 
@@ -235,6 +158,96 @@
             this.entregue.Name = "entregue";
             this.entregue.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(483, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Buscar por produto:";
+            // 
+            // txtFiltroProduto
+            // 
+            this.txtFiltroProduto.Location = new System.Drawing.Point(589, 69);
+            this.txtFiltroProduto.Name = "txtFiltroProduto";
+            this.txtFiltroProduto.Size = new System.Drawing.Size(155, 20);
+            this.txtFiltroProduto.TabIndex = 15;
+            // 
+            // btnOkProduto
+            // 
+            this.btnOkProduto.Location = new System.Drawing.Point(750, 67);
+            this.btnOkProduto.Name = "btnOkProduto";
+            this.btnOkProduto.Size = new System.Drawing.Size(41, 23);
+            this.btnOkProduto.TabIndex = 16;
+            this.btnOkProduto.Text = "Ok";
+            this.btnOkProduto.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(821, 24);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // arquivoToolStripMenuItem
+            // 
+            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.voltarToolStripMenuItem,
+            this.mostrarTodosToolStripMenuItem,
+            this.noPrazoToolStripMenuItem,
+            this.atrasadosToolStripMenuItem,
+            this.devolvidosNoPrazoToolStripMenuItem,
+            this.devolvidosDepoisDoPrazoToolStripMenuItem});
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.arquivoToolStripMenuItem.Text = "Emprestimos";
+            // 
+            // voltarToolStripMenuItem
+            // 
+            this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
+            this.voltarToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.voltarToolStripMenuItem.Text = "Voltar";
+            this.voltarToolStripMenuItem.Click += new System.EventHandler(this.voltarToolStripMenuItem_Click);
+            // 
+            // noPrazoToolStripMenuItem
+            // 
+            this.noPrazoToolStripMenuItem.Name = "noPrazoToolStripMenuItem";
+            this.noPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.noPrazoToolStripMenuItem.Text = "No prazo";
+            this.noPrazoToolStripMenuItem.Click += new System.EventHandler(this.noPrazoToolStripMenuItem_Click);
+            // 
+            // atrasadosToolStripMenuItem
+            // 
+            this.atrasadosToolStripMenuItem.Name = "atrasadosToolStripMenuItem";
+            this.atrasadosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.atrasadosToolStripMenuItem.Text = "Atrasados";
+            this.atrasadosToolStripMenuItem.Click += new System.EventHandler(this.atrasadosToolStripMenuItem_Click);
+            // 
+            // devolvidosNoPrazoToolStripMenuItem
+            // 
+            this.devolvidosNoPrazoToolStripMenuItem.Name = "devolvidosNoPrazoToolStripMenuItem";
+            this.devolvidosNoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.devolvidosNoPrazoToolStripMenuItem.Text = "Devolvidos no prazo";
+            this.devolvidosNoPrazoToolStripMenuItem.Click += new System.EventHandler(this.devolvidosNoPrazoToolStripMenuItem_Click);
+            // 
+            // devolvidosDepoisDoPrazoToolStripMenuItem
+            // 
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Name = "devolvidosDepoisDoPrazoToolStripMenuItem";
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Text = "Devolvidos depois do prazo";
+            this.devolvidosDepoisDoPrazoToolStripMenuItem.Click += new System.EventHandler(this.devolvidosDepoisDoPrazoToolStripMenuItem_Click);
+            // 
+            // mostrarTodosToolStripMenuItem
+            // 
+            this.mostrarTodosToolStripMenuItem.Name = "mostrarTodosToolStripMenuItem";
+            this.mostrarTodosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.mostrarTodosToolStripMenuItem.Text = "Mostrar todos";
+            this.mostrarTodosToolStripMenuItem.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            // 
             // FormEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +299,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPrevisao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEntrega;
         private System.Windows.Forms.DataGridViewTextBoxColumn entregue;
+        private System.Windows.Forms.ToolStripMenuItem mostrarTodosToolStripMenuItem;
     }
 }
