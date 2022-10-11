@@ -218,7 +218,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from emprestimo where dataEmprestimo <= dataPrevista";
+                cmd.CommandText = "select * from emprestimo where dataEmprestimo <= dataPrevista and entregue = 0";
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(emprestimos);
@@ -240,7 +240,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from emprestimo where dataEmprestimo >= dataPrevista";
+                cmd.CommandText = "select * from emprestimo where dataEmprestimo >= dataPrevista and entregue = 0";
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(emprestimos);
@@ -305,8 +305,9 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update emprestimo set entregue = 1 where id = @idEmprestimo";
+                cmd.CommandText = "update emprestimo set entregue = 1, dataEntrega = @data where id = @idEmprestimo";
                 cmd.Parameters.AddWithValue("@idEmprestimo", idEmprestimo);
+                cmd.Parameters.AddWithValue("@data", DateTime.Now);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
