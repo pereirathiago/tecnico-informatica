@@ -42,8 +42,9 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
-        private DataTable PreencheTabelaEmprstimos(string cpf)
+        public DataTable PreencheTabelaEmprstimos(string cpf, int? produto)
         {
+            if(produto == 0) produto = null;
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
             DataTable emprestimos = new DataTable();
@@ -51,8 +52,9 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from emprestimo where idCliente like @cpf";
+                cmd.CommandText = "select * from emprestimo where idCliente like @cpf and idEquipamento like @produto";
                 cmd.Parameters.AddWithValue("@cpf", "%" + cpf + "%");
+                cmd.Parameters.AddWithValue("@produto", "%" + produto + "%");
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(emprestimos);
@@ -98,7 +100,7 @@ namespace SistemaEmprestimo.bd
             return emprestimos;
         }
 
-        public DataTable calculaNovaTabela(string cpf)
+        public DataTable calculaNovaTabela(string cpf, int produto, Func<string, int?, DataTable> function)
         {
             DataTable emprestimo = new DataTable();
             emprestimo.Columns.Add("Código", typeof(int));
@@ -111,7 +113,7 @@ namespace SistemaEmprestimo.bd
             emprestimo.Columns.Add("Data Entrega", typeof(System.String));
             emprestimo.Columns.Add("Entregue", typeof(System.String));
             object[] obj = new object[9];
-            foreach (DataRow dr in PreencheTabelaEmprstimos(cpf).Rows)
+            foreach (DataRow dr in function(cpf, produto).Rows)
             {
                 obj[0] = dr.ItemArray[0];
                 obj[1] = dr.ItemArray[1];
@@ -207,7 +209,7 @@ namespace SistemaEmprestimo.bd
             }
         }
     
-        public DataTable localizaNoPrazo()
+        public DataTable localizaNoPrazo(string cpf, int? produto)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -229,7 +231,7 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
-        public DataTable localizaAtrazados()
+        public DataTable localizaAtrazados(string cpf, int? produto)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -251,7 +253,7 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
-        public DataTable localizaDevolvidosNoPrazo()
+        public DataTable localizaDevolvidosNoPrazo(string cpf, int? produto)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -273,7 +275,7 @@ namespace SistemaEmprestimo.bd
             return null;
         }
 
-        public DataTable localizaDevolvidosDepoisDoPrazo()
+        public DataTable localizaDevolvidosDepoisDoPrazo(string cpf, int? produto)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();

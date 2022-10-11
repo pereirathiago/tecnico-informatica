@@ -42,16 +42,16 @@
             this.dataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entregue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtFiltroProduto = new System.Windows.Forms.TextBox();
             this.btnOkProduto = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostrarTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mostrarTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cProdutosTable = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +80,7 @@
             this.btnOkCpf.TabIndex = 13;
             this.btnOkCpf.Text = "Ok";
             this.btnOkCpf.UseVisualStyleBackColor = true;
+            this.btnOkCpf.Click += new System.EventHandler(this.btnOkCpf_Click);
             // 
             // dgEmprestimos
             // 
@@ -167,13 +168,6 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Buscar por produto:";
             // 
-            // txtFiltroProduto
-            // 
-            this.txtFiltroProduto.Location = new System.Drawing.Point(589, 69);
-            this.txtFiltroProduto.Name = "txtFiltroProduto";
-            this.txtFiltroProduto.Size = new System.Drawing.Size(155, 20);
-            this.txtFiltroProduto.TabIndex = 15;
-            // 
             // btnOkProduto
             // 
             this.btnOkProduto.Location = new System.Drawing.Point(750, 67);
@@ -182,6 +176,7 @@
             this.btnOkProduto.TabIndex = 16;
             this.btnOkProduto.Text = "Ok";
             this.btnOkProduto.UseVisualStyleBackColor = true;
+            this.btnOkProduto.Click += new System.EventHandler(this.btnOkProduto_Click);
             // 
             // menuStrip1
             // 
@@ -213,6 +208,13 @@
             this.voltarToolStripMenuItem.Text = "Voltar";
             this.voltarToolStripMenuItem.Click += new System.EventHandler(this.voltarToolStripMenuItem_Click);
             // 
+            // mostrarTodosToolStripMenuItem
+            // 
+            this.mostrarTodosToolStripMenuItem.Name = "mostrarTodosToolStripMenuItem";
+            this.mostrarTodosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.mostrarTodosToolStripMenuItem.Text = "Mostrar todos";
+            this.mostrarTodosToolStripMenuItem.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            // 
             // noPrazoToolStripMenuItem
             // 
             this.noPrazoToolStripMenuItem.Name = "noPrazoToolStripMenuItem";
@@ -241,20 +243,21 @@
             this.devolvidosDepoisDoPrazoToolStripMenuItem.Text = "Devolvidos depois do prazo";
             this.devolvidosDepoisDoPrazoToolStripMenuItem.Click += new System.EventHandler(this.devolvidosDepoisDoPrazoToolStripMenuItem_Click);
             // 
-            // mostrarTodosToolStripMenuItem
+            // cProdutosTable
             // 
-            this.mostrarTodosToolStripMenuItem.Name = "mostrarTodosToolStripMenuItem";
-            this.mostrarTodosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.mostrarTodosToolStripMenuItem.Text = "Mostrar todos";
-            this.mostrarTodosToolStripMenuItem.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            this.cProdutosTable.FormattingEnabled = true;
+            this.cProdutosTable.Location = new System.Drawing.Point(589, 68);
+            this.cProdutosTable.Name = "cProdutosTable";
+            this.cProdutosTable.Size = new System.Drawing.Size(155, 21);
+            this.cProdutosTable.TabIndex = 19;
             // 
             // FormEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 522);
+            this.Controls.Add(this.cProdutosTable);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtFiltroProduto);
             this.Controls.Add(this.btnOkProduto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFiltroCpf);
@@ -281,7 +284,6 @@
         private System.Windows.Forms.Button btnOkCpf;
         private System.Windows.Forms.DataGridView dgEmprestimos;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFiltroProduto;
         private System.Windows.Forms.Button btnOkProduto;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
@@ -300,5 +302,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEntrega;
         private System.Windows.Forms.DataGridViewTextBoxColumn entregue;
         private System.Windows.Forms.ToolStripMenuItem mostrarTodosToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cProdutosTable;
     }
 }

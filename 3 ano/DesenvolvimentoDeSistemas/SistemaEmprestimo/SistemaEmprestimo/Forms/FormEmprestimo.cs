@@ -30,7 +30,13 @@ namespace SistemaEmprestimo.Forms
 
         private void FormEmprestimo_Load(object sender, EventArgs e)
         {
-            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("").Rows)
+            cProdutosTable.Items.Add("Todos os produtos");
+            foreach(DataRow dr in bdEmprestimos.PreencheComboBoxEquipamentos().Rows)
+            {
+                cProdutosTable.Items.Add(dr.ItemArray[0] + " - " +dr.ItemArray[1]);
+            }
+
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("",0, bdEmprestimos.PreencheTabelaEmprstimos).Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -42,7 +48,7 @@ namespace SistemaEmprestimo.Forms
         private void noPrazoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgEmprestimos.Rows.Clear();
-            foreach (DataRow dr in bdEmprestimos.localizaNoPrazo().Rows)
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("", 0, bdEmprestimos.localizaNoPrazo).Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -54,7 +60,7 @@ namespace SistemaEmprestimo.Forms
         private void atrasadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgEmprestimos.Rows.Clear();
-            foreach (DataRow dr in bdEmprestimos.localizaAtrazados().Rows)
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("",0, bdEmprestimos.localizaAtrazados).Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -66,7 +72,7 @@ namespace SistemaEmprestimo.Forms
         private void mostrarTodosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgEmprestimos.Rows.Clear();
-            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("").Rows)
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("",0, bdEmprestimos.PreencheTabelaEmprstimos).Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -78,7 +84,7 @@ namespace SistemaEmprestimo.Forms
         private void devolvidosNoPrazoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgEmprestimos.Rows.Clear();
-            foreach (DataRow dr in bdEmprestimos.localizaDevolvidosNoPrazo().Rows)
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("",0, bdEmprestimos.localizaDevolvidosNoPrazo).Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -90,7 +96,51 @@ namespace SistemaEmprestimo.Forms
         private void devolvidosDepoisDoPrazoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgEmprestimos.Rows.Clear();
-            foreach (DataRow dr in bdEmprestimos.localizaDevolvidosDepoisDoPrazo().Rows)
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("",0, bdEmprestimos.localizaDevolvidosDepoisDoPrazo).Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
+
+        private void btnOkCpf_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            int idProduto;
+            try
+            {
+                int position = cProdutosTable.Text.IndexOf(" - ");
+                idProduto = Convert.ToInt32(cProdutosTable.Text.Substring(0, position));
+            }
+            catch
+            {
+                idProduto = 0;
+            }
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela(txtFiltroCpf.Text, idProduto, bdEmprestimos.PreencheTabelaEmprstimos).Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
+
+        private void btnOkProduto_Click(object sender, EventArgs e)
+        {
+            dgEmprestimos.Rows.Clear();
+            int idProduto;
+            try
+            {
+                int position = cProdutosTable.Text.IndexOf(" - ");
+                idProduto = Convert.ToInt32(cProdutosTable.Text.Substring(0, position));
+            }
+            catch
+            {
+                idProduto = 0;
+            }
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela(txtFiltroCpf.Text, idProduto, bdEmprestimos.PreencheTabelaEmprstimos).Rows)
             {
                 dgEmprestimos.Rows.Add(dr.ItemArray);
                 dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
