@@ -52,6 +52,7 @@
             this.devolvidosNoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cProdutosTable = new System.Windows.Forms.ComboBox();
+            this.btnDevolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -251,11 +252,22 @@
             this.cProdutosTable.Size = new System.Drawing.Size(155, 21);
             this.cProdutosTable.TabIndex = 19;
             // 
+            // btnDevolver
+            // 
+            this.btnDevolver.Location = new System.Drawing.Point(28, 36);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(115, 23);
+            this.btnDevolver.TabIndex = 20;
+            this.btnDevolver.Text = "Devolver item";
+            this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
+            // 
             // FormEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 522);
+            this.Controls.Add(this.btnDevolver);
             this.Controls.Add(this.cProdutosTable);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOkProduto);
@@ -303,5 +315,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn entregue;
         private System.Windows.Forms.ToolStripMenuItem mostrarTodosToolStripMenuItem;
         private System.Windows.Forms.ComboBox cProdutosTable;
+        private System.Windows.Forms.Button btnDevolver;
     }
 }

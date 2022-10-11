@@ -1,6 +1,7 @@
 ﻿using SistemaEmprestimo.bd;
 using SistemaEmprestimo.vo;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace SistemaEmprestimo.Forms
@@ -27,10 +28,10 @@ namespace SistemaEmprestimo.Forms
             MdiParent = parent;
         }
 
-        private void telaToEmprestimo()
+        private void telaToEmprestimo(int idEquipamento)
         {
             emprestimos.IdCliente = txtCpf.Text.Replace(',', '.');
-            emprestimos.IdEquipamento = Convert.ToInt32(cIdProduto.Text);
+            emprestimos.IdEquipamento = idEquipamento;
             emprestimos.DataPrevista = Convert.ToDateTime(txtDataEntrega.Text).Date;
             emprestimos.DataEmprestimo = DateTime.Now;
             emprestimos.IsEntregue = false;
@@ -51,40 +52,31 @@ namespace SistemaEmprestimo.Forms
 
         private void FormNovoEmprestimo_Load(object sender, EventArgs e)
         {
-            cEquipamentos.DataSource = bdEmprestimos.PreencheComboBoxEquipamentos();
-            cEquipamentos.ValueMember = "id";
-            cEquipamentos.DisplayMember = "nome";
-            cEquipamentos.Text = "Selecione o equipamento";
-
-            cIdProduto.DataSource = bdEmprestimos.PreencheComboBoxEquipamentos();
-            cIdProduto.ValueMember = "id";
-            cIdProduto.DisplayMember = "id";
-            cIdProduto.Text = "Código do equipamento";
+            foreach (DataRow dr in bdEmprestimos.PreencheComboBoxEquipamentos().Rows)
+            {
+                cEquipamentos.Items.Add(dr.ItemArray[0] + " - " + dr.ItemArray[1]);
+            }
         }
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
             if (VerificaCampos())
             {
-                telaToEmprestimo();
+                int idProduto;
+                try
+                {
+                    int position = cEquipamentos.Text.IndexOf(" - ");
+                    idProduto = Convert.ToInt32(cEquipamentos.Text.Substring(0, position));
+                }
+                catch
+                {
+                    idProduto = 0;
+                }
+                telaToEmprestimo(idProduto);
                 bdEmprestimos.realizarEmprestimo(emprestimos);
                 FormEmprestimo f = new FormEmprestimo(MdiParent);
                 f.Show();
                 Close();
-            }
-        }
-
-        private void cEquipamentos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string index = cEquipamentos.SelectedIndex.ToString();
-            try
-            {
-                if (index == "0")
-                    cIdProduto.SelectedIndex = 1;
-                cIdProduto.SelectedIndex = Convert.ToInt32(index);
-            } catch
-            {
-              // nada
             }
         }
 

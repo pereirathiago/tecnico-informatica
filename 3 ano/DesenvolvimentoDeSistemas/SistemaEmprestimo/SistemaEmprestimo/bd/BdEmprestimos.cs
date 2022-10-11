@@ -296,5 +296,26 @@ namespace SistemaEmprestimo.bd
             }
             return null;
         }
+
+        public void devolverProduto(int idEmprestimo)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update emprestimo set entregue = 1 where id = @idEmprestimo";
+                cmd.Parameters.AddWithValue("@idEmprestimo", idEmprestimo);
+                cmd.Connection = Connection;
+                da.UpdateCommand = cmd;
+                da.UpdateCommand.ExecuteNonQuery();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

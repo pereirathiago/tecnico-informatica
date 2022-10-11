@@ -148,5 +148,33 @@ namespace SistemaEmprestimo.Forms
                 dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
         }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+            int codigo = -1, linha;
+            linha = dgEmprestimos.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (linha > -1)
+            {
+                if (dgEmprestimos.CurrentRow.Cells[8].Value.ToString() == "Não")
+                {
+                    codigo = int.Parse(dgEmprestimos.CurrentRow.Cells[0].Value.ToString());
+                    MessageBox.Show("Produto devolvido com sucesso!");
+                }
+                else
+                    MessageBox.Show("Esse produto já foi devolvido");
+                bdEmprestimos.devolverProduto(codigo);
+            }
+            else
+                MessageBox.Show("Nenhuma linha selecionada");
+
+            dgEmprestimos.Rows.Clear();
+            foreach (DataRow dr in bdEmprestimos.calculaNovaTabela("", 0, bdEmprestimos.PreencheTabelaEmprstimos).Rows)
+            {
+                dgEmprestimos.Rows.Add(dr.ItemArray);
+                dgEmprestimos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgEmprestimos.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+        }
     }
 }
