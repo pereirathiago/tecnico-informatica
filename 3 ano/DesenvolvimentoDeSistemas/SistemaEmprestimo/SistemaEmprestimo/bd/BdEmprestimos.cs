@@ -209,6 +209,33 @@ namespace SistemaEmprestimo.bd
             }
         }
     
+        public bool verificaEmprestimo(int id)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand();
+            DataTable qtd = new DataTable();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM emprestimo where idEquipamento = @id and entregue = 0";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Connection = Connection;
+                da.SelectCommand = cmd;
+                da.Fill(qtd);
+                Close();
+                if (qtd.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
+        }
+
         public DataTable localizaNoPrazo(string cpf, int? produto)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();

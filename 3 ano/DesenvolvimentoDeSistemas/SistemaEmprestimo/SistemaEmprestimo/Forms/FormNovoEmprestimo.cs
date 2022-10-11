@@ -72,11 +72,13 @@ namespace SistemaEmprestimo.Forms
                 {
                     idProduto = 0;
                 }
-                telaToEmprestimo(idProduto);
-                bdEmprestimos.realizarEmprestimo(emprestimos);
-                FormEmprestimo f = new FormEmprestimo(MdiParent);
-                f.Show();
-                Close();
+                if(VerificaEmprstimo(idProduto)){
+                    telaToEmprestimo(idProduto);
+                    bdEmprestimos.realizarEmprestimo(emprestimos);
+                    FormEmprestimo f = new FormEmprestimo(MdiParent);
+                    f.Show();
+                    Close();
+                }
             }
         }
 
@@ -91,6 +93,16 @@ namespace SistemaEmprestimo.Forms
             if (result < 0)
             {
                 MessageBox.Show("A data prevista para entrega não pode ser anterior a data de hoje");
+                return false;
+            }
+            return true;
+        }
+
+        private bool VerificaEmprstimo(int idProduto)
+        {
+            if (bdEmprestimos.verificaEmprestimo(idProduto))
+            {
+                MessageBox.Show("Esse produto já está emprstado");
                 return false;
             }
             return true;
