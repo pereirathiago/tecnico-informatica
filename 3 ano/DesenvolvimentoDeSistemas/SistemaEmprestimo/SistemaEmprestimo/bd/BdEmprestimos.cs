@@ -311,7 +311,7 @@ namespace SistemaEmprestimo.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from emprestimo where dataEntrega >= dataPrevista and entregue = 1";
+                cmd.CommandText = "select * from emprestimo where dataEntrega > dataPrevista and entregue = 1";
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(emprestimos);
