@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFiltroCpf = new System.Windows.Forms.TextBox();
             this.btnOkCpf = new System.Windows.Forms.Button();
             this.dgEmprestimos = new System.Windows.Forms.DataGridView();
             this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +52,7 @@
             this.devolvidosDepoisDoPrazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cProdutosTable = new System.Windows.Forms.ComboBox();
             this.btnDevolver = new System.Windows.Forms.Button();
+            this.txtFiltroCpf = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmprestimos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,13 +65,6 @@
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "Buscar por CPF:";
-            // 
-            // txtFiltroCpf
-            // 
-            this.txtFiltroCpf.Location = new System.Drawing.Point(116, 69);
-            this.txtFiltroCpf.Name = "txtFiltroCpf";
-            this.txtFiltroCpf.Size = new System.Drawing.Size(155, 20);
-            this.txtFiltroCpf.TabIndex = 12;
             // 
             // btnOkCpf
             // 
@@ -262,17 +255,26 @@
             this.btnDevolver.UseVisualStyleBackColor = true;
             this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
+            // txtFiltroCpf
+            // 
+            this.txtFiltroCpf.Location = new System.Drawing.Point(116, 69);
+            this.txtFiltroCpf.Mask = "000.000.000-00";
+            this.txtFiltroCpf.Name = "txtFiltroCpf";
+            this.txtFiltroCpf.Size = new System.Drawing.Size(155, 20);
+            this.txtFiltroCpf.TabIndex = 21;
+            this.txtFiltroCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // FormEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 522);
+            this.Controls.Add(this.txtFiltroCpf);
             this.Controls.Add(this.btnDevolver);
             this.Controls.Add(this.cProdutosTable);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOkProduto);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFiltroCpf);
             this.Controls.Add(this.btnOkCpf);
             this.Controls.Add(this.dgEmprestimos);
             this.Controls.Add(this.menuStrip1);
@@ -292,7 +294,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFiltroCpf;
         private System.Windows.Forms.Button btnOkCpf;
         private System.Windows.Forms.DataGridView dgEmprestimos;
         private System.Windows.Forms.Label label2;
@@ -316,5 +317,6 @@
         private System.Windows.Forms.ToolStripMenuItem mostrarTodosToolStripMenuItem;
         private System.Windows.Forms.ComboBox cProdutosTable;
         private System.Windows.Forms.Button btnDevolver;
+        private System.Windows.Forms.MaskedTextBox txtFiltroCpf;
     }
 }

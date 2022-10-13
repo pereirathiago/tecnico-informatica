@@ -34,7 +34,6 @@
             this.dataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mArquivo = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +43,8 @@
             this.btnEditarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExcluirCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNovoEmprestimo = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtFiltro = new System.Windows.Forms.MaskedTextBox();
+            this.btnFiltro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,14 +97,6 @@
             this.endereco.HeaderText = "Endereço";
             this.endereco.Name = "endereco";
             this.endereco.ReadOnly = true;
-            // 
-            // txtFiltro
-            // 
-            this.txtFiltro.Location = new System.Drawing.Point(114, 39);
-            this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(155, 20);
-            this.txtFiltro.TabIndex = 6;
-            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // label1
             // 
@@ -179,13 +172,33 @@
             this.btnNovoEmprestimo.Text = "Realizar emprestimos";
             this.btnNovoEmprestimo.Click += new System.EventHandler(this.btnNovoEmprestimo_Click);
             // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(114, 39);
+            this.txtFiltro.Mask = "000.000.000-00";
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(125, 20);
+            this.txtFiltro.TabIndex = 12;
+            this.txtFiltro.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Location = new System.Drawing.Point(245, 37);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltro.TabIndex = 13;
+            this.btnFiltro.Text = "Ok";
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 522);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnFiltro);
             this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgClientes);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -204,7 +217,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgClientes;
-        private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mArquivo;
@@ -219,5 +231,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataNasc;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
+        private System.Windows.Forms.MaskedTextBox txtFiltro;
+        private System.Windows.Forms.Button btnFiltro;
     }
 }

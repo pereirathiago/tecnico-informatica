@@ -25,16 +25,6 @@ namespace SistemaEmprestimo.Forms
             bdEmprestimos = new BdEmprestimos();
         }
 
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            dgClientes.Rows.Clear();
-            foreach (DataRow dr in bdCliente.PreencheTabelaClientes(txtFiltro.Text).Rows)
-            {
-                dgClientes.Rows.Add(dr.ItemArray);
-                dgClientes.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgClientes.Columns[3].DefaultCellStyle.Format = "0.#0";
-            }
-        }
 
         private void btnNovoCliente_Click(object sender, EventArgs e)
         {
@@ -118,6 +108,29 @@ namespace SistemaEmprestimo.Forms
             MenuForm f = new MenuForm(MdiParent);
             f.Show();
             Close();
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            dgClientes.Rows.Clear();
+            string cpf;
+            if (txtFiltro.MaskCompleted)
+            {
+                cpf = Convert.ToUInt64(txtFiltro.Text).ToString(@"000\.000\.000\-00");
+            }
+            else if (txtFiltro.Text == String.Empty)
+                cpf = "";
+            else
+            {
+                cpf = "";
+                MessageBox.Show("Preencha corretamente o campo");
+            }
+            foreach (DataRow dr in bdCliente.PreencheTabelaClientes(cpf).Rows)
+            {
+                dgClientes.Rows.Add(dr.ItemArray);
+                dgClientes.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgClientes.Columns[3].DefaultCellStyle.Format = "0.#0";
+            }
         }
     }
 }
