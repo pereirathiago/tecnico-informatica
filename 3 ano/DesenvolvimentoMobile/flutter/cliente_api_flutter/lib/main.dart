@@ -1,115 +1,211 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:cliente_api_flutter/contato.dart';
+import 'package:cliente_api_flutter/contato_service.dart';
+import 'package:cliente_api_flutter/dev_http_overrides.dart';
 
 void main() {
+  HttpOverrides.global = DevHttpOverrides();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cadastro de Pessoas',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+  const MyHomePage({Key? key,}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  List<Map<String, dynamic>> _contatos = [];
+  Contato contato = Contato("", "", "");
+  bool _carregando = true;
 
-  void _incrementCounter() {
+  void _listaContatos() async {
+    _contatos = [];
+    final data = await ContatoService.listaContatos();
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      for(var e in data){
+        _contatos.add(<String, dynamic>{
+          "id": e.id,
+          "nome": e.nome,
+          "email": e.email,
+          "telefone": e.telefone,
+        });
+      }
+      _carregando = false;
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+  void initState() {
+    super.initState();
+    _listaContatos();
+  }
+
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _telefoneController = TextEditingController();
+
+  void _showForm(int? id) async{
+    if(id != null){
+      final existente = _contatos.firstWhere((element) => element["id"] == id);
+      _nomeController.text = existente["nome"];
+      _emailController.text = existente["email"];
+      _telefoneController.text = existente["telefone"];
+    }
+
+    showModalBottomSheet(
+      context: context,
+      elevation: 5,
+      isScrollControlled: true,
+      builder: (_) => Container(
+        padding: EdgeInsets.only(
+          top: 15,
+          left: 15,
+          right: 15,
+          bottom: MediaQuery.of(context).viewInsets.bottom + 120,
         ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            TextField(
+              controller: _nomeController,
+              decoration: const InputDecoration(
+                labelText: "Nome",
+              ),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: "Email",
+              ),
+            ),
+            TextField(
+              controller: _telefoneController,
+              decoration: const InputDecoration(hintText: 'Telefone'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+                if(id == null){
+                  await _insereContato();
+                }
+                if(id!=null){
+                  await _atualizaContato(id);
+                }
+                _nomeController.text = '';
+                _emailController.text = '';
+                _telefoneController.text = '';
+
+                Navigator.of(context).pop();
+              },
+              child: Text(id==null ? "Salvar" : "Atualizar"),
+            )
+          ]
+        )
+      )
+    );
+  }
+
+  void telaToContato(){
+    contato = Contato( _nomeController.text, _emailController.text, _telefoneController.text);
+  }
+
+  Future<void> _insereContato() async {
+    telaToContato();
+    int i = await ContatoService.insere(contato);
+    if(i==0){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato incluído com sucesso!'),));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Não foi possível incluir!'),));
+    }
+    _listaContatos();
+  }
+
+  Future<void> _atualizaContato(int id) async {
+    telaToContato();
+    contato.id = id;
+    int i = await ContatoService.atualiza(contato);
+    if (i == 0) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato alterado com sucesso!'),));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Não foi possível alterar!'),));
+    }
+    _listaContatos();
+  }
+
+  void _excluirContato(int id) async{
+    int i = await ContatoService.exclui(id);
+    if(i == 0){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato excluído com sucesso!'),));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Não foi possível excluir!'),));
+    }
+    _listaContatos();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+   return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cadastro de Pessoas'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: _carregando ?
+        const Center(child: CircularProgressIndicator(),) 
+        :
+        ListView.builder(
+          itemCount: _contatos.length,
+          itemBuilder: (context, index) => Card(
+            color: Colors.red[200],
+            margin: const EdgeInsets.all(15),
+            child: ListTile(
+              title: Text(_contatos[index]['nome']),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Text(_contatos[index]['email']),
+                Text(_contatos[index]['telefone']),
+              ],),
+              trailing: SizedBox(
+                width: 100,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () => _showForm(_contatos[index]['id']),),
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () =>
+                      _excluirContato(_contatos[index]['id']),
+                      ),
+                    ],
+                  ),
+                )),
+            
+            )
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed: () => _showForm(null),
+          ),
     );
   }
 }
