@@ -4,16 +4,16 @@ const prisma = new PrismaClient()
 export default {
     async createUser(req, res) {
         try {
-            const { usuario, nome, senha } = req.body
-            let user = await prisma.usuario.findUnique({ where: { usuario } })
+            const { username, nome, senha } = req.body
+            let user = await prisma.admin_users.findUnique({ where: { username } })
 
             if (user) {
                 return res.status(409).json({ message: 'User is already used' })
             }
 
-            user = await prisma.usuario.create({
+            user = await prisma.admin_users.create({
                 data: {
-                    usuario,
+                    username,
                     nome,   
                     senha
                 },
