@@ -1,6 +1,6 @@
-import {Router} from 'express'
+import { Router } from 'express'
+import UserController from './controllers/UserController'
 
-const router = Route()
-import UserController from "./controllers/UserController";
+const router = Router()
 
-router.post("/user", re)
+router.post("/user", UserController.createUser)
