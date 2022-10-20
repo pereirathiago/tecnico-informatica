@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 export default {
     async createUser(req, res) {
         try {
-            const { username, nome, senha } = req.body
+            const { username, nome, senha, funcao } = req.body
             let user = await prisma.admin_users.findUnique({ where: { username } })
 
             if (user) {
@@ -15,7 +15,8 @@ export default {
                 data: {
                     username,
                     nome,   
-                    senha
+                    senha,
+                    funcao
                 },
             })
             return res
@@ -62,7 +63,7 @@ export default {
     async updateUser(req, res) {
         try {
             const { username } = req.params
-            const { nome, senha } = req.body
+            const { nome, senha, funcao } = req.body
 
             let user = await prisma.admin_users.findUnique({ where: { username } })
             if (!user)
@@ -70,7 +71,7 @@ export default {
 
             user = await prisma.admin_users.update({
                 where: { username },
-                data: { nome, senha }
+                data: { nome, senha, funcao }
             })
 
             return res.status(200).json({
