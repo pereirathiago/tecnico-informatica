@@ -58,43 +58,56 @@ difference{
 }
    
 //tv
-difference{
+union{
     box{
         <1,1,1>
         <-1,-1,-1>    
         scale<5.5,3.5,0.1>
-        translate<0,10,-12.5>
+        translate<0,10,-12.5>          
+        pigment{color Black} 
     }   
     box{
         <1,1,1>
         <-1,-1,-1>    
-        scale<5.2,3.2,0.01>
-        translate<0,10,-12.5>        
-        pigment{color Black}     
+        scale<5.2,3.2,0.1>
+        translate<0,10,-12>         
+        pigment{
+            image_map {png "vicente.png"}
+            scale<9,9,1>    
+            translate<4,6,1>
+        }     
         //colocar imagem aqui
     }  
 }        
       
 //quadro      
-difference{
+union{
     box{
         <1,1,1>
-        <-1,-1,-1>    
-        scale<0.1,3,4>
-        translate<-12.5,10,-2>  
+        <-1,-1,-1>   
+        scale<4,3,0.1>  
+        
+       // translate<-12.5,10,-2>  
                texture{ T_Wood1     
                     normal { wood 0.5 scale 0.05}
                     finish { phong 1 } 
                     rotate<0,0, 0> scale 0.5
                   } // end of texture ------------------------
-    }   
+    }     
     box{
-       <1,1,1>
-       <-1,-1,-1>    
-       scale<0,2.8,3.8>
-       translate<-12.5,10,-2>        
-       pigment{color Black}
-    }
+        <1,1,1>
+        <-1,-1,-1>   
+        scale<4,3,0.1> 
+        //translate<-12.2,9.9,-2>  
+        pigment{
+            image_map {jpeg "arte.jpeg"}   
+            
+            scale<9,12,1>    
+            translate<4,4,1>
+        }
+    }                     
+    rotate<0,90,0> 
+    translate<-12.5,10,-2>
 }           
 
 //sofa
