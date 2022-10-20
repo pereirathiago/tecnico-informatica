@@ -14,7 +14,7 @@ export default {
             user = await prisma.usuario.create({
                 data: {
                     usuario,
-                    nome,
+                    nome,   
                     senha
                 },
             })
