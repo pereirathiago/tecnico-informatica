@@ -8,15 +8,15 @@ datasource db {
 }
 
 model admin_pratos {
-  id        Int    @id @default(autoincrement())
+  id        Int    @id @unique @default(autoincrement())
   nome      String @db.VarChar(40)
   descricao String @db.VarChar(300)
   preco     Float
 }
 
 model admin_users {
-  id       Int    @id @default(autoincrement())
-  username String @db.VarChar(30)
+  id       Int    @id @unique @default(autoincrement())
+  username String @unique @db.VarChar(30)
   nome     String @db.VarChar(70)
   senha    String @db.VarChar(30)
 }
