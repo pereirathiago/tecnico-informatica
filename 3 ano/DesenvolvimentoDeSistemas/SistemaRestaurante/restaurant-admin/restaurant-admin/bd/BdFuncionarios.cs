@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace restaurant_admin.bd
 {
-    internal class BdPratos : Bd
+    internal class BdFuncionario : Bd
     {
-        public BdPratos()
+        public BdFuncionario()
         {
             User = "root";
             Servidor = "localhost";
@@ -22,21 +22,21 @@ namespace restaurant_admin.bd
             bd = "restaurante";
         }
 
-        public DataTable PreencheTabelaPratos(string nome)
+        public DataTable PreencheTabelaFuncionarios(string nome)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
-            DataTable pratos = new DataTable();
+            DataTable funcionarios = new DataTable();
             try
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from admin_pratos where nome like @nome";
+                cmd.CommandText = "select * from admin_users where nome like @nome";
                 cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
-                da.Fill(pratos);
-                return pratos;
+                da.Fill(funcionarios);
+                return funcionarios;
             }
             catch (Exception ex)
             {
@@ -45,7 +45,7 @@ namespace restaurant_admin.bd
             return null;
         }
 
-        public void cadastrarPrato(Pratos pratos)
+        public void cadastrarFuncionario(Funcionarios funcionario)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -53,10 +53,11 @@ namespace restaurant_admin.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into admin_pratos (nome, descricao, preco) values (@nome, @descricao, @preco)";
-                cmd.Parameters.AddWithValue("@nome", pratos.Nome);
-                cmd.Parameters.AddWithValue("@descricao", pratos.Descricao);
-                cmd.Parameters.AddWithValue("@preco", pratos.Preco);
+                cmd.CommandText = "insert into admin_users (nome, username, senha, funcao) values (@nome, @username, @senha, @funcao)";
+                cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
+                cmd.Parameters.AddWithValue("@username", funcionario.Username);
+                cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                cmd.Parameters.AddWithValue("@funcao", funcionario.Funcao);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
@@ -68,7 +69,7 @@ namespace restaurant_admin.bd
             }
         }
 
-        public void atualizaPrato(Pratos prato)
+        public void atualizaFuncionario(Funcionarios funcionarios)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -76,11 +77,12 @@ namespace restaurant_admin.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update admin_pratos set nome = @nome, descricao = @descricao, preco = @preco where id = @id";
-                cmd.Parameters.AddWithValue("@id", prato.Id);
-                cmd.Parameters.AddWithValue("@nome", prato.Nome);
-                cmd.Parameters.AddWithValue("@descricao", prato.Descricao);
-                cmd.Parameters.AddWithValue("@preco", prato.Preco);
+                cmd.CommandText = "update admin_users set nome = @nome, username = @username, senha = @senha, funcao = @funcao where id = @id";
+                cmd.Parameters.AddWithValue("@id", funcionarios.Id);
+                cmd.Parameters.AddWithValue("@nome", funcionarios.Nome);
+                cmd.Parameters.AddWithValue("@descricao", funcionarios.Username);
+                cmd.Parameters.AddWithValue("@senha", funcionarios.Senha);
+                cmd.Parameters.AddWithValue("@funcao", funcionarios.Funcao);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
@@ -92,19 +94,19 @@ namespace restaurant_admin.bd
             }
         }
 
-        public void salva(Pratos prato)
+        public void salva(Funcionarios funcionarios)
         {
-            if (prato.Id == 0)
+            if (funcionarios.Id == 0)
             {
-                cadastrarPrato(prato);
+                cadastrarFuncionario(funcionarios);
             }
             else
             {
-                atualizaPrato(prato);
+                atualizaFuncionario(funcionarios);
             }
         }
 
-        public void excluirPrato(int id)
+        public void excluirFuncionario(int id)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -112,7 +114,7 @@ namespace restaurant_admin.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from admin_pratos where id=@id";
+                cmd.CommandText = "delete from admin_users where id=@id";
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
@@ -125,25 +127,26 @@ namespace restaurant_admin.bd
             }
         }
 
-        public Pratos localiza(int codigo)
+        public Funcionarios localiza(int codigo)
         {
             MySqlDataReader dr = null;
             MySqlCommand cmd = new MySqlCommand();
-            Pratos pratos = new Pratos();
+            Funcionarios funcionario = new Funcionarios();
             try
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from admin_pratos where id = @codigo";
+                cmd.CommandText = "select * from admin_users where id = @codigo";
                 cmd.Parameters.AddWithValue("@codigo", codigo);
                 cmd.Connection = Connection;
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    pratos.Id = dr.GetInt32("id");
-                    pratos.Nome = dr.GetString("nome");
-                    pratos.Descricao = dr.GetString("descricao");
-                    pratos.Preco = dr.GetInt32("preco");
+                    funcionario.Id = dr.GetInt32("id");
+                    funcionario.Nome = dr.GetString("nome");
+                    funcionario.Senha = dr.GetString("senha");
+                    funcionario.Username = dr.GetString("username");
+                    funcionario.Funcao = dr.GetInt32("funcao");
                 }
                 cmd.Dispose();
                 Close();
@@ -152,7 +155,7 @@ namespace restaurant_admin.bd
             {
                 MessageBox.Show(ex.Message);
             }
-            return pratos;
+            return funcionario;
         }
     }
 }

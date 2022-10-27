@@ -51,7 +51,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bd\Bd.cs" />
+    <Compile Include="bd\BdFuncionarios.cs" />
     <Compile Include="bd\BdPratos.cs" />
+    <Compile Include="forms\FormNovoFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormNovoFuncionario.Designer.cs">
+      <DependentUpon>FormNovoFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FormNovoPrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormNovoPrato.Designer.cs">
+      <DependentUpon>FormNovoPrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +93,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vo\Funcionarios.cs" />
     <Compile Include="vo\Pratos.cs" />
+    <EmbeddedResource Include="forms\FormNovoFuncionario.resx">
+      <DependentUpon>FormNovoFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FormNovoPrato.resx">
+      <DependentUpon>FormNovoPrato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
