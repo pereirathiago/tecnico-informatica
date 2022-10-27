@@ -1,6 +1,6 @@
 ﻿namespace restaurant_admin
 {
-    partial class Form1
+    partial class MdiAdmin
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MdiAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(941, 611);
+            this.IsMdiContainer = true;
+            this.Name = "MdiAdmin";
+            this.Text = "Painel do Administrador";
+            this.Activated += new System.EventHandler(this.MdiAdmin_Activated);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

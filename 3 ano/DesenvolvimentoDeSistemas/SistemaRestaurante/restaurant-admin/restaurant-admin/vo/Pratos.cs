@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace restaurant_admin.vo.NewFolder1
+namespace restaurant_admin.vo
 {
     internal class Pratos
     {
