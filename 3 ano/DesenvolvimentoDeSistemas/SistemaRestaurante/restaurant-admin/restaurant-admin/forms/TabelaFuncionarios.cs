@@ -37,6 +37,27 @@ namespace restaurant_admin.forms
             {
                 dgFuncionarios.Rows.Add(dr.ItemArray);
             }
+            foreach (DataGridViewRow item in dgFuncionarios.Rows)
+            {
+                switch(dgFuncionarios.Rows[item.Index].Cells[4].Value)
+                {
+                    case 0:
+                        dgFuncionarios.Rows[item.Index].Cells[4].Value = "Administrador";
+                        break;
+                    case 1:
+                        dgFuncionarios.Rows[item.Index].Cells[4].Value = "Atendimento";
+                        break;
+                    case 2:
+                        dgFuncionarios.Rows[item.Index].Cells[4].Value = "Caixa";
+                        break;
+                    case 3:
+                        dgFuncionarios.Rows[item.Index].Cells[4].Value = "Cozinha";
+                        break;
+                    default:
+                        dgFuncionarios.Rows[item.Index].Cells[4].Value = "Função não encontrada";
+                        break;
+                }
+            }
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)

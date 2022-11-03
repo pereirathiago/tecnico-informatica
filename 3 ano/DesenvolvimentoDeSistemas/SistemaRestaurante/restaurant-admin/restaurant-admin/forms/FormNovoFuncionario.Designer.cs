@@ -140,10 +140,16 @@
             // cFuncao
             // 
             this.cFuncao.FormattingEnabled = true;
+            this.cFuncao.Items.AddRange(new object[] {
+            "Administrador",
+            "Atendimento",
+            "Caixa",
+            "Cozinha"});
             this.cFuncao.Location = new System.Drawing.Point(151, 200);
             this.cFuncao.Name = "cFuncao";
             this.cFuncao.Size = new System.Drawing.Size(121, 21);
             this.cFuncao.TabIndex = 33;
+            this.cFuncao.Text = "Selecione a função";
             // 
             // FormNovoFuncionario
             // 

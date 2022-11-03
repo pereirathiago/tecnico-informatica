@@ -122,7 +122,13 @@
             // 
             // txtPreco
             // 
+            this.txtPreco.DecimalPlaces = 2;
             this.txtPreco.Location = new System.Drawing.Point(149, 178);
+            this.txtPreco.Maximum = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(120, 20);
             this.txtPreco.TabIndex = 41;

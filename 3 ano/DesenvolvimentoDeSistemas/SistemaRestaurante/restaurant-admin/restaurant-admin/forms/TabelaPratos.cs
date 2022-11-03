@@ -41,6 +41,7 @@ namespace restaurant_admin.forms
             foreach (DataRow dr in bd.PreencheTabelaPratos("").Rows)
             {
                 dgPratos.Rows.Add(dr.ItemArray);
+                dgPratos.Columns[3].DefaultCellStyle.Format = "0.#0";
             }
         }
 
@@ -88,6 +89,8 @@ namespace restaurant_admin.forms
             foreach (DataRow dr in bd.PreencheTabelaPratos(txtPrato.Text).Rows)
             {
                 dgPratos.Rows.Add(dr.ItemArray);
+
+                dgPratos.Columns[3].DefaultCellStyle.Format = "0.#0";
             }
         }
     }

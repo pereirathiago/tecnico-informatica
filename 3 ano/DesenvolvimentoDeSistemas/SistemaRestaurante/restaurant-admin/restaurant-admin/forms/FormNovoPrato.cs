@@ -52,11 +52,14 @@ namespace restaurant_admin.forms
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            telaToPrato();
-            bdPrato.salva(prato);
-            TabelaPratos f = new TabelaPratos(MdiParent);
-            f.Show();
-            Close();
+            if (VerificaCampos())
+            {
+                telaToPrato();
+                bdPrato.salva(prato);
+                TabelaPratos f = new TabelaPratos(MdiParent);
+                f.Show();
+                Close();
+            }
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
@@ -64,6 +67,16 @@ namespace restaurant_admin.forms
             TabelaPratos f = new TabelaPratos(MdiParent);
             f.Show();
             Close();
+        }
+
+        private bool VerificaCampos()
+        {
+            if (txtNome.Text == "" || txtDescricao.Text == "" || txtPreco.Value == 0)
+            {
+                MessageBox.Show("Preencha corretamente todos os campos");
+                return false;
+            }
+            return true;
         }
     }
 }

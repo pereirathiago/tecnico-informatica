@@ -49,7 +49,14 @@ namespace restaurant_admin.forms
             txtNome.Text = Funcionario.Nome;
             txtUser.Text = Funcionario.Username;
             txtSenha.Text = Funcionario.Senha;
-            cFuncao.SelectedIndex = Funcionario.Funcao;
+            try
+            {
+                cFuncao.SelectedIndex = Funcionario.Funcao;
+            }
+            catch
+            {
+                cFuncao.SelectedIndex = -1;
+            }
         }
 
         private void btnCancela_Click(object sender, EventArgs e)
@@ -61,11 +68,29 @@ namespace restaurant_admin.forms
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            telaToFuncionario();
-            bdFuncionario.salva(funcionario);
-            TabelaFuncionarios f = new TabelaFuncionarios(MdiParent);
-            f.Show();
-            Close();
+            if (VerificaCampos())
+            {
+                telaToFuncionario();
+                bdFuncionario.salva(funcionario);
+                TabelaFuncionarios f = new TabelaFuncionarios(MdiParent);
+                f.Show();
+                Close();
+            }
+        }
+
+        private bool VerificaCampos()
+        {
+            if (cFuncao.Text == "Selecione a função")
+            {
+                MessageBox.Show("Selecione uma função");
+                return false;
+            }
+            if (txtNome.Text == "" || txtSenha.Text == "" || txtUser.Text != "")
+            {
+                MessageBox.Show("Preencha corretamente todos os campos");
+                return false;
+            }
+            return true;
         }
     }
 }
