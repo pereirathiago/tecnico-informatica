@@ -4,10 +4,10 @@
 camera {                  
     //olhar janela
     /*location <-12,10,13>
-    look_at <15,5,-15.1>*/
+    look_at <15,5,-15.1>   */
     //olhar quadro
     location <12,10,13>
-    look_at <-15,5,-15.1>
+    look_at <-15,5,-15.1> 
 }                  
 
 light_source {
