@@ -85,7 +85,7 @@ namespace restaurant_admin.forms
                 MessageBox.Show("Selecione uma função");
                 return false;
             }
-            if (txtNome.Text == "" || txtSenha.Text == "" || txtUser.Text != "")
+            if (txtNome.Text == "" || txtSenha.Text == "" || txtUser.Text == "")
             {
                 MessageBox.Show("Preencha corretamente todos os campos");
                 return false;
