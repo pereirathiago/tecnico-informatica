@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'package:cliente_api_flutter/contato.dart';
-import 'package:cliente_api_flutter/contato_service.dart';
+import 'package:cliente_api_flutter/usuario.dart';
+import 'package:cliente_api_flutter/usuario_service.dart';
 import 'package:cliente_api_flutter/dev_http_overrides.dart';
 
 void main() {
@@ -33,12 +33,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Map<String, dynamic>> _contatos = [];
-  Contato contato = Contato("", "", "");
+  Usuario usuario = Usuario("", "", "",0);
   bool _carregando = true;
 
   void _listaContatos() async {
     _contatos = [];
-    final data = await ContatoService.listaContatos();
+    final data = await UsuarioService.listaContatos();
     setState(() {
       for(var e in data){
         _contatos.add(<String, dynamic>{
@@ -126,12 +126,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void telaToContato(){
-    contato = Contato( _nomeController.text, _emailController.text, _telefoneController.text);
+    contato = Usuario( _nomeController.text, _emailController.text, _telefoneController.text);
   }
 
   Future<void> _insereContato() async {
     telaToContato();
-    int i = await ContatoService.insere(contato);
+    int i = await UsuarioService.insere(contato);
     if(i==0){
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato incluído com sucesso!'),));
     } else {
@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _atualizaContato(int id) async {
     telaToContato();
     contato.id = id;
-    int i = await ContatoService.atualiza(contato);
+    int i = await UsuarioService.atualiza(contato);
     if (i == 0) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato alterado com sucesso!'),));
     } else {
@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _excluirContato(int id) async{
-    int i = await ContatoService.exclui(id);
+    int i = await UsuarioService.exclui(id);
     if(i == 0){
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato excluído com sucesso!'),));
     } else {
