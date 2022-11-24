@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿ using MySql.Data.MySqlClient;
 using restaurante_cozinha.vo;
 using System;
 using System.Collections.Generic;
@@ -29,8 +29,8 @@ namespace restaurante_cozinha.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from pedidos where pedido like @pedido";
-                cmd.Parameters.AddWithValue("@pedido", "%" + pedido + "%");
+                cmd.CommandText = "select * from pedido where nome_pedido like @nome_pedido";
+                cmd.Parameters.AddWithValue("@nome_pedido", "%" + pedido + "%");
                 cmd.Connection = Connection;
                 da.SelectCommand = cmd;
                 da.Fill(pratos);
@@ -43,7 +43,7 @@ namespace restaurante_cozinha.bd
             return null;
         }
 
-        public void atualizaPrato(Pedido pedido)
+        public void atualizaPrato(int id, string status)
         {
             MySqlDataAdapter da = new MySqlDataAdapter();
             MySqlCommand cmd = new MySqlCommand();
@@ -51,9 +51,9 @@ namespace restaurante_cozinha.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update pedidos set status = @status, descricao = @descricao, preco = @preco where id = @id";
-                cmd.Parameters.AddWithValue("@id", pedido.Id);
-                cmd.Parameters.AddWithValue("@status", pedido.Status);
+                cmd.CommandText = "update pedido set status = @status where id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@status", status);
                 cmd.Connection = Connection;
                 da.UpdateCommand = cmd;
                 da.UpdateCommand.ExecuteNonQuery();
@@ -73,8 +73,8 @@ namespace restaurante_cozinha.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from admin_users where usuario = @usuario and senha= @senha";
-                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.CommandText = "select * from admin_users where username = @username and senha= @senha";
+                cmd.Parameters.AddWithValue("@username", usuario);
                 cmd.Parameters.AddWithValue("@senha", senha);
                 cmd.Connection = Connection;
                 dr = cmd.ExecuteReader();
