@@ -32,6 +32,10 @@ Este repositório foi criado com a intenção de armazenar meus projetos e ativi
 - Java
 - Java Web
 - Unity - C#
+- C# desktop
+- NodeJS
+- ReacJS
+- NextJS
 
 ---
 
