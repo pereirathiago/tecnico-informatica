@@ -39,7 +39,7 @@
             this.IsMdiContainer = true;
             this.Name = "MdiCozinha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Restaurante Cozinha";
             this.Activated += new System.EventHandler(this.MdiCozinha_Activated);
             this.ResumeLayout(false);
 
