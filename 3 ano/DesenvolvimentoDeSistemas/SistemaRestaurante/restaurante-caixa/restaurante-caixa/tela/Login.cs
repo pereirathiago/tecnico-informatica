@@ -29,7 +29,6 @@ namespace restaurante_caixa.tela
                 BuscarMesa tc = new BuscarMesa(MdiParent);
                 tc.Show();
                 Close();
-                MessageBox.Show("login");
             }
             else
             {
