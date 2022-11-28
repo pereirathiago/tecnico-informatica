@@ -82,6 +82,9 @@
     <EmbeddedResource Include="telas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="telas\MdiCozinha.resx">
+      <DependentUpon>MdiCozinha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="telas\TabelaPedids.resx">
       <DependentUpon>TabelaPedids.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,6 @@
 ﻿namespace restaurante_caixa
 {
-    partial class Form1
+    partial class MdiCaixa
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MdiCaixa
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(941, 611);
+            this.IsMdiContainer = true;
+            this.Name = "MdiCaixa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Restaurante Caixa";
+            this.Activated += new System.EventHandler(this.MdiCaixa_Activated);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
