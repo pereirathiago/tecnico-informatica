@@ -1,11 +1,7 @@
+import 'package:cliente_api_flutter/em_espera.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:cliente_api_flutter/dev_http_overrides.dart';
-
-void main() {
-  HttpOverrides.global = DevHttpOverrides();
-  runApp(const MyApp());
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -42,9 +38,8 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     void _abrirEmEspera() {
-      //Navigator.push(context,
-      //   MaterialPageRoute(builder: (context) => const TelaEmpresa()));
-      print("espera aberto");
+      Navigator.push(context,
+         MaterialPageRoute(builder: (context) => const EmEspera()));
     }
 
     void _abrirEmAndamento() {
