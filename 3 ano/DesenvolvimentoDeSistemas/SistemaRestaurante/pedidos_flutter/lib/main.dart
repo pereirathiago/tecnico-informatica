@@ -1,3 +1,5 @@
+import 'package:cliente_api_flutter/pedidos.dart';
+import 'package:cliente_api_flutter/pedidosTela.dart';
 import 'package:cliente_api_flutter/pedidos_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
@@ -45,8 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _senhaController = TextEditingController();
 
   void telaToUser() {
-    usuario = Usuario(
-        _nomeController.text, _senhaController.text);
+    usuario = Usuario(_nomeController.text, _senhaController.text);
   }
 
   Future<void> loginUser() async {
@@ -56,6 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Login realizado com sucesso!'),
       ));
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const MyPedidosTelaPage(),
+        ),
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Login incorreto!'),
