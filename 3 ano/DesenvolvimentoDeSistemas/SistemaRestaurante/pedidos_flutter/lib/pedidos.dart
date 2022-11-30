@@ -5,7 +5,7 @@ class Pedidos {
   String? nomePedido;
 
   Pedidos(
-    this.mesa,
+    this.me sa,
     this.nomePedido,
     this.idPrato,
   );
