@@ -9,7 +9,7 @@ datasource db {
 
 model admin_pratos {
   id        Int    @id @unique @default(autoincrement())
-  nome      String @unique @db.VarChar(40)
+  nome      String @db.VarChar(40)
   descricao String @db.VarChar(300)
   preco     Float
 }
@@ -25,6 +25,7 @@ model admin_users {
 model pedido {
   id          Int    @id @default(autoincrement())
   idPrato     Int
+  nome_pedido String @db.VarChar(250)
   mesa        String @db.VarChar(5)
-  nome_pedido String @db.VarChar(50)
+  status      String @db.VarChar(50)
 }

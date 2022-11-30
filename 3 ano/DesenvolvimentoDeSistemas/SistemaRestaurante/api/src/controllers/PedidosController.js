@@ -4,13 +4,14 @@ const prisma = new PrismaClient()
 export default{
     async createPedido(req, res) {
         try {
-            const { idPrato, nome_pedido, mesa } = req.body
+            const { idPrato, nome_pedido, mesa, status } = req.body
 
             let pedido = await prisma.pedido.create({
                 data: {
                     idPrato,
                     nome_pedido,   
                     mesa,
+                    status: 'Em espera',
                 },
             })
             return res
@@ -40,12 +41,12 @@ export default{
 
     async findPedido(req, res) {
         try {
-            const { idp } = req.params
-            const pedido = await prisma.pedido.findUnique({ 
-                where: { id: parseInt(idp) }
+            const { mesa } = req.params
+            const pedido = await prisma.pedido.findMany({ 
+                where: { mesa: mesa }
             })
             if (!pedido)
-                return res.status(404).json({ message: 'Pedido não encontrado' })
+                return res.status(404).json({ message: 'Nenhum pedido em espera na mesa' })
             return res.status(200).json(pedido)
         } catch (error) {
             return res.json({ error })

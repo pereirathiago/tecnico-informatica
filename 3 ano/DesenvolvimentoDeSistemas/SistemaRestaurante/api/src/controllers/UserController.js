@@ -116,7 +116,9 @@ export default {
     
             if(user){
                 if(senha == user.senha){
-                    return res.status(200).json({ message: 'login feito' }) 
+                    if(user.funcao == 1){
+                        return res.status(200).json({ message: 'login feito' }) 
+                    }
                 }
             }
             return res.status(401).json({message: "usuário ou senha incorreto"})
