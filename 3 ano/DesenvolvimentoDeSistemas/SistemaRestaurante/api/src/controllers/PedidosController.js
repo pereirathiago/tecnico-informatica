@@ -26,9 +26,9 @@ export default{
         }
     },
 
-    async findAllPedidos(req, res) {
+    async findAllPedidosEmEspera(req, res) {
         try {
-            const pedidos = await prisma.pedido.findMany()
+            const pedidos = await prisma.pedido.findMany({where: {status: "Em espera"}})
             return res.status(200).json(pedidos)
         } catch (error) {
             return res.json({ error })
@@ -38,6 +38,32 @@ export default{
             }
         }
     }, 
+
+    async findAllPedidosEmAndamento(req, res) {
+        try {
+            const pedidos = await prisma.pedido.findMany({where: {status: "Em andamento"}})
+            return res.status(200).json(pedidos)
+        } catch (error) {
+            return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
+        }
+    },
+
+    async findAllPedidosPronto(req, res) {
+        try {
+            const pedidos = await prisma.pedido.findMany({where: {status: "Pronto"}})
+            return res.status(200).json(pedidos)
+        } catch (error) {
+            return res.json({ error })
+        } finally {
+            ;async () => {
+                await prisma.$disconnect()
+            }
+        }
+    },
 
     async findPedido(req, res) {
         try {
@@ -60,15 +86,15 @@ export default{
     async updatePedido(req, res) {
         try {
             const { idp } = req.params
-            const { idPrato, nome_pedido, mesa } = req.body
+            const { status } = req.body
 
             let pedido = await prisma.pedido.findUnique({ where: { id: parseInt(idp) } })
             if (!pedido)
-                return res.status(404).json({ message: 'Prato não encontrado' })
+                return res.status(404).json({ message: 'Pedido não encontrado' })
 
                 pedido = await prisma.pedido.update({
                 where: { id: parseInt(idp) },
-                data: { idPrato, nome_pedido, mesa }
+                data: { status }
             })
 
             return res.status(200).json({
