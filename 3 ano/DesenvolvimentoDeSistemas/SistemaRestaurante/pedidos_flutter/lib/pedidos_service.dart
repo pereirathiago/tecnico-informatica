@@ -24,10 +24,45 @@ class PedidoService {
   static Future<List<Pedidos>> listaPedidosEmEspera() async {
     try {
       List<Pedidos> listaPedidosEspera = [];
-      final response = await http.get(Uri.parse('$url/pedidos/'));
+      final response = await http.get(Uri.parse('$url/pedidosEmEspera/'));
       if (response.statusCode == 200) {
         var decodeJson = jsonDecode(response.body);
-        decodeJson.forEach((item) => listaPedidosEspera.add(Pedidos.fromJSON(item)));
+        decodeJson
+            .forEach((item) => listaPedidosEspera.add(Pedidos.fromJSON(item)));
+        return listaPedidosEspera;
+      } else {
+        throw Exception("Erro ao carregar dados 1");
+      }
+    } catch (e) {
+      throw Exception("Erro ao carregar dados 2 " + e.toString());
+    }
+  }
+
+  static Future<List<Pedidos>> listaPedidosEmAndamento() async {
+    try {
+      List<Pedidos> listaPedidosEspera = [];
+      final response = await http.get(Uri.parse('$url/pedidosEmAndamento/'));
+      if (response.statusCode == 200) {
+        var decodeJson = jsonDecode(response.body);
+        decodeJson
+            .forEach((item) => listaPedidosEspera.add(Pedidos.fromJSON(item)));
+        return listaPedidosEspera;
+      } else {
+        throw Exception("Erro ao carregar dados 1");
+      }
+    } catch (e) {
+      throw Exception("Erro ao carregar dados 2 " + e.toString());
+    }
+  }
+
+  static Future<List<Pedidos>> listaPedidosPronto() async {
+    try {
+      List<Pedidos> listaPedidosEspera = [];
+      final response = await http.get(Uri.parse('$url/pedidosPronto/'));
+      if (response.statusCode == 200) {
+        var decodeJson = jsonDecode(response.body);
+        decodeJson
+            .forEach((item) => listaPedidosEspera.add(Pedidos.fromJSON(item)));
         return listaPedidosEspera;
       } else {
         throw Exception("Erro ao carregar dados 1");

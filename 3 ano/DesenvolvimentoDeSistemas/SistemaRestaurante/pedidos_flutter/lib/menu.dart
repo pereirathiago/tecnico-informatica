@@ -1,7 +1,10 @@
 import 'package:cliente_api_flutter/em_espera.dart';
+import 'package:cliente_api_flutter/pronto.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:cliente_api_flutter/dev_http_overrides.dart';
+
+import 'em_andamento.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -43,15 +46,13 @@ class _MenuState extends State<Menu> {
     }
 
     void _abrirEmAndamento() {
-      //Navigator.push(context,
-      //   MaterialPageRoute(builder: (context) => const TelaEmpresa()));
-      print("andamento aberto");
+      Navigator.push(context,
+         MaterialPageRoute(builder: (context) => const EmAndamento()));
     }
 
     void _abrirPronto() {
-      //Navigator.push(context,
-      //   MaterialPageRoute(builder: (context) => const TelaEmpresa()));
-      print("pronto aberto");
+      Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const Pronto()));
     }
 
     return Scaffold(

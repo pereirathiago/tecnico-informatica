@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:cliente_api_flutter/dev_http_overrides.dart';
 
-class EmEspera extends StatefulWidget {
-  const EmEspera({super.key});
+class EmAndamento extends StatefulWidget {
+  const EmAndamento({super.key});
 
   @override
-  State<EmEspera> createState() => _EmEsperaState();
+  State<EmAndamento> createState() => _EmAndamentoState();
 }
 
-class _EmEsperaState extends State<EmEspera> {
+class _EmAndamentoState extends State<EmAndamento> {
   List<Map<String, dynamic>> _pedidos = [];
   Pedidos pedido = Pedidos("", "", "", 0);
   bool _carregando = true;
   void _listaContatos() async {
     _pedidos = [];
-    final data = await PedidoService.listaPedidosEmEspera();
+    final data = await PedidoService.listaPedidosEmAndamento();
     setState(() {
       for (var e in data) {
         _pedidos.add(<String, dynamic>{
@@ -46,7 +46,7 @@ class _EmEsperaState extends State<EmEspera> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pedidos em espera'),
+        title: const Text('Pedidos em andamento'),
       ),
       body: _carregando
           ? const Center(
