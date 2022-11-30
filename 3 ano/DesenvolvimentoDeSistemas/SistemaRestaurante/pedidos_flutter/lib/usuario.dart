@@ -1,32 +1,24 @@
 class Usuario {
   int id = 0;
-  String? user;
-  String? nome;
+  String? username;
   String? senha;
-  int? funcao;
 
   Usuario(
-    this.user,
-    this.nome,
+    this.username,
     this.senha,
-    this.funcao,
   );
 
   Usuario.fromJSON(Map<String, dynamic> json) {
     id = json['id'];
-    user = json['user'];
-    nome = json['nome'];
+    username = json['username'];
     senha = json['senha'];
-    funcao = json['funcao'];
   }
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       "id": id,
-      "user": user,
-      "nome": nome,
+      "username": username,
       "senha": senha,
-      "funcao": funcao,
     };
   }
 }

@@ -1,7 +1,7 @@
+import 'package:cliente_api_flutter/pedidos_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:cliente_api_flutter/usuario.dart';
-import 'package:cliente_api_flutter/usuario_service.dart';
 import 'package:cliente_api_flutter/dev_http_overrides.dart';
 
 void main() {
@@ -25,187 +25,82 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key,}) : super(key: key);
+  const MyHomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Map<String, dynamic>> _contatos = [];
-  Usuario usuario = Usuario("", "", "",0);
-  bool _carregando = true;
-
-  void _listaContatos() async {
-    _contatos = [];
-    final data = await UsuarioService.listaContatos();
-    setState(() {
-      for(var e in data){
-        _contatos.add(<String, dynamic>{
-          "id": e.id,
-          "nome": e.nome,
-          "email": e.email,
-          "telefone": e.telefone,
-        });
-      }
-      _carregando = false;
-    });
-  }
+  Usuario usuario = Usuario("", "");
 
   @override
   void initState() {
     super.initState();
-    _listaContatos();
   }
 
   final TextEditingController _nomeController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _telefoneController = TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
 
-  void _showForm(int? id) async{
-    if(id != null){
-      final existente = _contatos.firstWhere((element) => element["id"] == id);
-      _nomeController.text = existente["nome"];
-      _emailController.text = existente["email"];
-      _telefoneController.text = existente["telefone"];
-    }
-
-    showModalBottomSheet(
-      context: context,
-      elevation: 5,
-      isScrollControlled: true,
-      builder: (_) => Container(
-        padding: EdgeInsets.only(
-          top: 15,
-          left: 15,
-          right: 15,
-          bottom: MediaQuery.of(context).viewInsets.bottom + 120,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TextField(
-              controller: _nomeController,
-              decoration: const InputDecoration(
-                labelText: "Nome",
-              ),
-            ),
-            const SizedBox(height: 10),
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: "Email",
-              ),
-            ),
-            TextField(
-              controller: _telefoneController,
-              decoration: const InputDecoration(hintText: 'Telefone'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                if(id == null){
-                  await _insereContato();
-                }
-                if(id!=null){
-                  await _atualizaContato(id);
-                }
-                _nomeController.text = '';
-                _emailController.text = '';
-                _telefoneController.text = '';
-
-                Navigator.of(context).pop();
-              },
-              child: Text(id==null ? "Salvar" : "Atualizar"),
-            )
-          ]
-        )
-      )
-    );
+  void telaToUser() {
+    usuario = Usuario(
+        _nomeController.text, _senhaController.text);
   }
 
-  void telaToContato(){
-    contato = Usuario( _nomeController.text, _emailController.text, _telefoneController.text);
-  }
-
-  Future<void> _insereContato() async {
-    telaToContato();
-    int i = await UsuarioService.insere(contato);
-    if(i==0){
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato incluído com sucesso!'),));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Não foi possível incluir!'),));
-    }
-    _listaContatos();
-  }
-
-  Future<void> _atualizaContato(int id) async {
-    telaToContato();
-    contato.id = id;
-    int i = await UsuarioService.atualiza(contato);
+  Future<void> loginUser() async {
+    telaToUser();
+    int i = await PedidoService.login(usuario);
     if (i == 0) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato alterado com sucesso!'),));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Login realizado com sucesso!'),
+      ));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Não foi possível alterar!'),));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Login incorreto!'),
+      ));
     }
-    _listaContatos();
-  }
-
-  void _excluirContato(int id) async{
-    int i = await UsuarioService.exclui(id);
-    if(i == 0){
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Contato excluído com sucesso!'),));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Não foi possível excluir!'),));
-    }
-    _listaContatos();
   }
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cadastro de Pessoas'),
-      ),
-      body: _carregando ?
-        const Center(child: CircularProgressIndicator(),) 
-        :
-        ListView.builder(
-          itemCount: _contatos.length,
-          itemBuilder: (context, index) => Card(
-            color: Colors.red[200],
-            margin: const EdgeInsets.all(15),
-            child: ListTile(
-              title: Text(_contatos[index]['nome']),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                Text(_contatos[index]['email']),
-                Text(_contatos[index]['telefone']),
-              ],),
-              trailing: SizedBox(
-                width: 100,
-                child: Row(
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Login'),
+        ),
+        body: Center(
+            child: Padding(
+                padding: const EdgeInsets.only(left: 32.0, right: 32.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.edit),
-                      onPressed: () => _showForm(_contatos[index]['id']),),
-                    IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () =>
-                      _excluirContato(_contatos[index]['id']),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: "Digite o usuário",
                       ),
-                    ],
-                  ),
-                )),
-            
-            )
-          ),
-          floatingActionButton: FloatingActionButton(
-            child: const Icon(Icons.add),
-            onPressed: () => _showForm(null),
-          ),
-    );
+                      controller: _nomeController,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          labelText: "Digite a senha",
+                        ),
+                        controller: _senhaController,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24.0),
+                      child: ElevatedButton(
+                        onPressed: loginUser,
+                        child: const Text(
+                          'Fazer Login',
+                        ),
+                      ),
+                    ),
+                  ],
+                ))));
   }
 }

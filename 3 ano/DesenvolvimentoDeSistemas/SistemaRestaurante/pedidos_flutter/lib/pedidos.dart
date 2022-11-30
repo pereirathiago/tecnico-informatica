@@ -3,10 +3,12 @@ class Pedidos {
   int idPrato = 0;
   String? mesa;
   String? nomePedido;
+  String? status;
 
   Pedidos(
     this.mesa,
     this.nomePedido,
+    this.status,
     this.idPrato,
   );
 
@@ -14,7 +16,8 @@ class Pedidos {
     id = json['id'];
     idPrato = json['idPrato'];
     mesa = json['mesa'];
-    nomePedido = json['nomePedido'];
+    nomePedido = json['nome_pedido'];
+    status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -22,7 +25,8 @@ class Pedidos {
       "id": id,
       "idPrato": idPrato,
       "mesa": mesa,
-      "nomePedido": nomePedido,
+      "nome_pedido": nomePedido,
+      "status": status,
     };
   }
 }

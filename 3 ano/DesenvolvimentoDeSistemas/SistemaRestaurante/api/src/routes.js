@@ -20,7 +20,7 @@ router.delete("/prato/:idp", PlatesController.deleteDish)
 
 router.post("/pedido", PedidosController.createPedido)
 router.get("/pedidos", PedidosController.findAllPedidos)
-router.get("/pedido/:idp", PedidosController.findPedido)
+router.get("/pedido/:mesa", PedidosController.findPedido)
 router.put("/pedido/:idp", PedidosController.updatePedido)
 
 export { router }
