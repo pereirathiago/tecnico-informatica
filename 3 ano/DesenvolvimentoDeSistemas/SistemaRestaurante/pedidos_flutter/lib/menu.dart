@@ -1,4 +1,6 @@
 import 'package:cliente_api_flutter/em_espera.dart';
+import 'package:cliente_api_flutter/pedidos.dart';
+import 'package:cliente_api_flutter/pedidos_service.dart';
 import 'package:cliente_api_flutter/pronto.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
@@ -31,12 +33,14 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  Pedidos pedido = Pedidos("", "", "", 0);
+
   @override
   void initState() {
     super.initState();
   }
 
-  final TextEditingController _buscaController = TextEditingController();
+  final TextEditingController _mesaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +57,63 @@ class _MenuState extends State<Menu> {
     void _abrirPronto() {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const Pronto()));
+    }
+
+    void telaToPedido() {
+      // pedido = Pedidos(
+
+      // );
+    }
+
+    Future<void> _inserirPedido() async {
+      telaToPedido();
+      int i = await PedidoService.insere(pedido);
+      if (i == 0) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Novo pedido inserido com sucesso!'),
+        ));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Não foi possível pedir!'),
+        ));
+      }
+    }
+
+    void _showForm() async {
+      showModalBottomSheet(
+          context: context,
+          elevation: 5,
+          isScrollControlled: true,
+          builder: (_) => Container(
+                padding: EdgeInsets.only(
+                  top: 15,
+                  left: 15,
+                  right: 15,
+                  bottom: MediaQuery.of(context).viewInsets.bottom + 120,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextField(
+                      controller: _mesaController,
+                      decoration: const InputDecoration(hintText: 'Mesa'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () async {
+                        await _inserirPedido();
+                        _mesaController.text = '';
+
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Fazer pedido'),
+                    )
+                  ],
+                ),
+              ));
     }
 
     return Scaffold(
@@ -108,7 +169,7 @@ class _MenuState extends State<Menu> {
           )),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () => {},
+        onPressed: () => _showForm(),
       ),
     );
   }

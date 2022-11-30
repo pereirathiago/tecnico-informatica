@@ -87,4 +87,20 @@ class PedidoService {
       throw Exception("Erro ao carregar alteração");
     }
   }
+
+  static Future<int> insere(Pedidos pedido) async {
+    try {
+      String? mesa = pedido.mesa;
+      final response = await http.post(
+        Uri.parse("$url/pedido/$mesa"),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(pedido),
+      );
+      return response.statusCode == 200 ? 0 : 1;
+    } catch (e) {
+      throw Exception("Erro ao carregar inserir " + e.toString());
+    }
+  }
 }
