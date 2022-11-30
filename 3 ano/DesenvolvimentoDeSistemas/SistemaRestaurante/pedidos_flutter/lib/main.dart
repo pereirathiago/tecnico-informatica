@@ -1,5 +1,5 @@
 import 'package:cliente_api_flutter/pedidos.dart';
-import 'package:cliente_api_flutter/pedidosTela.dart';
+import 'package:cliente_api_flutter/menu.dart';
 import 'package:cliente_api_flutter/pedidos_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ));
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => const MyPedidosTelaPage(),
+          builder: (context) => const Menu(),
         ),
       );
     } else {
