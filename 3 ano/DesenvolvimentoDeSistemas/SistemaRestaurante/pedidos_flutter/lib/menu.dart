@@ -41,8 +41,8 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     void _abrirEmEspera() {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const EmEspera()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const EmEspera()));
     }
 
     void _abrirEmAndamento() {
@@ -56,55 +56,60 @@ class _MenuState extends State<Menu> {
     }
 
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: const Text("Menu"),
-          backgroundColor: Colors.green,
-        ),
-        body: Container(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     labelText: "Digite a mesa",
-                    //   ),
-                    //   controller: _buscaController,
-                    // ),
-                    // const SizedBox(
-                    //   height: 100,
-                    // ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: _abrirEmEspera,
-                          child: const Text("Em Espera"),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        ElevatedButton(
-                          onPressed: _abrirEmAndamento,
-                          child: const Text("Em Andamento"),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        ElevatedButton(
-                          onPressed: _abrirPronto,
-                          child: const Text("Pronto"),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            )));
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("Menu"),
+        backgroundColor: Colors.green,
+      ),
+      body: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // TextFormField(
+                  //   decoration: const InputDecoration(
+                  //     labelText: "Digite a mesa",
+                  //   ),
+                  //   controller: _buscaController,
+                  // ),
+                  // const SizedBox(
+                  //   height: 100,
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: _abrirEmEspera,
+                        child: const Text("Em Espera"),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                        onPressed: _abrirEmAndamento,
+                        child: const Text("Em Andamento"),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                        onPressed: _abrirPronto,
+                        child: const Text("Pronto"),
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          )),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => {},
+      ),
+    );
   }
 }

@@ -38,8 +38,30 @@ class _EmEsperaState extends State<EmEspera> {
     _listaContatos();
   }
 
-  void telaToContato() {
-    pedido = Pedidos("", "", "", 0);
+  void telaToContato(index) {
+    pedido = Pedidos(
+      _pedidos[index]['mesa'],
+      _pedidos[index]['nomePedido'],
+      _pedidos[index]['status'],
+      _pedidos[index]['idPrato'],
+    );
+  }
+
+  Future<void> _atualizaPedido(int index) async {
+    telaToContato(index);
+    pedido.id = _pedidos[index]['id'];
+    pedido.status = "Cancelado";
+    int i = await PedidoService.atualiza(pedido);
+    if (i == 0) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Pedido cancelado com sucesso!'),
+      ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Não foi possível cancelar!'),
+      ));
+    }
+    _listaContatos();
   }
 
   @override
@@ -67,7 +89,7 @@ class _EmEsperaState extends State<EmEspera> {
                         children: [
                           IconButton(
                               icon: const Icon(Icons.cancel),
-                              onPressed: () => {}),
+                              onPressed: () => {_atualizaPedido(index)}),
                         ],
                       ),
                     )),

@@ -71,4 +71,20 @@ class PedidoService {
       throw Exception("Erro ao carregar dados 2 " + e.toString());
     }
   }
+
+  static Future<int> atualiza(Pedidos pedido) async {
+    try {
+      int id = pedido.id;
+      final response = await http.put(
+        Uri.parse("$url/pedido/$id"),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(pedido),
+      );
+      return response.statusCode == 200 ? 0 : 1;
+    } catch (e) {
+      throw Exception("Erro ao carregar alteração");
+    }
+  }
 }
