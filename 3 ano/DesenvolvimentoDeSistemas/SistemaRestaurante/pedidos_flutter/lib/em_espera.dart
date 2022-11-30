@@ -61,7 +61,7 @@ class _EmEsperaState extends State<EmEspera> {
                     title: Text('Nome do prato: ' + _pedidos[index]['nomePedido']),
                     subtitle: Text('Mesa: ' + _pedidos[index]['mesa']),
                     trailing: SizedBox(
-                      width: 80,
+                      width: 40,
                       child: Row(
                         children: [
                           IconButton(
