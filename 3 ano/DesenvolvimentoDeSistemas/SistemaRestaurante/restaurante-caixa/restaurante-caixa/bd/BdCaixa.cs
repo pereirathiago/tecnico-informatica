@@ -72,7 +72,7 @@ namespace restaurante_caixa.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from admin_users where username = @username and senha= @senha";
+                cmd.CommandText = "select * from admin_users where username = @username and senha= @senha and funcao = 2";
                 cmd.Parameters.AddWithValue("@username", usuario);
                 cmd.Parameters.AddWithValue("@senha", senha);
                 cmd.Connection = Connection;

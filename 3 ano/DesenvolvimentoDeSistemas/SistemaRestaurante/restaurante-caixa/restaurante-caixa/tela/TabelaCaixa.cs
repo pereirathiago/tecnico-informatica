@@ -51,7 +51,9 @@ namespace restaurante_caixa.tela
                 dgPedidos.Rows.Add(dr.ItemArray);
             }
             if (dgPedidos.RowCount == 0)
+            {
                 MessageBox.Show("Nenhum pedido nessa mesa");
+            }
         }
     }
 }
