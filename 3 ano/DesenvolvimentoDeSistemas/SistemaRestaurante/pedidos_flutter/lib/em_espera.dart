@@ -58,16 +58,16 @@ class _EmEsperaState extends State<EmEspera> {
                 color: Colors.green[200],
                 margin: const EdgeInsets.all(15),
                 child: ListTile(
-                    title: Text('Nome do prato: ' + _pedidos[index]['nomePedido']),
+                    title:
+                        Text('Nome do prato: ' + _pedidos[index]['nomePedido']),
                     subtitle: Text('Mesa: ' + _pedidos[index]['mesa']),
                     trailing: SizedBox(
                       width: 40,
                       child: Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.cancel),
-                            onPressed: () => {}
-                          ),
+                              icon: const Icon(Icons.cancel),
+                              onPressed: () => {}),
                         ],
                       ),
                     )),

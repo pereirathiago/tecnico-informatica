@@ -42,17 +42,17 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     void _abrirEmEspera() {
       Navigator.push(context,
-         MaterialPageRoute(builder: (context) => const EmEspera()));
+          MaterialPageRoute(builder: (context) => const EmEspera()));
     }
 
     void _abrirEmAndamento() {
       Navigator.push(context,
-         MaterialPageRoute(builder: (context) => const EmAndamento()));
+          MaterialPageRoute(builder: (context) => const EmAndamento()));
     }
 
     void _abrirPronto() {
-      Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const Pronto()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const Pronto()));
     }
 
     return Scaffold(
@@ -70,15 +70,15 @@ class _MenuState extends State<Menu> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Digite a mesa",
-                      ),
-                      controller: _buscaController,
-                    ),
-                    const SizedBox(
-                      height: 100,
-                    ),
+                    // TextFormField(
+                    //   decoration: const InputDecoration(
+                    //     labelText: "Digite a mesa",
+                    //   ),
+                    //   controller: _buscaController,
+                    // ),
+                    // const SizedBox(
+                    //   height: 100,
+                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
