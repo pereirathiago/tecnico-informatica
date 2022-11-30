@@ -28,7 +28,12 @@ export default{
 
     async findAllPedidosEmEspera(req, res) {
         try {
-            const pedidos = await prisma.pedido.findMany({where: {status: "Em espera"}})
+            const pedidos = await prisma.pedido.findMany({
+                where: {status: "Em espera"},
+                orderBy: {
+                    mesa: 'asc',
+                },
+            })
             return res.status(200).json(pedidos)
         } catch (error) {
             return res.json({ error })
@@ -41,7 +46,12 @@ export default{
 
     async findAllPedidosEmAndamento(req, res) {
         try {
-            const pedidos = await prisma.pedido.findMany({where: {status: "Em andamento"}})
+            const pedidos = await prisma.pedido.findMany({
+                where: {status: "Em andamento"},
+                orderBy: {
+                    mesa: 'asc',
+                },
+            })
             return res.status(200).json(pedidos)
         } catch (error) {
             return res.json({ error })
@@ -54,7 +64,12 @@ export default{
 
     async findAllPedidosPronto(req, res) {
         try {
-            const pedidos = await prisma.pedido.findMany({where: {status: "Pronto"}})
+            const pedidos = await prisma.pedido.findMany({
+                where: {status: "Pronto"},
+                orderBy: {
+                    mesa: 'asc',
+                },
+            })
             return res.status(200).json(pedidos)
         } catch (error) {
             return res.json({ error })
