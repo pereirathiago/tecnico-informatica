@@ -17,7 +17,7 @@ class PedidoService {
       );
       return response.statusCode == 200 ? 0 : 1;
     } catch (e) {
-      throw Exception("Erro ao carregar inserir " + e.toString());
+      throw Exception("Erro  ao carregar inserir " + e.toString());
     }
   }
 
