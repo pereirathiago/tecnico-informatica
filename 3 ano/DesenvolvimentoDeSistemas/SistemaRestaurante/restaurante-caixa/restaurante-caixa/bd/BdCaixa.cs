@@ -64,6 +64,32 @@ namespace restaurante_caixa.bd
             }
         }
 
+        public bool VerificaFechar(string mesa)
+        {
+            MySqlDataReader dr = null;
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from pedido where mesa= @mesa and status != 'Fechado' and status != 'Entregue'";
+                cmd.Parameters.AddWithValue("@mesa", mesa);
+                cmd.Connection = Connection;
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return true;
+                }
+                cmd.Dispose();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
+        }
+
         public bool VerificaLogin(string usuario, string senha)
         {
             MySqlDataReader dr = null;

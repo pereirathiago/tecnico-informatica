@@ -35,11 +35,16 @@ namespace restaurante_caixa.tela
                 MessageBox.Show("Nenhum há pedidos para fechar");
             else
             {
-                bd.fechaPedido(mesaCaixa, "Fechado");
-                MessageBox.Show("Pedido da mesa " + mesaCaixa + " fechado");
-                BuscarMesa mf = new BuscarMesa(MdiParent);
-                mf.Show();
-                Close();
+                if (!bd.VerificaFechar(mesaCaixa))
+                {
+                    bd.fechaPedido(mesaCaixa, "Fechado");
+                    MessageBox.Show("Pedido da mesa " + mesaCaixa + " fechado");
+                    BuscarMesa mf = new BuscarMesa(MdiParent);
+                    mf.Show();
+                    Close();
+                }
+                else
+                    MessageBox.Show("O pedido precisa estar entregue para fechar");
             }
         }
 
