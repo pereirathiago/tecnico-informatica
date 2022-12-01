@@ -72,7 +72,7 @@ namespace restaurante_caixa.bd
             {
                 Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from pedido where mesa= @mesa and status != 'Fechado' and status != 'Entregue'";
+                cmd.CommandText = "select * from pedido where mesa= @mesa and status != 'Fechado' and status != 'Entregue' and status != 'Cancelado'";
                 cmd.Parameters.AddWithValue("@mesa", mesa);
                 cmd.Connection = Connection;
                 dr = cmd.ExecuteReader();

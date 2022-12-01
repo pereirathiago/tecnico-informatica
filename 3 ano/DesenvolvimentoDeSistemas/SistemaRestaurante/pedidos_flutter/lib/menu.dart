@@ -35,9 +35,32 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   Pedidos pedido = Pedidos("", "", "", 0);
 
+  List<Map<String, dynamic>> _pratos = [];
+  static List<String> list = ["Selecione o prato"];
+  String _produto = "";
+
+  String dropdownValue = list.first;
+  void _listaPratos() async {
+    list = ["Selecione o prato"];
+    _pratos = [];
+    final data = await PedidoService.listaPratos();
+    setState(() {
+      for (var p in data) {
+        _pratos.add(<String, dynamic>{
+          "id": p.id,
+          "nome": p.nome,
+          "descricao": p.descricao,
+          "preco": p.preco,
+        });
+        list.add(p.nome.toString());
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    _listaPratos();
   }
 
   final TextEditingController _mesaController = TextEditingController();
@@ -60,22 +83,40 @@ class _MenuState extends State<Menu> {
     }
 
     void telaToPedido() {
-      // pedido = Pedidos(
-
-      // );
+      pedido = Pedidos(
+        _mesaController.text,
+        _produto,
+        "Em espera",
+        _pratos[list.indexOf(_produto) - 1]["id"],
+      );
     }
 
     Future<void> _inserirPedido() async {
       telaToPedido();
-      int i = await PedidoService.insere(pedido);
-      if (i == 0) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Novo pedido inserido com sucesso!'),
-        ));
+      if (_mesaController.text == "") {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Preencha o campo mesa"),
+          ),
+        );
+      } else if (_produto == "Selecione o prato") {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Selecione um prato"),
+          ),
+        );
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Não foi possível pedir!'),
-        ));
+        int i = await PedidoService.insere(pedido);
+        if (i == 0) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Novo pedido inserido com sucesso!'),
+          ));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Não foi possível pedir!'),
+          ));
+        }
+
       }
     }
 
@@ -98,6 +139,27 @@ class _MenuState extends State<Menu> {
                     TextField(
                       controller: _mesaController,
                       decoration: const InputDecoration(hintText: 'Mesa'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    DropdownButtonFormField<String>(
+                      value: dropdownValue,
+                      icon: const Icon(Icons.arrow_downward),
+                      elevation: 16,
+                      isExpanded: true,
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropdownValue = value!;
+                          _produto = dropdownValue;
+                        });
+                      },
+                      items: list.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                     ),
                     const SizedBox(
                       height: 20,

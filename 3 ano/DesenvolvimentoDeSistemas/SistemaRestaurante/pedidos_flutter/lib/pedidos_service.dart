@@ -1,4 +1,5 @@
 import 'package:cliente_api_flutter/pedidos.dart';
+import 'package:cliente_api_flutter/prato.dart';
 import 'package:http/http.dart' as http;
 import 'package:cliente_api_flutter/usuario.dart';
 import 'dart:convert';
@@ -72,6 +73,22 @@ class PedidoService {
     }
   }
 
+  static Future<List<Prato>> listaPratos() async {
+    try {
+      List<Prato> listaPrato = [];
+      final response = await http.get(Uri.parse('$url/pratos/'));
+      if (response.statusCode == 200) {
+        var decodeJson = jsonDecode(response.body);
+        decodeJson.forEach((item) => listaPrato.add(Prato.fromJSON(item)));
+        return listaPrato;
+      } else {
+        throw Exception("Erro ao carregar dados 1");
+      }
+    } catch (e) {
+      throw Exception("Erro ao carregar dados 2 " + e.toString());
+    }
+  }
+
   static Future<int> atualiza(Pedidos pedido) async {
     try {
       int id = pedido.id;
@@ -92,13 +109,13 @@ class PedidoService {
     try {
       String? mesa = pedido.mesa;
       final response = await http.post(
-        Uri.parse("$url/pedido/$mesa"),
+        Uri.parse("$url/pedido/"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: jsonEncode(pedido),
       );
-      return response.statusCode == 200 ? 0 : 1;
+      return response.statusCode == 201 ? 0 : 1;
     } catch (e) {
       throw Exception("Erro ao carregar inserir " + e.toString());
     }
