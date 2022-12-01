@@ -40,7 +40,7 @@ namespace restaurant_admin.forms
             funcionario.Nome = txtNome.Text;
             funcionario.Senha = txtSenha.Text;
             funcionario.Username = txtUser.Text;
-            funcionario.Funcao = cFuncao.SelectedIndex;
+            funcionario.Funcao = cFuncao.SelectedIndex +1;
         }
 
         private void funcionarioToTela()

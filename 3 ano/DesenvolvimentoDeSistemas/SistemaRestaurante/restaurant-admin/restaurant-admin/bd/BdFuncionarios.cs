@@ -80,7 +80,7 @@ namespace restaurant_admin.bd
                 cmd.CommandText = "update admin_users set nome = @nome, username = @username, senha = @senha, funcao = @funcao where id = @id";
                 cmd.Parameters.AddWithValue("@id", funcionarios.Id);
                 cmd.Parameters.AddWithValue("@nome", funcionarios.Nome);
-                cmd.Parameters.AddWithValue("@descricao", funcionarios.Username);
+                cmd.Parameters.AddWithValue("@username", funcionarios.Username);
                 cmd.Parameters.AddWithValue("@senha", funcionarios.Senha);
                 cmd.Parameters.AddWithValue("@funcao", funcionarios.Funcao);
                 cmd.Connection = Connection;

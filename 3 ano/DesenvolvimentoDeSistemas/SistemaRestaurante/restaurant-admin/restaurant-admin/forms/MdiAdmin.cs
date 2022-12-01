@@ -25,7 +25,7 @@ namespace restaurant_admin
             if (formActivated)
             {
                 formActivated = false;
-                MenuForm fm = new MenuForm(this);
+                Login fm = new Login(this);
                 fm.StartPosition = FormStartPosition.CenterScreen;
                 fm.Show();
             }

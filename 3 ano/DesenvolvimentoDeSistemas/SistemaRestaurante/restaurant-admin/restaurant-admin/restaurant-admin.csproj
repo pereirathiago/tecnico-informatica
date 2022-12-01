@@ -65,6 +65,12 @@
     <Compile Include="forms\FormNovoPrato.Designer.cs">
       <DependentUpon>FormNovoPrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FormNovoPrato.resx">
       <DependentUpon>FormNovoPrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>

@@ -31,5 +31,12 @@ namespace restaurant_admin.forms
             tp.Show();
             Close();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Login tp = new Login(MdiParent);
+            tp.Show();
+            Close();
+        }
     }
 }

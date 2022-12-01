@@ -141,7 +141,6 @@
             // 
             this.cFuncao.FormattingEnabled = true;
             this.cFuncao.Items.AddRange(new object[] {
-            "Administrador",
             "Atendimento",
             "Caixa",
             "Cozinha"});

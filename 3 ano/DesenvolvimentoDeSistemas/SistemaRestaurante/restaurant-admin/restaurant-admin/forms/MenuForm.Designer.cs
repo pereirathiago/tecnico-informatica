@@ -30,6 +30,7 @@
         {
             this.btnPratos = new System.Windows.Forms.Button();
             this.btnFuncionarios = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPratos
@@ -52,11 +53,22 @@
             this.btnFuncionarios.UseVisualStyleBackColor = true;
             this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(12, 324);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 359);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnPratos);
             this.Controls.Add(this.btnFuncionarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button btnPratos;
         private System.Windows.Forms.Button btnFuncionarios;
+        private System.Windows.Forms.Button btnSair;
     }
 }
