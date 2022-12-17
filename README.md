@@ -36,6 +36,9 @@ Este repositório foi criado com a intenção de armazenar meus projetos e ativi
 - NodeJS
 - ReacJS
 - NextJS
+- Android Nativo - Java
+- Flutter
+- Dart
 
 ---
 
