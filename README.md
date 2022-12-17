@@ -13,7 +13,7 @@
 
 # :computer: Sobre
 
-Este repositório foi criado com a intenção de armazenar meus projetos e atividades desenvolvidos durante o curso **técnico em informática** 
+Este repositório foi criado com a intenção de armazenar meus projetos e atividades desenvolvidos durante o curso **técnico em informática** 2020-2022
 
 ---
 
